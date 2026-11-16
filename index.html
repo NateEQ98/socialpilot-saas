@@ -8,6 +8,55 @@
 <section class="section" id="features"><div class="sectionhead"><span class="pill">BUILT FOR CREATIVE MOMENTUM</span><h2>Less overthinking. <span class="grad">More creating.</span></h2><p>Start with inspiration today. More powerful planning and publishing features are on the roadmap.</p></div><div class="cards"><article class="card"><div class="emoji">💡</div><h3>Content Ideas</h3><p>Get a new starting point for your next social media post with our free idea generator.</p></article><article class="card"><div class="emoji">✍️</div><h3>Caption Studio</h3><p>Coming soon: turn your ideas into ready-to-edit captions in your own voice.</p></article><article class="card"><div class="emoji">🗓️</div><h3>Content Calendar</h3><p>Coming soon: organize posts and campaigns in one visual planning workspace.</p></article></div></section>
 <section class="tool" id="generator"><span class="pill">FREE INTERACTIVE TOOL</span><h2 style="margin-top:17px">Content Idea Generator ✨</h2><p>Choose your niche and platform. We'll give you a content prompt you can use today.</p><div class="formrow"><select id="business" aria-label="Business type"><option value="fitness">Fitness</option><option value="beauty">Beauty</option><option value="food">Food & Restaurants</option><option value="realestate">Real Estate</option><option value="other">Other Business</option></select><select id="platform" aria-label="Platform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select><button class="btn" type="button" onclick="generateIdea()">Generate idea →</button></div><div class="result" id="result" aria-live="polite"><strong id="resultLabel"></strong><p id="resultText"></p></div><p style="font-size:12px;margin-top:18px">This free preview uses curated ideas, not live AI generation.</p></section>
 </div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses</footer>
+  
+<section class="tool" id="captions">
+  <span class="pill">FREE CAPTION TOOL</span>
+  <h2>AI-Style Caption Studio ✨</h2>
+  <p>Create ready-to-post captions in seconds.</p>
+
+  <div style="display:grid;gap:14px;max-width:600px;margin:25px auto;text-align:left">
+
+    <label for="captionBusiness">Business name</label>
+    <input id="captionBusiness"
+      placeholder="e.g. The Daily Coffee"
+      style="padding:14px;border-radius:10px;width:100%;box-sizing:border-box">
+
+    <label for="captionTopic">What are you promoting?</label>
+    <textarea id="captionTopic"
+      placeholder="e.g. Our new iced caramel latte"
+      style="padding:14px;border-radius:10px;min-height:90px;width:100%;box-sizing:border-box"></textarea>
+
+    <label for="captionPlatform">Platform</label>
+    <select id="captionPlatform" style="padding:14px;border-radius:10px">
+      <option>Instagram</option>
+      <option>Facebook</option>
+      <option>TikTok</option>
+      <option>LinkedIn</option>
+    </select>
+
+    <label for="captionTone">Tone</label>
+    <select id="captionTone" style="padding:14px;border-radius:10px">
+      <option>Friendly</option>
+      <option>Professional</option>
+      <option>Bold</option>
+    </select>
+
+    <button class="btn" onclick="generateCaption()">
+      ✨ Generate Caption
+    </button>
+
+    <div id="captionResult"
+      style="display:none;padding:22px;border-radius:14px;background:#10172c;white-space:pre-wrap;line-height:1.8"></div>
+
+    <button class="btn" id="copyCaptionButton"
+      style="display:none"
+      onclick="copyCaption()">
+      Copy Caption
+    </button>
+
+  </div>
+</section>
+
 <script>
 const ideas={fitness:["Share 3 beginner workout mistakes and how to avoid them.","Create a 15-minute workout challenge for your followers.","Show a simple exercise routine people can do at home."],beauty:["Share 3 skincare tips for beginners.","Create a behind-the-scenes look at your beauty routine.","Explain a common beauty myth."],food:["Show how your most popular dish is prepared.","Share a behind-the-scenes kitchen moment.","Highlight a customer favorite from your menu."],realestate:["Share 3 tips for first-time homebuyers.","Create a home staging checklist.","Explain one common real estate misconception."],other:["Share the story behind your business.","Answer a frequently asked customer question.","Show how your product or service works."]};const previousIdeas={};function generateIdea(){const business=document.getElementById('business').value;const platform=document.getElementById('platform').value;const options=ideas[business];const index=((previousIdeas[business]??-1)+1)%options.length;previousIdeas[business]=index;document.getElementById('result').style.display='block';document.getElementById('resultLabel').textContent=platform+' content idea';document.getElementById('resultText').textContent=options[index]}
 </script></body></html>

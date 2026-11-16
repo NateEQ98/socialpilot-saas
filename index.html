@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SocialPilot | AI Content Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 22px;
+      border-bottom: 1px solid #26304b;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    main {
+      max-width: 700px;
+      margin: 90px auto;
+      padding: 20px;
+    }
+    h1 { font-size: 44px; }
+    p { color: #aab5cd; line-height: 1.7; }
+    button {
+      padding: 15px 28px;
+      border: 0;
+      border-radius: 10px;
+      background: #7c5cff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .features {
+      margin-top: 50px;
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .feature {
+      padding: 22px;
+      background: #161e33;
+      border-radius: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>SocialPilot</header>
+  <main>
+    <h1>Create Better Content, Faster.</h1>
+    <p>Your all-in-one social media assistant for content ideas, captions, and smarter planning.</p>
+    <button onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+      Explore Features
+    </button>
+    <div class="features" id="features">
+      <div class="feature">Content Ideas</div>
+      <div class="feature">Caption Generator</div>
+      <div class="feature">Content Calendar</div>
+    </div>
+  </main>
+</body>
+</html>

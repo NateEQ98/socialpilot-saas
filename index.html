@@ -57,6 +57,46 @@
   </div>
 </section>
 
+function generateCaption() {
+  const business = document.getElementById("captionBusiness").value.trim();
+  const topic = document.getElementById("captionTopic").value.trim();
+  const platform = document.getElementById("captionPlatform").value;
+  const tone = document.getElementById("captionTone").value;
+
+  if (!business || !topic) {
+    alert("Please enter your business name and what you're promoting.");
+    return;
+  }
+
+  const templates = {
+    Friendly: `✨ Something exciting is happening at ${business}!\n\n${topic}\n\nWe'd love for you to check it out! 💜`,
+    Professional: `Discover what's new at ${business}.\n\n${topic}\n\nLearn more about what we have to offer.`,
+    Bold: `🚀 BIG NEWS FROM ${business.toUpperCase()}!\n\n${topic}\n\nDon't miss out! 🔥`
+  };
+
+  const hashtags = {
+    Instagram: "\n\n#SmallBusiness #DiscoverMore #NewPost",
+    Facebook: "\n\n#SupportSmallBusiness",
+    TikTok: "\n\n#SmallBusinessTikTok #Discover",
+    LinkedIn: "\n\n#Business #Innovation"
+  };
+
+  const caption = templates[tone] + hashtags[platform];
+
+  const result = document.getElementById("captionResult");
+  result.textContent = caption;
+  result.style.display = "block";
+
+  document.getElementById("copyCaptionButton").style.display = "block";
+}
+
+function copyCaption() {
+  const caption = document.getElementById("captionResult").textContent;
+  navigator.clipboard.writeText(caption)
+    .then(() => alert("Caption copied!"))
+    .catch(() => alert("Copy failed. Please select and copy the caption manually."));
+}
+
 <script>
 const ideas={fitness:["Share 3 beginner workout mistakes and how to avoid them.","Create a 15-minute workout challenge for your followers.","Show a simple exercise routine people can do at home."],beauty:["Share 3 skincare tips for beginners.","Create a behind-the-scenes look at your beauty routine.","Explain a common beauty myth."],food:["Show how your most popular dish is prepared.","Share a behind-the-scenes kitchen moment.","Highlight a customer favorite from your menu."],realestate:["Share 3 tips for first-time homebuyers.","Create a home staging checklist.","Explain one common real estate misconception."],other:["Share the story behind your business.","Answer a frequently asked customer question.","Show how your product or service works."]};const previousIdeas={};function generateIdea(){const business=document.getElementById('business').value;const platform=document.getElementById('platform').value;const options=ideas[business];const index=((previousIdeas[business]??-1)+1)%options.length;previousIdeas[business]=index;document.getElementById('result').style.display='block';document.getElementById('resultLabel').textContent=platform+' content idea';document.getElementById('resultText').textContent=options[index]}
 </script></body></html>

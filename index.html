@@ -61,6 +61,77 @@
       <div class="feature">Caption Generator</div>
       <div class="feature">Content Calendar</div>
     </div>
+    
+<section style="margin-top:45px;padding:25px;background:#161e33;border-radius:14px">
+  <h2>Content Idea Generator</h2>
+  <p>Generate social media ideas for your business.</p>
+
+  <select id="business" style="padding:12px;margin:8px;border-radius:8px">
+    <option value="fitness">Fitness</option>
+    <option value="beauty">Beauty</option>
+    <option value="food">Food & Restaurants</option>
+    <option value="realestate">Real Estate</option>
+    <option value="other">Other Business</option>
+  </select>
+
+  <select id="platform" style="padding:12px;margin:8px;border-radius:8px">
+    <option>Instagram</option>
+    <option>TikTok</option>
+    <option>Facebook</option>
+    <option>LinkedIn</option>
+  </select>
+
+  <button onclick="generateIdea()">Generate Idea</button>
+
+  <div id="result" style="margin-top:20px;padding:20px;background:#0b1020;border-radius:10px;display:none"></div>
+</section>
+
+<script>
+const ideas = {
+  fitness: [
+    "Share 3 beginner workout mistakes and how to avoid them.",
+    "Create a 15-minute workout challenge for your followers.",
+    "Show a simple exercise routine people can do at home."
+  ],
+  beauty: [
+    "Share 3 skincare tips for beginners.",
+    "Create a behind-the-scenes look at your beauty routine.",
+    "Explain a common beauty myth."
+  ],
+  food: [
+    "Show how your most popular dish is prepared.",
+    "Share a behind-the-scenes kitchen moment.",
+    "Highlight a customer favorite from your menu."
+  ],
+  realestate: [
+    "Share 3 tips for first-time homebuyers.",
+    "Create a home staging checklist.",
+    "Explain one common real estate misconception."
+  ],
+  other: [
+    "Share the story behind your business.",
+    "Answer a frequently asked customer question.",
+    "Show how your product or service works."
+  ]
+};
+
+let previousIdeas = {};
+
+function generateIdea() {
+  const business = document.getElementById("business").value;
+  const platform = document.getElementById("platform").value;
+  const options = ideas[business];
+
+  let index = (previousIdeas[business] ?? -1) + 1;
+  index = index % options.length;
+  previousIdeas[business] = index;
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.textContent = platform + " Content Idea: " + options[index];
+}
+</script>
+
   </main>
 </body>
 </html>

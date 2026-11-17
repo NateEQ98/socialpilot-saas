@@ -902,10 +902,90 @@ initAuth();
   const preview=document.createElement('div');preview.className='sp-image-preview';
   const img=document.createElement('img');img.alt='AI-generated promotional image';
   const download=document.createElement('button');download.className='btn ghost';download.type='button';download.textContent='↓ Download PNG';
-  preview.append(img,download);
-  panel.append(eyebrow,title,description,controls,preview);
+  const save=document.createElement('button');save.className='btn';save.type='button';save.textContent='☁ Save AI image';
+  const previewButtons=document.createElement('div');previewButtons.className='sp-image-buttons';previewButtons.append(download,save);
+  preview.append(img,previewButtons);
+  const library=document.createElement('div');library.className='sp-library';
+  const libraryTitle=document.createElement('h4');libraryTitle.textContent='My Saved Images';
+  const libraryNote=document.createElement('p');libraryNote.className='sp-library-note';libraryNote.setAttribute('role','status');libraryNote.textContent='Sign in to see your saved images.';
+  const refresh=document.createElement('button');refresh.className='btn ghost';refresh.type='button';refresh.textContent='↻ Refresh saved images';refresh.style.marginBottom='12px';
+  const libraryGrid=document.createElement('div');libraryGrid.className='sp-library-grid';
+  library.append(libraryTitle,refresh,libraryNote,libraryGrid);
+  panel.append(eyebrow,title,description,controls,preview,library);
   history.before(panel);
   let currentImage='';
+  const bucket='campaign-images';
+  async function signedInUser(){
+    if(!authClient)throw new Error('Sign in to manage saved images.');
+    const {data:{user},error}=await authClient.auth.getUser();
+    if(error || !user)throw new Error('Sign in to manage saved images.');
+    return user;
+  }
+  function downloadUrl(url,filename){
+    const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();
+  }
+  async function loadSavedImages(){
+    libraryGrid.replaceChildren();libraryNote.textContent='Loading your saved images…';
+    try{
+      const user=await signedInUser();
+      const storage=authClient.storage.from(bucket);
+      const {data:files,error}=await storage.list(user.id,{limit:100,sortBy:{column:'created_at',order:'desc'}});
+      if(error)throw error;
+      const images=(files||[]).filter(file=>file.name && /\.png$/i.test(file.name));
+      if(!images.length){libraryNote.textContent='No saved images yet. Generate an image, then click Save AI image.';return;}
+      libraryNote.textContent=images.length+' saved image'+(images.length===1?'':'s')+' (most recent 100 files).';
+      for(const file of images){
+        const path=user.id+'/'+file.name;
+        const {data:signed,error:signError}=await storage.createSignedUrl(path,3600);
+        if(signError || !signed?.signedUrl)continue;
+        const card=document.createElement('div');card.className='sp-library-item';
+        const thumbnail=document.createElement('img');thumbnail.src=signed.signedUrl;thumbnail.alt='Saved AI promotional image';thumbnail.loading='lazy';
+        const actions=document.createElement('div');actions.className='sp-library-actions';
+        const get=document.createElement('button');get.type='button';get.className='btn ghost';get.textContent='↓ Download';
+        get.addEventListener('click',async()=>{
+          get.disabled=true;
+          try{const {data,error}=await storage.download(path);if(error)throw error;
+            const url=URL.createObjectURL(data);downloadUrl(url,file.name);setTimeout(()=>URL.revokeObjectURL(url),30000);
+          }catch(err){libraryNote.textContent='Download failed: '+err.message;}finally{get.disabled=false;}
+        });
+        const remove=document.createElement('button');remove.type='button';remove.className='btn ghost';remove.textContent='Delete';
+        remove.addEventListener('click',async()=>{
+          if(!confirm('Permanently delete this saved image?'))return;
+          remove.disabled=true;
+          const {error}=await storage.remove([path]);
+          if(error){libraryNote.textContent='Delete failed: '+error.message;remove.disabled=false;return;}
+          await loadSavedImages();
+        });
+        actions.append(get,remove);card.append(thumbnail,actions);libraryGrid.append(card);
+      }
+    }catch(err){libraryNote.textContent=err.message || 'Could not load saved images.';}
+  }
+  refresh.addEventListener('click',loadSavedImages);
+  save.addEventListener('click',async()=>{
+    if(!currentImage){status.textContent='Generate an image before saving.';return;}
+    save.disabled=true;save.textContent='☁ Saving…';
+    try{
+      const user=await signedInUser();
+      const response=await fetch(currentImage);
+      const blob=await response.blob();
+      if(blob.size>5*1024*1024)throw new Error('Image exceeds the 5 MB storage limit. Download it instead.');
+      const path=user.id+'/'+crypto.randomUUID()+'.png';
+      const {error}=await authClient.storage.from(bucket).upload(path,blob,{contentType:'image/png',upsert:false});
+      if(error)throw error;
+      status.textContent='✓ Image saved privately! It will remain available after refreshing.';
+      await loadSavedImages();
+    }catch(err){status.textContent='Save failed: '+(err.message||'Unknown error');}
+    finally{save.disabled=false;save.textContent='☁ Save AI image';}
+  });
+  // Refresh on sign-in and sign-out without changing the existing auth system.
+  let lastUserId=null;
+  if(authClient){authClient.auth.getUser().then(({data})=>{lastUserId=data?.user?.id||null;loadSavedImages();});}
+  const authPoll=setInterval(async()=>{
+    if(!authClient)return;
+    const {data:{session}}=await authClient.auth.getSession();
+    const id=session?.user?.id||null;
+    if(id!==lastUserId){lastUserId=id;currentImage='';preview.style.display='none';loadSavedImages();}
+  },4000);
   download.addEventListener('click',()=>{
     if(!currentImage)return;
     const a=document.createElement('a');a.href=currentImage;a.download='socialpilot-ai-image.png';

@@ -2,11 +2,57 @@
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d20"><title>SocialPilot — Your content command center</title><style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#f5f6ff;background:#080d20}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 8%,#39236a77,transparent 35%),radial-gradient(ellipse at 8% 45%,#063e5a66,transparent 40%),#080d20}a{color:inherit;text-decoration:none}.wrap{max-width:1150px;margin:auto;padding:0 24px}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff19}.brand{font-weight:850;font-size:23px;letter-spacing:-1px}.mark{display:inline-grid;place-items:center;width:33px;height:33px;border-radius:10px;background:linear-gradient(135deg,#9267ff,#28d8ed);margin-right:9px}.navlinks{display:flex;gap:30px;color:#c6c9df;font-size:14px}.btn{border:0;border-radius:12px;padding:14px 20px;background:linear-gradient(115deg,#895aff,#5e7bff);color:white;font-weight:750;cursor:pointer;box-shadow:0 8px 28px #6952e244}.btn:hover{filter:brightness(1.13)}.ghost{background:#ffffff0a;border:1px solid #ffffff25;box-shadow:none}.hero{text-align:center;padding:94px 0 55px}.pill{display:inline-block;border:1px solid #977cff70;border-radius:50px;padding:8px 15px;background:#9d75ff1c;color:#c8b5ff;font-size:12px;font-weight:700}.hero h1{font-size:clamp(42px,7vw,76px);letter-spacing:-.065em;line-height:1.05;max-width:920px;margin:23px auto}.grad{background:linear-gradient(95deg,#b29aff,#60dbea);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:#aeb6d3;font-size:18px;line-height:1.7;max-width:620px;margin:0 auto 27px}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.small{color:#8693b2;font-size:12px;margin-top:18px}.preview{position:relative;margin:35px auto 90px;max-width:1030px;padding:1px;border-radius:24px;background:linear-gradient(135deg,#a58bff,#294269,#2dd8dc);box-shadow:0 30px 90px #02050caa}.window{border-radius:23px;background:#10182d;padding:24px;overflow:hidden}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff15;padding-bottom:17px}.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:#ff768c}.dots i:nth-child(2){background:#f5c16c}.dots i:nth-child(3){background:#61d9bd}.muted{color:#9ba7c6}.previewgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:20px}.panel{background:#19223a;border:1px solid #ffffff12;border-radius:16px;padding:22px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#8f9fca}.panel h3{margin:9px 0 14px;font-size:23px}.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{padding:13px;background:#10182d;border-radius:12px}.stat b{font-size:22px}.stat span{display:block;font-size:11px;color:#98a5c7;margin-top:5px}.chart{height:135px;display:flex;gap:10px;align-items:end;padding-top:18px}.bar{flex:1;border-radius:7px 7px 2px 2px;background:linear-gradient(#69d9e7,#6857d9);min-height:25px}.post{display:flex;gap:12px;align-items:center;margin-top:13px;background:#10182d;padding:12px;border-radius:12px}.thumb{width:62px;height:62px;border-radius:12px;display:grid;place-items:center;font-size:27px;flex-shrink:0}.thumb.one{background:linear-gradient(140deg,#ef7a9e,#763cc9)}.thumb.two{background:linear-gradient(140deg,#25c6d8,#2757a5)}.thumb.three{background:linear-gradient(140deg,#f4b866,#e77c71)}.post b{display:block;font-size:13px}.post small{display:block;color:#9aa6c5;margin-top:5px}.section{padding:50px 0 80px}.sectionhead{text-align:center;max-width:680px;margin:0 auto 34px}.sectionhead h2{font-size:clamp(29px,4vw,42px);letter-spacing:-.045em;margin:12px}.sectionhead p{color:#aeb6d3;line-height:1.6}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{border:1px solid #ffffff18;background:linear-gradient(155deg,#1c2541,#11192e);border-radius:20px;padding:24px}.card .emoji{font-size:28px}.card h3{margin:16px 0 9px}.card p{color:#aab5d0;line-height:1.6;font-size:14px}.tool{background:linear-gradient(125deg,#1b2441,#12182e);border:1px solid #ffffff24;border-radius:24px;padding:32px;max-width:850px;margin:0 auto 85px}.tool h2{margin:0 0 8px;font-size:29px}.tool p{color:#aab5d0}.formrow{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-top:24px}select{min-width:0;border-radius:11px;border:1px solid #ffffff2b;background:#0d1428;color:white;padding:13px;font-size:14px}.result{display:none;background:#0c1429;border:1px solid #6c68ce88;border-radius:14px;padding:22px;margin-top:20px;line-height:1.65}.result strong{color:#8dddea}.result p{margin-bottom:0;color:white}.foot{border-top:1px solid #ffffff1a;text-align:center;color:#8f9ab9;padding:28px;font-size:13px}@media(max-width:740px){.navlinks{display:none}.hero{padding-top:65px}.previewgrid,.cards,.formrow{grid-template-columns:1fr}.window{padding:15px}.panel{padding:16px}.statrow{gap:5px}.stat{padding:9px}.stat b{font-size:18px}.tool{padding:22px}.preview{margin-bottom:50px}}
 input,textarea{min-width:0;border-radius:11px;border:1px solid #ffffff2b;background:#0d1428;color:white;padding:13px;font:inherit}input::placeholder,textarea::placeholder{color:#8290af}label{font-size:13px;font-weight:650;color:#d9ddf4}.tool{scroll-margin-top:24px}.tool button{max-width:100%}#savedPosts .btn{padding:10px 16px;margin-top:10px}#savedPosts p{overflow-wrap:anywhere} @media(max-width:740px){.tool input,.tool textarea,.tool select{width:100%}}
+
+/* Authentication */
+.auth-nav{display:flex;gap:9px;align-items:center}.auth-status{font-size:12px;color:#aeb6d3;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.auth-overlay{position:fixed;inset:0;background:#020510cc;display:none;align-items:center;justify-content:center;padding:20px;z-index:50;backdrop-filter:blur(10px)}.auth-overlay.open{display:flex}.auth-dialog{width:min(100%,440px);background:linear-gradient(150deg,#202a4a,#10182d);border:1px solid #8c79ff66;border-radius:22px;padding:30px;box-shadow:0 30px 100px #000a;position:relative}.auth-dialog h2{margin:8px 0}.auth-dialog p{color:#aeb6d3;line-height:1.5}.auth-dialog form{display:grid;gap:12px;margin-top:22px}.auth-dialog input{width:100%}.auth-close{position:absolute;right:16px;top:14px;background:transparent;border:0;color:white;font-size:27px;cursor:pointer}.auth-switch{background:none;border:0;color:#8dddea;cursor:pointer;padding:8px}.auth-message{font-size:13px;min-height:22px;overflow-wrap:anywhere}.auth-message.error{color:#ff9eaa}.auth-message.ok{color:#87e4c5}@media(max-width:740px){.auth-nav .btn{padding:10px 12px;font-size:12px}.auth-status{max-width:95px}}
+
+:root{--sp-violet:#a88cff;--sp-cyan:#65e6ee}
+body{background:radial-gradient(ellipse at 10% 0%,#56338b75,transparent 35%),radial-gradient(ellipse at 95% 22%,#08678155,transparent 38%),#080d20}
+.nav{position:relative;z-index:3}.brand{letter-spacing:-.8px}
+.hero{padding:80px 0 32px}.hero h1{max-width:990px;font-size:clamp(44px,7.2vw,84px)}
+.hero p{max-width:690px}.hero .small{font-size:13px}
+.hero-art{position:relative;margin:32px auto 28px;max-width:1100px;border:1px solid #8b79f45c;border-radius:27px;overflow:hidden;background:#101831;box-shadow:0 30px 100px #0008,0 0 85px #7156d525}
+.hero-art img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.hero-art .art-label{position:absolute;bottom:15px;left:16px;border:1px solid #ffffff36;border-radius:50px;background:#081124cc;backdrop-filter:blur(12px);font-size:12px;padding:10px 15px;color:#e1e8ff}
+.trust-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:13px;margin:16px 0 50px;color:#b6c4e4;font-size:13px}
+.trust-strip span{padding:10px 16px;border:1px solid #ffffff20;border-radius:50px;background:#ffffff08}
+.showcase{padding:40px 0 78px}.showcase-head{text-align:center;max-width:700px;margin:0 auto 32px}
+.showcase-head h2{font-size:clamp(31px,4vw,48px);letter-spacing:-.045em;margin:13px 0}
+.showcase-head p{color:#aeb6d3;line-height:1.7}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.showcase-card{background:linear-gradient(155deg,#20294b,#111a32);border:1px solid #ffffff23;border-radius:22px;overflow:hidden;box-shadow:0 16px 45px #02061166;transition:transform .2s,border-color .2s}
+.showcase-card:hover{transform:translateY(-5px);border-color:#a88cff99}
+.showcase-visual{height:225px;padding:22px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.showcase-visual.idea{background:radial-gradient(circle at 80% 20%,#c266ee75,transparent 60%),linear-gradient(145deg,#252054,#12182f)}
+.showcase-visual.caption{background:radial-gradient(circle at 70% 15%,#168fa777,transparent 60%),linear-gradient(145deg,#143c54,#101b31)}
+.showcase-visual.calendar{background:radial-gradient(circle at 75% 20%,#755ce488,transparent 60%),linear-gradient(145deg,#292653,#10182f)}
+.mini-app{width:100%;max-width:285px;background:#10192de8;border:1px solid #ffffff2c;border-radius:15px;padding:15px;box-shadow:0 14px 35px #0007;transform:rotate(-3deg)}
+.mini-app .mini-head{display:flex;align-items:center;gap:7px;font-size:11px;color:#a9b8df;margin-bottom:12px}.mini-dot{width:8px;height:8px;background:#a88cff;border-radius:50%}
+.mini-title{font-size:15px;font-weight:800;margin-bottom:8px}.mini-copy{font-size:12px;line-height:1.55;color:#d3dcf6}
+.mini-tag{display:inline-block;background:#7959e33b;color:#c5b2ff;padding:6px 9px;border-radius:7px;font-size:10px;margin-top:11px}
+.mini-lines{height:7px;border-radius:10px;background:#a9b8df3c;margin:8px 0}
+.mini-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}.mini-cal span{height:22px;border:1px solid #ffffff16;border-radius:5px;background:#ffffff0a}.mini-cal span:nth-child(4),.mini-cal span:nth-child(10),.mini-cal span:nth-child(18){background:#9475f7}.mini-cal span:nth-child(13){background:#4bbdd1}
+.showcase-body{padding:22px}.showcase-body h3{margin:0 0 9px;font-size:20px}.showcase-body p{font-size:14px;line-height:1.65;color:#acb8d4;min-height:68px}
+.showcase-body a{display:inline-block;margin-top:8px;color:#92e6ef;font-weight:750;font-size:14px}
+.how-section{padding:28px 0 80px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border:1px solid #ffffff1e;border-radius:18px;background:#ffffff08;padding:23px}
+.step b{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#8d67ee36;color:#c5b3ff;margin-bottom:12px}
+.step h3{margin:5px 0 8px}.step p{font-size:14px;color:#abb8d4;line-height:1.65;margin:0}
+.final-cta{text-align:center;padding:42px 25px 55px;margin:0 auto 80px;border-radius:24px;background:radial-gradient(circle at 20% 0%,#8a57ef5e,transparent 50%),linear-gradient(120deg,#22264b,#10283e);border:1px solid #ffffff25}
+.final-cta h2{font-size:clamp(28px,4vw,43px);margin:0 0 12px}.final-cta p{color:#b7c3de;margin:0 auto 24px;max-width:540px;line-height:1.6}
+@media(max-width:800px){.showcase-grid,.steps{grid-template-columns:1fr}.showcase-visual{height:215px}.showcase-body p{min-height:0}.hero-art{border-radius:18px}.hero-art .art-label{font-size:10px;bottom:9px;left:9px}.hero{padding-top:55px}}
+@media(prefers-reduced-motion:reduce){.showcase-card{transition:none}.showcase-card:hover{transform:none}}
 </style></head><body>
-<div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a></div><a class="btn" href="#generator">Try it free →</a></nav>
-<header class="hero" id="top"><div class="pill">✦ YOUR CREATIVE COMMAND CENTER</div><h1>Make content that <span class="grad">stands out.</span></h1><p>Turn a blank page into your next great post. Plan smarter, find fresh ideas, and keep your social media moving—all in one place.</p><div class="actions"><a class="btn" href="#generator">Generate your first idea →</a><a class="btn ghost" href="#features">Explore features</a></div><div class="small">Free preview • No account required</div></header>
+<div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a></div><div class="auth-nav"><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" id="signupBtn" onclick="openAuth('signup')">Sign up</button><button class="btn ghost" type="button" id="logoutBtn" onclick="signOut()" hidden>Log out</button></div></nav>
+<header class="hero" id="top"><div class="pill">✦ THE CONTENT CREATOR'S WORKSPACE</div><h1>Better content starts <span class="grad">right here.</span></h1><p>Stop staring at a blank screen. Discover post ideas, write captions and organize your content calendar in one beautiful workspace.</p><div class="actions"><a class="btn" href="#generator">Try the free tools →</a><a class="btn ghost" href="#showcase">See what you get ↓</a></div><div class="small">Free preview · No credit card required · No automatic posting</div></header>
+<div class="hero-art"><img src="./socialpilot-showcase.png" alt="Illustration of the SocialPilot workspace with a content calendar, caption tools and example social posts" loading="eager"><span class="art-label">✦ Product illustration · Features shown are conceptual</span></div>
+<div class="trust-strip"><span>💡 Find your next idea</span><span>✍️ Write a caption</span><span>🗓️ Plan your posts</span></div>
 <div class="preview"><div class="window"><div class="top"><div class="dots"><i></i><i></i><i></i></div><span class="muted" style="font-size:12px">SOCIALPILOT / DASHBOARD PREVIEW</span><span>✦</span></div><div class="previewgrid"><div class="panel"><span class="eyebrow">Your creative workspace</span><h3>Content overview ✨</h3><div class="statrow"><div class="stat"><b>24</b><span>Idea examples</span></div><div class="stat"><b>7</b><span>Days to plan</span></div><div class="stat"><b>3</b><span>Platforms</span></div></div><div class="chart"><div class="bar" style="height:45%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:57%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:68%"></div><div class="bar" style="height:100%"></div><div class="bar" style="height:79%"></div></div><small class="muted">Illustrative dashboard preview — not live analytics</small></div><div class="panel"><span class="eyebrow">Creative inspiration</span><h3>Ideas worth posting</h3><div class="post"><div class="thumb one">✺</div><div><b>Behind the scenes</b><small>Show your process</small></div></div><div class="post"><div class="thumb two">✦</div><div><b>Quick tips</b><small>Share your expertise</small></div></div><div class="post"><div class="thumb three">☀</div><div><b>Community spotlight</b><small>Connect with followers</small></div></div></div></div></div></div>
-<section class="section" id="features"><div class="sectionhead"><span class="pill">BUILT FOR CREATIVE MOMENTUM</span><h2>Less overthinking. <span class="grad">More creating.</span></h2><p>Start with inspiration today. More powerful planning and publishing features are on the roadmap.</p></div><div class="cards"><article class="card"><div class="emoji">💡</div><h3>Content Ideas</h3><p>Get a new starting point for your next social media post with our free idea generator.</p></article><article class="card"><div class="emoji">✍️</div><h3>Caption Studio</h3><p>Create ready-to-edit captions with tone and platform options.</p></article><article class="card"><div class="emoji">🗓️</div><h3>Content Calendar</h3><p>Save, edit and organize upcoming posts in your browser.</p></article></div></section>
+<section class="showcase" id="showcase"><div class="showcase-head"><span class="pill">SEE WHAT'S INSIDE</span><h2>From “what should I post?” to <span class="grad">ready to create.</span></h2><p>These are previews of the three tools you can use on SocialPilot today. Click any tool to try it yourself.</p></div><div class="showcase-grid">
+<article class="showcase-card"><div class="showcase-visual idea"><div class="mini-app"><div class="mini-head"><span class="mini-dot"></span> CONTENT IDEAS / FITNESS</div><div class="mini-title">💡 Your next post</div><div class="mini-copy">Share 3 beginner workout mistakes and how to avoid them.</div><span class="mini-tag">Instagram idea</span></div></div><div class="showcase-body"><h3>Never run out of ideas</h3><p>Choose your niche and platform to get a curated post prompt you can build on.</p><a href="#generator">Explore idea generator →</a></div></article>
+<article class="showcase-card"><div class="showcase-visual caption"><div class="mini-app" style="transform:rotate(2deg)"><div class="mini-head"><span class="mini-dot" style="background:#5ce1e8"></span> CAPTION STUDIO / FRIENDLY</div><div class="mini-title">✨ Your caption</div><div class="mini-copy">Something exciting is happening at The Daily Coffee! ☕</div><div class="mini-lines"></div><div class="mini-lines" style="width:75%"></div><span class="mini-tag" style="background:#1b83953a;color:#8ceaf0">#SmallBusiness</span></div></div><div class="showcase-body"><h3>Write captions faster</h3><p>Turn your topic into an editable caption with a choice of tone and platform.</p><a href="#captions">Explore caption studio →</a></div></article>
+<article class="showcase-card"><div class="showcase-visual calendar"><div class="mini-app"><div class="mini-head"><span class="mini-dot"></span> CONTENT CALENDAR</div><div class="mini-title">🗓️ Your posting plan</div><div class="mini-copy">Plan your upcoming content</div><div class="mini-cal"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="showcase-body"><h3>Stay organized</h3><p>Save, edit and manage upcoming posts on this device using your browser.</p><a href="#calendar">Explore content planner →</a></div></article>
+</div></section><section class="how-section"><div class="showcase-head"><span class="pill">SIMPLE BY DESIGN</span><h2>Three steps to <span class="grad">better consistency.</span></h2></div><div class="steps"><div class="step"><b>01</b><h3>Pick your niche</h3><p>Choose your business category and the platform you create for.</p></div><div class="step"><b>02</b><h3>Create your content</h3><p>Get an idea, personalize a caption and make it your own.</p></div><div class="step"><b>03</b><h3>Plan ahead</h3><p>Add your posts to the calendar so your next content idea doesn't get lost.</p></div></div></section><section class="section" id="features"><div class="sectionhead"><span class="pill">BUILT FOR CREATIVE MOMENTUM</span><h2>Less overthinking. <span class="grad">More creating.</span></h2><p>Start with inspiration today. More powerful planning and publishing features are on the roadmap.</p></div><div class="cards"><article class="card"><div class="emoji">💡</div><h3>Content Ideas</h3><p>Get a new starting point for your next social media post with our free idea generator.</p></article><article class="card"><div class="emoji">✍️</div><h3>Caption Studio</h3><p>Create ready-to-edit captions with tone and platform options.</p></article><article class="card"><div class="emoji">🗓️</div><h3>Content Calendar</h3><p>Save, edit and organize upcoming posts in your browser.</p></article></div></section>
 <section class="tool" id="generator"><span class="pill">FREE INTERACTIVE TOOL</span><h2 style="margin-top:17px">Content Idea Generator ✨</h2><p>Choose your niche and platform. We'll give you a content prompt you can use today.</p><div class="formrow"><select id="business" aria-label="Business type"><option value="fitness">Fitness</option><option value="beauty">Beauty</option><option value="food">Food & Restaurants</option><option value="realestate">Real Estate</option><option value="other">Other Business</option></select><select id="platform" aria-label="Platform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select><button class="btn" type="button" onclick="generateIdea()">Generate idea →</button></div><div class="result" id="result" aria-live="polite"><strong id="resultLabel"></strong><p id="resultText"></p></div><p style="font-size:12px;margin-top:18px">This free preview uses curated ideas, not live AI generation.</p></section>
 <section class="tool" id="captions">
   <span class="pill">FREE CAPTION TOOL</span>
@@ -58,7 +104,7 @@ input,textarea{min-width:0;border-radius:11px;border:1px solid #ffffff2b;backgro
 <section class="tool" id="calendar">
   <span class="pill">CONTENT PLANNER</span>
   <h2>Content Calendar 📅</h2>
-  <p>Plan, organize, and manage your upcoming social media posts.</p>
+  <p>Plan, organize, and manage your upcoming social media posts.</p><p style="font-size:12px">Calendar posts are currently saved only in this browser, not yet in your Supabase account. Cloud sync is coming next.</p>
 
   <div style="display:grid;gap:12px;max-width:650px;margin:25px auto;text-align:left">
 
@@ -89,7 +135,7 @@ input,textarea{min-width:0;border-radius:11px;border:1px solid #ffffff2b;backgro
     <div id="savedPosts" style="display:grid;gap:12px"></div>
   </div>
 </section>
-</div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses</footer>
+<section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses</footer>
   
 
 <script>
@@ -245,5 +291,76 @@ function renderPosts() {
 }
 
 renderPosts();
+</script>
+<div class="auth-overlay" id="authOverlay" role="presentation" onclick="if(event.target===this)closeAuth()"><div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="auth-close" type="button" aria-label="Close" onclick="closeAuth()">×</button><span class="pill">WELCOME TO SOCIALPILOT</span><h2 id="authTitle">Log in</h2><p id="authSubtitle">Access your SocialPilot account.</p><form id="authForm"><label for="authEmail">Email address</label><input type="email" id="authEmail" autocomplete="email" required placeholder="you@example.com"><label for="authPassword">Password</label><input type="password" id="authPassword" autocomplete="current-password" minlength="6" required placeholder="Your password"><button class="btn" type="submit" id="authSubmit">Log in</button></form><p class="auth-message" id="authMessage" role="status" aria-live="polite"></p><button class="auth-switch" type="button" id="authSwitch" onclick="toggleAuth()">New here? Create an account</button></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="./socialpilot-auth-config.js"></script>
+<script>
+let authMode = 'login';
+let authClient = null;
+const authOverlay = document.getElementById('authOverlay');
+const authMessage = document.getElementById('authMessage');
+function authNotice(message, error=false) {
+  authMessage.textContent = message;
+  authMessage.className = 'auth-message ' + (error ? 'error' : 'ok');
+}
+function openAuth(mode='login') {
+  authMode = mode;
+  document.getElementById('authTitle').textContent = mode === 'signup' ? 'Create your account' : 'Log in';
+  document.getElementById('authSubtitle').textContent = mode === 'signup' ? 'Join SocialPilot with your email address.' : 'Welcome back to SocialPilot.';
+  document.getElementById('authSubmit').textContent = mode === 'signup' ? 'Create account' : 'Log in';
+  document.getElementById('authSwitch').textContent = mode === 'signup' ? 'Already have an account? Log in' : 'New here? Create an account';
+  document.getElementById('authPassword').autocomplete = mode === 'signup' ? 'new-password' : 'current-password';
+  authNotice('');
+  authOverlay.classList.add('open');
+  document.getElementById('authEmail').focus();
+}
+function closeAuth(){ authOverlay.classList.remove('open'); document.getElementById('authPassword').value=''; }
+function toggleAuth(){ openAuth(authMode === 'login' ? 'signup' : 'login'); }
+function updateAuthUser(user) {
+  document.getElementById('authStatus').textContent = user ? user.email : '';
+  document.getElementById('loginBtn').hidden = !!user;
+  document.getElementById('signupBtn').hidden = !!user;
+  document.getElementById('logoutBtn').hidden = !user;
+}
+async function signOut(){
+  if(!authClient) return;
+  const {error} = await authClient.auth.signOut();
+  if(error) alert(error.message);
+}
+async function initAuth(){
+  const config = window.SOCIALPILOT_SUPABASE || {};
+  if (!config.url || !config.publishableKey || config.url.includes('YOUR_') || config.publishableKey.includes('YOUR_')) {
+    console.info('SocialPilot: add your Supabase URL and publishable key to socialpilot-auth-config.js');
+    return;
+  }
+  if(!window.supabase || !window.supabase.createClient){ console.error('Supabase SDK did not load'); return; }
+  authClient = window.supabase.createClient(config.url, config.publishableKey);
+  const {data:{user},error} = await authClient.auth.getUser();
+  if(!error) updateAuthUser(user);
+  authClient.auth.onAuthStateChange((_event, session) => updateAuthUser(session?.user || null));
+}
+document.getElementById('authForm').addEventListener('submit', async event => {
+  event.preventDefault();
+  if(!authClient){authNotice('Supabase is not connected yet. Add your Project URL and publishable key to the config file.',true);return;}
+  const email=document.getElementById('authEmail').value.trim();
+  const password=document.getElementById('authPassword').value;
+  const submit=document.getElementById('authSubmit');
+  submit.disabled=true;
+  try {
+    if(authMode==='signup'){
+      const {data,error}=await authClient.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});
+      if(error) throw error;
+      if(data.session){closeAuth();} else {authNotice('Check your email for a confirmation link. Then return here and log in.');}
+    } else {
+      const {error}=await authClient.auth.signInWithPassword({email,password});
+      if(error) throw error;
+      closeAuth();
+    }
+  }catch(err){authNotice(err.message || 'Authentication failed. Please try again.',true);}
+  finally{submit.disabled=false;}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAuth();});
+initAuth();
 </script>
 </body></html>

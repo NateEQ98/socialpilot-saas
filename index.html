@@ -126,6 +126,27 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 @media(min-width:900px){#calendar{width:calc(100vw - 44px);max-width:1460px;position:relative;left:50%;transform:translateX(-50%)}#calendar .month-cell{min-height:202px}}
 @media(max-width:850px){#calendar .month-grid{gap:4px;padding:7px}#calendar .month-cell{min-height:125px;padding:5px 3px}#calendar .visual-post img{height:51px}#calendar .visual-post .visual-meta{padding:3px}#calendar .visual-post .visual-title{font-size:9px}#calendar .visual-post .visual-time{font-size:9px}}
 @media(max-width:540px){#calendar{width:calc(100% - 12px);padding:12px;border-radius:15px}#calendar .month-cell{min-height:75px;border-radius:6px;padding:3px 2px}#calendar .month-grid{gap:2px;padding:3px}#calendar .visual-post img{height:37px}#calendar .visual-post .visual-time{font-size:8px}#calendar .visual-post .visual-title{display:none}#calendar .visual-post .visual-meta{padding:2px}#calendar .month-weekday{font-size:9px;padding:7px 0}#calendar .day-number{font-size:10px}#calendar .filter-note{display:none}}
+
+/* SocialPilot Command Center 04: production calendar shell */
+#calendar{max-width:1600px;width:calc(100vw - 48px);padding:0!important;background:#0d0d18!important;border:1px solid #343047!important;overflow:hidden;box-shadow:0 45px 130px #000a,0 0 85px #6d3dce1a!important}
+.command-layout{display:grid;grid-template-columns:225px minmax(0,1fr);min-width:0}
+.command-sidebar{padding:30px 16px;background:linear-gradient(170deg,#151325,#100f1d 80%);border-right:1px solid #39334b;display:flex;flex-direction:column;gap:6px;min-width:0}
+.command-logo{display:flex;align-items:center;gap:11px;font-size:20px;font-weight:850;letter-spacing:-.8px;margin:2px 8px 47px;line-height:1.1}
+.command-logo-icon{display:grid;place-items:center;flex-shrink:0;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#9f58fa,#48c9ed);box-shadow:0 0 25px #7c4fe470}
+.command-accent{color:#b18aff}.command-logo small{display:block;color:#78718f;font-size:9px;letter-spacing:.18em;margin-top:7px}
+.command-nav-label{font-size:10px;font-weight:800;color:#716b88;letter-spacing:.17em;margin:0 12px 12px}
+.command-nav-item{display:flex;gap:12px;align-items:center;padding:12px 13px;border:1px solid transparent;border-radius:11px;color:#a9a4bd;font-size:13px;font-weight:650;transition:background .2s}
+.command-nav-item:hover{background:#ffffff0b;color:#fff}.command-nav-item.active{background:linear-gradient(90deg,#7437b44d,#4a368c1e);border-color:#9151e260;color:#f1e8ff;box-shadow:inset 3px 0 #b774ff}
+.command-mini-stat{padding:14px 13px;background:#1b182c;border:1px solid #373048;border-radius:12px;margin:2px 3px;display:flex;justify-content:space-between;gap:5px;align-items:center}.command-mini-stat span{font-size:11px;color:#a8a0bd}.command-mini-stat strong{font-size:20px;color:#e6d4ff}
+.command-side-bottom{margin-top:auto;padding:25px 8px 4px;color:#b2f3df;font-size:11px;line-height:1.5}.command-side-bottom small{display:block;color:#7e7894;margin-top:7px}.command-live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5be5c0;box-shadow:0 0 12px #5be5c0;margin-right:5px}
+.command-content{min-width:0;padding:29px 26px 35px;background:radial-gradient(ellipse at 85% 0%,#4b28732b,transparent 40%),#11101d}
+.command-breadcrumb{font-size:10px;font-weight:850;letter-spacing:.15em;color:#9d8fb9;padding-bottom:22px;border-bottom:1px solid #383047;margin-bottom:24px}.command-breadcrumb span{color:#625a79;margin:0 8px}.command-breadcrumb .command-version{float:right;color:#b58aff;margin:0}
+#calendar .month-shell{margin-top:18px;border-radius:15px}#calendar .month-toolbar{padding:19px 21px}#calendar .month-grid{gap:6px;padding:9px}#calendar .month-cell{min-height:175px}#calendar .visual-post img{height:74px}#calendar .visual-post{box-shadow:0 5px 18px #0004}#calendar .visual-post:hover{border-color:#b889ff}
+#calendar .planner-form{margin-top:27px}#calendar .studio-kicker{color:#c79aff}
+@media(min-width:900px){#calendar{left:50%;transform:translateX(-50%);position:relative}}
+@media(max-width:1100px){.command-layout{grid-template-columns:175px minmax(0,1fr)}.command-sidebar{padding:20px 10px}.command-logo{font-size:16px;margin:0 4px 30px}.command-content{padding:20px 14px}#calendar .month-cell{min-height:135px}#calendar .visual-post img{height:54px}}
+@media(max-width:780px){#calendar{width:calc(100vw - 16px)}.command-layout{grid-template-columns:1fr}.command-sidebar{display:none}.command-content{padding:18px 10px}.command-breadcrumb{font-size:9px}#calendar .month-cell{min-height:95px}#calendar .visual-post img{height:43px}}
+@media(max-width:540px){.command-content{padding:12px 6px}.command-breadcrumb{margin-bottom:15px}#calendar .month-cell{min-height:72px}#calendar .visual-post img{height:34px}}
 </style></head><body>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a></div><div class="auth-nav"><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" id="signupBtn" onclick="openAuth('signup')">Sign up</button><button class="btn ghost" type="button" id="logoutBtn" onclick="signOut()" hidden>Log out</button></div></nav>
 <header class="hero" id="top"><div class="pill">✦ YOUR CREATIVE COMMAND CENTER</div><h1>Create content that <span class="grad">turns heads.</span></h1><p>From your first idea to your next great post. Create captions, spark inspiration and plan ahead in one beautiful workspace.</p><div class="actions"><a class="btn" href="#generator">Start creating — it's free →</a><a class="btn ghost" href="#live-demo">Watch the interactive demo ↓</a></div><div class="small">Free preview · No credit card required · No automatic publishing</div></header>
@@ -154,7 +175,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 </div><button class="btn" type="button" onclick="generateCaption()">✦ Create 3 caption concepts</button><p class="caption-hint">Free creative writing engine — varied structured copy, not a live generative AI model. More detail in your prompt produces better results.</p>
 <div id="captionResult" class="caption-output" aria-live="polite"><div class="caption-tag">CAPTION CONCEPTS</div><div id="captionVariants" class="caption-variants" style="margin:14px 0"></div><div id="captionText"></div></div>
 <div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></section>
-<section class="tool" id="calendar">
+<section class="tool" id="calendar"><div class="command-layout"><aside class="command-sidebar" aria-label="Planner navigation"><div class="command-logo"><span class="command-logo-icon">✦</span><span>Social<span class="command-accent">Pilot</span><small>CREATOR WORKSPACE</small></span></div><div class="command-nav-label">WORKSPACE</div><a class="command-nav-item" href="#top">◈ <span>Overview</span></a><a class="command-nav-item" href="#generator">✧ <span>Idea generator</span></a><a class="command-nav-item" href="#captions">✎ <span>Caption studio</span></a><a class="command-nav-item active" href="#calendar">▦ <span>Content calendar</span></a><div class="command-nav-label" style="margin-top:32px">YOUR PLANNER</div><div class="command-mini-stat"><span>◉ Planned posts</span><strong id="commandTotal">0</strong></div><div class="command-mini-stat"><span>◷ This month</span><strong id="commandMonth">0</strong></div><div class="command-side-bottom"><span class="command-live-dot"></span> Cloud-synced workspace<small>Posts are drafts until you publish them manually.</small></div></aside><div class="command-content"><div class="command-breadcrumb">WORKSPACE <span>/</span> CONTENT CALENDAR <span class="command-version">✦ STUDIO 04</span></div>
   <span class="pill">CONTENT PLANNER</span>
   <h2>Content Calendar 📅</h2>
   <p>Plan, organize, and manage your upcoming social media posts.</p><p style="font-size:12px">Sign in to save your posts securely to your SocialPilot account and access them on other devices.</p>
@@ -189,7 +210,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
     <div class="planner-subhead"><h3>Upcoming Content</h3><span id="plannerCount" class="planner-count"></span></div>
     <p id="calendarStatus" role="status" aria-live="polite" style="color:#aab5d0;font-size:13px">Checking your account…</p><div id="legacyImport" style="display:none;margin:12px 0;padding:15px;border:1px solid #7c68c866;border-radius:12px;background:#141d36"><p id="legacyMessage" style="margin:0 0 10px"></p><button class="btn ghost" type="button" onclick="importLocalPosts()">Import browser-saved posts</button></div><div id="savedPosts" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px"></div>
   </div>
-</section>
+</div></div></section>
 <section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses</footer>
   
 
@@ -435,6 +456,7 @@ function renderMonth(){
   grid.appendChild(btn);
  }
  const inMonth=cloudPosts.filter(p=>p.post_date?.startsWith(`${y}-${String(m+1).padStart(2,'0')}-`)&&(calendarPlatformFilter==='All'||p.platform===calendarPlatformFilter)).length;
+ document.getElementById('commandTotal').textContent=calendarUser?cloudPosts.length:0;document.getElementById('commandMonth').textContent=calendarUser?inMonth:0;
  document.getElementById('monthSummary').textContent=calendarUser?`${inMonth} planned post${inMonth===1?'':'s'} this month · Click any date to create`:'Log in to see your cloud posts · Click a date to prepare a post';
 }
 calendarMessage('Log in to use your cloud calendar. Browser-saved posts have not been changed.');

@@ -718,6 +718,7 @@ initAuth();
   const output = byId('psOutput');
   const button = byId('psGenerate');
   let lastCampaign = '';
+  let currentCampaign = null;
   function element(tag, className, content){
     const node = document.createElement(tag);
     if(className) node.className = className;
@@ -725,8 +726,9 @@ initAuth();
     return node;
   }
   function message(text){ output.replaceChildren(element('div','ps-empty',text)); }
-  function present(campaign, brand, platform){
+  function present(campaign, brand, platform, saved = false){
     lastCampaign = campaign;
+    currentCampaign = { campaign, business: brand, platform, product: byId('psOffer').value.trim() };
     const card = element('article','ps-card');
     const inner = element('div','ps-card-inner');
     inner.append(
@@ -748,10 +750,80 @@ initAuth();
       catch { copy.textContent = 'Copy unavailable'; }
     });
     actions.append(copy);
+    if(!saved){
+      const save = element('button','btn ghost','Save campaign');
+      save.type = 'button';
+      save.addEventListener('click', async () => {
+        save.disabled = true;
+        save.textContent = 'Saving…';
+        try {
+          const {data:{user},error:authError} = await authClient.auth.getUser();
+          if(authError || !user) throw new Error('Please sign in to save campaigns.');
+          const {error} = await authClient.from('ai_campaigns').insert({
+            user_id:user.id, business:brand, product:currentCampaign.product || 'Campaign',
+            platform, campaign_content:campaign
+          });
+          if(error) throw error;
+          save.textContent = '✓ Saved';
+          await loadHistory();
+        } catch(err) { save.textContent = 'Try saving again'; save.disabled = false; alert('Could not save: '+err.message); }
+      });
+      actions.append(save);
+    }
     inner.append(actions);
     card.append(inner);
     output.replaceChildren(card);
   }
+  const historySection = element('section','ps-card');
+  historySection.id = 'psHistory';
+  historySection.style.margin = '0 30px 30px';
+  const historyInner = element('div','ps-card-inner');
+  const historyTitle = element('h3','','My saved AI campaigns');
+  const historyHint = element('p','','Sign in to see your saved campaigns.');
+  const historyRefresh = element('button','btn ghost','Refresh saved campaigns');
+  historyRefresh.type = 'button';
+  historyRefresh.addEventListener('click',loadHistory);
+  const historyList = element('div','');
+  historyList.style.marginTop = '15px';
+  historyInner.append(historyTitle,historyHint,historyRefresh,historyList);
+  historySection.append(historyInner);
+  byId('pro-studio').querySelector('.ps-grid').after(historySection);
+  async function loadHistory(){
+    historyList.replaceChildren();
+    if(!authClient){historyHint.textContent = 'Authentication is loading.';return;}
+    try {
+      const {data:{user},error:authError} = await authClient.auth.getUser();
+      if(authError || !user){historyHint.textContent = 'Sign in to view your saved campaigns.';return;}
+      const {data, error} = await authClient.from('ai_campaigns')
+        .select('id,business,product,platform,campaign_content,created_at')
+        .order('created_at',{ascending:false}).limit(50);
+      if(error) throw error;
+      historyHint.textContent = data.length ? `${data.length} saved campaign(s) (most recent first).` : 'No saved campaigns yet. Generate a campaign and click Save campaign.';
+      for(const item of data){
+        const row = element('div','');
+        row.style.cssText = 'border-top:1px solid #ffffff20;padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap';
+        const info = element('div','');
+        info.append(element('strong','',item.business+' · '+item.platform),element('div','',new Date(item.created_at).toLocaleString()));
+        info.lastChild.style.cssText = 'font-size:12px;color:#aeb5d1;margin-top:5px';
+        const buttons = element('div','ps-actions');
+        const open = element('button','btn ghost','Open');
+        open.type = 'button';
+        open.addEventListener('click',()=>{present(item.campaign_content,item.business,item.platform,true);byId('psOutput').scrollIntoView({behavior:'smooth',block:'center'});});
+        const del = element('button','btn ghost','Delete');
+        del.type = 'button';
+        del.addEventListener('click',async()=>{
+          if(!confirm('Delete this saved campaign permanently?')) return;
+          del.disabled=true;
+          const {error} = await authClient.from('ai_campaigns').delete().eq('id',item.id);
+          if(error){alert('Delete failed: '+error.message);del.disabled=false;return;}
+          await loadHistory();
+        });
+        buttons.append(open,del);row.append(info,buttons);historyList.append(row);
+      }
+    } catch(err){historyHint.textContent='Unable to load saved campaigns: '+err.message;}
+  }
+  loadHistory();
+  if(authClient) authClient.auth.onAuthStateChange(()=>{setTimeout(loadHistory,0);});
   async function generate(){
     const business = byId('psBrand').value.trim();
     const product = byId('psOffer').value.trim();

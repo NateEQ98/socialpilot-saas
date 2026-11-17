@@ -80,6 +80,13 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 
 /* Platform-specific social previews: distinct imagery and native-inspired layouts */
 .social-preview{position:relative;min-width:0;transition:background .25s ease}.social-top{min-height:59px}.preview-more{margin-left:auto;color:#aab7d3;letter-spacing:2px}.social-media{position:relative;overflow:hidden;height:290px;background:#202944}.social-media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease,opacity .2s ease}.social-media-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#070d2290,transparent 55%);opacity:.3}.social-actions{display:flex;justify-content:space-between;align-items:center;letter-spacing:0;font-size:23px;padding:10px 16px 0}.social-caption{padding:10px 16px 18px;font-size:12px}.facebook-engagement{display:flex;justify-content:space-around;align-items:center;padding:13px 10px;border-top:1px solid #ffffff22;color:#cbd4ea;font-size:12px}.tiktok-video-copy,.tiktok-rail{display:none}.social-preview[data-platform="tiktok"]{max-width:305px;width:100%;margin:auto;border-radius:22px;background:#05060c;box-shadow:0 10px 40px #0005}.social-preview[data-platform="tiktok"] .social-top{position:absolute;top:8px;left:8px;right:8px;z-index:2;background:#0005;border-radius:14px;padding:8px}.social-preview[data-platform="tiktok"] .social-media{height:430px}.social-preview[data-platform="tiktok"] .social-media-shade{opacity:1;background:linear-gradient(0deg,#000c,transparent 50%,#0005)}.social-preview[data-platform="tiktok"] .tiktok-video-copy{display:flex;position:absolute;bottom:65px;left:16px;right:55px;z-index:2;flex-direction:column;gap:7px;text-shadow:0 2px 12px #000}.tiktok-video-copy span{font-size:11px;letter-spacing:.14em;font-weight:750}.tiktok-video-copy strong{font-size:23px;line-height:1.1}.tiktok-video-copy small{font-size:12px}.social-preview[data-platform="tiktok"] .tiktok-rail{display:flex;position:absolute;right:11px;bottom:75px;z-index:3;flex-direction:column;gap:20px;text-align:center;font-size:27px;text-shadow:0 2px 10px #000}.tiktok-rail span{display:grid}.tiktok-rail small{font-size:10px}.social-preview[data-platform="tiktok"] .social-actions{display:none}.social-preview[data-platform="tiktok"] .social-caption{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:15px 55px 14px 14px;background:#05060c;font-size:11px}.social-preview[data-platform="facebook"] .social-top{background:#19243c}.social-preview[data-platform="facebook"] .social-media{height:255px}.social-preview[data-platform="facebook"] .social-actions{display:none}.social-preview[data-platform="facebook"] .social-caption{padding:14px 16px}.social-preview[data-platform="facebook"] .facebook-engagement{display:flex}.social-preview[data-platform="facebook"] .social-avatar{background:linear-gradient(135deg,#3479dd,#5bd6e5)}@media(max-width:500px){.social-media{height:225px}.social-preview[data-platform="tiktok"] .social-media{height:400px}}
+
+/* SocialPilot Studio 3 — neon-glass planner */
+#calendar{max-width:1140px;padding:34px;background:radial-gradient(ellipse at 92% 0%,#5e43b337,transparent 45%),linear-gradient(145deg,#111b35,#0b1227);border:1px solid #8f83ee55;box-shadow:0 28px 90px #0204149c, inset 0 1px #ffffff13}
+#calendar h2{font-size:clamp(30px,4vw,43px);letter-spacing:-.05em}.studio-kicker{font-size:11px;letter-spacing:.16em;font-weight:800;color:#88e7ed}.studio-header{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.studio-header p{margin:7px 0}.studio-live{padding:9px 14px;border:1px solid #5ce7ce55;border-radius:30px;background:#123d3a66;color:#8df3d6;font-size:12px}
+.month-shell{margin:24px 0 26px;border:1px solid #ffffff24;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#141f3a,#0a1329);box-shadow:0 20px 55px #0005}.month-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 22px;border-bottom:1px solid #ffffff17}.month-toolbar h3{margin:0;font-size:23px;letter-spacing:-.04em}.month-actions{display:flex;align-items:center;gap:9px}.month-btn{border:1px solid #ffffff2b;background:#ffffff0b;color:#e8edff;border-radius:10px;padding:10px 13px;cursor:pointer;font:inherit;font-weight:700}.month-btn:hover,.month-btn:focus-visible{border-color:#9d88ff;background:#8a69ed33}.month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;background:#ffffff14}.month-weekday{text-align:center;background:#131c33;color:#93a4ca;font-size:11px;letter-spacing:.09em;font-weight:800;padding:13px 3px}.month-cell{background:#0f1930;min-height:112px;padding:10px 8px;text-align:left;border:0;color:#e9efff;cursor:pointer;min-width:0;position:relative;display:flex;flex-direction:column;align-items:stretch;gap:7px;font:inherit;transition:background .18s}.month-cell:hover{background:#263258}.month-cell.outside{background:#0c1427;color:#586987}.month-cell.selected{background:#29345d;box-shadow:inset 0 0 0 2px #a28cff}.month-cell.today .day-number{background:#7558df;color:white;border-radius:9px;padding:5px 8px}.day-number{font-size:12px;font-weight:800;align-self:flex-start;padding:5px 8px}.day-post{font-size:10px;line-height:1.4;padding:6px 7px;border-radius:7px;background:#6951d53b;border-left:3px solid #ad92ff;color:#e9ddff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.day-post.tiktok{background:#1a7c8a33;border-color:#55dbe7;color:#a7f3ff}.day-post.facebook{background:#2765bc36;border-color:#5a9eff;color:#b9d7ff}.day-post.linkedin{background:#3873a733;border-color:#79b4e9;color:#c4e3ff}.day-more{font-size:10px;color:#a9b5d6}.month-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:15px 21px;color:#a9b6d6;font-size:12px;border-top:1px solid #ffffff18}.month-legend{display:flex;gap:13px;flex-wrap:wrap}.month-legend span:before{content:'';display:inline-block;width:8px;height:8px;border-radius:3px;background:var(--dot);margin-right:6px}.planner-form{background:#0e1930;border:1px solid #ffffff1c;border-radius:19px;padding:24px;margin-top:20px}.planner-form h3{margin:0 0 7px}.planner-form .planner-fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.planner-form .wide{grid-column:1/-1}.planner-form label{display:block;margin-bottom:7px}.planner-form input,.planner-form select,.planner-form textarea{width:100%}.planner-form .btn{justify-self:start}.planner-subhead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.planner-count{font-size:12px;color:#a3e5ee}.post-cloud-card{background:linear-gradient(120deg,#172443,#101a33)!important;border:1px solid #ffffff21!important;border-left:3px solid #977cff!important;box-shadow:0 8px 28px #0003}.post-cloud-card h3{margin:0}.post-cloud-card p{margin:9px 0;color:#b7c6e4}.post-cloud-card .btn{padding:9px 13px!important;font-size:12px}
+#captions{max-width:1000px;background:radial-gradient(circle at 100% 0%,#0c78943a,transparent 40%),linear-gradient(140deg,#1b2543,#10172d);border-color:#6fd2df55}#captions h2{font-size:clamp(29px,4vw,40px)}.caption-control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.caption-control-grid .full{grid-column:1/-1}.caption-field label{display:block;margin-bottom:7px}.caption-field input,.caption-field textarea,.caption-field select{width:100%}.caption-output{display:none;border:1px solid #7a80e277;border-radius:17px;background:#0a1429;padding:23px;white-space:pre-wrap;line-height:1.8;overflow-wrap:anywhere}.caption-output .caption-tag{color:#84e9e9;font-size:11px;font-weight:800;letter-spacing:.12em}.caption-variants{display:flex;gap:9px;flex-wrap:wrap}.caption-variants button{border:1px solid #ffffff2a;background:#ffffff0b;border-radius:9px;padding:9px 12px;color:#dbe5ff;cursor:pointer}.caption-variants button[aria-pressed=true]{background:#7054cc;border-color:#ac95ff}.caption-actions{display:flex;gap:10px;flex-wrap:wrap}.caption-hint{font-size:12px;color:#a8b7d6}
+@media(max-width:700px){#calendar{padding:18px}.month-cell{min-height:77px;padding:5px 3px;gap:3px}.day-number{font-size:11px;padding:4px}.day-post{font-size:9px;padding:4px 3px}.month-toolbar{padding:15px}.month-toolbar h3{font-size:19px}.month-weekday{font-size:9px;padding:10px 2px}.planner-form{padding:16px}.planner-form .planner-fields,.caption-control-grid{grid-template-columns:1fr}.planner-form .wide,.caption-control-grid .full{grid-column:auto}}
 </style></head><body>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a></div><div class="auth-nav"><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" id="signupBtn" onclick="openAuth('signup')">Sign up</button><button class="btn ghost" type="button" id="logoutBtn" onclick="signOut()" hidden>Log out</button></div></nav>
 <header class="hero" id="top"><div class="pill">✦ YOUR CREATIVE COMMAND CENTER</div><h1>Create content that <span class="grad">turns heads.</span></h1><p>From your first idea to your next great post. Create captions, spark inspiration and plan ahead in one beautiful workspace.</p><div class="actions"><a class="btn" href="#generator">Start creating — it's free →</a><a class="btn ghost" href="#live-demo">Watch the interactive demo ↓</a></div><div class="small">Free preview · No credit card required · No automatic publishing</div></header>
@@ -97,59 +104,25 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 <article class="showcase-card"><div class="showcase-visual calendar"><div class="mini-app"><div class="mini-head"><span class="mini-dot"></span> CONTENT CALENDAR</div><div class="mini-title">🗓️ Your posting plan</div><div class="mini-copy">Plan your upcoming content</div><div class="mini-cal"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="showcase-body"><h3>Stay organized</h3><p>Save, edit and manage your posts securely in your account.</p><a href="#calendar">Explore content planner →</a></div></article>
 </div></section><section class="how-section"><div class="showcase-head"><span class="pill">SIMPLE BY DESIGN</span><h2>Three steps to <span class="grad">better consistency.</span></h2></div><div class="steps"><div class="step"><b>01</b><h3>Pick your niche</h3><p>Choose your business category and the platform you create for.</p></div><div class="step"><b>02</b><h3>Create your content</h3><p>Get an idea, personalize a caption and make it your own.</p></div><div class="step"><b>03</b><h3>Plan ahead</h3><p>Add your posts to the calendar so your next content idea doesn't get lost.</p></div></div></section><section class="section" id="features"><div class="sectionhead"><span class="pill">BUILT FOR CREATIVE MOMENTUM</span><h2>Less overthinking. <span class="grad">More creating.</span></h2><p>Start with inspiration today. More powerful planning and publishing features are on the roadmap.</p></div><div class="cards"><article class="card"><div class="emoji">💡</div><h3>Content Ideas</h3><p>Get a new starting point for your next social media post with our free idea generator.</p></article><article class="card"><div class="emoji">✍️</div><h3>Caption Studio</h3><p>Create ready-to-edit captions with tone and platform options.</p></article><article class="card"><div class="emoji">🗓️</div><h3>Content Calendar</h3><p>Save, edit and organize posts across devices when signed in.</p></article></div></section>
 <section class="tool" id="generator"><span class="pill">FREE INTERACTIVE TOOL</span><h2 style="margin-top:17px">Content Idea Generator ✨</h2><p>Choose your niche and platform. We'll give you a content prompt you can use today.</p><div class="formrow"><select id="business" aria-label="Business type"><option value="fitness">Fitness</option><option value="beauty">Beauty</option><option value="food">Food & Restaurants</option><option value="realestate">Real Estate</option><option value="other">Other Business</option></select><select id="platform" aria-label="Platform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select><button class="btn" type="button" onclick="generateIdea()">Generate idea →</button></div><div class="result" id="result" aria-live="polite"><strong id="resultLabel"></strong><p id="resultText"></p></div><p style="font-size:12px;margin-top:18px">This free preview uses curated ideas, not live AI generation.</p></section>
-<section class="tool" id="captions">
-  <span class="pill">FREE CAPTION TOOL</span>
-  <h2>AI-Style Caption Studio ✨</h2>
-  <p>Create ready-to-post captions in seconds.</p>
-
-  <div style="display:grid;gap:14px;max-width:600px;margin:25px auto;text-align:left">
-
-    <label for="captionBusiness">Business name</label>
-    <input id="captionBusiness"
-      placeholder="e.g. The Daily Coffee"
-      style="padding:14px;border-radius:10px;width:100%;box-sizing:border-box">
-
-    <label for="captionTopic">What are you promoting?</label>
-    <textarea id="captionTopic"
-      placeholder="e.g. Our new iced caramel latte"
-      style="padding:14px;border-radius:10px;min-height:90px;width:100%;box-sizing:border-box"></textarea>
-
-    <label for="captionPlatform">Platform</label>
-    <select id="captionPlatform" style="padding:14px;border-radius:10px">
-      <option>Instagram</option>
-      <option>Facebook</option>
-      <option>TikTok</option>
-      <option>LinkedIn</option>
-    </select>
-
-    <label for="captionTone">Tone</label>
-    <select id="captionTone" style="padding:14px;border-radius:10px">
-      <option>Friendly</option>
-      <option>Professional</option>
-      <option>Bold</option>
-    </select>
-
-    <button class="btn" onclick="generateCaption()">
-      ✨ Generate Caption
-    </button>
-
-    <div id="captionResult"
-      style="display:none;padding:22px;border-radius:14px;background:#10172c;white-space:pre-wrap;line-height:1.8"></div>
-
-    <button class="btn" id="copyCaptionButton"
-      style="display:none"
-      onclick="copyCaption()">
-      Copy Caption
-    </button>
-
-  </div>
-</section>
+<section class="tool" id="captions"><span class="studio-kicker">✦ CREATIVE INTELLIGENCE / FREE STUDIO</span><h2>Caption Studio <span class="grad">Pro-style ✨</span></h2><p>Write with a sharper hook, clearer value, and a stronger call to action. Built-in creative engine, no API key or paid AI required.</p><div class="caption-control-grid" style="margin:25px 0">
+<div class="caption-field"><label for="captionBusiness">Brand or business name</label><input id="captionBusiness" placeholder="e.g. The Daily Coffee"></div>
+<div class="caption-field"><label for="captionAudience">Who is your audience?</label><input id="captionAudience" placeholder="e.g. busy professionals, local coffee lovers"></div>
+<div class="caption-field full"><label for="captionTopic">What are you promoting or sharing?</label><textarea id="captionTopic" rows="3" placeholder="e.g. A smooth iced caramel latte made with fresh espresso, available this weekend"></textarea></div>
+<div class="caption-field"><label for="captionPlatform">Platform</label><select id="captionPlatform"><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>LinkedIn</option></select></div>
+<div class="caption-field"><label for="captionTone">Brand voice</label><select id="captionTone"><option>Friendly</option><option>Professional</option><option>Bold</option><option>Playful</option><option>Luxury</option><option>Storytelling</option></select></div>
+<div class="caption-field"><label for="captionGoal">Post objective</label><select id="captionGoal"><option value="engage">Start conversations</option><option value="sell">Drive sales</option><option value="visit">Get visits / bookings</option><option value="educate">Educate followers</option></select></div>
+<div class="caption-field"><label for="captionLength">Caption length</label><select id="captionLength"><option value="medium">Balanced</option><option value="short">Punchy</option><option value="long">Detailed</option></select></div>
+</div><button class="btn" type="button" onclick="generateCaption()">✦ Create 3 caption concepts</button><p class="caption-hint">Free creative writing engine — varied structured copy, not a live generative AI model. More detail in your prompt produces better results.</p>
+<div id="captionResult" class="caption-output" aria-live="polite"><div class="caption-tag">CAPTION CONCEPTS</div><div id="captionVariants" class="caption-variants" style="margin:14px 0"></div><div id="captionText"></div></div>
+<div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></section>
 <section class="tool" id="calendar">
   <span class="pill">CONTENT PLANNER</span>
   <h2>Content Calendar 📅</h2>
   <p>Plan, organize, and manage your upcoming social media posts.</p><p style="font-size:12px">Sign in to save your posts securely to your SocialPilot account and access them on other devices.</p>
 
-  <div style="display:grid;gap:12px;max-width:650px;margin:25px auto;text-align:left">
+  <div class="month-shell"><div class="month-toolbar"><div><span class="studio-kicker">✦ YOUR CONTENT SCHEDULE</span><h3 id="monthTitle">Monthly overview</h3></div><div class="month-actions"><button class="month-btn" type="button" onclick="changeMonth(-1)" aria-label="Previous month">←</button><button class="month-btn" type="button" onclick="jumpToToday()">Today</button><button class="month-btn" type="button" onclick="changeMonth(1)" aria-label="Next month">→</button></div></div><div id="monthGrid" class="month-grid" aria-label="Monthly content calendar"></div><div class="month-footer"><div class="month-legend"><span style="--dot:#ad92ff">Instagram</span><span style="--dot:#55dbe7">TikTok</span><span style="--dot:#5a9eff">Facebook</span><span style="--dot:#79b4e9">LinkedIn</span></div><span id="monthSummary">Select a day to plan a post</span></div></div>
+<div class="planner-form"><div class="planner-subhead"><div><span class="studio-kicker">✦ QUICK COMPOSER</span><h3 id="plannerFormTitle">Create a scheduled post</h3></div><span class="studio-live">● Cloud workspace</span></div>
+<div class="planner-fields" style="margin-top:19px">
 
     <label for="postDate">Publication date</label>
     <input type="date" id="postDate" style="padding:14px;border-radius:10px">
@@ -170,12 +143,12 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
     <textarea id="postCaption" placeholder="Write your caption..."
       style="padding:14px;border-radius:10px;min-height:100px"></textarea>
 
-    <button class="btn" onclick="savePost()">Save Post</button>
-  </div>
+    <button class="btn" onclick="savePost()">✦ Save to Cloud</button>
+  </div></div>
 
-  <div style="max-width:750px;margin:30px auto;text-align:left">
-    <h3>Upcoming Content</h3>
-    <p id="calendarStatus" role="status" aria-live="polite" style="color:#aab5d0;font-size:13px">Checking your account…</p><div id="legacyImport" style="display:none;margin:12px 0;padding:15px;border:1px solid #7c68c866;border-radius:12px;background:#141d36"><p id="legacyMessage" style="margin:0 0 10px"></p><button class="btn ghost" type="button" onclick="importLocalPosts()">Import browser-saved posts</button></div><div id="savedPosts" style="display:grid;gap:12px"></div>
+  <div style="max-width:100%;margin:30px auto;text-align:left">
+    <div class="planner-subhead"><h3>Upcoming Content</h3><span id="plannerCount" class="planner-count"></span></div>
+    <p id="calendarStatus" role="status" aria-live="polite" style="color:#aab5d0;font-size:13px">Checking your account…</p><div id="legacyImport" style="display:none;margin:12px 0;padding:15px;border:1px solid #7c68c866;border-radius:12px;background:#141d36"><p id="legacyMessage" style="margin:0 0 10px"></p><button class="btn ghost" type="button" onclick="importLocalPosts()">Import browser-saved posts</button></div><div id="savedPosts" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px"></div>
   </div>
 </section>
 <section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses</footer>
@@ -183,45 +156,57 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 
 <script>
 const ideas={fitness:["Share 3 beginner workout mistakes and how to avoid them.","Create a 15-minute workout challenge for your followers.","Show a simple exercise routine people can do at home."],beauty:["Share 3 skincare tips for beginners.","Create a behind-the-scenes look at your beauty routine.","Explain a common beauty myth."],food:["Show how your most popular dish is prepared.","Share a behind-the-scenes kitchen moment.","Highlight a customer favorite from your menu."],realestate:["Share 3 tips for first-time homebuyers.","Create a home staging checklist.","Explain one common real estate misconception."],other:["Share the story behind your business.","Answer a frequently asked customer question.","Show how your product or service works."]};const previousIdeas={};function generateIdea(){const business=document.getElementById('business').value;const platform=document.getElementById('platform').value;const options=ideas[business];const index=((previousIdeas[business]??-1)+1)%options.length;previousIdeas[business]=index;document.getElementById('result').style.display='block';document.getElementById('resultLabel').textContent=platform+' content idea';document.getElementById('resultText').textContent=options[index]}
-function generateCaption() {
-  const business = document.getElementById("captionBusiness").value.trim();
-  const topic = document.getElementById("captionTopic").value.trim();
-  const platform = document.getElementById("captionPlatform").value;
-  const tone = document.getElementById("captionTone").value;
-
-  if (!business || !topic) {
-    alert("Please enter your business name and what you're promoting.");
-    return;
-  }
-
-  const templates = {
-    Friendly: `✨ Something exciting is happening at ${business}!\n\n${topic}\n\nWe'd love for you to check it out! 💜`,
-    Professional: `Discover what's new at ${business}.\n\n${topic}\n\nLearn more about what we have to offer.`,
-    Bold: `🚀 BIG NEWS FROM ${business.toUpperCase()}!\n\n${topic}\n\nDon't miss out! 🔥`
-  };
-
-  const hashtags = {
-    Instagram: "\n\n#SmallBusiness #DiscoverMore #NewPost",
-    Facebook: "\n\n#SupportSmallBusiness",
-    TikTok: "\n\n#SmallBusinessTikTok #Discover",
-    LinkedIn: "\n\n#Business #Innovation"
-  };
-
-  const caption = templates[tone] + hashtags[platform];
-
-  const result = document.getElementById("captionResult");
-  result.textContent = caption;
-  result.style.display = "block";
-
-  document.getElementById("copyCaptionButton").style.display = "block";
+let currentCaption = '';
+let captionConcepts = [];
+let captionSelected = 0;
+let captionSequence = 0;
+function sentence(text){const t=text.trim();return /[.!?…]$/.test(t)?t:t+'.';}
+function pick(arr,seed){return arr[((seed%arr.length)+arr.length)%arr.length];}
+function generateCaption(){
+ const business=document.getElementById('captionBusiness').value.trim();
+ const topic=document.getElementById('captionTopic').value.trim();
+ const audience=document.getElementById('captionAudience').value.trim();
+ const platform=document.getElementById('captionPlatform').value;
+ const tone=document.getElementById('captionTone').value;
+ const goal=document.getElementById('captionGoal').value;
+ const length=document.getElementById('captionLength').value;
+ if(!business||!topic){alert('Enter your brand and describe what you are sharing.');return;}
+ const seed=captionSequence++;
+ const audiences=audience?`For ${audience}, `:'';
+ const hooks={
+ Friendly:[`Your next favorite find might be closer than you think. ✨`,`A little something to make your day better 💜`,`Good things are worth sharing — and this one is special.`],
+ Professional:[`A smarter way to explore what's next.`,`An update worth putting on your radar.`,`Here's what makes this worth your attention.`],
+ Bold:[`STOP SCROLLING. THIS IS FOR YOU. ⚡`,`Big energy. Even bigger possibilities. 🚀`,`This is your sign to try something different.`],
+ Playful:[`Okay, but why are we obsessed with this? 👀`,`Plot twist: your day just got better. ✨`,`Warning: you might love this a little too much. 😍`],
+ Luxury:[`The details make all the difference. ✨`,`A refined experience, thoughtfully created.`,`Something exceptional is taking shape.`],
+ Storytelling:[`Every great idea starts with a small moment.`,`Here's the story behind what we're creating.`,`We started with one simple question: what if we did it better?`]
+ };
+ const benefits={Friendly:'Made with care, shared with you.',Professional:'Thoughtful details. A clear purpose. Real value.',Bold:'No fluff. Just something worth your attention.',Playful:'Because ordinary is overrated.',Luxury:'Considered details, made to be appreciated.',Storytelling:'It is the little details that make the journey memorable.'};
+ const ctas={engage:['What would you try first? Tell us below 👇','We would love your take — drop a comment.','Tag someone who would appreciate this.'],sell:['Explore the details and see if it is right for you.','Ready to take the next step? Send us a message.','Interested? Reach out and let us help you get started.'],visit:['Planning to stop by? Send us a message.','Save this for your next visit.','Want to experience it? Get in touch for details.'],educate:['Save this for later and share it with someone who needs it.','What question should we answer next?','Keep this in mind the next time you explore your options.']};
+ const hashtags={Instagram:'#DiscoverSomethingNew #CreativeBusiness #ExploreMore',TikTok:'#LearnOnTikTok #ForYou #CreatorTips',Facebook:'#CommunityFirst #SmallBusiness',LinkedIn:'#BusinessInsights #Innovation #Growth'};
+ const topicSentence=sentence(topic);
+ const brandLine=audiences+`${business} is sharing something worth a closer look.`;
+ const variants=[
+  {name:'Scroll-stopper',hook:pick(hooks[tone],seed),body:topicSentence,detail:benefits[tone]},
+  {name:'Value-first',hook:pick(hooks[tone],seed+1),body:`Here's what you should know: ${topicSentence}`,detail:audience?`Created with ${audience} in mind.`:benefits[tone]},
+  {name:'Story-led',hook:pick(hooks[tone],seed+2),body:`At ${business}, we're excited to share this with you: ${topicSentence}`,detail:benefits[tone]}
+ ];
+ captionConcepts=variants.map((v,i)=>{
+  const hook=v.hook;
+  const body=length==='short'?`${v.body}`:length==='long'?`${v.body}\n\n${v.detail} ${brandLine}`:`${v.body}\n\n${v.detail}`;
+  const intro=platform==='LinkedIn'?`${hook}\n\n${body}`:`${hook}\n\n${body}`;
+  return `${intro}\n\n${pick(ctas[goal],seed+i)}\n\n${hashtags[platform]}`;
+ });
+ const variantsEl=document.getElementById('captionVariants');variantsEl.replaceChildren();
+ variants.forEach((v,i)=>{const b=document.createElement('button');b.type='button';b.textContent=v.name;b.onclick=()=>selectCaption(i);variantsEl.appendChild(b);});
+ document.getElementById('captionResult').style.display='block';
+ document.getElementById('copyCaptionButton').style.display='inline-block';
+ document.getElementById('planCaptionButton').style.display='inline-block';
+ selectCaption(0);
 }
-
-function copyCaption() {
-  const caption = document.getElementById("captionResult").textContent;
-  navigator.clipboard.writeText(caption)
-    .then(() => alert("Caption copied!"))
-    .catch(() => alert("Copy failed. Please select and copy the caption manually."));
-}
+function selectCaption(index){captionSelected=index;currentCaption=captionConcepts[index]||'';document.getElementById('captionText').textContent=currentCaption;document.querySelectorAll('#captionVariants button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));}
+function copyCaption(){navigator.clipboard.writeText(currentCaption).then(()=>alert('Caption copied!')).catch(()=>alert('Copy failed; select and copy the text manually.'));}
+function sendCaptionToPlanner(){if(!currentCaption)return;document.getElementById('postCaption').value=currentCaption;document.getElementById('postTitle').value=document.getElementById('captionTopic').value.trim().slice(0,80);document.getElementById('postPlatform').value=document.getElementById('captionPlatform').value;document.getElementById('calendar').scrollIntoView({behavior:'smooth'});document.getElementById('postDate').focus();}
 const STORAGE_KEY = "socialpilot_calendar_v1";
 let cloudPosts = [];
 let calendarUser = null;
@@ -267,6 +252,7 @@ async function loadCloudPosts() {
   }
   showLegacyImport();
   renderPosts();
+  renderMonth();
 }
 function setCalendarUser(user) {
   const nextId = user?.id || null;
@@ -353,6 +339,8 @@ async function importLocalPosts() {
 function renderPosts() {
   const container=document.getElementById('savedPosts');
   container.replaceChildren();
+  document.getElementById('plannerCount').textContent=calendarUser?`${cloudPosts.length} saved posts`:'';
+  renderMonth();
   if(!calendarUser) return;
   if(!cloudPosts.length) {
     const empty=document.createElement('p');
@@ -360,9 +348,10 @@ function renderPosts() {
     container.appendChild(empty);
     return;
   }
+  document.getElementById('plannerCount').textContent=`${cloudPosts.length} saved post${cloudPosts.length===1?'':'s'}`;
   cloudPosts.forEach(post=>{
     const card=document.createElement('div');
-    card.style.cssText='background:#10172c;padding:20px;border-radius:14px;border:1px solid #303956';
+    card.className='post-cloud-card';card.style.padding='19px';card.style.borderRadius='14px';
     const heading=document.createElement('h3');heading.textContent=post.title;
     const details=document.createElement('p');details.textContent=post.post_date+' • '+post.platform;
     const caption=document.createElement('p');caption.textContent=post.caption || '';
@@ -371,8 +360,35 @@ function renderPosts() {
     card.append(heading,details,caption,edit,remove);container.appendChild(card);
   });
 }
+let monthCursor=new Date();
+let selectedCalendarDate='';
+function localISO(date){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;}
+function changeMonth(delta){monthCursor=new Date(monthCursor.getFullYear(),monthCursor.getMonth()+delta,1);renderMonth();}
+function jumpToToday(){monthCursor=new Date();selectCalendarDate(localISO(new Date()));renderMonth();}
+function selectCalendarDate(date){selectedCalendarDate=date;document.getElementById('postDate').value=date;document.getElementById('plannerFormTitle').textContent=`Create a post for ${new Date(date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;renderMonth();}
+function renderMonth(){
+ const grid=document.getElementById('monthGrid');if(!grid)return;
+ grid.replaceChildren();
+ const y=monthCursor.getFullYear(),m=monthCursor.getMonth();
+ document.getElementById('monthTitle').textContent=new Date(y,m,1).toLocaleDateString('en-US',{month:'long',year:'numeric'});
+ ['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(day=>{const el=document.createElement('div');el.className='month-weekday';el.textContent=day;grid.appendChild(el);});
+ const start=new Date(y,m,1).getDay();const count=new Date(y,m+1,0).getDate();const cells=Math.ceil((start+count)/7)*7;
+ const byDate=new Map();if(calendarUser){cloudPosts.forEach(post=>{if(!byDate.has(post.post_date))byDate.set(post.post_date,[]);byDate.get(post.post_date).push(post);});}
+ const today=localISO(new Date());
+ for(let i=0;i<cells;i++){
+  const d=new Date(y,m,i-start+1);const iso=localISO(d);const inside=d.getMonth()===m;const posts=byDate.get(iso)||[];
+  const btn=document.createElement('button');btn.type='button';btn.className='month-cell'+(!inside?' outside':'')+(iso===today?' today':'')+(iso===selectedCalendarDate?' selected':'');btn.setAttribute('aria-label',`${d.toDateString()}, ${posts.length} planned posts`);btn.onclick=()=>{if(!inside)monthCursor=new Date(d.getFullYear(),d.getMonth(),1);selectCalendarDate(iso);document.querySelector('.planner-form').scrollIntoView({behavior:'smooth',block:'nearest'});};
+  const num=document.createElement('span');num.className='day-number';num.textContent=d.getDate();btn.appendChild(num);
+  posts.slice(0,2).forEach(post=>{const pill=document.createElement('span');pill.className='day-post '+(post.platform||'').toLowerCase();pill.textContent=`${post.platform==='Instagram'?'◎':post.platform==='TikTok'?'♪':post.platform==='Facebook'?'f':'in'} ${post.title}`;pill.title=`${post.platform}: ${post.title}`;btn.appendChild(pill);});
+  if(posts.length>2){const more=document.createElement('span');more.className='day-more';more.textContent=`+${posts.length-2} more`;btn.appendChild(more);}
+  grid.appendChild(btn);
+ }
+ const inMonth=cloudPosts.filter(p=>p.post_date?.startsWith(`${y}-${String(m+1).padStart(2,'0')}-`)).length;
+ document.getElementById('monthSummary').textContent=calendarUser?`${inMonth} planned post${inMonth===1?'':'s'} this month · Click any date to create`:'Log in to see your cloud posts · Click a date to prepare a post';
+}
 calendarMessage('Log in to use your cloud calendar. Browser-saved posts have not been changed.');
 renderPosts();
+renderMonth();
 </script>
 <div class="auth-overlay" id="authOverlay" role="presentation" onclick="if(event.target===this)closeAuth()"><div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="auth-close" type="button" aria-label="Close" onclick="closeAuth()">×</button><span class="pill">WELCOME TO SOCIALPILOT</span><h2 id="authTitle">Log in</h2><p id="authSubtitle">Access your SocialPilot account.</p><form id="authForm"><label for="authEmail">Email address</label><input type="email" id="authEmail" autocomplete="email" required placeholder="you@example.com"><label for="authPassword">Password</label><input type="password" id="authPassword" autocomplete="current-password" minlength="6" required placeholder="Your password"><button class="btn" type="submit" id="authSubmit">Log in</button></form><p class="auth-message" id="authMessage" role="status" aria-live="polite"></p><button class="auth-switch" type="button" id="authSwitch" onclick="toggleAuth()">New here? Create an account</button></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>

@@ -203,7 +203,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 <div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></section>
 
 <section class="sp-video-section" id="real-videos" aria-labelledby="realVideosTitle"><div class="sp-video-header"><span class="ps-pill">▶ REAL VIDEO FOOTAGE</span><h2 id="realVideosTitle">See content <span class="grad">in motion.</span></h2><p>Real stock video clips for visual inspiration — not slides or simulated AI videos. These are examples of the kinds of scenes creators can plan with SocialPilot.</p></div><div class="sp-video-grid"><article class="sp-video-card"><video controls muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80"><source src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_25fps.mp4" type="video/mp4">Your browser cannot play this video.</video><div><strong>Product storytelling</strong><p>Example footage for a lifestyle campaign. Video availability depends on the stock provider.</p></div></article><article class="sp-video-card"><video controls muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80"><source src="https://videos.pexels.com/video-files/3196298/3196298-hd_1920_1080_25fps.mp4" type="video/mp4">Your browser cannot play this video.</video><div><strong>Behind the scenes</strong><p>Real footage reference for creating engaging short-form content.</p></div></article></div><p class="sp-video-note">These are third-party stock videos, not AI-generated content or videos made by SocialPilot. If a provider removes a clip, it may stop playing.</p></section>
-<section id="pro-studio" aria-labelledby="psTitle"><div class="ps-shell"><div class="ps-head"><span class="ps-pill">✦ PRO STUDIO · FREE BETA TEST</span><h2 id="psTitle">Create a campaign <span class="grad">worth posting.</span></h2><p>A category-aware creative blueprint builder with three visual references, a tailored hook, shot list, caption and five-post campaign sequence. Test it free while Pro is in development.</p></div><div class="ps-grid"><div class="ps-controls"><label>Business or brand<input id="psBrand" maxlength="100" placeholder="e.g. The Daily Coffee"></label><label>What are you promoting?<textarea id="psOffer" rows="3" maxlength="350" placeholder="e.g. A new iced caramel latte with oat milk"></textarea></label><label>Target audience<input id="psAudience" maxlength="160" placeholder="e.g. local coffee lovers, ages 18–35"></label><label>Platform<select id="psPlatform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select></label><label>Campaign objective<select id="psGoal"><option value="launch">Launch a product</option><option value="engage">Grow engagement</option><option value="educate">Educate customers</option><option value="trust">Build trust</option><option value="customers">Get more customers</option></select></label><label>Visual aesthetic<select id="psMood"><option value="warm">Warm editorial</option><option value="minimal">Minimal luxury</option><option value="bold">Bold & energetic</option><option value="natural">Natural lifestyle</option></select></label><button class="btn" type="button" id="psGenerate">✦ Build my creative blueprint</button></div><div class="ps-output" id="psOutput" aria-live="polite"><div class="ps-empty">✦ Your campaign blueprint will appear here, with illustrative photo references and a five-post sequence.</div></div></div><div class="ps-foot">Free beta uses an advanced rule-based creative planner, not a live AI model. Photo references are industry-matched illustrative stock images, not custom-generated or licensed assets for your campaign. No subscription or payment is required; results stay in this browser unless you choose to copy them.</div></div></section>
+<section id="pro-studio" aria-labelledby="psTitle"><div class="ps-shell"><div class="ps-head"><span class="ps-pill">✦ PRO STUDIO · FREE BETA TEST</span><h2 id="psTitle">Create a campaign <span class="grad">worth posting.</span></h2><p>Generate a personalized AI campaign with post ideas, video scripts, captions and creative direction. Test the real AI beta free while Pro is in development.</p></div><div class="ps-grid"><div class="ps-controls"><label>Business or brand<input id="psBrand" maxlength="100" placeholder="e.g. The Daily Coffee"></label><label>What are you promoting?<textarea id="psOffer" rows="3" maxlength="350" placeholder="e.g. A new iced caramel latte with oat milk"></textarea></label><label>Target audience<input id="psAudience" maxlength="160" placeholder="e.g. local coffee lovers, ages 18–35"></label><label>Platform<select id="psPlatform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select></label><label>Campaign objective<select id="psGoal"><option value="launch">Launch a product</option><option value="engage">Grow engagement</option><option value="educate">Educate customers</option><option value="trust">Build trust</option><option value="customers">Get more customers</option></select></label><label>Visual aesthetic<select id="psMood"><option value="warm">Warm editorial</option><option value="minimal">Minimal luxury</option><option value="bold">Bold & energetic</option><option value="natural">Natural lifestyle</option></select></label><button class="btn" type="button" id="psGenerate">✦ Generate AI campaign</button></div><div class="ps-output" id="psOutput" aria-live="polite"><div class="ps-empty">✦ Your AI-generated campaign will appear here after you sign in and describe your offer.</div></div></div><div class="ps-foot">AI campaign text is generated by OpenAI. Beta testing is limited to one campaign per signed-in user per UTC day and 20 total per UTC day. Results are suggestions, not guaranteed outcomes. Images and videos elsewhere on this page are illustrative previews, not AI-generated assets. No subscription or payment is required for this beta.</div></div></section>
 <section id="pro-preview" aria-labelledby="proTitle">
  <div class="pro-panel">
   <div class="pro-head"><div><div class="pro-eyebrow">✦ THE NEXT LEVEL OF CONTENT CREATION</div><h2 id="proTitle">Meet <span class="grad">SocialPilot Pro.</span></h2><p>Go beyond the first idea. Explore richer campaign concepts, visual creative direction, and ready-to-produce content plans. Here’s a preview of what we're building.</p></div><span class="pro-soon">✧ COMING SOON · PREVIEW ONLY</span></div>
@@ -712,46 +712,93 @@ initAuth();
 })();
 </script>
 <script>
-/* Working Pro Studio beta: local-only deterministic generation. */
+/* Real AI Pro Studio: uses the existing authenticated Supabase client. */
 (function(){
- const photos={
- warm:['photo-1442512595331-e89e73853f31','photo-1495474472287-4d71bcdd2085','photo-1511920170033-f8396924c348'],
- minimal:['photo-1608248543803-ba4f8c70ae0b','photo-1547887538-e3a2f32cb1cc','photo-1490312278390-ab64016e0aa9'],
- bold:['photo-1556228578-0d85b1a4d571','photo-1529139574466-a303027c1d8b','photo-1542291026-7eec264c27ff'],
- natural:['photo-1524504388940-b1c1722653e1','photo-1490750967868-88aa4486c946','photo-1500534623283-312aade485b7']
- };
- const byId=id=>document.getElementById(id), output=byId('psOutput');let sequence=0,lastText='';
- const formats={Instagram:'20–30 second Reel or five-slide carousel',TikTok:'15–30 second vertical video with captions',Facebook:'photo-led story or 30-second native video',LinkedIn:'five-slide professional carousel'};
- const angles=[
- {name:'The reveal',hook:(o,a)=>`What if ${a} could experience ${o} in a completely new way?`,lead:'Show the finished result in the opening two seconds, then reveal the details.'},
- {name:'The transformation',hook:(o)=>`From ordinary to unforgettable: the story behind ${o}.`,lead:'Begin with the before, show the process, and finish on the strongest visual.'},
- {name:'The unexpected detail',hook:(o)=>`The detail most people miss about ${o}.`,lead:'Open on one surprising close-up, then pull back to reveal the full story.'},
- {name:'The honest comparison',hook:(o)=>`How does ${o} compare with the usual option?`,lead:'Show a fair side-by-side comparison and explain who benefits most.'}
- ];
- const goals={launch:['Tease what is coming','Reveal the offer','Show how it is made','Demonstrate the main benefit','Invite people to try it'],engage:['Ask a relatable question','Show a surprising detail','Invite an audience choice','Share a behind-the-scenes moment','Follow up on the conversation'],educate:['Introduce a common misconception','Explain the key principle','Demonstrate the process','Share an actionable checklist','Invite questions'],trust:['Introduce the people behind the brand','Show the real process','Explain a quality decision','Answer a common concern','Invite an honest conversation'],customers:['Call out a specific customer problem','Show the solution in action','Explain who it is for and what they receive','Address a common purchase objection','Invite a clear booking or inquiry']};
- const visualLabels=['Hero image · clear focal point','Process shot · authentic detail','Lifestyle shot · real-world context'];
- const visualPlans={warm:['Golden-hour lighting, soft background, inviting composition','Close-up hands or product details with warm highlights','Natural environment, candid interaction and gentle shadows'],minimal:['Clean background, strong negative space and one hero subject','Precise product texture with restrained props','Architectural framing and soft directional lighting'],bold:['High contrast, punchy crop and vibrant focal color','Dynamic angle, movement and strong foreground detail','Energetic environment with expressive framing'],natural:['Daylight, relaxed composition and genuine texture','Unstaged preparation or process with real hands','Candid moment showing the offer in use']};
- const industryMedia={
- fitness:['photo-1534438327276-14e5300c3a48','photo-1517836357463-d25dfeac3438','photo-1571019613454-1cb2f99b2d8b'],
- coffee:['photo-1442512595331-e89e73853f31','photo-1495474472287-4d71bcdd2085','photo-1511920170033-f8396924c348'],
- beauty:['photo-1596462502278-27bfdc403348','photo-1608248543803-ba4f8c70ae0b','photo-1522335789203-aabd1fc54bc9'],
- food:['photo-1546069901-ba9599a7e63c','photo-1565958011703-44f9829ba187','photo-1512621776951-a57141f2eefd'],
- fashion:['photo-1483985988355-763728e1935b','photo-1529139574466-a303027c1d8b','photo-1490481651871-ab68de25d43d'],
- tech:['photo-1518770660439-4636190af475','photo-1498050108023-c5249f4df085','photo-1519389950473-47ba0277781c']
- };
- function industryOf(value){const t=value.toLowerCase();if(/gym|fitness|training|workout|coach|exercise|pilates|yoga|strength|personal trainer/.test(t))return 'fitness';if(/coffee|latte|cafe|espresso|tea|bakery/.test(t))return 'coffee';if(/skincare|beauty|makeup|salon|spa|cosmetic/.test(t))return 'beauty';if(/restaurant|meal|food|chef|pizza|catering/.test(t))return 'food';if(/fashion|clothing|apparel|outfit|jewelry/.test(t))return 'fashion';if(/software|app|saas|technology|digital|website/.test(t))return 'tech';return null;}
- const industryDirection={fitness:'Lead with a real workout movement, demonstrate the coaching approach, and show a practical training step.',coffee:'Open on the drink preparation, capture the pour and texture, and finish with the serving moment.',beauty:'Start with a texture or application close-up, show the routine, and highlight the product in use.',food:'Show fresh ingredients, a real preparation step, and the plated dish.',fashion:'Show the outfit in motion, an outfit detail, and a real-world styling moment.',tech:'Show the product interface in action, demonstrate a real task, and end on the result.'};
- function el(tag,cls,content){const n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=content;return n;}
- function generate(){const brand=byId('psBrand').value.trim()||'Your brand',offer=byId('psOffer').value.trim(),audience=byId('psAudience').value.trim()||'your ideal customers',platform=byId('psPlatform').value,goal=byId('psGoal').value,mood=byId('psMood').value;
- if(!offer){byId('psOffer').focus();output.replaceChildren(el('div','ps-empty','Describe what you are promoting to generate a tailored blueprint.'));return;}
- const industry=industryOf(brand+' '+offer+' '+audience),angle=angles[sequence++%angles.length],steps=goals[goal],hook=goal==='customers'?`Still struggling with ${offer.toLowerCase().includes('training')?'finding time for fitness':'finding the right solution'}? Here is how ${brand} can help.`:angle.hook(offer,audience),caption=`${hook}\n\nAt ${brand}, we're sharing ${offer} with ${audience}. ${angle.lead} Discover what makes it relevant to you, and tell us what you would like to see next.\n\n${goal==='customers'?'Message us to ask about availability, pricing, or the next step.':'What is the first thing you would want to know?'}`;
- const shot=['0–3 seconds: '+(industry?industryDirection[industry]:angle.lead),'3–8 seconds: Introduce '+offer+' with a clear close-up.','8–18 seconds: Demonstrate one specific feature or useful detail without unsupported claims.','Final seconds: Show the finished result and ask a relevant question.'];
- lastText=[`${brand} — ${angle.name}`,`Audience: ${audience}`,`Platform: ${platform}`,`Format: ${formats[platform]}`,`Hook: ${hook}`,`Creative direction: ${industry?industryDirection[industry]:visualPlans[mood].join(' | ')}`,'Shot list:',...shot,'Caption:',caption,'Five-post sequence:',...steps.map((t,i)=>`Day ${i+1}: ${t} — ${offer}`)].join('\n');
- output.replaceChildren();const card=el('article','ps-card'),inner=el('div','ps-card-inner');inner.append(el('div','ps-eyebrow',`${platform.toUpperCase()} / ${angle.name.toUpperCase()} / ${formats[platform]}`),el('h3','',`${brand}: ${offer}`),el('div','ps-eyebrow','CAMPAIGN HOOK'),el('p','',hook),el('div','ps-eyebrow','CREATIVE DIRECTION'),el('p','',`${industry?industryDirection[industry]:angle.lead} Build the story for ${audience}; use ${mood} visuals and make the offer tangible rather than relying on generic claims.`));
- const visuals=el('div','ps-visuals');(industry?industryMedia[industry]:photos[mood]).forEach((id,i)=>{const wrap=el('div','ps-visual'),img=el('img');img.src=`https://images.unsplash.com/${id}?auto=format&fit=crop&w=600&q=75`;img.alt=`Illustrative stock photo reference ${i+1}`;img.loading='lazy';wrap.append(img,el('div','',`${visualLabels[i]}: ${visualPlans[mood][i]}`));visuals.append(wrap)});inner.append(el('div','ps-eyebrow',`PHOTO INSPIRATION · ${industry?industry.toUpperCase()+' REFERENCES':'GENERAL STOCK EXAMPLES'}`),visuals);card.append(inner);output.append(card);
- const details=el('article','ps-card'),body=el('div','ps-card-inner');body.append(el('div','ps-eyebrow','PRODUCTION BLUEPRINT'),el('h3','','Shot-by-shot plan'));const ol=el('ol');shot.forEach(x=>ol.append(el('li','',x)));body.append(ol,el('div','ps-eyebrow','SUGGESTED CAPTION'),el('p','',caption),el('div','ps-eyebrow','FIVE-POST CAMPAIGN SEQUENCE'));const list=el('ol');steps.forEach((x,i)=>list.append(el('li','',`Day ${i+1}: ${x} — feature ${offer}.`)));body.append(list);const actions=el('div','ps-actions'),copy=el('button','btn','Copy full blueprint'),again=el('button','btn ghost','Try another angle ↻');copy.type=again.type='button';copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(lastText);copy.textContent='✓ Copied'}catch(e){copy.textContent='Copy unavailable in this browser'}});again.addEventListener('click',generate);actions.append(copy,again);body.append(actions);details.append(body);output.append(details);
- }
- byId('psGenerate').addEventListener('click',generate);
+  const byId = id => document.getElementById(id);
+  const output = byId('psOutput');
+  const button = byId('psGenerate');
+  let lastCampaign = '';
+  function element(tag, className, content){
+    const node = document.createElement(tag);
+    if(className) node.className = className;
+    if(content !== undefined) node.textContent = content;
+    return node;
+  }
+  function message(text){ output.replaceChildren(element('div','ps-empty',text)); }
+  function present(campaign, brand, platform){
+    lastCampaign = campaign;
+    const card = element('article','ps-card');
+    const inner = element('div','ps-card-inner');
+    inner.append(
+      element('div','ps-eyebrow',`${platform.toUpperCase()} · REAL AI CAMPAIGN`),
+      element('h3','',`${brand} — Campaign blueprint`)
+    );
+    const text = element('div','sp-ai-campaign',campaign);
+    text.style.whiteSpace = 'pre-wrap';
+    text.style.overflowWrap = 'anywhere';
+    text.style.lineHeight = '1.75';
+    text.style.color = '#e1e5fa';
+    inner.append(text);
+    const actions = element('div','ps-actions');
+    actions.style.marginTop = '20px';
+    const copy = element('button','btn','Copy campaign');
+    copy.type = 'button';
+    copy.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(lastCampaign); copy.textContent = '✓ Copied'; }
+      catch { copy.textContent = 'Copy unavailable'; }
+    });
+    actions.append(copy);
+    inner.append(actions);
+    card.append(inner);
+    output.replaceChildren(card);
+  }
+  async function generate(){
+    const business = byId('psBrand').value.trim();
+    const product = byId('psOffer').value.trim();
+    const audience = byId('psAudience').value.trim();
+    const platform = byId('psPlatform').value;
+    const goal = byId('psGoal');
+    const mood = byId('psMood');
+    if(!business){ byId('psBrand').focus(); message('Enter your business or brand name first.'); return; }
+    if(!product){ byId('psOffer').focus(); message('Describe the product or service you want to promote.'); return; }
+    if(!authClient){ message('Authentication is not ready. Refresh the page and try again.'); return; }
+    button.disabled = true;
+    button.textContent = '✦ Generating your campaign…';
+    message('Your AI campaign is being created. This may take up to 20 seconds.');
+    try {
+      const { data: { session }, error: sessionError } = await authClient.auth.getSession();
+      if(sessionError || !session){ message('Please log in to generate an AI campaign.'); return; }
+      const objective = goal.options[goal.selectedIndex]?.text || 'Get more customers';
+      const aesthetic = mood.options[mood.selectedIndex]?.text || 'Warm editorial';
+      const config = window.SOCIALPILOT_SUPABASE || {};
+      if(!config.url){ throw new Error('Supabase configuration is missing.'); }
+      const url = config.url.replace(/\/$/, '') + '/functions/v1/generate-campaign';
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+          'apikey': config.publishableKey
+        },
+        body: JSON.stringify({ business, product, audience, platform, objective, tone: `Professional and engaging; visual aesthetic: ${aesthetic}` })
+      });
+      const result = await response.json().catch(() => ({}));
+      if(!response.ok){
+        if(response.status === 401 || response.status === 403){ message('Your session has expired. Log out and sign in again, then retry.'); return; }
+        if(response.status === 429){ message('Your AI beta limit has been reached. You can generate another campaign after the next UTC day begins.'); return; }
+        throw new Error(typeof result.error === 'string' ? result.error : `Campaign generation failed (HTTP ${response.status}).`);
+      }
+      if(typeof result.campaign !== 'string' || !result.campaign.trim()) throw new Error('No campaign text was returned.');
+      present(result.campaign.trim(),business,platform);
+    }catch(error){
+      console.error('SocialPilot AI campaign request failed:', error.message);
+      message(error.message || 'Could not generate a campaign. Please try again later.');
+    }finally{
+      button.disabled = false;
+      button.textContent = '✦ Generate AI campaign';
+    }
+  }
+  button.addEventListener('click',generate);
 })();
 </script>
 </body></html>

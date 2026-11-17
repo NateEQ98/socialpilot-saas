@@ -87,6 +87,45 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 .month-shell{margin:24px 0 26px;border:1px solid #ffffff24;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#141f3a,#0a1329);box-shadow:0 20px 55px #0005}.month-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 22px;border-bottom:1px solid #ffffff17}.month-toolbar h3{margin:0;font-size:23px;letter-spacing:-.04em}.month-actions{display:flex;align-items:center;gap:9px}.month-btn{border:1px solid #ffffff2b;background:#ffffff0b;color:#e8edff;border-radius:10px;padding:10px 13px;cursor:pointer;font:inherit;font-weight:700}.month-btn:hover,.month-btn:focus-visible{border-color:#9d88ff;background:#8a69ed33}.month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;background:#ffffff14}.month-weekday{text-align:center;background:#131c33;color:#93a4ca;font-size:11px;letter-spacing:.09em;font-weight:800;padding:13px 3px}.month-cell{background:#0f1930;min-height:112px;padding:10px 8px;text-align:left;border:0;color:#e9efff;cursor:pointer;min-width:0;position:relative;display:flex;flex-direction:column;align-items:stretch;gap:7px;font:inherit;transition:background .18s}.month-cell:hover{background:#263258}.month-cell.outside{background:#0c1427;color:#586987}.month-cell.selected{background:#29345d;box-shadow:inset 0 0 0 2px #a28cff}.month-cell.today .day-number{background:#7558df;color:white;border-radius:9px;padding:5px 8px}.day-number{font-size:12px;font-weight:800;align-self:flex-start;padding:5px 8px}.day-post{font-size:10px;line-height:1.4;padding:6px 7px;border-radius:7px;background:#6951d53b;border-left:3px solid #ad92ff;color:#e9ddff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.day-post.tiktok{background:#1a7c8a33;border-color:#55dbe7;color:#a7f3ff}.day-post.facebook{background:#2765bc36;border-color:#5a9eff;color:#b9d7ff}.day-post.linkedin{background:#3873a733;border-color:#79b4e9;color:#c4e3ff}.day-more{font-size:10px;color:#a9b5d6}.month-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:15px 21px;color:#a9b6d6;font-size:12px;border-top:1px solid #ffffff18}.month-legend{display:flex;gap:13px;flex-wrap:wrap}.month-legend span:before{content:'';display:inline-block;width:8px;height:8px;border-radius:3px;background:var(--dot);margin-right:6px}.planner-form{background:#0e1930;border:1px solid #ffffff1c;border-radius:19px;padding:24px;margin-top:20px}.planner-form h3{margin:0 0 7px}.planner-form .planner-fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.planner-form .wide{grid-column:1/-1}.planner-form label{display:block;margin-bottom:7px}.planner-form input,.planner-form select,.planner-form textarea{width:100%}.planner-form .btn{justify-self:start}.planner-subhead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.planner-count{font-size:12px;color:#a3e5ee}.post-cloud-card{background:linear-gradient(120deg,#172443,#101a33)!important;border:1px solid #ffffff21!important;border-left:3px solid #977cff!important;box-shadow:0 8px 28px #0003}.post-cloud-card h3{margin:0}.post-cloud-card p{margin:9px 0;color:#b7c6e4}.post-cloud-card .btn{padding:9px 13px!important;font-size:12px}
 #captions{max-width:1000px;background:radial-gradient(circle at 100% 0%,#0c78943a,transparent 40%),linear-gradient(140deg,#1b2543,#10172d);border-color:#6fd2df55}#captions h2{font-size:clamp(29px,4vw,40px)}.caption-control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.caption-control-grid .full{grid-column:1/-1}.caption-field label{display:block;margin-bottom:7px}.caption-field input,.caption-field textarea,.caption-field select{width:100%}.caption-output{display:none;border:1px solid #7a80e277;border-radius:17px;background:#0a1429;padding:23px;white-space:pre-wrap;line-height:1.8;overflow-wrap:anywhere}.caption-output .caption-tag{color:#84e9e9;font-size:11px;font-weight:800;letter-spacing:.12em}.caption-variants{display:flex;gap:9px;flex-wrap:wrap}.caption-variants button{border:1px solid #ffffff2a;background:#ffffff0b;border-radius:9px;padding:9px 12px;color:#dbe5ff;cursor:pointer}.caption-variants button[aria-pressed=true]{background:#7054cc;border-color:#ac95ff}.caption-actions{display:flex;gap:10px;flex-wrap:wrap}.caption-hint{font-size:12px;color:#a8b7d6}
 @media(max-width:700px){#calendar{padding:18px}.month-cell{min-height:77px;padding:5px 3px;gap:3px}.day-number{font-size:11px;padding:4px}.day-post{font-size:9px;padding:4px 3px}.month-toolbar{padding:15px}.month-toolbar h3{font-size:19px}.month-weekday{font-size:9px;padding:10px 2px}.planner-form{padding:16px}.planner-form .planner-fields,.caption-control-grid{grid-template-columns:1fr}.planner-form .wide,.caption-control-grid .full{grid-column:auto}}
+
+/* SocialPilot visual calendar: editorial dark command center */
+#calendar{max-width:1320px;width:calc(100% - 28px);margin:0 auto 85px;padding:27px;background:linear-gradient(155deg,#12101e,#0b0c1b 58%,#10122a);border:1px solid #3a304f;border-radius:25px;box-shadow:0 30px 100px #0008,0 0 55px #7d39e51a}
+#calendar>h2{font-size:clamp(29px,3vw,44px);margin:10px 0 3px;letter-spacing:-.055em}
+#calendar .month-shell{background:#171520;border-color:#393348;border-radius:19px;overflow:hidden;box-shadow:0 20px 65px #0006}
+#calendar .month-toolbar{background:#15131f;padding:23px 24px}
+#calendar .month-toolbar h3{font-size:clamp(23px,2.5vw,32px)}
+#calendar .month-actions{gap:8px}
+#calendar .month-btn{background:#23202e;border-color:#41374e;border-radius:11px}
+#calendar .month-btn:hover{background:#6827bd}
+#calendar .month-grid{background:#16131e;gap:7px;padding:13px}
+#calendar .month-weekday{background:transparent;color:#aba4b7;font-size:12px;padding:11px}
+#calendar .month-cell{background:#262430;border:1px solid #494452;border-radius:12px;min-height:193px;padding:8px 7px;gap:6px;box-shadow:inset 0 1px #ffffff0b;transition:background .18s,border-color .18s,transform .18s}
+#calendar .month-cell:hover{background:#312b3d;border-color:#ad6aff;transform:translateY(-2px)}
+#calendar .month-cell.outside{opacity:.43;background:#1b1925}
+#calendar .month-cell.selected{border-color:#c15dff;box-shadow:inset 0 0 0 1px #bd65ff,0 0 16px #a044ff38}
+#calendar .month-cell.today .day-number{background:#8c2ddd}
+#calendar .day-number{font-size:13px;padding:4px 6px}
+#calendar .visual-post{border:1px solid #655c6e;border-radius:9px;overflow:hidden;background:#35313f;min-width:0;display:block;text-align:left}
+#calendar .visual-post img{display:block;width:100%;height:82px;object-fit:cover;background:#252039}
+#calendar .visual-post .visual-meta{padding:5px 7px 7px;display:grid;gap:3px}
+#calendar .visual-post .visual-time{display:flex;align-items:center;justify-content:space-between;gap:3px;font-size:10px;color:#d3cde2}
+#calendar .visual-post .visual-title{font-size:10px;color:#e9e5f0;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+#calendar .visual-post .platform-symbol{display:inline-grid;place-items:center;border-radius:5px;padding:1px 4px;background:#7454d9;color:white;font-weight:900;font-size:10px}
+#calendar .visual-post .platform-symbol.tiktok{background:#101015;color:#7df0ec}
+#calendar .visual-post .platform-symbol.facebook{background:#4267bd}
+#calendar .visual-post .platform-symbol.linkedin{background:#286a9d}
+#calendar .visual-post .platform-symbol.instagram{background:#bd398e}
+#calendar .day-more{font-size:10px;padding:4px 5px}
+#calendar .calendar-filterbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:14px 0 5px;padding:13px;background:#1d1a29;border:1px solid #383143;border-radius:13px}
+#calendar .filter-label{font-size:11px;letter-spacing:.08em;font-weight:800;color:#968da9;margin-right:4px}
+#calendar .filter-chip{border:1px solid #4a4158;background:#2a2536;color:#e3ddeb;border-radius:9px;padding:8px 11px;cursor:pointer;font-size:12px;font-weight:700}
+#calendar .filter-chip.active{background:#782ac7;border-color:#b46bf1;color:white}
+#calendar .filter-note{font-size:11px;color:#9c94ad;margin-left:auto}
+#calendar .month-footer{background:#15131e}
+#calendar .planner-form{background:#171523;border-color:#3d344c}
+@media(min-width:900px){#calendar{width:calc(100vw - 44px);max-width:1460px;position:relative;left:50%;transform:translateX(-50%)}#calendar .month-cell{min-height:202px}}
+@media(max-width:850px){#calendar .month-grid{gap:4px;padding:7px}#calendar .month-cell{min-height:125px;padding:5px 3px}#calendar .visual-post img{height:51px}#calendar .visual-post .visual-meta{padding:3px}#calendar .visual-post .visual-title{font-size:9px}#calendar .visual-post .visual-time{font-size:9px}}
+@media(max-width:540px){#calendar{width:calc(100% - 12px);padding:12px;border-radius:15px}#calendar .month-cell{min-height:75px;border-radius:6px;padding:3px 2px}#calendar .month-grid{gap:2px;padding:3px}#calendar .visual-post img{height:37px}#calendar .visual-post .visual-time{font-size:8px}#calendar .visual-post .visual-title{display:none}#calendar .visual-post .visual-meta{padding:2px}#calendar .month-weekday{font-size:9px;padding:7px 0}#calendar .day-number{font-size:10px}#calendar .filter-note{display:none}}
 </style></head><body>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a></div><div class="auth-nav"><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" id="signupBtn" onclick="openAuth('signup')">Sign up</button><button class="btn ghost" type="button" id="logoutBtn" onclick="signOut()" hidden>Log out</button></div></nav>
 <header class="hero" id="top"><div class="pill">✦ YOUR CREATIVE COMMAND CENTER</div><h1>Create content that <span class="grad">turns heads.</span></h1><p>From your first idea to your next great post. Create captions, spark inspiration and plan ahead in one beautiful workspace.</p><div class="actions"><a class="btn" href="#generator">Start creating — it's free →</a><a class="btn ghost" href="#live-demo">Watch the interactive demo ↓</a></div><div class="small">Free preview · No credit card required · No automatic publishing</div></header>
@@ -120,7 +159,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
   <h2>Content Calendar 📅</h2>
   <p>Plan, organize, and manage your upcoming social media posts.</p><p style="font-size:12px">Sign in to save your posts securely to your SocialPilot account and access them on other devices.</p>
 
-  <div class="month-shell"><div class="month-toolbar"><div><span class="studio-kicker">✦ YOUR CONTENT SCHEDULE</span><h3 id="monthTitle">Monthly overview</h3></div><div class="month-actions"><button class="month-btn" type="button" onclick="changeMonth(-1)" aria-label="Previous month">←</button><button class="month-btn" type="button" onclick="jumpToToday()">Today</button><button class="month-btn" type="button" onclick="changeMonth(1)" aria-label="Next month">→</button></div></div><div id="monthGrid" class="month-grid" aria-label="Monthly content calendar"></div><div class="month-footer"><div class="month-legend"><span style="--dot:#ad92ff">Instagram</span><span style="--dot:#55dbe7">TikTok</span><span style="--dot:#5a9eff">Facebook</span><span style="--dot:#79b4e9">LinkedIn</span></div><span id="monthSummary">Select a day to plan a post</span></div></div>
+  <div class="calendar-filterbar" aria-label="Filter posts by platform"><span class="filter-label">PLATFORMS</span><button class="filter-chip active" data-cal-filter="All" type="button" onclick="setCalendarFilter('All')">✦ All</button><button class="filter-chip" data-cal-filter="Instagram" type="button" onclick="setCalendarFilter('Instagram')">◎ Instagram</button><button class="filter-chip" data-cal-filter="TikTok" type="button" onclick="setCalendarFilter('TikTok')">♪ TikTok</button><button class="filter-chip" data-cal-filter="Facebook" type="button" onclick="setCalendarFilter('Facebook')">f Facebook</button><button class="filter-chip" data-cal-filter="LinkedIn" type="button" onclick="setCalendarFilter('LinkedIn')">in LinkedIn</button><span class="filter-note">Photo previews are illustrative</span></div><div class="month-shell"><div class="month-toolbar"><div><span class="studio-kicker">✦ YOUR CONTENT SCHEDULE</span><h3 id="monthTitle">Monthly overview</h3></div><div class="month-actions"><button class="month-btn" type="button" onclick="changeMonth(-1)" aria-label="Previous month">←</button><button class="month-btn" type="button" onclick="jumpToToday()">Today</button><button class="month-btn" type="button" onclick="changeMonth(1)" aria-label="Next month">→</button></div></div><div id="monthGrid" class="month-grid" aria-label="Monthly content calendar"></div><div class="month-footer"><div class="month-legend"><span style="--dot:#ad92ff">Instagram</span><span style="--dot:#55dbe7">TikTok</span><span style="--dot:#5a9eff">Facebook</span><span style="--dot:#79b4e9">LinkedIn</span></div><span id="monthSummary">Select a day to plan a post</span></div></div>
 <div class="planner-form"><div class="planner-subhead"><div><span class="studio-kicker">✦ QUICK COMPOSER</span><h3 id="plannerFormTitle">Create a scheduled post</h3></div><span class="studio-live">● Cloud workspace</span></div>
 <div class="planner-fields" style="margin-top:19px">
 
@@ -362,28 +401,40 @@ function renderPosts() {
 }
 let monthCursor=new Date();
 let selectedCalendarDate='';
+let calendarPlatformFilter='All';
 function localISO(date){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;}
+function setCalendarFilter(platform){calendarPlatformFilter=platform;document.querySelectorAll('[data-cal-filter]').forEach(el=>el.classList.toggle('active',el.dataset.calFilter===platform));renderMonth();}
 function changeMonth(delta){monthCursor=new Date(monthCursor.getFullYear(),monthCursor.getMonth()+delta,1);renderMonth();}
 function jumpToToday(){monthCursor=new Date();selectCalendarDate(localISO(new Date()));renderMonth();}
 function selectCalendarDate(date){selectedCalendarDate=date;document.getElementById('postDate').value=date;document.getElementById('plannerFormTitle').textContent=`Create a post for ${new Date(date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;renderMonth();}
+const calendarPhotos={
+ food:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=75',
+ coffee:'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=500&q=75',
+ beauty:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=500&q=75',
+ fitness:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=75',
+ travel:'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=500&q=75',
+ business:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=500&q=75',
+ product:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=75'
+};
+function calendarPhoto(post){const words=(post.title+' '+(post.caption||'')).toLowerCase();if(/coffee|latte|espresso|cafe|café/.test(words))return calendarPhotos.coffee;if(/food|restaurant|meal|dish|recipe|burger|pizza|lunch|dinner|breakfast/.test(words))return calendarPhotos.food;if(/skin|makeup|beauty|salon|hair|spa/.test(words))return calendarPhotos.beauty;if(/gym|fitness|workout|training|exercise|yoga/.test(words))return calendarPhotos.fitness;if(/trip|travel|vacation|hotel|beach/.test(words))return calendarPhotos.travel;if(/shop|product|launch|sale|sneaker/.test(words))return calendarPhotos.product;return calendarPhotos.business;}
 function renderMonth(){
  const grid=document.getElementById('monthGrid');if(!grid)return;
  grid.replaceChildren();
  const y=monthCursor.getFullYear(),m=monthCursor.getMonth();
  document.getElementById('monthTitle').textContent=new Date(y,m,1).toLocaleDateString('en-US',{month:'long',year:'numeric'});
  ['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(day=>{const el=document.createElement('div');el.className='month-weekday';el.textContent=day;grid.appendChild(el);});
- const start=new Date(y,m,1).getDay();const count=new Date(y,m+1,0).getDate();const cells=Math.ceil((start+count)/7)*7;
- const byDate=new Map();if(calendarUser){cloudPosts.forEach(post=>{if(!byDate.has(post.post_date))byDate.set(post.post_date,[]);byDate.get(post.post_date).push(post);});}
+ const start=new Date(y,m,1).getDay(),count=new Date(y,m+1,0).getDate(),cells=Math.ceil((start+count)/7)*7;
+ const byDate=new Map();if(calendarUser){cloudPosts.filter(p=>calendarPlatformFilter==='All'||p.platform===calendarPlatformFilter).forEach(post=>{if(!byDate.has(post.post_date))byDate.set(post.post_date,[]);byDate.get(post.post_date).push(post);});}
  const today=localISO(new Date());
  for(let i=0;i<cells;i++){
-  const d=new Date(y,m,i-start+1);const iso=localISO(d);const inside=d.getMonth()===m;const posts=byDate.get(iso)||[];
+  const d=new Date(y,m,i-start+1),iso=localISO(d),inside=d.getMonth()===m,posts=byDate.get(iso)||[];
   const btn=document.createElement('button');btn.type='button';btn.className='month-cell'+(!inside?' outside':'')+(iso===today?' today':'')+(iso===selectedCalendarDate?' selected':'');btn.setAttribute('aria-label',`${d.toDateString()}, ${posts.length} planned posts`);btn.onclick=()=>{if(!inside)monthCursor=new Date(d.getFullYear(),d.getMonth(),1);selectCalendarDate(iso);document.querySelector('.planner-form').scrollIntoView({behavior:'smooth',block:'nearest'});};
   const num=document.createElement('span');num.className='day-number';num.textContent=d.getDate();btn.appendChild(num);
-  posts.slice(0,2).forEach(post=>{const pill=document.createElement('span');pill.className='day-post '+(post.platform||'').toLowerCase();pill.textContent=`${post.platform==='Instagram'?'◎':post.platform==='TikTok'?'♪':post.platform==='Facebook'?'f':'in'} ${post.title}`;pill.title=`${post.platform}: ${post.title}`;btn.appendChild(pill);});
-  if(posts.length>2){const more=document.createElement('span');more.className='day-more';more.textContent=`+${posts.length-2} more`;btn.appendChild(more);}
+  posts.slice(0,2).forEach(post=>{const card=document.createElement('span');card.className='visual-post';const img=document.createElement('img');img.src=calendarPhoto(post);img.alt='Illustrative stock photo for '+post.title;img.loading='lazy';img.onerror=()=>{img.style.display='none'};const meta=document.createElement('span');meta.className='visual-meta';const time=document.createElement('span');time.className='visual-time';const platform=document.createElement('span');platform.className='platform-symbol '+(post.platform||'').toLowerCase();platform.textContent=({Instagram:'◎',TikTok:'♪',Facebook:'f',LinkedIn:'in'})[post.platform]||'✦';const status=document.createElement('span');status.textContent='◷ Planned';time.append(status,platform);const title=document.createElement('span');title.className='visual-title';title.textContent=post.title;meta.append(time,title);card.append(img,meta);btn.appendChild(card);});
+  if(posts.length>2){const more=document.createElement('span');more.className='day-more';more.textContent=`+${posts.length-2} more posts`;btn.appendChild(more);}
   grid.appendChild(btn);
  }
- const inMonth=cloudPosts.filter(p=>p.post_date?.startsWith(`${y}-${String(m+1).padStart(2,'0')}-`)).length;
+ const inMonth=cloudPosts.filter(p=>p.post_date?.startsWith(`${y}-${String(m+1).padStart(2,'0')}-`)&&(calendarPlatformFilter==='All'||p.platform===calendarPlatformFilter)).length;
  document.getElementById('monthSummary').textContent=calendarUser?`${inMonth} planned post${inMonth===1?'':'s'} this month · Click any date to create`:'Log in to see your cloud posts · Click a date to prepare a post';
 }
 calendarMessage('Log in to use your cloud calendar. Browser-saved posts have not been changed.');

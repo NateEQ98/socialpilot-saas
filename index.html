@@ -97,6 +97,154 @@ function copyCaption() {
     .catch(() => alert("Copy failed. Please select and copy the caption manually."));
 }
 
+<section class="tool" id="calendar">
+  <span class="pill">CONTENT PLANNER</span>
+  <h2>Content Calendar 📅</h2>
+  <p>Plan, organize, and manage your upcoming social media posts.</p>
+
+  <div style="display:grid;gap:12px;max-width:650px;margin:25px auto;text-align:left">
+
+    <label for="postDate">Publication date</label>
+    <input type="date" id="postDate" style="padding:14px;border-radius:10px">
+
+    <label for="postPlatform">Social media platform</label>
+    <select id="postPlatform" style="padding:14px;border-radius:10px">
+      <option>Instagram</option>
+      <option>TikTok</option>
+      <option>Facebook</option>
+      <option>LinkedIn</option>
+    </select>
+
+    <label for="postTitle">Post title</label>
+    <input id="postTitle" placeholder="e.g. New product launch"
+      style="padding:14px;border-radius:10px">
+
+    <label for="postCaption">Caption or content notes</label>
+    <textarea id="postCaption" placeholder="Write your caption..."
+      style="padding:14px;border-radius:10px;min-height:100px"></textarea>
+
+    <button class="btn" onclick="savePost()">Save Post</button>
+  </div>
+
+  <div style="max-width:750px;margin:30px auto;text-align:left">
+    <h3>Upcoming Content</h3>
+    <div id="savedPosts" style="display:grid;gap:12px"></div>
+  </div>
+</section>
+
+const STORAGE_KEY = "socialpilot_calendar_v1";
+
+function getPosts() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+}
+
+function savePost() {
+  const date = document.getElementById("postDate").value;
+  const platform = document.getElementById("postPlatform").value;
+  const title = document.getElementById("postTitle").value.trim();
+  const caption = document.getElementById("postCaption").value.trim();
+
+  if (!date || !title) {
+    alert("Please enter a date and post title.");
+    return;
+  }
+
+  const posts = getPosts();
+  posts.push({
+    id: crypto.randomUUID(),
+    date,
+    platform,
+    title,
+    caption
+  });
+
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+  } catch {
+    alert("Your browser could not save this post. Check storage permissions.");
+    return;
+  }
+
+  document.getElementById("postTitle").value = "";
+  document.getElementById("postCaption").value = "";
+  renderPosts();
+}
+
+function deletePost(id) {
+  if (!confirm("Delete this post?")) return;
+  const posts = getPosts().filter(post => post.id !== id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+  renderPosts();
+}
+
+function editPost(id) {
+  const post = getPosts().find(post => post.id === id);
+  if (!post) return;
+
+  const title = prompt("Edit post title:", post.title);
+  if (title === null || !title.trim()) return;
+
+  const caption = prompt("Edit caption:", post.caption);
+  if (caption === null) return;
+
+  const posts = getPosts().map(item =>
+    item.id === id ? {...item, title: title.trim(), caption} : item
+  );
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+  renderPosts();
+}
+
+function renderPosts() {
+  const container = document.getElementById("savedPosts");
+  container.replaceChildren();
+
+  const posts = getPosts().sort((a, b) => a.date.localeCompare(b.date));
+
+  if (!posts.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "No posts planned yet. Create your first post above!";
+    container.appendChild(empty);
+    return;
+  }
+
+  posts.forEach(post => {
+    const card = document.createElement("div");
+    card.style.cssText =
+      "background:#10172c;padding:20px;border-radius:14px;border:1px solid #303956";
+
+    const heading = document.createElement("h3");
+    heading.textContent = post.title;
+
+    const details = document.createElement("p");
+    details.textContent = post.date + " • " + post.platform;
+
+    const caption = document.createElement("p");
+    caption.textContent = post.caption;
+
+    const edit = document.createElement("button");
+    edit.className = "btn";
+    edit.textContent = "Edit";
+    edit.onclick = () => editPost(post.id);
+
+    const remove = document.createElement("button");
+    remove.className = "btn";
+    remove.textContent = "Delete";
+    remove.style.marginLeft = "10px";
+    remove.onclick = () => deletePost(post.id);
+
+    card.append(heading, details, caption, edit, remove);
+    container.appendChild(card);
+  });
+}
+
+renderPosts();
+
 <script>
 const ideas={fitness:["Share 3 beginner workout mistakes and how to avoid them.","Create a 15-minute workout challenge for your followers.","Show a simple exercise routine people can do at home."],beauty:["Share 3 skincare tips for beginners.","Create a behind-the-scenes look at your beauty routine.","Explain a common beauty myth."],food:["Show how your most popular dish is prepared.","Share a behind-the-scenes kitchen moment.","Highlight a customer favorite from your menu."],realestate:["Share 3 tips for first-time homebuyers.","Create a home staging checklist.","Explain one common real estate misconception."],other:["Share the story behind your business.","Answer a frequently asked customer question.","Show how your product or service works."]};const previousIdeas={};function generateIdea(){const business=document.getElementById('business').value;const platform=document.getElementById('platform').value;const options=ideas[business];const index=((previousIdeas[business]??-1)+1)%options.length;previousIdeas[business]=index;document.getElementById('result').style.display='block';document.getElementById('resultLabel').textContent=platform+' content idea';document.getElementById('resultText').textContent=options[index]}
 </script></body></html>

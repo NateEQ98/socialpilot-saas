@@ -219,7 +219,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
    <article class="pro-tile"><div class="pro-image"><img loading="lazy" src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="Minimal product photography illustrating a premium product campaign"><span>CAMPAIGN CONCEPT · SAMPLE</span></div><div class="pro-tile-body"><small>02 / CREATIVE STRATEGY</small><h3>From one post to a full story.</h3><p>Example: a five-post product launch sequence with teaser, reveal, behind-the-scenes, customer benefit, and final call to action.</p></div></article>
    <article class="pro-tile"><div class="pro-image"><img loading="lazy" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="Modern creative workspace representing campaign planning"><span>CONTENT BLUEPRINT · SAMPLE</span></div><div class="pro-tile-body"><small>03 / EXECUTION PLAN</small><h3>Know exactly what to create.</h3><p>Example: platform-specific hooks, a shot list, suggested carousel slides, caption angles, and a clear weekly production checklist.</p></div></article>
   </div>
-  <div class="pro-bottom"><p><strong>Pro features are in development.</strong> These are illustrative examples, not generated results or active subscription benefits. Your existing free tools remain available.</p><button class="pro-disabled" type="button" disabled aria-label="SocialPilot Pro is coming soon; subscriptions are not available">✦ Pro access · Coming soon</button></div>
+  <div class="pro-bottom"><p><strong>Pro features are in development.</strong> These are illustrative examples, not generated results or active subscription benefits. Your existing free tools remain available.</p><div style="display:grid;gap:9px;min-width:220px"><button class="btn" type="button" id="socialpilotCheckoutButton">✦ Test Pro checkout · Sandbox</button><span id="socialpilotCheckoutStatus" role="status" aria-live="polite" style="font-size:12px;color:#b7c3de;line-height:1.5">Stripe test mode only — no real charges or Pro unlock yet.</span></div></div>
  </div>
 </section>
 <section class="tool" id="calendar"><div class="command-layout"><aside class="command-sidebar" aria-label="Planner navigation"><div class="command-logo"><span class="command-logo-icon">✦</span><span>Social<span class="command-accent">Pilot</span><small>CREATOR WORKSPACE</small></span></div><div class="command-nav-label">WORKSPACE</div><a class="command-nav-item" href="#top">◈ <span>Overview</span></a><a class="command-nav-item" href="#generator">✧ <span>Idea generator</span></a><a class="command-nav-item" href="#captions">✎ <span>Caption studio</span></a><a class="command-nav-item active" href="#calendar">▦ <span>Content calendar</span></a><div class="command-nav-label" style="margin-top:32px">YOUR PLANNER</div><div class="command-mini-stat"><span>◉ Planned posts</span><strong id="commandTotal">0</strong></div><div class="command-mini-stat"><span>◷ This month</span><strong id="commandMonth">0</strong></div><div class="command-side-bottom"><span class="command-live-dot"></span> Cloud-synced workspace<small>Posts are drafts until you publish them manually.</small></div></aside><div class="command-content"><div class="command-breadcrumb">WORKSPACE <span>/</span> CONTENT CALENDAR <span class="command-version">✦ STUDIO 04</span></div>
@@ -1022,6 +1022,66 @@ initAuth();
       status.textContent='✓ Image ready! You can download it below.';
     }catch(err){console.error('SocialPilot image request:',err);status.textContent=err.message || 'Image generation failed. Please try later.';}
     finally{generate.disabled=false;generate.textContent='✦ Generate AI image';}
+  });
+})();
+</script>
+
+<script>
+/* SocialPilot Pro: authenticated Stripe Sandbox checkout. No secret keys in the browser. */
+(function(){
+  const button = document.getElementById('socialpilotCheckoutButton');
+  const status = document.getElementById('socialpilotCheckoutStatus');
+  if (!button || !status) return;
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('checkout') === 'success') {
+    status.textContent = '✓ Returned from Stripe Sandbox. Subscription confirmation is pending webhook verification; Pro access is not enabled yet.';
+  } else if (params.get('checkout') === 'cancel') {
+    status.textContent = 'Test checkout canceled. No subscription was created by this checkout.';
+  }
+  button.addEventListener('click', async function(){
+    if (!authClient) { status.textContent = 'Authentication is loading. Please try again.'; return; }
+    button.disabled = true;
+    status.textContent = 'Preparing secure test checkout…';
+    try {
+      const { data: { session }, error } = await authClient.auth.getSession();
+      if (error) throw error;
+      if (!session) {
+        status.textContent = 'Log in to your SocialPilot account before subscribing.';
+        openAuth('login');
+        return;
+      }
+      const config = window.SOCIALPILOT_SUPABASE || {};
+      if (!config.url || !config.publishableKey) throw new Error('Supabase configuration is missing.');
+      const response = await fetch(config.url.replace(/\/$/, '') + '/functions/v1/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + session.access_token,
+          'apikey': config.publishableKey
+        },
+        body: JSON.stringify({})
+      });
+      if (response.status === 409) {
+        status.textContent = 'Your account already has an active test subscription.';
+        return;
+      }
+      if (!response.ok) {
+        const message = await response.text();
+        throw new Error(response.status === 401 || response.status === 403
+          ? 'Your login expired. Please sign out and log in again.'
+          : 'Checkout could not start (HTTP ' + response.status + '). ' + message.slice(0, 120));
+      }
+      const result = await response.json();
+      if (typeof result.url !== 'string' || !result.url.startsWith('https://checkout.stripe.com/')) {
+        throw new Error('The checkout service did not return a valid Stripe URL.');
+      }
+      window.location.assign(result.url);
+    } catch (err) {
+      console.error('SocialPilot checkout:', err);
+      status.textContent = err.message || 'Unable to start test checkout.';
+    } finally {
+      button.disabled = false;
+    }
   });
 })();
 </script>

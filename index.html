@@ -1049,13 +1049,15 @@ if(response.status===403){status.textContent='🔒 SocialPilot Pro is required t
     }
     label.textContent = 'Plan: checking subscription…';
     try {
-      const {data, error} = await authClient.from('subscriptions')
+      const {data, error} = await authClient
+.from('live_subscriptions')
+
         .select('status,stripe_price_id,current_period_end')
         .eq('user_id',user.id).maybeSingle();
       if (id !== requestId) return;
       if (error) throw error;
       const active = !!data && ['active','trialing'].includes(data.status)
-        && data.stripe_price_id === 'price_1UcvZ8De5PnYCuZmUwMttUXr'
+        && data.stripe_price_id === 'price_1UdARFDFwF7zj2Pqlaniixib'
         && (!data.current_period_end || new Date(data.current_period_end).getTime() > Date.now());
       if (active) {
         label.textContent = '✓ SocialPilot Pro · Active (Stripe Sandbox)';

@@ -1210,7 +1210,7 @@ button.title = 'Subscriptions are temporarily unavailable while payment setup is
 status.textContent = err.message || 'Unable to start checkout.';
 
     } finally {
-      button.disabled = false;
+      button.disabled = true;
     }
   });
 })();

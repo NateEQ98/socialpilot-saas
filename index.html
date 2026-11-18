@@ -857,7 +857,10 @@ initAuth();
       });
       const result = await response.json().catch(() => ({}));
       if(!response.ok){
-        if(response.status === 401 || response.status === 403){ message('Your session has expired. Log out and sign in again, then retry.'); return; }
+        
+if(response.status === 401){ message('Your session has expired. Log out and sign in again, then retry.'); return; }
+if(response.status === 403){ message('🔒 SocialPilot Pro is required to generate AI campaigns. Upgrade to unlock this feature.'); return; }
+
         if(response.status === 429){ message('Your AI beta limit has been reached. You can generate another campaign after the next UTC day begins.'); return; }
         throw new Error(typeof result.error === 'string' ? result.error : `Campaign generation failed (HTTP ${response.status}).`);
       }

@@ -1158,57 +1158,70 @@ if(response.status===403){status.textContent='🔒 SocialPilot Pro is required t
 </script>
 
 <script>
-/* Read-only Pro subscription detection. Entitlements MUST also be enforced by server-side functions. */
+/* Read-only subscription display. Sandbox status is informational ONLY.
+   Server-side Pro entitlements must NEVER be granted based on sandbox rows. */
 (function(){
   const label = document.getElementById('socialpilotProStatus');
   const checkoutButton = document.getElementById('socialpilotCheckoutButton');
   const planOverview = document.getElementById('myPlanStatus');
   const accountPlan = document.getElementById('accountPlan');
   let requestId = 0;
+  function show(message, overview, account, color, hideCheckout = false) {
+    if (label) { label.textContent = message; label.style.color = color; }
+    if (planOverview) planOverview.textContent = overview;
+    if (accountPlan) accountPlan.textContent = account;
+    if (checkoutButton) checkoutButton.hidden = hideCheckout;
+  }
   async function refresh(user){
     const id = ++requestId;
     if (!label) return;
     if (!user || !authClient) {
-      label.textContent = 'Plan: Free · Log in to check Pro status';
-      if (planOverview) planOverview.textContent = 'Log in to check your subscription.';
-      if (accountPlan) accountPlan.textContent = 'SocialPilot account';
-      if (checkoutButton) checkoutButton.hidden = false;
+      show('Plan: Free · Log in to check Pro status', 'Log in to check your subscription.',
+        'SocialPilot account', '#b7c3de');
       return;
     }
-    label.textContent = 'Plan: checking subscription…';
-    if (planOverview) planOverview.textContent = 'Checking subscription…';
+    show('Plan: checking subscription…', 'Checking subscription…', 'Checking plan…', '#b7c3de');
     try {
-      const {data, error} = await authClient
-.from('live_subscriptions')
-
+      // Live entitlements are checked first and never inferred from test payments.
+      const live = await authClient.from('live_subscriptions')
         .select('status,stripe_price_id,current_period_end')
-        .eq('user_id',user.id).maybeSingle();
+        .eq('user_id', user.id).maybeSingle();
       if (id !== requestId) return;
-      if (error) throw error;
-      const active = !!data && ['active','trialing'].includes(data.status)
-        && data.stripe_price_id === 'price_1UdARFDFwF7zj2Pqlaniixib'
-        && (!data.current_period_end || new Date(data.current_period_end).getTime() > Date.now());
-      if (active) {
-        label.textContent = '✓ SocialPilot Pro · Active';
-        if (planOverview) planOverview.textContent = 'SocialPilot Pro · Active';
-        if (accountPlan) accountPlan.textContent = 'Pro · Active';
-        label.style.color = '#87e4c5';
-        if (checkoutButton) checkoutButton.hidden = true;
+      if (live.error) throw live.error;
+      const liveActive = !!live.data && ['active','trialing'].includes(live.data.status)
+        && live.data.stripe_price_id === 'price_1UdARFDFwF7zj2Pqlaniixib'
+        && (!live.data.current_period_end || new Date(live.data.current_period_end).getTime() > Date.now());
+      if (liveActive) {
+        show('✓ SocialPilot Pro · Active', 'SocialPilot Pro · Active',
+          'Pro · Active', '#87e4c5', true);
+        return;
+      }
+      // RLS must allow authenticated users to SELECT only their own sandbox rows.
+      const test = await authClient.from('sandbox_subscriptions')
+        .select('status,updated_at')
+        .eq('user_id', user.id)
+        .in('status', ['active','trialing'])
+        .order('updated_at', { ascending: false })
+        .limit(1);
+      if (id !== requestId) return;
+      if (test.error) {
+        // A missing sandbox read policy must not break the live/free plan display.
+        console.warn('Sandbox status unavailable:', test.error.message);
+      }
+      if (!test.error && test.data && test.data.length) {
+        show('🧪 Sandbox Pro · Test active',
+          'Sandbox Pro · Test subscription active (no live Pro access)',
+          'Sandbox test · Active', '#9ee9f0');
       } else {
-        label.textContent = 'Plan: Free · No active Pro subscription';
-        if (planOverview) planOverview.textContent = 'Free · No active Pro subscription';
-        if (accountPlan) accountPlan.textContent = 'Free plan';
-        label.style.color = '#b7c3de';
-        if (checkoutButton) checkoutButton.hidden = false;
+        show('Plan: Free · No active Pro subscription',
+          'Free · No active Pro subscription', 'Free plan', '#b7c3de');
       }
     } catch (err) {
       if (id !== requestId) return;
       console.error('SocialPilot subscription status:', err);
-      label.textContent = 'Unable to verify subscription. Refresh to retry.';
-      if (planOverview) planOverview.textContent = 'Unable to verify subscription. Refresh to retry.';
-      if (accountPlan) accountPlan.textContent = 'Status unavailable';
-      label.style.color = '#ffb8bf';
-      if (checkoutButton) checkoutButton.hidden = false;
+      show('Unable to verify subscription. Refresh to retry.',
+        'Unable to verify subscription. Refresh to retry.',
+        'Status unavailable', '#ffb8bf');
     }
   }
   window.socialpilotRefreshProStatus = refresh;
@@ -1223,7 +1236,11 @@ if(response.status===403){status.textContent='🔒 SocialPilot Pro is required t
   if (!button || !status) return;
   const params = new URLSearchParams(window.location.search);
   
-if (params.get('checkout') === 'success') {
+if (params.get('sandbox_checkout') === 'success') {
+  status.textContent = '✓ Stripe Sandbox checkout completed. Test subscription status will appear in My Plan after webhook confirmation; no live Pro access is granted.';
+} else if (params.get('sandbox_checkout') === 'cancel') {
+  status.textContent = 'Stripe Sandbox checkout canceled. No real payment was made.';
+} else if (params.get('checkout') === 'success') {
   status.textContent = '✓ Returned from Stripe. Your payment is being verified. Pro access will activate after confirmation.';
 } else if (params.get('checkout') === 'cancel') {
   status.textContent = 'Checkout canceled. No payment was completed through this checkout.';

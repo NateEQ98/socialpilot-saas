@@ -485,6 +485,94 @@ section[id],header[id]{scroll-margin-top:95px}
 @media(max-width:850px){.sp-flow-frame{grid-template-columns:1fr}.sp-flow-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-right:0;border-bottom:1px solid #ffffff20}.sp-answers{grid-template-columns:1fr;gap:24px}.sp-answers-intro{position:static}}
 @media(max-width:560px){.sp-flow-feature,.sp-answers{padding:0 16px;margin-bottom:70px}.sp-flow-steps{padding:12px;gap:6px}.sp-flow-steps button{grid-template-columns:26px minmax(0,1fr);gap:6px;padding:12px 8px}.sp-flow-index{height:28px;font-size:10px}.sp-flow-tab-arrow{display:none}.sp-flow-steps strong{font-size:11px}.sp-flow-steps small{font-size:9px}.sp-flow-showcase{padding:14px}.sp-flow-visual{height:225px}.sp-flow-detail{display:block}.sp-flow-detail a{margin-top:16px}.sp-flow-overlay{left:16px;bottom:19px}.sp-answers-list summary{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.sp-flow-steps button,.sp-answers-list details{transition:none}}
+
+/* Original, fully self-contained looped UI demonstrations (no external video dependencies) */
+.sp-flow-motion-shell{border:1px solid #8273e85f;border-radius:17px;background:#0a1021;overflow:hidden;box-shadow:0 20px 44px #0006}
+.sp-flow-motion-top{display:flex;align-items:center;justify-content:space-between;gap:9px;border-bottom:1px solid #a6a1e024;background:#141a2e;padding:10px 14px;font-size:9px;letter-spacing:.13em;color:#a6b6d4;font-weight:800}
+.sp-flow-motion-dots{display:flex;gap:5px}.sp-flow-motion-dots i{width:7px;height:7px;border-radius:50%;background:#f9829a}.sp-flow-motion-dots i:nth-child(2){background:#edbd70}.sp-flow-motion-dots i:nth-child(3){background:#6adaba}
+.sp-flow-motion-toggle{background:#ffffff0b;border:1px solid #b5a6e640;border-radius:9px;color:#d7dcf6;cursor:pointer;padding:7px 10px;font:750 10px system-ui,sans-serif;letter-spacing:0}
+.sp-flow-motion-toggle:hover,.sp-flow-motion-toggle:focus-visible{background:#8d71e62a;outline-offset:3px}
+.sp-flow-motion-main{min-height:350px;position:relative;background:radial-gradient(ellipse at 92% 3%,#5a3aa938,transparent 55%),radial-gradient(circle at 5% 94%,#2c7ba926,transparent 40%),#0c1325;overflow:hidden}
+.sp-flow-motion-main:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(#b1bce84d .75px,transparent .75px);background-size:16px 16px}
+.sp-flow-motion-scene{position:relative;z-index:1;padding:18px;min-height:350px}
+.sp-flow-motion-scene[hidden]{display:none!important}
+.sp-motion-stage-label{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px;color:#aee7ff;letter-spacing:.12em;font-size:10px;font-weight:850}
+.sp-motion-stage-chip{color:#c0b5ec;border:1px solid #997ad146;padding:5px 8px;border-radius:99px;font-size:9px;letter-spacing:.05em;white-space:nowrap}
+.sp-motion-line-caption{display:block;color:#93a5ce;font-size:9px;letter-spacing:.12em;font-weight:850;margin-bottom:9px}
+.sp-motion-prompt{border:1px solid #a69be45c;background:#161d39dc;border-radius:13px;padding:14px 16px;animation:spWReveal 8s ease-in-out infinite}
+.sp-motion-prompt-value{display:flex;align-items:center;gap:3px;min-height:31px;color:#f9faff;font-size:clamp(12px,1.5vw,16px);font-weight:720;letter-spacing:-.02em}
+.sp-motion-cursor-line{display:inline-block;white-space:nowrap;overflow:hidden;max-width:0;animation:spWType 8s steps(38,end) infinite}
+.sp-motion-caret{width:2px;height:20px;background:#cbb8ff;animation:spWBlink .75s step-end infinite}
+.sp-motion-prompt-bottom{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:10px;color:#b7c5e2}
+.sp-motion-prompt-bottom>span{padding:5px 9px;background:#ffffff0b;border-radius:7px}
+.sp-motion-status-pulse{color:#7be8d2!important;animation:spWStatus 8s ease-in-out infinite}
+.sp-motion-idea-results{padding-top:15px}
+.sp-motion-result-label{display:flex;justify-content:space-between;gap:10px;margin:0 0 11px;font-size:10px;color:#b8c3e4;font-weight:850;letter-spacing:.05em}
+.sp-motion-result-label span:last-child{color:#7e96bd;font-size:9px;font-weight:500}
+.sp-motion-idea-row{display:grid;grid-template-columns:30px minmax(0,1fr) 18px;gap:11px;align-items:center;padding:10px 11px;margin-top:7px;border:1px solid #ffffff20;border-radius:10px;background:#151e35e8;transform:translateY(16px);opacity:0;animation:spWCards 8s ease-in-out infinite}
+.sp-motion-idea-two{animation-delay:.35s}.sp-motion-idea-three{animation-delay:.7s}
+.sp-motion-idea-number{display:grid;place-items:center;height:30px;border-radius:9px;background:#7961dd30;color:#c6b6ff;font-size:10px;font-weight:850}
+.sp-motion-idea-row strong,.sp-motion-idea-row small{display:block}.sp-motion-idea-row strong{font-size:12px;color:#fff}.sp-motion-idea-row small{font-size:10px;color:#a6b9d6;margin-top:3px;line-height:1.4}
+.sp-motion-check{color:#73e6ce;font-weight:900}
+.sp-motion-caption-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(145px,.7fr);gap:13px}
+.sp-motion-editor,.sp-motion-caption-side{border:1px solid #ffffff28;border-radius:13px;background:#141b34df;padding:13px;min-width:0}
+.sp-motion-tone-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:17px}
+.sp-motion-tone-pills span{font-size:10px;padding:7px 10px;border-radius:8px;border:1px solid #ffffff29;color:#b4bedc}
+.sp-motion-tone-pills span:nth-child(1){animation:spWSelectTone 9s linear infinite}
+.sp-motion-tone-pills span:nth-child(2){animation:spWSelectTone 9s linear 3s infinite}
+.sp-motion-tone-pills span:nth-child(3){animation:spWSelectTone 9s linear 6s infinite}
+.sp-motion-copy-window{position:relative;padding:14px;min-height:190px;border-radius:11px;border:1px solid #8f87db45;background:#0e152b}
+.sp-motion-copy-window p{color:#e4e8fa;font-size:12px;line-height:1.65;margin:0 0 12px;opacity:0;animation:spWWrite 9s ease-in-out infinite}
+.sp-motion-copy-window p:nth-child(2){animation-delay:1.2s}.sp-motion-copy-window p:nth-child(3){animation-delay:2.3s}
+.sp-motion-copy-caret{height:17px;width:2px;background:#7df2e0;animation:spWBlink .7s step-end infinite}
+.sp-motion-caption-side{text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;animation:spWSideFloat 9s ease-in-out infinite}
+.sp-motion-preview-avatar{width:34px;height:34px;display:grid;place-items:center;background:linear-gradient(120deg,#ac70ee,#50b5d1);border-radius:12px}
+.sp-motion-caption-side strong{font-size:11px;color:#fff}.sp-motion-caption-side small{font-size:9px;color:#99a9c9}
+.sp-motion-preview-photo{position:relative;overflow:hidden;flex:1;min-height:150px;width:100%;border-radius:11px;background:radial-gradient(circle at 65% 30%,#b77c57 0%,#65444d 34%,#252044 72%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.sp-motion-cup{font-size:55px;filter:drop-shadow(0 12px 10px #0006);animation:spWSideFloat 4s ease-in-out infinite}
+.sp-motion-preview-photo span{font-weight:900;font-size:11px;line-height:1.2;color:#fff;text-shadow:0 2px 10px #0009}
+.sp-motion-preview-footer{font-size:12px;align-self:flex-start;color:#b2c4e8}
+.sp-motion-campaign-head{display:flex;align-items:start;justify-content:space-between;gap:10px;margin-bottom:17px}
+.sp-motion-campaign-head h3{margin:2px 0 6px;color:#fff;font-size:23px;letter-spacing:-.04em}.sp-motion-campaign-head p{color:#aebedf;margin:0;font-size:11px}
+.sp-motion-pro-badge{font-size:10px;padding:7px 10px;background:#8c67ee2c;border:1px solid #bc95ff62;color:#d2bcff;border-radius:9px;font-weight:900}
+.sp-motion-campaign-grid{display:grid;grid-template-columns:1fr 1fr .95fr;gap:10px}
+.sp-motion-campaign-card,.sp-motion-campaign-art{position:relative;overflow:hidden;min-height:205px;border-radius:13px;border:1px solid #a2a4ee36;padding:15px;background:linear-gradient(150deg,#242248,#131c35);opacity:0;transform:translateY(20px);animation:spWCampaignCards 9s ease-in-out infinite}
+.sp-motion-campaign-second{animation-delay:.55s;background:linear-gradient(150deg,#143950,#191f44)}.sp-motion-campaign-art{animation-delay:1.05s;background:radial-gradient(circle at 65% 25%,#717bea,#292351 55%,#141c3c)}
+.sp-motion-campaign-card span,.sp-motion-campaign-art>span{display:block;font-size:9px;color:#b9dfff;font-weight:850;letter-spacing:.08em;margin-bottom:20px}
+.sp-motion-campaign-card strong,.sp-motion-campaign-art strong{display:block;color:#fff;font-size:16px;line-height:1.18;letter-spacing:-.02em}
+.sp-motion-campaign-card small{display:block;color:#b4c2df;font-size:10px;line-height:1.6;margin-top:13px}
+.sp-motion-card-shine{position:absolute;inset:-70% auto -70% -80%;width:45%;transform:rotate(19deg);background:linear-gradient(90deg,transparent,#ffffff1f,transparent);animation:spWShine 9s ease-in-out infinite}
+.sp-motion-art-orbit{position:absolute;top:25px;left:calc(50% - 45px);border-radius:50%;width:90px;height:90px;border:1px dashed #b6d8ff85;animation:spWOrbit 14s linear infinite}
+.sp-motion-art-product{position:relative;display:grid;place-items:center;margin:16px auto 23px;width:65px;height:65px;border-radius:21px;background:linear-gradient(130deg,#a771ed,#55b7ee);font-size:36px;box-shadow:0 8px 25px #4c87e777;animation:spWSideFloat 4.5s ease-in-out infinite}
+.sp-motion-planner-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
+.sp-motion-planner-header h3{margin:2px 0;color:#fff;font-size:22px;letter-spacing:-.04em}.sp-motion-planner-header>span{font-size:10px;color:#c5cfeb;background:#ffffff0b;border:1px solid #ffffff22;border-radius:9px;padding:9px}
+.sp-motion-calendar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.sp-motion-day{min-width:0;min-height:189px;background:#171f36;border:1px solid #7f90c829;border-radius:11px;padding:9px 7px;display:flex;flex-direction:column;gap:5px}
+.sp-motion-day>strong{color:#8eb5db;font-size:9px;letter-spacing:.06em}.sp-motion-day>span{color:#e8edff;font-size:16px;font-weight:850}
+.sp-motion-calendar-card{min-width:0;margin-top:13px;padding:9px 6px;border:1px solid #b5abf84d;border-radius:9px;background:linear-gradient(145deg,#7758c476,#4a73a93e);opacity:0;transform:translateY(-24px);animation:spWCalendarCard 8s cubic-bezier(.2,.8,.2,1) infinite}
+.sp-motion-calendar-card b,.sp-motion-calendar-card small{display:block;overflow-wrap:anywhere}.sp-motion-calendar-card b{font-size:10px;color:#f9f6ff;line-height:1.3}.sp-motion-calendar-card small{font-size:8px;color:#bfc8ed;margin-top:5px;line-height:1.4}
+.sp-motion-event-two{animation-delay:.75s;background:linear-gradient(145deg,#277e9e5c,#4973b74d)}.sp-motion-event-three{animation-delay:1.5s;background:linear-gradient(145deg,#b65f9e5c,#7c5db14d)}
+.sp-motion-planner-foot{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:15px;color:#a7b8d5;font-size:10px}.sp-motion-planner-foot>span:last-child{margin-left:auto;color:#889dc0}.sp-motion-planner-led{width:7px;height:7px;border-radius:50%;background:#65e1c3}
+.sp-flow-motion-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 15px;border-top:1px solid #ffffff17;color:#8a9ec3;font-size:9px;letter-spacing:.06em}
+.sp-flow-motion-footer i{display:inline-block;width:6px;height:6px;margin-right:5px;background:#64dbc9;border-radius:50%}
+.sp-flow-motion-shell .sp-motion-stage-label{margin-bottom:14px}
+.sp-flow-paused .sp-flow-motion-scene *, .sp-flow-paused .sp-flow-motion-scene *:before,.sp-flow-paused .sp-flow-motion-scene *:after{animation-play-state:paused!important}
+@keyframes spWReveal{0%,7%{opacity:.6;transform:translateY(-5px)}13%,90%{opacity:1;transform:translateY(0)}100%{opacity:.6}}
+@keyframes spWType{0%,8%{max-width:0}32%,86%{max-width:40ch}98%,100%{max-width:0}}
+@keyframes spWBlink{50%{opacity:0}}
+@keyframes spWStatus{0%,32%{opacity:.25}37%,80%{opacity:1}95%,100%{opacity:.25}}
+@keyframes spWCards{0%,33%{opacity:0;transform:translateY(16px)}46%,85%{opacity:1;transform:translateY(0)}95%,100%{opacity:0;transform:translateY(0)}}
+@keyframes spWSelectTone{0%,5%,34%,100%{color:#b4bedc;background:transparent;border-color:#ffffff29}8%,28%{color:#fff;background:#8164de77;border-color:#b69bff} }
+@keyframes spWWrite{0%,10%{opacity:0;transform:translateY(9px)}27%,86%{opacity:1;transform:translateY(0)}95%,100%{opacity:0;transform:translateY(0)}}
+@keyframes spWSideFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes spWCampaignCards{0%,13%{opacity:0;transform:translateY(20px)}27%,83%{opacity:1;transform:translateY(0)}94%,100%{opacity:0;transform:translateY(-3px)}}
+@keyframes spWShine{0%,30%{left:-80%}65%,100%{left:165%}}
+@keyframes spWOrbit{to{transform:rotate(360deg)}}
+@keyframes spWCalendarCard{0%,12%{opacity:0;transform:translateY(-24px)}25%,85%{opacity:1;transform:translateY(0)}97%,100%{opacity:0;transform:translateY(0)}}
+@media(max-width:1000px){.sp-motion-campaign-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sp-motion-campaign-card,.sp-motion-campaign-art{padding:10px}.sp-motion-campaign-card strong,.sp-motion-campaign-art strong{font-size:13px}}
+@media(max-width:600px){.sp-flow-motion-scene{min-height:330px;padding:11px}.sp-flow-motion-main{min-height:330px}.sp-motion-idea-row small{font-size:9px}.sp-motion-caption-layout{grid-template-columns:1fr 110px;gap:7px}.sp-motion-editor,.sp-motion-caption-side{padding:9px}.sp-motion-copy-window{min-height:170px;padding:8px}.sp-motion-copy-window p{font-size:10px}.sp-motion-campaign-grid{gap:5px}.sp-motion-campaign-card,.sp-motion-campaign-art{min-height:195px;padding:8px}.sp-motion-campaign-card strong,.sp-motion-campaign-art strong{font-size:12px}.sp-motion-campaign-card small{font-size:9px}.sp-motion-campaign-head h3{font-size:18px}.sp-motion-day{padding:7px 4px;min-height:165px}.sp-motion-day>span{font-size:13px}.sp-motion-calendar-card{padding:6px 3px}.sp-motion-calendar-card b{font-size:8px}.sp-motion-calendar-card small{font-size:7px}.sp-motion-planner-header h3{font-size:18px}.sp-flow-motion-top>span{display:none}}
+@media(max-width:400px){.sp-motion-campaign-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sp-motion-campaign-art{display:none}.sp-motion-idea-row{padding:8px}.sp-motion-idea-row small{display:none}.sp-motion-tone-pills span{padding:6px}.sp-motion-caption-layout{grid-template-columns:1fr 100px}.sp-motion-copy-window p{line-height:1.45}}
+@media(prefers-reduced-motion:reduce){.sp-flow-motion-scene *,.sp-flow-motion-scene *:before,.sp-flow-motion-scene *:after{animation-duration:.01ms!important;animation-iteration-count:1!important}.sp-motion-idea-row,.sp-motion-copy-window p,.sp-motion-campaign-card,.sp-motion-campaign-art,.sp-motion-calendar-card{opacity:1;transform:none}.sp-motion-cursor-line{max-width:40ch}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pro Preview</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
@@ -513,19 +601,49 @@ section[id],header[id]{scroll-margin-top:95px}
   </div>
 </header>
 <section class="sp-flow-feature" id="workflow" aria-labelledby="spFlowHeading">
- <div class="sp-flow-heading"><span class="sp-flow-label">THE SOCIALPILOT WORKFLOW</span><h2 id="spFlowHeading">One workspace. <span class="grad">Your next four moves.</span></h2><p>From first spark to ready-to-publish drafts. Explore each stage below and jump straight into the tools that are already available.</p></div>
+ <div class="sp-flow-heading"><span class="sp-flow-label">THE SOCIALPILOT WORKFLOW</span><h2 id="spFlowHeading">One workspace. <span class="grad">Your next four moves.</span></h2><p>Watch each stage unfold with original, looping interface demos. Choose a step to explore it, then jump into the live tool.</p></div>
  <div class="sp-flow-frame">
   <div class="sp-flow-steps" role="tablist" aria-label="Explore SocialPilot workflow">
    <button type="button" role="tab" id="spFlowTab0" aria-selected="true" aria-controls="spFlowPanel" data-sp-flow="0"><span class="sp-flow-index">01</span><span><strong>Find the angle</strong><small>Fresh ideas for your audience</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
    <button type="button" role="tab" id="spFlowTab1" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="1" tabindex="-1"><span class="sp-flow-index">02</span><span><strong>Write the words</strong><small>Captions that fit your voice</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
-   <button type="button" role="tab" id="spFlowTab2" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="2" tabindex="-1"><span class="sp-flow-index">03</span><span><strong>Shape the campaign</strong><small>AI strategy & visuals with Pro</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
+   <button type="button" role="tab" id="spFlowTab2" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="2" tabindex="-1"><span class="sp-flow-index">03</span><span><strong>Shape the campaign</strong><small>AI strategy &amp; visuals with Pro</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
    <button type="button" role="tab" id="spFlowTab3" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="3" tabindex="-1"><span class="sp-flow-index">04</span><span><strong>Plan what is next</strong><small>Keep your drafts organized</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
   </div>
   <div class="sp-flow-showcase" id="spFlowPanel" role="tabpanel" aria-labelledby="spFlowTab0" tabindex="0">
-   <div class="sp-flow-showcase-header"><span class="sp-flow-feature-tag" id="spFlowKicker">CONTENT IDEAS · FREE</span><span class="sp-flow-artifact">✦ LIVE TOOL AVAILABLE</span></div>
-   <div class="sp-flow-visual"><img id="spFlowImage" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Illustrative creative workspace" loading="lazy"><div class="sp-flow-visual-scrim"></div><div class="sp-flow-overlay"><span id="spFlowVisualLabel">THE STARTING POINT</span><strong id="spFlowVisualTitle">Find a story people want to see.</strong></div></div>
-   <div class="sp-flow-detail"><div><h3 id="spFlowTitle">An idea you can actually use.</h3><p id="spFlowDescription">Pick your niche and platform. Discover a structured creative concept with a hook, a format, and a clear direction.</p></div><a id="spFlowLink" href="#generator">Try the idea generator <span aria-hidden="true">↗</span></a></div>
-   <div class="sp-flow-notice">Visual demonstration only. The linked tools are real; SocialPilot does not automatically publish to social media.</div>
+    <div class="sp-flow-showcase-header"><span class="sp-flow-feature-tag" id="spFlowKicker">CONTENT IDEAS · FREE</span><span class="sp-flow-artifact">✦ PRODUCT WALKTHROUGH</span></div>
+    <div class="sp-flow-motion-shell">
+      <div class="sp-flow-motion-top"><div class="sp-flow-motion-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>SOCIALPILOT / PRODUCT TOUR</span><button type="button" id="spFlowMotionToggle" class="sp-flow-motion-toggle" aria-label="Pause animation" aria-pressed="false">Ⅱ Pause</button></div>
+      <div class="sp-flow-motion-main">
+        <div class="sp-flow-motion-scene sp-motion-ideas" data-sp-scene="0" aria-label="Animated example of selecting a content brief and receiving three suggested ideas">
+          <div class="sp-motion-stage-label">✦ CONTENT IDEAS <span class="sp-motion-stage-chip">SAMPLE WORKFLOW</span></div>
+          <div class="sp-motion-prompt"><span class="sp-motion-line-caption">YOUR CREATIVE BRIEF</span><div class="sp-motion-prompt-value"><span class="sp-motion-cursor-line">Launch a new iced latte for a café</span><i class="sp-motion-caret" aria-hidden="true"></i></div><div class="sp-motion-prompt-bottom"><span>◎ Instagram</span><span>✦ Launch</span><span class="sp-motion-status-pulse">● Generating concept</span></div></div>
+          <div class="sp-motion-idea-results">
+            <div class="sp-motion-result-label"><span>✦ IDEA DIRECTIONS</span><span>3 concept examples</span></div>
+            <div class="sp-motion-idea-row sp-motion-idea-one"><span class="sp-motion-idea-number">01</span><span><strong>Behind the first sip</strong><small>Open with an irresistible close-up and the story of the new drink</small></span><span class="sp-motion-check">✓</span></div>
+            <div class="sp-motion-idea-row sp-motion-idea-two"><span class="sp-motion-idea-number">02</span><span><strong>A day in the café</strong><small>Show real preparation moments and the people behind the counter</small></span><span class="sp-motion-check">✓</span></div>
+            <div class="sp-motion-idea-row sp-motion-idea-three"><span class="sp-motion-idea-number">03</span><span><strong>Pick your favorite</strong><small>Invite viewers to vote between two seasonal flavors</small></span><span class="sp-motion-check">✓</span></div>
+          </div>
+        </div>
+        <div class="sp-flow-motion-scene sp-motion-captions" data-sp-scene="1" aria-label="Animated caption editor with selectable writing tones" hidden>
+          <div class="sp-motion-stage-label">✎ CAPTION STUDIO <span class="sp-motion-stage-chip">SAMPLE WORKFLOW</span></div>
+          <div class="sp-motion-caption-layout"><div class="sp-motion-editor"><span class="sp-motion-line-caption">WRITING STYLE</span><div class="sp-motion-tone-pills"><span>Friendly</span><span>Bold</span><span>Luxury</span></div><span class="sp-motion-line-caption">CAPTION DRAFT</span><div class="sp-motion-copy-window"><p>Something delicious is brewing. ☕</p><p>Meet your new favorite afternoon ritual: smooth, creamy, and made to brighten your day.</p><p>Which flavor would you try first?</p><div class="sp-motion-copy-caret" aria-hidden="true"></div></div></div><div class="sp-motion-caption-side"><div class="sp-motion-preview-avatar">☕</div><strong>The Daily Coffee</strong><small>Instagram post preview</small><div class="sp-motion-preview-photo"><div class="sp-motion-cup" aria-hidden="true">☕</div><span>YOUR NEXT<br>COFFEE MOMENT.</span></div><div class="sp-motion-preview-footer">♡　◯　↗</div></div></div>
+        </div>
+        <div class="sp-flow-motion-scene sp-motion-campaign" data-sp-scene="2" aria-label="Animated illustrative campaign blueprint and creative tiles" hidden>
+          <div class="sp-motion-stage-label">✦ AI PRO STUDIO <span class="sp-motion-stage-chip">SAMPLE · PRO FEATURE</span></div>
+          <div class="sp-motion-campaign-head"><div><span class="sp-motion-line-caption">CAMPAIGN BLUEPRINT</span><h3>A launch worth sharing.</h3><p>Example creative direction for a new product.</p></div><span class="sp-motion-pro-badge">✧ PRO</span></div>
+          <div class="sp-motion-campaign-grid"><div class="sp-motion-campaign-card sp-motion-campaign-first"><span>01 / THE HOOK</span><strong>Make them stop scrolling.</strong><small>Start with the product, then reveal the story.</small><div class="sp-motion-card-shine"></div></div><div class="sp-motion-campaign-card sp-motion-campaign-second"><span>02 / THE CAPTION</span><strong>The perfect moment, made simple.</strong><small>A clear angle with a natural call to action.</small></div><div class="sp-motion-campaign-art"><div class="sp-motion-art-orbit"></div><div class="sp-motion-art-product">✦</div><span>VISUAL DIRECTION</span><strong>Bold. Minimal.<br>On brand.</strong></div></div>
+        </div>
+        <div class="sp-flow-motion-scene sp-motion-planner" data-sp-scene="3" aria-label="Animated sample planning calendar with draft cards filling the schedule" hidden>
+          <div class="sp-motion-stage-label">▦ CONTENT PLANNER <span class="sp-motion-stage-chip">SAMPLE WORKFLOW</span></div>
+          <div class="sp-motion-planner-header"><div><span class="sp-motion-line-caption">CAMPAIGN CALENDAR</span><h3>Your week, mapped out.</h3></div><span>WEEKLY VIEW <span aria-hidden="true">⌄</span></span></div>
+          <div class="sp-motion-calendar"><div class="sp-motion-day"><strong>MON</strong><span>01</span><div class="sp-motion-calendar-card sp-motion-event-one"><b>✦ New launch</b><small>Instagram · Draft</small></div></div><div class="sp-motion-day"><strong>TUE</strong><span>02</span></div><div class="sp-motion-day"><strong>WED</strong><span>03</span><div class="sp-motion-calendar-card sp-motion-event-two"><b>✎ Story post</b><small>Facebook · Draft</small></div></div><div class="sp-motion-day"><strong>THU</strong><span>04</span></div><div class="sp-motion-day"><strong>FRI</strong><span>05</span><div class="sp-motion-calendar-card sp-motion-event-three"><b>◈ Product focus</b><small>Instagram · Draft</small></div></div></div>
+          <div class="sp-motion-planner-foot"><span class="sp-motion-planner-led"></span> 3 example drafts organized <span>Not published automatically</span></div>
+        </div>
+      </div>
+      <div class="sp-flow-motion-footer"><span><i aria-hidden="true"></i> LOOPING PRODUCT WALKTHROUGH · NOT REAL USER DATA</span><span id="spFlowMotionCount">01 / 04</span></div>
+    </div>
+    <div class="sp-flow-detail"><div><h3 id="spFlowTitle">An idea you can actually use.</h3><p id="spFlowDescription">Pick your niche and platform. Discover a structured creative concept with a hook, format, and direction.</p></div><a id="spFlowLink" href="#generator">Try the idea generator ↗</a></div>
+    <div class="sp-flow-notice">Illustrative UI animation—not a video recording or generated result. The linked tools are real. SocialPilot does not automatically publish to social media.</div>
   </div>
  </div>
 </section>
@@ -1838,41 +1956,52 @@ status.textContent = err.message || 'Unable to start checkout.';
  }));
 })();
 </script><script>
-/* Functional, keyboard-accessible workflow tour: static previews, no API calls. */
+/* Four original, continuously looping interface demos: no requests or paid API calls. */
 (function(){
  const root=document.getElementById('workflow');if(!root)return;
  const tabs=Array.from(root.querySelectorAll('[data-sp-flow]'));
  const panel=root.querySelector('#spFlowPanel');
+ const scenes=Array.from(root.querySelectorAll('[data-sp-scene]'));
+ const toggle=root.querySelector('#spFlowMotionToggle');
  const data=[
- {kicker:'CONTENT IDEAS · FREE',artifact:'✦ LIVE TOOL AVAILABLE',image:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative creative workspace',visualLabel:'THE STARTING POINT',visualTitle:'Find a story people want to see.',title:'An idea you can actually use.',description:'Pick your niche and platform. Discover a structured creative concept with a hook, format, and direction.',link:'#generator',action:'Try the idea generator ↗'},
- {kicker:'CAPTION STUDIO · FREE',artifact:'✦ LIVE TOOL AVAILABLE',image:'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative café product scene',visualLabel:'THE MESSAGE',visualTitle:'Find the right words for the moment.',title:'Make your message sound like you.',description:'Choose a platform, tone, and goal. Refine sample copy before taking it to your channel.',link:'#captions',action:'Open Caption Studio ↗'},
- {kicker:'AI PRO STUDIO · SUBSCRIPTION',artifact:'✦ AI GENERATION AVAILABLE TO PRO',image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative product photograph',visualLabel:'THE CREATIVE DIRECTION',visualTitle:'Bring your concept into focus.',title:'Turn a brief into a campaign.',description:'Use Pro to generate a campaign blueprint and original AI images. Outputs are suggestions to review, not guaranteed results.',link:'#pro-studio',action:'Explore AI Pro Studio ↗'},
- {kicker:'CONTENT PLANNER · FREE ACCOUNT',artifact:'✦ LIVE TOOL AVAILABLE',image:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative desk workspace',visualLabel:'THE PLAN',visualTitle:'Give your next idea a place to live.',title:'Stay organized, not overwhelmed.',description:'Store planned posts and review them on a monthly calendar. Publishing remains manual.',link:'#calendar',action:'Explore the planner ↗'}
+  {kicker:'CONTENT IDEAS · FREE',title:'Find a story worth sharing.',description:'Pick your niche and platform, then explore structured content concepts. This sample animation illustrates the idea workflow.',link:'#generator',action:'Try the idea generator ↗'},
+  {kicker:'CAPTION STUDIO · FREE',title:'Find the words that fit.',description:'Try captions with different tones and review them in an example social-post preview.',link:'#captions',action:'Open Caption Studio ↗'},
+  {kicker:'AI PRO STUDIO · SUBSCRIPTION',title:'Give the campaign a direction.',description:'Pro members can generate campaign blueprints and AI images. This is an illustrative example, not a real generation result.',link:'#pro-studio',action:'Explore AI Pro Studio ↗'},
+  {kicker:'CONTENT PLANNER · FREE ACCOUNT',title:'Turn ideas into a plan.',description:'Keep drafts organized across your calendar so nothing gets lost. SocialPilot does not publish the posts automatically.',link:'#calendar',action:'Explore the planner ↗'}
  ];
- const field=id=>root.querySelector('#'+id);
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ let userPaused=false;
+ function applyMotion(){
+  root.classList.toggle('sp-flow-paused',userPaused);
+  toggle.textContent=userPaused?'▶ Play':'Ⅱ Pause';
+  toggle.setAttribute('aria-label',userPaused?'Play animation':'Pause animation');
+  toggle.setAttribute('aria-pressed',String(userPaused));
+ }
  function select(i,focus=false){
-   const item=data[i];if(!item)return;
-   tabs.forEach((tab,j)=>{tab.setAttribute('aria-selected',String(i===j));tab.tabIndex=i===j?0:-1;});
-   panel.setAttribute('aria-labelledby',tabs[i].id);
-   field('spFlowKicker').textContent=item.kicker;
-   root.querySelector('.sp-flow-artifact').textContent=item.artifact;
-   const image=field('spFlowImage');if(image.getAttribute('src')!==item.image)image.src=item.image;image.alt=item.alt;
-   field('spFlowVisualLabel').textContent=item.visualLabel;
-   field('spFlowVisualTitle').textContent=item.visualTitle;
-   field('spFlowTitle').textContent=item.title;
-   field('spFlowDescription').textContent=item.description;
-   const link=field('spFlowLink');link.href=item.link;link.textContent=item.action;
-   if(focus)tabs[i].focus();
+  const item=data[i];if(!item)return;
+  tabs.forEach((tab,j)=>{tab.setAttribute('aria-selected',String(i===j));tab.tabIndex=i===j?0:-1;});
+  panel.setAttribute('aria-labelledby',tabs[i].id);
+  scenes.forEach((scene,j)=>{scene.hidden=i!==j;});
+  root.querySelector('#spFlowKicker').textContent=item.kicker;
+  root.querySelector('#spFlowTitle').textContent=item.title;
+  root.querySelector('#spFlowDescription').textContent=item.description;
+  root.querySelector('#spFlowMotionCount').textContent=String(i+1).padStart(2,'0')+' / 04';
+  const link=root.querySelector('#spFlowLink');link.href=item.link;link.textContent=item.action;
+  if(focus)tabs[i].focus();
  }
  tabs.forEach((tab,i)=>{
-   tab.addEventListener('click',()=>select(i));
-   tab.addEventListener('keydown',e=>{
-     if(!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(e.key))return;
-     e.preventDefault();
-     const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowDown'||e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
-     select(next,true);
-   });
+  tab.addEventListener('click',()=>select(i));
+  tab.addEventListener('keydown',e=>{
+   if(!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(e.key))return;
+   e.preventDefault();
+   const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowDown'||e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+   select(next,true);
+  });
  });
+ toggle.addEventListener('click',()=>{userPaused=!userPaused;applyMotion();});
+ // Respect the user's reduced-motion preference on load.
+ if(reduced.matches)userPaused=true;
+ applyMotion();
  select(0);
 })();
 </script></body></html>

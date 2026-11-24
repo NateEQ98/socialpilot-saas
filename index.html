@@ -1005,6 +1005,7 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
 /* Real AI image creator — separate from illustrative preview assets. */
 #spImageStudio{margin:0 30px 30px;border:1px solid #8168c5;border-radius:18px;background:linear-gradient(140deg,#1b1b35,#11192c);padding:22px}
 #spImageStudio h3{margin:8px 0;font-size:22px}#spImageStudio p{color:#b9c2df;line-height:1.6;font-size:13px}
+#spImageStudio .sp-create-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:22px}#spImageStudio .sp-create-form{display:grid;gap:14px;align-content:start;background:#101326;border:1px solid #ffffff20;border-radius:16px;padding:20px}#spImageStudio .sp-create-form label{display:grid;gap:8px}#spImageStudio textarea,#spImageStudio select{width:100%}#spImageStudio textarea{resize:vertical;min-height:145px}#spImageStudio .sp-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}#spImageStudio .sp-canvas{display:grid;align-content:center;justify-items:center;min-height:330px;background:#0c1020;border:1px dashed #77639f;border-radius:16px;padding:20px;text-align:center}#spImageStudio .sp-placeholder{color:#a9a3c5;max-width:260px}#spImageStudio .sp-placeholder strong{display:block;color:#e5d9ff;font-size:18px;margin:12px 0}#spImageStudio .sp-image-preview{width:100%;margin:0}#spImageStudio .sp-image-controls .btn{width:100%}#spImageStudio .sp-image-controls .sp-image-status{width:100%}@media(max-width:790px){#spImageStudio .sp-create-grid,#spImageStudio .sp-options{grid-template-columns:1fr}}
 #spImageStudio .sp-image-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:15px}
 #spImageStudio .sp-image-status{color:#a8b8db;font-size:13px;overflow-wrap:anywhere}
 #spImageStudio .sp-image-preview{margin-top:18px;display:none;max-width:560px}
@@ -1021,8 +1022,8 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
   const panel=document.createElement('section');
   panel.id='spImageStudio';
   const eyebrow=document.createElement('div');eyebrow.className='ps-eyebrow';eyebrow.textContent='✦ AI IMAGE STUDIO · PRO FEATURE';
-  const title=document.createElement('h3');title.textContent='Create a real promotional image';
-  const description=document.createElement('p');description.textContent='Uses the Business, Product and Platform fields above. Generates one 1024 × 1024 image. Image generation uses paid API credits and has a separate daily limit.';
+  const title=document.createElement('h3');title.textContent='Create anything you imagine';
+  const description=document.createElement('p');description.textContent='Describe your vision, choose a style and format, and create an original AI image. Generation uses paid API credits and has a separate daily limit.';
   const controls=document.createElement('div');controls.className='sp-image-controls';
   const generate=document.createElement('button');generate.className='btn';generate.type='button';generate.textContent='✦ Generate AI image';
   const status=document.createElement('span');status.className='sp-image-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');
@@ -1039,7 +1040,21 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
   const refresh=document.createElement('button');refresh.className='btn ghost';refresh.type='button';refresh.textContent='↻ Refresh saved images';refresh.style.marginBottom='12px';
   const libraryGrid=document.createElement('div');libraryGrid.className='sp-library-grid';
   library.append(libraryTitle,refresh,libraryNote,libraryGrid);
-  panel.append(eyebrow,title,description,controls,preview,library);
+  const layout=document.createElement('div');layout.className='sp-create-grid';
+  const form=document.createElement('div');form.className='sp-create-form';
+  const promptLabel=document.createElement('label');promptLabel.textContent='Describe your image';
+  const prompt=document.createElement('textarea');prompt.id='spImagePrompt';prompt.maxLength=1500;prompt.placeholder='Example: A luxury iced coffee on a marble table, warm morning sunlight, elegant product photography…';promptLabel.append(prompt);
+  const count=document.createElement('small');count.className='muted';count.textContent='0 / 1500';prompt.addEventListener('input',()=>count.textContent=prompt.value.length+' / 1500');
+  const options=document.createElement('div');options.className='sp-options';
+  function choice(label,items){const wrapper=document.createElement('label');wrapper.textContent=label;const select=document.createElement('select');for(const [value,name] of items){const option=document.createElement('option');option.value=value;option.textContent=name;select.append(option);}wrapper.append(select);options.append(wrapper);return select;}
+  const style=choice('Image style',[['auto','Auto'],['photography','Professional photography'],['cinematic','Cinematic'],['realistic','Photorealistic'],['minimalist','Minimalist'],['digital art','Digital art'],['illustration','Illustration'],['3D render','3D render']]);
+  const size=choice('Image format',[['1024x1024','Square · 1:1'],['1024x1536','Portrait · 2:3'],['1536x1024','Landscape · 3:2']]);
+  const note=document.createElement('small');note.className='muted';note.textContent='Custom prompts and formats require the updated image service.';
+  form.append(promptLabel,count,options,note,controls);
+  const canvas=document.createElement('div');canvas.className='sp-canvas';
+  const placeholder=document.createElement('div');placeholder.className='sp-placeholder';placeholder.innerHTML='<span style="font-size:42px">✧</span><strong>Your creation appears here</strong><p>Describe an image and select Generate AI image to get started.</p>';
+  canvas.append(placeholder,preview);layout.append(form,canvas);
+  panel.append(eyebrow,title,description,layout,library);
   history.before(panel);
   let currentImage='';
   const bucket='campaign-images';
@@ -1112,7 +1127,7 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
     if(!authClient)return;
     const {data:{session}}=await authClient.auth.getSession();
     const id=session?.user?.id||null;
-    if(id!==lastUserId){lastUserId=id;currentImage='';preview.style.display='none';loadSavedImages();}
+    if(id!==lastUserId){lastUserId=id;currentImage='';preview.style.display='none';placeholder.hidden=false;loadSavedImages();}
   },4000);
   download.addEventListener('click',()=>{
     if(!currentImage)return;
@@ -1120,10 +1135,12 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
     document.body.append(a);a.click();a.remove();
   });
   generate.addEventListener('click',async()=>{
+    if(!window.SOCIALPILOT_CUSTOM_IMAGE_READY){status.textContent='Custom image generation is temporarily unavailable while the image service is updated.';return;}
     const business=document.getElementById('psBrand').value.trim();
     const product=document.getElementById('psOffer').value.trim();
     const platform=document.getElementById('psPlatform').value;
-    if(!business || !product){status.textContent='Enter your business and product in Pro Studio first.';return;}
+    const customPrompt=prompt.value.trim();
+    if(!customPrompt){status.textContent='Describe the image you want to create first.';prompt.focus();return;}
     if(!authClient){status.textContent='Sign-in is still loading. Please try again.';return;}
     generate.disabled=true;generate.textContent='✦ Creating image…';
     status.textContent='Generating your image. This can take a minute.';
@@ -1134,7 +1151,7 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
       if(!config.url || !config.publishableKey)throw new Error('Supabase configuration is missing.');
       const response=await fetch(config.url.replace(/\/$/,'')+'/functions/v1/generate-image',{
         method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+session.access_token,'apikey':config.publishableKey},
-        body:JSON.stringify({business,product,platform})
+        body:JSON.stringify({business,product,platform,prompt:customPrompt,style:style.value,size:size.value})
       });
       const result=await response.json().catch(()=>({}));
       if(!response.ok){
@@ -1145,10 +1162,12 @@ if(response.status===403){status.textContent='🔒 SocialPilot Pro is required t
 
         throw new Error(typeof result.error==='string'?result.error:'Image request failed (HTTP '+response.status+').');
       }
+      if(result.customPromptSupported!==true)throw new Error('Image service needs the custom prompt update before this image can be displayed.');
       if(typeof result.image!=='string' || !result.image.startsWith('data:image/png;base64,'))throw new Error('The image service returned an invalid image.');
       currentImage=result.image;
       img.src=currentImage;
-      img.alt='AI-generated promotional image for '+business;
+      img.alt='AI-generated image';
+      placeholder.hidden=true;
       preview.style.display='block';
       status.textContent='✓ Image ready! You can download it below.';
     }catch(err){console.error('SocialPilot image request:',err);status.textContent=err.message || 'Image generation failed. Please try later.';}

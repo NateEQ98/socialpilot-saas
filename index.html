@@ -573,7 +573,102 @@ section[id],header[id]{scroll-margin-top:95px}
 @media(max-width:600px){.sp-flow-motion-scene{min-height:330px;padding:11px}.sp-flow-motion-main{min-height:330px}.sp-motion-idea-row small{font-size:9px}.sp-motion-caption-layout{grid-template-columns:1fr 110px;gap:7px}.sp-motion-editor,.sp-motion-caption-side{padding:9px}.sp-motion-copy-window{min-height:170px;padding:8px}.sp-motion-copy-window p{font-size:10px}.sp-motion-campaign-grid{gap:5px}.sp-motion-campaign-card,.sp-motion-campaign-art{min-height:195px;padding:8px}.sp-motion-campaign-card strong,.sp-motion-campaign-art strong{font-size:12px}.sp-motion-campaign-card small{font-size:9px}.sp-motion-campaign-head h3{font-size:18px}.sp-motion-day{padding:7px 4px;min-height:165px}.sp-motion-day>span{font-size:13px}.sp-motion-calendar-card{padding:6px 3px}.sp-motion-calendar-card b{font-size:8px}.sp-motion-calendar-card small{font-size:7px}.sp-motion-planner-header h3{font-size:18px}.sp-flow-motion-top>span{display:none}}
 @media(max-width:400px){.sp-motion-campaign-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sp-motion-campaign-art{display:none}.sp-motion-idea-row{padding:8px}.sp-motion-idea-row small{display:none}.sp-motion-tone-pills span{padding:6px}.sp-motion-caption-layout{grid-template-columns:1fr 100px}.sp-motion-copy-window p{line-height:1.45}}
 @media(prefers-reduced-motion:reduce){.sp-flow-motion-scene *,.sp-flow-motion-scene *:before,.sp-flow-motion-scene *:after{animation-duration:.01ms!important;animation-iteration-count:1!important}.sp-motion-idea-row,.sp-motion-copy-window p,.sp-motion-campaign-card,.sp-motion-campaign-art,.sp-motion-calendar-card{opacity:1;transform:none}.sp-motion-cursor-line{max-width:40ch}}
-</style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
+</style>
+<style id="sp-luxury-2026">
+/* SocialPilot premium design system — visual presentation only */
+:root{--sp-ink:#070b15;--sp-border:rgba(185,183,232,.17);--sp-glow:#8374ff;--sp-cyan:#6ce0e6}
+body{background:radial-gradient(ellipse at 50% -7%,rgba(89,59,145,.30),transparent 40%),radial-gradient(ellipse at 95% 27%,rgba(35,70,120,.17),transparent 34%),#080b16}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(183,185,235,.35) .6px,transparent .8px);background-size:22px 22px;opacity:.12;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+::selection{background:#8b70f3;color:white}
+.sp-hero-pro{padding:92px 0 76px;overflow:visible}
+.sp-hero-pro h1{font-size:clamp(44px,5.45vw,74px);max-width:660px;line-height:1.035;text-wrap:balance}
+.sp-hero-copy>p:not(.sp-hero-disclaimer){font-size:16px;max-width:500px}
+.sp-hero-overline{background:linear-gradient(90deg,rgba(126,92,222,.17),rgba(75,128,188,.10));border-color:rgba(173,160,244,.33)}
+.sp-hero-primary{border:1px solid rgba(200,192,255,.25);box-shadow:0 13px 45px rgba(113,86,238,.35),inset 0 1px rgba(255,255,255,.25);position:relative;overflow:hidden}
+.sp-hero-primary::before,.sp-price-primary::before{content:"";position:absolute;inset:0 auto 0 -75%;width:35%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.23),transparent);animation:spLuxShine 7s ease-in-out infinite;pointer-events:none}
+.sp-hero-pro .sp-hero-value-strip{padding-top:15px;border-top:1px solid rgba(226,218,255,.09);max-width:510px}
+.sp-hero-preview-window{border-color:rgba(182,168,251,.35);box-shadow:0 35px 100px rgba(0,0,0,.65),0 0 70px rgba(106,73,202,.14),inset 0 1px rgba(255,255,255,.10)}
+.sp-hero-content-visual img{animation:spLuxImage 12s ease-in-out infinite alternate}
+.sp-hero-preview-window::before{content:"";position:absolute;pointer-events:none;inset:0;border-radius:inherit;border:1px solid rgba(255,255,255,.065)}
+.sp-showcase-orbit{position:absolute;width:78%;height:90%;right:-10%;top:2%;border:1px solid rgba(114,129,230,.15);border-radius:50%;pointer-events:none;transform:rotate(-20deg)}
+.sp-showcase-orbit::before,.sp-showcase-orbit::after{content:"";position:absolute;width:8px;height:8px;background:#9a87ff;border-radius:50%;box-shadow:0 0 24px #9a87ff;left:18%;top:12%}
+.sp-showcase-orbit::after{width:5px;height:5px;left:auto;top:auto;right:14%;bottom:10%;background:#6be4e8}
+.sp-showcase-float{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;min-width:190px;max-width:245px;padding:10px 13px;background:rgba(18,24,45,.92);border:1px solid rgba(182,181,250,.32);border-radius:15px;box-shadow:0 18px 60px rgba(0,0,0,.53),inset 0 1px rgba(255,255,255,.10);backdrop-filter:blur(18px);pointer-events:none;animation:spLuxFloat 5.2s ease-in-out infinite}
+.sp-showcase-float-one{right:-22px;top:9%}
+.sp-showcase-float-two{left:-23px;bottom:9%;animation-delay:-2.6s}
+.sp-showcase-float strong,.sp-showcase-float small{display:block}
+.sp-showcase-float strong{font-size:11px;color:#fff}
+.sp-showcase-float small{font-size:9px;color:#9caed2;margin-top:3px}
+.sp-float-icon{width:35px;height:35px;border-radius:11px;background:linear-gradient(135deg,#9160e6,#596eea);display:grid;place-items:center;flex-shrink:0;color:white}
+.sp-float-icon-cyan{background:linear-gradient(135deg,#4f96e1,#51ced6)}
+.sp-float-signal{margin-left:auto;width:7px;height:7px;background:#6be4c3;border-radius:50%;box-shadow:0 0 0 4px rgba(107,228,195,.1)}
+.sp-marquee-band{position:relative;overflow:hidden;padding:16px 0;margin:0 -16px 70px;border-top:1px solid rgba(153,154,211,.12);border-bottom:1px solid rgba(153,154,211,.12);background:linear-gradient(90deg,rgba(22,23,43,.32),rgba(35,35,65,.5),rgba(22,23,43,.32));mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent)}
+.sp-marquee-track{display:flex;align-items:center;gap:55px;width:max-content;animation:spLuxMarquee 42s linear infinite}
+.sp-marquee-track span{font-size:10px;letter-spacing:.16em;font-weight:850;color:#9bacca;white-space:nowrap}
+.sp-marquee-track span:nth-child(3n){color:#baa1f6}
+.nav{background:rgba(11,13,29,.87);border-bottom-color:rgba(170,159,232,.18);box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.navlinks a,.auth-nav .btn,.account-trigger{transition:transform .2s,background .2s,color .2s,border-color .2s}
+.navlinks a:hover{color:#d7c7ff}
+#workflow .sp-flow-frame,.premium-shell,.sp-lab-shell,#pro-studio .ps-shell,.pro-panel{box-shadow:0 30px 100px rgba(0,0,0,.34),0 0 50px rgba(92,72,175,.08)}
+#workflow .sp-flow-frame,#real-videos .sp-lab-shell{border-color:rgba(170,155,246,.28)}
+#workflow .sp-flow-steps button,#workflow .sp-flow-showcase,#real-videos .sp-lab-stage{transition:background .25s,border-color .25s,box-shadow .25s}
+#workflow .sp-flow-steps button[aria-selected="true"]{box-shadow:inset 3px 0 #ad93ff,0 8px 28px rgba(72,45,145,.16)}
+#workflow .sp-flow-motion-shell{border-color:rgba(176,160,249,.28);box-shadow:0 24px 65px rgba(0,0,0,.4)}
+.sp-conversion-cta{position:relative;isolation:isolate;overflow:hidden;max-width:1160px;margin:64px auto 85px;padding:75px 30px;text-align:center;border-radius:30px;background:radial-gradient(ellipse at 50% 100%,rgba(97,81,214,.22),transparent 60%),linear-gradient(140deg,#141a31,#181426 60%,#0e172a);border:1px solid rgba(173,148,244,.35);box-shadow:0 35px 100px rgba(0,0,0,.3)}
+.sp-conversion-glow{position:absolute;inset:-15% 17% auto;height:75%;background:radial-gradient(ellipse,rgba(117,79,228,.28),transparent 67%);filter:blur(36px);z-index:-1;pointer-events:none}
+.sp-conversion-eyebrow,.sp-pricing-eyebrow{font-size:10px;letter-spacing:.19em;font-weight:900;color:#bda8f8}
+.sp-conversion-cta h2{font-size:clamp(36px,6vw,70px);line-height:1.05;letter-spacing:-.06em;color:white;margin:19px 0}
+.sp-conversion-cta>p{color:#b9c4e2;max-width:500px;margin:0 auto 25px;line-height:1.75}
+.sp-conversion-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.sp-conversion-outline{font-size:13px;font-weight:800;border:1px solid rgba(190,179,238,.35);border-radius:12px;padding:14px 19px;background:rgba(255,255,255,.045);transition:border-color .2s,background .2s}
+.sp-conversion-outline:hover{background:rgba(142,102,245,.12);border-color:rgba(205,180,255,.7)}
+.sp-conversion-cta>small{display:block;margin-top:25px;color:#8393ba;font-size:11px}
+.pro-panel{border-color:rgba(173,151,251,.30)}
+.pro-head h2{font-size:clamp(34px,5vw,55px)}
+.pro-cinema,.pro-tile{box-shadow:0 24px 64px rgba(0,0,0,.3)}
+.sp-pricing-intro{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:40px 28px 15px;border-top:1px solid rgba(180,167,239,.2);padding:32px 4px 0}
+.sp-pricing-intro h3{font-size:clamp(26px,3.5vw,41px);letter-spacing:-.045em;margin:12px 0;color:white;line-height:1.12}
+.sp-pricing-intro h3 em{font-style:normal;color:#ad9dff}
+.sp-pricing-intro p{max-width:600px;color:#9eaed4;line-height:1.7;font-size:13px}
+.sp-pricing-sigil{font-size:54px;display:grid;place-items:center;flex:0 0 84px;width:84px;height:84px;border:1px solid rgba(193,161,255,.38);border-radius:25px;background:linear-gradient(135deg,rgba(116,86,222,.28),rgba(83,145,232,.10));color:#cab1ff;box-shadow:0 15px 42px rgba(102,56,191,.13)}
+.sp-premium-pricing{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.93fr);gap:0;border:1px solid rgba(175,156,240,.34);border-radius:24px;margin:0 28px 27px;padding:0!important;background:radial-gradient(ellipse at 100% 0%,rgba(122,74,220,.2),transparent 48%),#11172b;box-shadow:0 24px 85px rgba(0,0,0,.25);overflow:hidden}
+.sp-price-details{padding:31px}
+.sp-price-plan{display:flex;align-items:center;gap:8px;color:#d8caff;font-size:10px;letter-spacing:.13em;font-weight:850}
+.sp-price-plan>span:last-child{margin-left:auto;color:#8da3c4;letter-spacing:.07em}
+.sp-price-plan-dot{display:inline-block;flex:0 0 7px;width:7px;height:7px;background:#80dfc3;border-radius:50%;box-shadow:0 0 0 4px rgba(128,223,195,.09)}
+.sp-price-number{display:flex;align-items:baseline;gap:9px;margin:22px 0 10px;color:white}
+.sp-price-number strong{font-size:clamp(45px,5vw,64px);letter-spacing:-.07em;line-height:1;font-weight:850}
+.sp-price-number span{color:#9caacb;font-size:14px}
+.sp-price-blurb{color:#bdc6df!important;font-size:13px!important;line-height:1.7!important;max-width:420px}
+.sp-price-features{margin-top:25px;padding-top:22px;border-top:1px solid rgba(202,200,255,.11);display:grid;gap:13px}
+.sp-price-features>div{display:flex;align-items:center;gap:12px;font-size:12px;color:#dce3f8;line-height:1.5}
+.sp-feature-check{width:24px;height:24px;display:grid;place-items:center;background:rgba(92,199,191,.1);color:#7de2d2;border:1px solid rgba(117,224,213,.22);border-radius:50%;flex:0 0 24px;font-size:11px;font-weight:900}
+.sp-price-action-panel{position:relative;display:flex;flex-direction:column;justify-content:center;gap:11px;padding:31px;border-left:1px solid rgba(182,170,242,.18);background:radial-gradient(ellipse at 100% 0%,rgba(132,82,229,.2),transparent 63%),rgba(255,255,255,.017)}
+.sp-price-label-top{display:flex;align-items:center;gap:9px;color:#beb1f4;font-size:10px;letter-spacing:.10em}
+.sp-price-shine{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(145deg,#8d55e5,#5a75da);color:white;letter-spacing:0}
+.sp-price-action-panel h4{color:white;margin:4px 0;font-size:clamp(21px,2.8vw,30px);letter-spacing:-.035em;line-height:1.2}
+.sp-price-action-panel p{color:#abb8d8;font-size:12px;line-height:1.7;max-width:420px}
+.sp-price-primary{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:55px;font:800 13px system-ui,sans-serif;border:1px solid rgba(234,219,255,.21);overflow:hidden;background:linear-gradient(110deg,#924bf0,#6c60eb 65%,#5689f2);box-shadow:0 14px 40px rgba(99,66,215,.35)}
+.sp-price-primary[hidden]{display:none!important}
+.sp-price-status{font-size:11px;color:#b9c7e7;line-height:1.5}
+.sp-price-trust{display:flex;gap:13px 20px;flex-wrap:wrap;border-top:1px solid rgba(180,173,238,.13);margin-top:9px;padding-top:15px;font-size:10px;color:#a9b8d4}
+.sp-price-trust span span{color:#70e1d1;margin-right:5px}
+.sp-price-terms{grid-column:1/-1;padding:16px 30px;border-top:1px solid rgba(189,173,247,.16);color:#95a4c2;font-size:11px;line-height:1.75}
+.sp-price-terms strong{color:#d3dcee}
+.sp-price-terms a{color:#c7b8ff;text-decoration:underline;text-underline-offset:3px}
+.card,.pro-tile,.sp-motion-card,.ps-card{transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.card:hover,.pro-tile:hover,.sp-motion-card:hover{transform:translateY(-5px);border-color:rgba(167,151,253,.48);box-shadow:0 24px 70px rgba(0,0,0,.42)}}
+.sp-lux-reveal{opacity:0;transform:translateY(24px);transition:opacity .72s ease,transform .72s cubic-bezier(.2,.7,.2,1)}
+.sp-lux-reveal.sp-lux-visible{opacity:1;transform:none}
+@keyframes spLuxMarquee{to{transform:translateX(-50%)}}
+@keyframes spLuxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes spLuxShine{0%,52%{left:-75%}73%,100%{left:160%}}
+@keyframes spLuxImage{from{transform:scale(1)}to{transform:scale(1.06)}}
+@media(max-width:900px){.sp-showcase-float-one{right:-8px}.sp-showcase-float-two{left:-9px}.sp-marquee-band{margin-bottom:45px}.sp-premium-pricing{grid-template-columns:1fr}.sp-price-action-panel{border-left:0;border-top:1px solid rgba(182,170,242,.18)}}
+@media(max-width:700px){.sp-hero-pro{padding-top:44px;padding-bottom:48px}.sp-showcase-float{display:none}.sp-showcase-orbit{display:none}.sp-marquee-band{margin-left:-24px;margin-right:-24px}.sp-pricing-intro{margin:25px 16px 12px}.sp-pricing-sigil{display:none}.sp-premium-pricing{margin:0 14px 23px}.sp-price-details,.sp-price-action-panel{padding:22px}.sp-price-terms{padding:16px 22px}.sp-conversion-cta{margin:48px 16px 65px;padding:50px 20px}.sp-conversion-outline{width:100%}.sp-conversion-actions>.btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.sp-lux-reveal{opacity:1;transform:none;transition:none}.sp-marquee-track,.sp-showcase-float,.sp-hero-content-visual img,.sp-hero-primary::before,.sp-price-primary::before{animation:none}}
+</style>
+</head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pro Preview</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
 <header class="hero sp-hero-pro" id="top">
@@ -2023,4 +2118,19 @@ status.textContent = err.message || 'Unable to start checkout.';
  applyMotion();
  select(0);
 })();
-</script></body></html>
+</script><script id="sp-luxury-effects">
+/* Decorative animation only; does not touch authentication, payments or API requests. */
+(function(){
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ if(reduced.matches)return;
+ const sections=Array.from(document.querySelectorAll('.sp-hero-pro,.sp-flow-feature,.premium-shell,.motion-section,.showcase,.how-section,.sp-lab-section,.sectionhead,.pro-gallery,.sp-pricing-intro,.sp-premium-pricing,.sp-answers,.sp-conversion-cta'));
+ if(!('IntersectionObserver' in window))return;
+ const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('sp-lux-visible');observer.unobserve(entry.target);}
+ })},{rootMargin:'0px 0px 80px 0px',threshold:.06});
+ sections.forEach(section=>{section.classList.add('sp-lux-reveal');observer.observe(section);});
+ // Keep the currently visible area visible on page restores or anchor navigation.
+ requestAnimationFrame(()=>sections.forEach(el=>{const rect=el.getBoundingClientRect();if(rect.top<innerHeight*.85&&rect.bottom>0){el.classList.add('sp-lux-visible');observer.unobserve(el);}}));
+})();
+</script>
+</body></html>

@@ -217,6 +217,18 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 #calendar .demo-notice[hidden]{display:none}#calendar.demo-active .visual-post{border-color:#8d5ab7}#calendar .demo-tag{font-size:9px;font-weight:900;color:#f5d5ff;background:#7d2eb3;border-radius:5px;padding:3px 5px;align-self:flex-start}
 #calendar .demo-month-label{font-size:11px;color:#cf9bff;letter-spacing:.12em;font-weight:800;margin-top:5px}
 @media(max-width:540px){#calendar .demo-switchbar{padding:12px}#calendar .demo-switch{padding:9px}}
+
+/* Legal links and floating scroll-to-top control */
+.sp-legal-links{display:inline-flex;gap:15px;flex-wrap:wrap;margin-left:12px}
+.sp-legal-links a,.sp-inline-legal{color:#c9bcff;text-decoration:underline;text-underline-offset:3px}
+.sp-legal-links a:hover,.sp-inline-legal:hover{color:#fff}
+.sp-back-to-top{position:fixed;right:23px;bottom:24px;z-index:60;display:flex;align-items:center;justify-content:center;gap:8px;min-width:69px;height:48px;padding:0 15px;border:1px solid rgba(207,195,255,.45);border-radius:15px;background:linear-gradient(135deg,#8943ea,#5b69ef);box-shadow:0 12px 35px rgba(62,47,150,.42);color:#fff;font:800 13px system-ui,sans-serif;cursor:pointer;transition:opacity .18s,transform .18s;opacity:1}
+.sp-back-to-top span:first-child{font-size:20px;line-height:1}
+.sp-back-to-top:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(91,67,214,.5)}
+.sp-back-to-top:focus-visible{outline:3px solid #bfeaff;outline-offset:3px}
+.sp-back-to-top[hidden]{display:none!important}
+@media(max-width:600px){.sp-back-to-top{right:13px;bottom:17px;min-width:46px;width:46px;height:46px;padding:0;border-radius:14px}.sp-back-to-top-text{display:none}.sp-legal-links{display:flex;margin:9px 0 0}}
+@media(prefers-reduced-motion:reduce){.sp-back-to-top{transition:none}}
 </style><style>
 #generator{max-width:1000px}.idea-inputs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.idea-inputs label{display:grid;gap:8px}.idea-inputs .idea-full{grid-column:1/-1}.idea-inputs input,.idea-inputs select,.idea-inputs textarea{width:100%}#generator .formrow{grid-template-columns:1fr 1fr}#generator .result{display:none;background:linear-gradient(140deg,#131e38,#17152b);border-color:#7556b5}#generator .result>p{color:#e9edff}#generator .idea-detail{padding:12px 0;border-top:1px solid #ffffff18}#generator .idea-detail strong{font-size:11px;letter-spacing:.12em;color:#8ee5ec}#generator .idea-detail p{margin:6px 0 0;color:#d7dff6;line-height:1.6}#generator .idea-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}@media(max-width:650px){#generator .idea-inputs,#generator .formrow{grid-template-columns:1fr}#generator .idea-inputs .idea-full{grid-column:auto}}
 
@@ -336,7 +348,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
   <div class="pro-bottom"><p>
 <strong>Unlock SocialPilot Pro.</strong>
  
-SocialPilot Pro includes AI campaign generation, AI image generation, and access to Pro Studio. Your existing free tools remain available. Subscribe securely for $19.99/month. Pro access activates once your payment is confirmed.
+SocialPilot Pro includes AI campaign generation, AI image generation, and access to Pro Studio. Your existing free tools remain available. Subscribe securely for $19.99/month. Pro access activates once your payment is confirmed. This is a recurring monthly subscription that automatically renews until canceled. <a class="sp-inline-legal" href="./terms.html">Terms of Service</a> · <a class="sp-inline-legal" href="./privacy.html">Privacy Policy</a>.
 </p><div style="display:grid;gap:9px;min-width:220px"><button class="btn" type="button" 
 id="socialpilotCheckoutButton">✦ Subscribe to Pro — 
 $19.99/month
@@ -385,7 +397,8 @@ Secure Stripe checkout is available. Sign in to subscribe.
     <p id="calendarStatus" role="status" aria-live="polite" style="color:#aab5d0;font-size:13px">Checking your account…</p><div id="legacyImport" style="display:none;margin:12px 0;padding:15px;border:1px solid #7c68c866;border-radius:12px;background:#141d36"><p id="legacyMessage" style="margin:0 0 10px"></p><button class="btn ghost" type="button" onclick="importLocalPosts()">Import browser-saved posts</button></div><div id="savedPosts" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px"></div>
   </div>
 </div></div></section>
-<section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses</footer>
+<section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses <span class="sp-legal-links"><a href="./terms.html">Terms of Service</a><a href="./privacy.html">Privacy Policy</a></span></footer>
+<button id="spBackToTop" class="sp-back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">↑</span><span class="sp-back-to-top-text">Top</span></button>
   
 
 <script>
@@ -1441,6 +1454,21 @@ status.textContent = err.message || 'Unable to start checkout.';
       button.disabled = false;
     }
   });
+})();
+</script>
+<script>
+/* Show an accessible side button only when the page has been scrolled. */
+(function(){
+  const button = document.getElementById('spBackToTop');
+  if(!button) return;
+  function refresh(){button.hidden = window.scrollY < 450;}
+  button.addEventListener('click',()=>{
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+  });
+  window.addEventListener('scroll',refresh,{passive:true});
+  window.addEventListener('pageshow',refresh);
+  refresh();
 })();
 </script>
 </body></html>

@@ -278,7 +278,77 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 #pro-studio .sp-blueprint-card .ps-actions{margin:0!important;padding:4px 22px 23px;gap:10px}
 @media(max-width:600px){#pro-studio .sp-blueprint-header{padding:22px 18px}#pro-studio .sp-blueprint{padding:14px;gap:12px}#pro-studio .sp-blueprint-section{padding:16px 14px}#pro-studio .sp-blueprint-idea{padding:12px;grid-template-columns:32px minmax(0,1fr);gap:10px}#pro-studio .sp-blueprint-idea-number{height:31px;width:31px}#pro-studio .sp-blueprint-card .ps-actions{padding:4px 14px 18px}}
 
-</style><style>.sp-video-section{max-width:1220px;margin:10px auto 90px;padding:0 22px}.sp-video-header{text-align:center;max-width:760px;margin:0 auto 28px}.sp-video-header h2{font-size:clamp(30px,4vw,50px);margin:15px 0}.sp-video-header p,.sp-video-note{color:#aeb5d1;line-height:1.65;font-size:14px}.sp-video-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.sp-video-card{overflow:hidden;border:1px solid #8260c977;border-radius:21px;background:#16172c;box-shadow:0 20px 50px #0005}.sp-video-card video{width:100%;aspect-ratio:16/9;display:block;background:#080b18;object-fit:cover}.sp-video-card>div{padding:20px}.sp-video-card strong{font-size:19px}.sp-video-card p{font-size:13px;color:#b6bbd4;line-height:1.6}.sp-video-note{text-align:center;font-size:11px;margin-top:15px}@media(max-width:700px){.sp-video-grid{grid-template-columns:1fr}}</style><style>
+</style><style>
+/* SocialPilot interactive creative lab */
+.sp-lab-section{max-width:1220px;margin:12px auto 92px;padding:0 22px;scroll-margin-top:22px}
+.sp-lab-heading{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:24px}
+.sp-lab-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid #8375ed77;border-radius:30px;padding:8px 13px;background:#7261f51a;color:#c5b6ff;font-size:10px;font-weight:900;letter-spacing:.15em}
+.sp-lab-led{display:inline-block;width:7px;height:7px;border-radius:50%;background:#54decb;box-shadow:0 0 0 4px #54decb20,0 0 16px #54decb90}
+.sp-lab-heading h2{font-size:clamp(29px,4.1vw,49px);letter-spacing:-.05em;line-height:1.1;margin:14px 0}
+.sp-lab-heading p{max-width:720px;line-height:1.7;color:#adb8dc;margin:0}
+.sp-lab-head-link{color:#dcd1ff;text-decoration:none;font-weight:750;font-size:13px;white-space:nowrap;border-bottom:1px solid #8472d977;padding-bottom:6px}
+.sp-lab-head-link:hover{color:#fff}
+.sp-lab-shell{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:0;overflow:hidden;border:1px solid #a381e75e;border-radius:25px;background:radial-gradient(ellipse at 100% 10%,#34337863,transparent 60%),#101628;box-shadow:0 35px 80px #02061770,0 0 45px #6c4edb14}
+.sp-lab-control{min-width:0;padding:29px;border-right:1px solid #ffffff1d;background:linear-gradient(155deg,#1b1837,#131a31)}
+.sp-lab-small-label{color:#9ecaf5;font-size:10px;font-weight:850;letter-spacing:.13em}
+.sp-lab-side-head h3{font-size:25px;line-height:1.2;letter-spacing:-.04em;color:#fff;margin:13px 0 10px}
+.sp-lab-side-head p{font-size:13px;line-height:1.7;color:#aeb8d9;margin:0 0 24px}
+.sp-lab-label{display:block;margin:14px 0 8px;font-size:12px;color:#e9ecfb;font-weight:760}
+.sp-lab-select{width:100%;max-width:100%;border:1px solid #b0a3e04d;background:#0c1229;color:#f9faff;border-radius:12px;padding:13px 12px;font:inherit;font-size:13px;cursor:pointer;outline-offset:2px}
+.sp-lab-select:focus-visible{outline:2px solid #8ac8ef}
+.sp-lab-brief{margin-top:26px;padding:18px;border:1px solid #a99eef36;border-radius:17px;background:linear-gradient(132deg,#7c56cf19,#5fbcfa0c)}
+.sp-lab-brief h4{color:#fff;font-size:18px;line-height:1.28;margin:10px 0}
+.sp-lab-brief p{font-size:12px;line-height:1.7;color:#c6cde8;margin:0 0 15px}
+.sp-lab-tags{display:flex;flex-wrap:wrap;gap:7px}
+.sp-lab-tags span{font-size:10px;font-weight:740;color:#d4d0ff;background:#ffffff0c;border:1px solid #ffffff20;border-radius:100px;padding:5px 9px}
+.sp-lab-side-cta{margin-top:24px;display:grid;gap:10px}
+.sp-lab-side-cta .btn{text-decoration:none;text-align:center;display:block;padding:14px 12px;font-weight:800;box-shadow:0 10px 24px #6652db35}
+.sp-lab-side-cta small{font-size:10px;line-height:1.6;color:#9caccd}
+.sp-lab-stage{min-width:0;padding:23px}
+.sp-lab-stage-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:16px}
+.sp-lab-stage-top strong{display:block;color:#e6edff;font-size:14px;margin-top:5px}
+.sp-lab-sample{color:#c0b3f1;font-size:10px;letter-spacing:.08em;white-space:nowrap}
+.sp-lab-screen{position:relative;overflow:hidden;isolation:isolate;min-height:385px;border:1px solid #e2d9ff26;border-radius:18px;background:linear-gradient(120deg,#132642,#272054)}
+.sp-lab-screen>img{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.73);transition:transform .85s ease,opacity .35s ease}
+.sp-lab-screen-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#070c22cc,#11142e3d 66%),linear-gradient(0deg,#070c25ea,transparent 70%);pointer-events:none}
+.sp-lab-screen-ui{position:absolute;top:22px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;font-size:11px;font-weight:900;letter-spacing:.08em}
+.sp-lab-screen-brand span{font-size:9px;color:#cdd7ec;font-weight:500}
+.sp-lab-preview-counter{border:1px solid #ffffff48;background:#080c2080;border-radius:100px;padding:6px 10px;font-size:10px}
+.sp-lab-center-art{position:absolute;right:8%;top:20%;width:120px;height:120px;display:grid;place-items:center;border:1px solid #ffffff26;border-radius:33px;background:linear-gradient(135deg,#b2a2ff46,#6de7eb1c);backdrop-filter:blur(7px);box-shadow:0 15px 48px #0007;transform:rotate(9deg);animation:spLabFloat 5s ease-in-out infinite}
+.sp-lab-center-art span{font-size:63px;filter:drop-shadow(0 8px 8px #0006)}
+.sp-lab-screen-copy{position:absolute;bottom:38px;left:25px;right:24px;max-width:440px}
+.sp-lab-screen-kicker{display:inline-block;margin-bottom:10px;border:1px solid #bbaafa70;background:#614ca949;border-radius:100px;padding:5px 10px;color:#e4d9ff;font-size:10px;letter-spacing:.1em;font-weight:850}
+.sp-lab-screen-copy h3{font-size:clamp(26px,3.4vw,40px);line-height:1.08;letter-spacing:-.052em;color:#fff;margin:0 0 11px;text-shadow:0 3px 15px #0005}
+.sp-lab-screen-copy p{font-size:13px;color:#f1effc;line-height:1.65;max-width:390px;margin:0}
+.sp-lab-stage-track{position:absolute;bottom:0;left:0;right:0;height:4px;background:#ffffff25}
+.sp-lab-stage-track span{display:block;height:100%;width:33.333%;background:linear-gradient(90deg,#9a69ff,#60d5e6);transition:width .35s ease}
+.sp-lab-stepbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:13px}
+.sp-lab-step{display:flex;align-items:center;gap:11px;padding:13px 12px;border-radius:13px;border:1px solid #ffffff21;background:#ffffff07;color:#e8eafd;cursor:pointer;text-align:left;min-width:0;font:inherit}
+.sp-lab-step:hover,.sp-lab-step:focus-visible{background:#7967d324;border-color:#9987ff90;outline-offset:2px}
+.sp-lab-step[aria-pressed=true]{border-color:#a185ff;background:linear-gradient(125deg,#815adc36,#4e94e41c);box-shadow:0 4px 18px #3936b52a}
+.sp-lab-step-index{display:grid;place-items:center;flex:0 0 29px;height:29px;background:#a58cff23;border-radius:9px;color:#cebcff;font-size:11px;font-weight:850}
+.sp-lab-step strong,.sp-lab-step small{display:block;line-height:1.35}
+.sp-lab-step strong{font-size:12px;color:#fff}
+.sp-lab-step small{font-size:10px;color:#9baccc;margin-top:3px}
+.sp-lab-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:19px 4px 0}
+.sp-lab-demo-caption{min-width:0}
+.sp-lab-demo-caption strong{font-size:11px;color:#98e0e7}
+.sp-lab-demo-caption p{font-size:12px;color:#e1e5f6;margin:6px 0 0;line-height:1.55}
+.sp-lab-copy{flex-shrink:0;border:1px solid #b0a1ec62;border-radius:11px;color:#ece4ff;background:#7756b822;padding:10px 12px;font:750 11px system-ui,sans-serif;cursor:pointer}
+.sp-lab-copy:hover{background:#7c68bf55}
+.sp-lab-disclaimer{font-size:11px;line-height:1.6;color:#8798bf;margin:13px 8px 0}
+@keyframes spLabFloat{0%,100%{transform:translateY(0) rotate(9deg)}50%{transform:translateY(-13px) rotate(6deg)}}
+@media(min-width:800px){.sp-lab-screen:hover>img{transform:scale(1.045)}}
+@media(max-width:940px){.sp-lab-shell{grid-template-columns:290px minmax(0,1fr)}.sp-lab-control{padding:21px}.sp-lab-stage{padding:17px}.sp-lab-center-art{width:88px;height:88px}.sp-lab-center-art span{font-size:48px}}
+@media(max-width:750px){.sp-lab-section{padding:0 16px;margin-bottom:70px}.sp-lab-heading{display:block}.sp-lab-head-link{display:inline-block;margin-top:16px}.sp-lab-shell{grid-template-columns:1fr}.sp-lab-control{border-right:0;border-bottom:1px solid #ffffff20}.sp-lab-screen{min-height:325px}.sp-lab-center-art{top:20%;right:7%}.sp-lab-stepbar{gap:6px}.sp-lab-step{padding:10px 8px;gap:7px}.sp-lab-step small{display:none}.sp-lab-bottom{flex-wrap:wrap}}
+@media(max-width:420px){.sp-lab-screen-copy{left:17px;right:17px}.sp-lab-screen-ui{left:17px;right:17px}.sp-lab-center-art{top:20%;width:68px;height:68px;border-radius:20px}.sp-lab-center-art span{font-size:37px}.sp-lab-stage{padding:12px}.sp-lab-screen{min-height:315px}.sp-lab-screen-copy h3{font-size:27px}.sp-lab-control{padding:18px}}
+@media(prefers-reduced-motion:reduce){.sp-lab-center-art{animation:none}.sp-lab-screen>img,.sp-lab-stage-track span{transition:none}}
+/* Subtle premium polish throughout the landing page */
+:root{--sp-accent:#a78bfa}
+#spScrollProgress{position:fixed;z-index:85;inset:0 auto auto 0;width:0;height:3px;background:linear-gradient(90deg,#9e60fa,#58d5e7);box-shadow:0 0 18px #9975ff88;pointer-events:none}
+.card,.pro-tile,.step,.premium-app{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.card:hover,.pro-tile:hover,.step:hover{transform:translateY(-4px);box-shadow:0 20px 55px #0005}}
+<style>
 /* SocialPilot account dropdown */
 .nav{z-index:20}.auth-nav{position:relative}.account-menu{position:relative;flex-shrink:0}.account-menu[hidden],.account-dropdown[hidden]{display:none!important}
 .account-trigger{display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid #a28aff6b;border-radius:13px;background:linear-gradient(135deg,#262144,#15243d);color:#f4edff;font:inherit;font-size:13px;font-weight:750;cursor:pointer;box-shadow:0 8px 26px #05061655}
@@ -303,7 +373,7 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 #spImageStudio .sp-library-actions .btn{flex:1 1 auto;min-width:0;padding:8px 9px;font-size:11px;margin:0;box-shadow:none}
 @media(max-width:600px){#spImageStudio .sp-library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#spImageStudio .sp-library-item>img{height:125px}#my-plan .sp-plan-card{padding:20px}}
 </style>
-</head><body>
+</head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pro Preview</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
 <header class="hero" id="top"><div class="pill">✦ YOUR CREATIVE COMMAND CENTER</div><h1>Create content that <span class="grad">turns heads.</span></h1><p>From your first idea to your next great post. Create captions, spark inspiration and plan ahead in one beautiful workspace.</p><div class="actions"><a class="btn" href="#generator">Start creating — it's free →</a><a class="btn ghost" href="#live-demo">Watch the interactive demo ↓</a></div><div class="small">Free preview · No credit card required · No automatic publishing</div></header>
@@ -333,21 +403,33 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 <div id="captionResult" class="caption-output" aria-live="polite"><div class="caption-tag">CAPTION CONCEPTS</div><div id="captionVariants" class="caption-variants" style="margin:14px 0"></div><div id="captionText"></div></div>
 <div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></section>
 
-<section class="sp-video-section" id="real-videos" aria-labelledby="realVideosTitle"><div class="sp-video-header"><span class="ps-pill">▶ REAL VIDEO FOOTAGE</span><h2 id="realVideosTitle">See content <span class="grad">in motion.</span></h2><p>Explore real stock-video examples to inspire your next content campaign. These clips are not AI-generated by SocialPilot.</p></div><div class="sp-video-grid">
-<article class="sp-video-card">
-  <video controls muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" aria-label="Example promotional stock video">
-    <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    Your browser does not support HTML5 video playback.
-  </video>
-  <div><strong>Product storytelling</strong><p>Real footage illustrating how motion can make a promotional campaign feel more dynamic.</p><p class="sp-video-error" role="status" hidden>Video playback is unavailable from the stock provider. <a href="https://www.pexels.com/videos/" target="_blank" rel="noopener noreferrer">Browse stock videos on Pexels</a>.</p></div>
-</article>
-<article class="sp-video-card">
-  <video controls muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" aria-label="Example creative stock video">
-    <source src="https://videos.pexels.com/video-files/2887463/2887463-hd_1920_1080_25fps.mp4" type="video/mp4">
-    Your browser does not support HTML5 video playback.
-  </video>
-  <div><strong>Creative video inspiration</strong><p>Example footage for planning eye-catching Reels, short-form videos, and brand storytelling.</p><p class="sp-video-error" role="status" hidden>Video playback is unavailable from the stock provider. <a href="https://www.pexels.com/videos/" target="_blank" rel="noopener noreferrer">Browse stock videos on Pexels</a>.</p></div>
-</article></div><p class="sp-video-note">These are externally hosted stock-video examples. Playback depends on your connection, browser, and the stock provider.</p></section>
+<section class="sp-lab-section" id="real-videos" aria-labelledby="spLabTitle">
+ <div class="sp-lab-heading"><div><span class="sp-lab-pill"><span class="sp-lab-led"></span> INTERACTIVE CREATIVE LAB</span><h2 id="spLabTitle">Don't just imagine it. <span class="grad">See the idea.</span></h2><p>Explore how a campaign can come together. Pick a business, choose a goal, and move through a visual three-scene concept.</p></div><a href="#pro-studio" class="sp-lab-head-link">Open AI Pro Studio <span aria-hidden="true">↗</span></a></div>
+ <div class="sp-lab-shell">
+  <div class="sp-lab-control">
+   <div class="sp-lab-side-head"><span class="sp-lab-small-label">01 / BUILD YOUR CONCEPT</span><h3>Your brand. Your story.</h3><p>Change the inputs to explore a different sample campaign, instantly.</p></div>
+   <label class="sp-lab-label" for="spLabNiche">Business category</label>
+   <select id="spLabNiche" class="sp-lab-select"><option value="coffee">☕ Coffee & cafés</option><option value="fitness">⚡ Fitness & wellness</option><option value="beauty">✦ Beauty & skincare</option><option value="retail">◈ Retail & lifestyle</option></select>
+   <label class="sp-lab-label" for="spLabGoal">Campaign goal</label>
+   <select id="spLabGoal" class="sp-lab-select"><option value="launch">Launch something new</option><option value="engage">Spark conversation</option><option value="trust">Build brand trust</option></select>
+   <div class="sp-lab-brief"><span class="sp-lab-small-label">CAMPAIGN DIRECTION</span><h4 id="spLabCampaignTitle">The perfect afternoon pick-me-up</h4><p id="spLabCampaignBrief">Turn a simple coffee break into a moment worth sharing.</p><div class="sp-lab-tags"><span id="spLabGoalTag">Product launch</span><span>3 scenes</span><span>Sample</span></div></div>
+   <div class="sp-lab-side-cta"><a href="#pro-studio" class="btn">✦ Create your own with AI</a><small>AI generation requires Pro. This interactive example is free.</small></div>
+  </div>
+  <div class="sp-lab-stage" aria-label="Interactive three-scene campaign preview">
+   <div class="sp-lab-stage-top"><div><span class="sp-lab-small-label">02 / STORYBOARD PREVIEW</span><strong>See how a post comes together</strong></div><span class="sp-lab-sample">✦ SAMPLE CONCEPT</span></div>
+   <div class="sp-lab-screen">
+    <img id="spLabPhoto" alt="Photographic background for sample campaign concept" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" loading="lazy">
+    <div class="sp-lab-screen-shade"></div>
+    <div class="sp-lab-screen-ui"><span class="sp-lab-screen-brand">✦ SOCIALPILOT <span>/ CREATIVE PREVIEW</span></span><span class="sp-lab-preview-counter" id="spLabCounter">01 / 03</span></div>
+    <div class="sp-lab-center-art" aria-hidden="true"><span id="spLabEmoji">☕</span></div>
+    <div class="sp-lab-screen-copy" aria-live="polite"><span class="sp-lab-screen-kicker" id="spLabStepLabel">SCENE 01 · THE HOOK</span><h3 id="spLabHeadline">Your next coffee obsession.</h3><p id="spLabDescription">Open with the first sip and an irresistible close-up.</p></div>
+    <div class="sp-lab-stage-track" aria-hidden="true"><span id="spLabTrackFill"></span></div>
+   </div>
+   <div class="sp-lab-stepbar" role="group" aria-label="Choose a campaign scene"><button class="sp-lab-step" type="button" data-sp-step="0" aria-pressed="true"><span class="sp-lab-step-index">01</span><span><strong>Hook</strong><small>Grab attention</small></span></button><button class="sp-lab-step" type="button" data-sp-step="1" aria-pressed="false"><span class="sp-lab-step-index">02</span><span><strong>Value</strong><small>Tell the story</small></span></button><button class="sp-lab-step" type="button" data-sp-step="2" aria-pressed="false"><span class="sp-lab-step-index">03</span><span><strong>Action</strong><small>Invite a response</small></span></button></div>
+   <div class="sp-lab-bottom"><div class="sp-lab-demo-caption"><strong>Suggested caption</strong><p id="spLabCaption">Meet your new favorite afternoon ritual. ☕</p></div><button type="button" class="sp-lab-copy" id="spLabCopy">Copy sample caption <span aria-hidden="true">↗</span></button></div>
+  </div>
+ </div><p class="sp-lab-disclaimer">Interactive example with fictional brands and sample copy—not a customer result, published post, or live AI generation. Your own Pro campaigns are created separately in the AI Studio.</p>
+</section>
 <section id="pro-studio" aria-labelledby="psTitle"><div class="ps-shell"><div class="ps-head"><span class="ps-pill">✦ PRO STUDIO · SUBSCRIPTION REQUIRED</span><h2 id="psTitle">Create a campaign <span class="grad">worth posting.</span></h2><p>Generate a personalized AI campaign with post ideas, video scripts, captions and creative direction. AI campaign generation requires an active SocialPilot Pro subscription. You can explore the studio before subscribing.</p></div><div class="ps-grid"><div class="ps-controls"><label>Business or brand<input id="psBrand" maxlength="100" placeholder="e.g. The Daily Coffee"></label><label>What are you promoting?<textarea id="psOffer" rows="3" maxlength="350" placeholder="e.g. A new iced caramel latte with oat milk"></textarea></label><label>Target audience<input id="psAudience" maxlength="160" placeholder="e.g. local coffee lovers, ages 18–35"></label><label>Platform<select id="psPlatform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select></label><label>Campaign objective<select id="psGoal"><option value="launch">Launch a product</option><option value="engage">Grow engagement</option><option value="educate">Educate customers</option><option value="trust">Build trust</option><option value="customers">Get more customers</option></select></label><label>Visual aesthetic<select id="psMood"><option value="warm">Warm editorial</option><option value="minimal">Minimal luxury</option><option value="bold">Bold & energetic</option><option value="natural">Natural lifestyle</option></select></label><button class="btn" type="button" id="psGenerate">✦ Generate AI campaign</button></div><div class="ps-output" id="psOutput" aria-live="polite"><div class="ps-empty">✦ Your AI-generated campaign will appear here when you have an active Pro subscription and generate a campaign.</div></div></div><div class="ps-foot">AI campaign generation requires an active SocialPilot Pro subscription. Usage limits may apply. Results are suggestions, not guaranteed outcomes. Images and videos elsewhere on this page are illustrative previews, not AI-generated assets. Sandbox test subscriptions do not grant live Pro access. Live subscriptions are available through secure Stripe checkout.</div></div></section>
 <section id="pro-preview" aria-labelledby="proTitle">
  <div class="pro-panel">
@@ -1491,19 +1573,80 @@ status.textContent = err.message || 'Unable to start checkout.';
 })();
 </script>
 <script>
-/* Explain provider failures instead of showing a broken, silent video player. */
+/* Interactive, deterministic campaign storyboard demo. No network or AI requests. */
 (function(){
-  document.querySelectorAll('#real-videos .sp-video-card').forEach(card=>{
-    const video=card.querySelector('video');
-    const notice=card.querySelector('.sp-video-error');
-    if(!video||!notice) return;
-    const showError=()=>{notice.hidden=false;};
-    const clearError=()=>{notice.hidden=true;};
-    video.addEventListener('error',showError);
-    video.querySelectorAll('source').forEach(source=>source.addEventListener('error',showError));
-    video.addEventListener('playing',clearError);
-    video.addEventListener('loadeddata',clearError);
+  const root=document.getElementById('real-videos');
+  if(!root)return;
+  const niche=root.querySelector('#spLabNiche');
+  const goal=root.querySelector('#spLabGoal');
+  const photo=root.querySelector('#spLabPhoto');
+  const title=root.querySelector('#spLabCampaignTitle');
+  const brief=root.querySelector('#spLabCampaignBrief');
+  const tag=root.querySelector('#spLabGoalTag');
+  const emoji=root.querySelector('#spLabEmoji');
+  const label=root.querySelector('#spLabStepLabel');
+  const headline=root.querySelector('#spLabHeadline');
+  const description=root.querySelector('#spLabDescription');
+  const counter=root.querySelector('#spLabCounter');
+  const track=root.querySelector('#spLabTrackFill');
+  const caption=root.querySelector('#spLabCaption');
+  const copy=root.querySelector('#spLabCopy');
+  const buttons=Array.from(root.querySelectorAll('[data-sp-step]'));
+  const samples={
+    coffee:{emoji:'☕',name:'The Daily Coffee',photo:'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=82',offer:'Your next coffee obsession.',story:'Show the swirl, the pour, and the first sip in warm afternoon light.',benefit:'A moment worth slowing down for.',cta:'Make your afternoon delicious.',caption:'A little pause. A lot of flavor. ☕ What is your go-to afternoon pick-me-up? #CafeMoments'},
+    fitness:{emoji:'⚡',name:'Rise Fitness',photo:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=82',offer:'Your next move starts here.',story:'Capture one achievable workout moment and a realistic beginner-friendly tip.',benefit:'Small steps. Stronger habits.',cta:'Show up for yourself today.',caption:'You do not need a perfect plan. Start with one good move. ⚡ What keeps you motivated? #FitnessJourney'},
+    beauty:{emoji:'✦',name:'Luma Skin',photo:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=82',offer:'Meet your glow ritual.',story:'Use natural textures, gentle lighting and an authentic product close-up.',benefit:'The routine is the moment.',cta:'Discover your daily ritual.',caption:'Your skincare ritual can be simple and intentional. ✨ What is your one daily must-have? #SkincareRoutine'},
+    retail:{emoji:'◈',name:'Studio Edit',photo:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=82',offer:'A fresh detail changes everything.',story:'Showcase material, movement and one signature product detail.',benefit:'Designed to fit your everyday.',cta:'Find your new favorite.',caption:'Great style lives in the details. ◈ Which everyday essential is your favorite? #StyleEdit'}
+  };
+  const goals={
+    launch:{title:'Product launch',opening:'Introducing something worth noticing.',middle:'Bring the details into focus.',ending:'Explore what is new.',brief:'Lead with curiosity, highlight the product, and finish with an inviting next step.'},
+    engage:{title:'Community engagement',opening:'Let us ask you something.',middle:'Start a conversation about the details.',ending:'Tell us what you think.',brief:'Spark discussion with a relatable question and a compelling visual story.'},
+    trust:{title:'Build brand trust',opening:'Come behind the scenes.',middle:'Show the real process.',ending:'Get to know the brand.',brief:'Create confidence through an honest look at the people, process, and product.'}
+  };
+  let index=0;
+  function update(){
+    const brand=samples[niche.value]||samples.coffee;
+    const direction=goals[goal.value]||goals.launch;
+    const steps=[
+      {label:'SCENE 01 · THE HOOK',headline:goal.value==='launch'?brand.offer:direction.opening,description:'Open with an attention-grabbing visual and a clear promise.'},
+      {label:'SCENE 02 · THE VALUE',headline:goal.value==='launch'?brand.benefit:direction.middle,description:brand.story},
+      {label:'SCENE 03 · THE ACTION',headline:goal.value==='launch'?brand.cta:direction.ending,description:'Give viewers one simple next step—without exaggerated claims.'}
+    ];
+    title.textContent=brand.name+' · '+direction.title;
+    brief.textContent=direction.brief;
+    tag.textContent=direction.title;
+    emoji.textContent=brand.emoji;
+    const source=brand.photo;
+    if(photo.getAttribute('src')!==source)photo.setAttribute('src',source);
+    photo.alt='Illustrative photograph for '+brand.name+' sample campaign';
+    label.textContent=steps[index].label;
+    headline.textContent=steps[index].headline;
+    description.textContent=steps[index].description;
+    counter.textContent=String(index+1).padStart(2,'0')+' / 03';
+    track.style.width=String((index+1)*100/3)+'%';
+    caption.textContent=brand.caption;
+    buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+    copy.textContent='Copy sample caption ↗';
+  }
+  niche.addEventListener('change',()=>{index=0;update();});
+  goal.addEventListener('change',()=>{index=0;update();});
+  buttons.forEach((button,i)=>button.addEventListener('click',()=>{index=i;update();}));
+  copy.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(caption.textContent);copy.textContent='✓ Copied';}
+    catch{copy.textContent='Copy unavailable';}
   });
+  update();
 })();
 </script>
-</body></html>
+<script>
+(function(){
+ const bar=document.getElementById('spScrollProgress');
+ if(!bar)return;
+ let scheduled=false;
+ const update=()=>{const distance=document.documentElement.scrollHeight-innerHeight;bar.style.width=(distance>0?Math.max(0,Math.min(100,100*scrollY/distance)):0)+'%';scheduled=false;};
+ const onScroll=()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update);}};
+ window.addEventListener('scroll',onScroll,{passive:true});
+ window.addEventListener('resize',onScroll,{passive:true});
+ update();
+})();
+</script></body></html>

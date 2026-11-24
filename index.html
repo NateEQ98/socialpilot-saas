@@ -434,15 +434,66 @@ body{background:radial-gradient(ellipse at 50% -7%,#4e2a92a6,transparent 43%),ra
 .nav{position:sticky;top:0;z-index:70;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:#0b1124e8;border-bottom-color:#8e7ce641;padding:0 8px}
 .navlinks a{transition:color .2s ease}.navlinks a:hover,.navlinks a:focus-visible{color:#c9acff}
 section[id],header[id]{scroll-margin-top:95px}
+</style><style>
+/* SocialPilot premium workflow and transparency section */
+.sp-flow-feature{position:relative;max-width:1190px;margin:44px auto 106px;padding:0 24px}
+.sp-flow-heading{text-align:center;max-width:700px;margin:0 auto 35px}
+.sp-flow-label{display:inline-block;border:1px solid rgba(154,124,239,.34);border-radius:100px;background:rgba(136,88,220,.1);color:#d2bdfd;padding:7px 12px;font-size:10px;letter-spacing:.14em;font-weight:850}
+.sp-flow-heading h2,.sp-answers h2{font-size:clamp(30px,4.2vw,49px);letter-spacing:-.055em;line-height:1.12;margin:16px 0}
+.sp-flow-heading p{color:#acb7d6;line-height:1.7;font-size:14px}
+.sp-flow-frame{display:grid;grid-template-columns:minmax(250px,345px) minmax(0,1fr);gap:0;background:radial-gradient(circle at 100% 0%,#3c286a55,transparent 50%),#10162a;border:1px solid #9679e54d;border-radius:25px;overflow:hidden;box-shadow:0 32px 90px rgba(0,0,0,.3)}
+.sp-flow-steps{display:flex;flex-direction:column;gap:10px;padding:22px;background:linear-gradient(155deg,#1b1a38,#14192c);border-right:1px solid rgba(255,255,255,.12)}
+.sp-flow-steps button{display:grid;grid-template-columns:38px minmax(0,1fr) 18px;gap:10px;align-items:center;background:rgba(255,255,255,.025);border:1px solid transparent;border-radius:15px;padding:17px 12px;color:#e4e9fa;text-align:left;cursor:pointer;font:inherit;transition:background .2s,border-color .2s,transform .2s}
+.sp-flow-steps button:hover{background:rgba(122,89,235,.16)}
+.sp-flow-steps button[aria-selected=true]{background:linear-gradient(110deg,rgba(113,73,221,.3),rgba(49,116,187,.14));border-color:rgba(162,131,255,.58);box-shadow:inset 3px 0 #9c79f9}
+.sp-flow-steps button:focus-visible{outline:2px solid #9bd9ff;outline-offset:2px}
+.sp-flow-index{display:grid;place-items:center;height:37px;border-radius:11px;background:#8862e326;color:#c9b7ff;font-weight:850;font-size:12px}
+.sp-flow-steps button[aria-selected=true] .sp-flow-index{background:linear-gradient(130deg,#8c5de8,#5b78d4);color:#fff}
+.sp-flow-steps strong,.sp-flow-steps small{display:block}
+.sp-flow-steps strong{font-size:14px;color:#f5f6ff}
+.sp-flow-steps small{font-size:11px;color:#9baacb;margin-top:5px;line-height:1.45}
+.sp-flow-tab-arrow{font-size:17px;color:#a5b3da}
+.sp-flow-showcase{min-width:0;padding:22px}
+.sp-flow-showcase-header{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:13px;flex-wrap:wrap}
+.sp-flow-feature-tag{font-size:10px;color:#b9dfff;font-weight:900;letter-spacing:.12em}
+.sp-flow-artifact{font-size:10px;color:#b9a6f2}
+.sp-flow-visual{position:relative;isolation:isolate;overflow:hidden;height:270px;border-radius:17px;background:#202747;border:1px solid #ffffff18}
+.sp-flow-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.85) brightness(.82)}
+.sp-flow-visual-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0b112af5,rgba(8,13,31,.06) 85%)}
+.sp-flow-overlay{position:absolute;left:24px;bottom:25px;right:22px}
+.sp-flow-overlay span{display:block;font-size:10px;color:#bfe9f6;letter-spacing:.14em;font-weight:900;margin-bottom:10px}
+.sp-flow-overlay strong{display:block;color:#fff;font-size:clamp(23px,3vw,36px);max-width:500px;line-height:1.15;letter-spacing:-.04em}
+.sp-flow-detail{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-top:20px}
+.sp-flow-detail h3{color:#fff;font-size:19px;letter-spacing:-.02em;margin:0 0 8px}
+.sp-flow-detail p{color:#b2c0dc;font-size:12px;line-height:1.65;max-width:460px;margin:0}
+.sp-flow-detail a{display:inline-block;flex-shrink:0;border:1px solid #b8a4ff69;border-radius:11px;padding:12px 13px;color:#efeaff;background:rgba(139,103,232,.17);font-size:12px;font-weight:800;text-align:center}
+.sp-flow-detail a:hover{background:rgba(139,103,232,.38)}
+.sp-flow-notice{color:#8095b9;font-size:10px;line-height:1.6;margin-top:14px}
+.sp-answers{max-width:1140px;margin:55px auto 105px;padding:0 24px;display:grid;grid-template-columns:minmax(230px,.78fr) minmax(0,1.22fr);gap:50px;align-items:start}
+.sp-answers-intro{position:sticky;top:100px}
+.sp-answers-intro p{font-size:14px;color:#aeb8d6;line-height:1.75}
+.sp-answers-link{display:inline-block;color:#cbbfff;border-bottom:1px solid #a18ade80;font-size:13px;font-weight:750;margin-top:16px;padding-bottom:7px}
+.sp-answers-list{display:grid;gap:11px}
+.sp-answers-list details{background:linear-gradient(140deg,#191b34,#131b32);border:1px solid #ffffff22;border-radius:16px;padding:0 18px;transition:border-color .2s}
+.sp-answers-list details[open]{border-color:#a78cfa80}
+.sp-answers-list summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#f0f2ff;font-weight:770;font-size:14px;padding:19px 0;cursor:pointer}
+.sp-answers-list summary::-webkit-details-marker{display:none}
+.sp-answers-list summary span{display:grid;place-items:center;border:1px solid #a58aff46;border-radius:9px;width:30px;height:30px;flex:0 0 30px;color:#bdadff;font-size:21px;font-weight:400}
+.sp-answers-list details[open] summary span{transform:rotate(45deg)}
+.sp-answers-list details p{color:#acbadb;line-height:1.8;font-size:12px;margin:0;padding:0 6px 20px 0}
+.sp-answers-list details p a{color:#bdcfff;text-decoration:underline}
+@media(max-width:850px){.sp-flow-frame{grid-template-columns:1fr}.sp-flow-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-right:0;border-bottom:1px solid #ffffff20}.sp-answers{grid-template-columns:1fr;gap:24px}.sp-answers-intro{position:static}}
+@media(max-width:560px){.sp-flow-feature,.sp-answers{padding:0 16px;margin-bottom:70px}.sp-flow-steps{padding:12px;gap:6px}.sp-flow-steps button{grid-template-columns:26px minmax(0,1fr);gap:6px;padding:12px 8px}.sp-flow-index{height:28px;font-size:10px}.sp-flow-tab-arrow{display:none}.sp-flow-steps strong{font-size:11px}.sp-flow-steps small{font-size:9px}.sp-flow-showcase{padding:14px}.sp-flow-visual{height:225px}.sp-flow-detail{display:block}.sp-flow-detail a{margin-top:16px}.sp-flow-overlay{left:16px;bottom:19px}.sp-answers-list summary{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.sp-flow-steps button,.sp-answers-list details{transition:none}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pro Preview</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
 <header class="hero sp-hero-pro" id="top">
   <div class="sp-hero-copy">
-   <div class="sp-hero-overline"><span class="sp-hero-dot" aria-hidden="true"></span> YOUR CONTENT CREATION WORKSPACE <span class="sp-hero-spark" aria-hidden="true">✦</span></div>
-   <h1>Good ideas deserve <span class="grad">great content.</span></h1>
-   <p>Go from a blank page to scroll-worthy ideas, ready-to-edit captions, and a content plan—all in one creative workspace.</p>
-   <div class="sp-hero-actions"><a class="btn sp-hero-primary" href="#generator">✦ Start creating for free <span aria-hidden="true">↗</span></a><a class="sp-hero-secondary" href="#real-videos">Explore the interactive demo <span aria-hidden="true">→</span></a></div>
+   <div class="sp-hero-overline"><span class="sp-hero-dot" aria-hidden="true"></span> YOUR CREATIVE WORKFLOW, IN ONE PLACE <span class="sp-hero-spark" aria-hidden="true">✦</span></div>
+   <h1>From one idea to <span class="grad">something worth posting.</span></h1>
+   <p>Brainstorm content, shape compelling captions, organize your calendar, and create AI campaigns and images with Pro. Less tab-switching. More creating.</p>
+   <div class="sp-hero-actions"><a class="btn sp-hero-primary" href="#generator">✦ Start creating for free <span aria-hidden="true">↗</span></a><a class="sp-hero-secondary" href="#real-videos">See how it works <span aria-hidden="true">→</span></a></div>
    <div class="sp-hero-value-strip"><span><span aria-hidden="true">✓</span> Free creative tools</span><span><span aria-hidden="true">✓</span> Save and organize drafts</span><span><span aria-hidden="true">✓</span> AI features with Pro</span></div>
    <p class="sp-hero-disclaimer">No payment needed to explore free tools · SocialPilot does not publish posts automatically.</p>
   </div>
@@ -453,7 +504,7 @@ section[id],header[id]{scroll-margin-top:95px}
      <div class="sp-hero-preview-body">
        <div class="sp-hero-preview-controls" role="group" aria-label="Preview different content categories"><button type="button" class="sp-hero-preview-tab" data-sp-hero-tab="coffee" aria-pressed="true">☕ Café</button><button type="button" class="sp-hero-preview-tab" data-sp-hero-tab="fitness" aria-pressed="false">⚡ Fitness</button><button type="button" class="sp-hero-preview-tab" data-sp-hero-tab="beauty" aria-pressed="false">✦ Beauty</button></div>
        <div class="sp-hero-content-card">
-         <div class="sp-hero-content-visual"><img id="spHeroImage" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=750&amp;q=85" loading="eager" alt="Sample café imagery"><div class="sp-hero-visual-overlay"></div><span class="sp-hero-visual-kicker" id="spHeroVisualKicker">NEW ON THE MENU</span><strong id="spHeroVisualTitle">Your coffee moment starts here.</strong><span class="sp-hero-preview-sample">SAMPLE POST</span></div>
+         <div class="sp-hero-content-visual"><img id="spHeroImage" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=750&amp;q=85" loading="eager" alt="Sample café imagery"><div class="sp-hero-visual-overlay"></div><span class="sp-hero-visual-kicker" id="spHeroVisualKicker">NEW ON THE MENU</span><strong id="spHeroVisualTitle">Your coffee moment starts here.</strong><span class="sp-hero-preview-sample">INTERACTIVE SAMPLE</span></div>
          <div class="sp-hero-content-text"><div class="sp-hero-content-profile"><span class="sp-hero-avatar" id="spHeroAvatar" aria-hidden="true">☕</span><span><strong id="spHeroBrand">The Daily Coffee</strong><small>Instagram · Illustrative content</small></span><span aria-hidden="true">•••</span></div><p id="spHeroCaption">A little pause. A lot of flavor. ☕ Your afternoon pick-me-up is waiting.</p><div class="sp-hero-content-actions"><span aria-hidden="true">♡ &nbsp; ◯ &nbsp; ↗</span><span>PREVIEW ONLY</span></div></div>
        </div>
        <div class="sp-hero-preview-footer"><span><span aria-hidden="true">✧</span> Switch categories to preview another idea</span><a href="#captions">Try Caption Studio <span aria-hidden="true">↗</span></a></div>
@@ -461,6 +512,23 @@ section[id],header[id]{scroll-margin-top:95px}
     </div>
   </div>
 </header>
+<section class="sp-flow-feature" id="workflow" aria-labelledby="spFlowHeading">
+ <div class="sp-flow-heading"><span class="sp-flow-label">THE SOCIALPILOT WORKFLOW</span><h2 id="spFlowHeading">One workspace. <span class="grad">Your next four moves.</span></h2><p>From first spark to ready-to-publish drafts. Explore each stage below and jump straight into the tools that are already available.</p></div>
+ <div class="sp-flow-frame">
+  <div class="sp-flow-steps" role="tablist" aria-label="Explore SocialPilot workflow">
+   <button type="button" role="tab" id="spFlowTab0" aria-selected="true" aria-controls="spFlowPanel" data-sp-flow="0"><span class="sp-flow-index">01</span><span><strong>Find the angle</strong><small>Fresh ideas for your audience</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
+   <button type="button" role="tab" id="spFlowTab1" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="1" tabindex="-1"><span class="sp-flow-index">02</span><span><strong>Write the words</strong><small>Captions that fit your voice</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
+   <button type="button" role="tab" id="spFlowTab2" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="2" tabindex="-1"><span class="sp-flow-index">03</span><span><strong>Shape the campaign</strong><small>AI strategy & visuals with Pro</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
+   <button type="button" role="tab" id="spFlowTab3" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="3" tabindex="-1"><span class="sp-flow-index">04</span><span><strong>Plan what is next</strong><small>Keep your drafts organized</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
+  </div>
+  <div class="sp-flow-showcase" id="spFlowPanel" role="tabpanel" aria-labelledby="spFlowTab0" tabindex="0">
+   <div class="sp-flow-showcase-header"><span class="sp-flow-feature-tag" id="spFlowKicker">CONTENT IDEAS · FREE</span><span class="sp-flow-artifact">✦ LIVE TOOL AVAILABLE</span></div>
+   <div class="sp-flow-visual"><img id="spFlowImage" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Illustrative creative workspace" loading="lazy"><div class="sp-flow-visual-scrim"></div><div class="sp-flow-overlay"><span id="spFlowVisualLabel">THE STARTING POINT</span><strong id="spFlowVisualTitle">Find a story people want to see.</strong></div></div>
+   <div class="sp-flow-detail"><div><h3 id="spFlowTitle">An idea you can actually use.</h3><p id="spFlowDescription">Pick your niche and platform. Discover a structured creative concept with a hook, a format, and a clear direction.</p></div><a id="spFlowLink" href="#generator">Try the idea generator <span aria-hidden="true">↗</span></a></div>
+   <div class="sp-flow-notice">Visual demonstration only. The linked tools are real; SocialPilot does not automatically publish to social media.</div>
+  </div>
+ </div>
+</section>
 <section class="premium-shell" aria-label="Illustrative SocialPilot dashboard preview"><div class="premium-app"><aside class="premium-sidebar"><div class="sidebar-brand">✦ Social<em>Pilot</em></div><div class="side-link active"><span class="side-icon">▦</span> Overview</div><div class="side-link"><span class="side-icon">✦</span> Content ideas</div><div class="side-link"><span class="side-icon">✍</span> Caption studio</div><div class="side-link"><span class="side-icon">▤</span> Content planner</div><div class="side-plan"><strong>✦ Create with confidence</strong>Everything you need to get started with your next post.</div></aside><div class="premium-main"><div class="app-topline"><small>WORKSPACE / OVERVIEW</small><div class="avatar">✦</div></div><div class="app-greeting"><div><h2>Your creative space ✨</h2><p>Make today a great day to create something.</p></div><span class="app-chip">● DEMO PREVIEW</span></div><div class="app-statgrid"><div class="app-stat"><div class="stat-symbol">💡</div><strong>15</strong><span>Curated idea prompts</span></div><div class="app-stat"><div class="stat-symbol">✍️</div><strong>3</strong><span>Caption tones</span></div><div class="app-stat"><div class="stat-symbol">🌐</div><strong>4</strong><span>Social platforms</span></div></div><div class="app-contentgrid"><div class="app-widget"><div class="app-widget-head"><h3>Creative momentum</h3><span>Illustrative chart</span></div><div class="sparkline"><i style="--h:39%"></i><i style="--h:65%"></i><i style="--h:48%"></i><i style="--h:81%"></i><i style="--h:62%"></i><i style="--h:95%"></i><i style="--h:77%"></i></div></div><div class="app-widget"><div class="app-widget-head"><h3>What could you create?</h3><span>Ideas to explore</span></div><div class="app-post"><span class="app-post-emoji">☕</span><div><b>Behind the scenes</b><small>Show your creative process</small></div></div><div class="app-post"><span class="app-post-emoji">✨</span><div><b>Quick tips & tricks</b><small>Teach something useful</small></div></div><div class="app-post"><span class="app-post-emoji">📸</span><div><b>Product spotlight</b><small>Show what makes you unique</small></div></div></div></div><div class="app-bottom"><span>✦ Ready to create your next post?</span><a href="#generator">Try the idea generator →</a></div></div></div></section><p class="preview-caption">Live HTML dashboard illustration — sample values, not customer analytics</p>
 <section class="motion-section" id="live-demo" aria-labelledby="motionTitle"><div class="motion-head"><div><span class="pill">✦ INTERACTIVE PRODUCT TOUR</span><h2 id="motionTitle">See your content <span class="grad">come to life.</span></h2><p>Watch a sample caption take shape, then switch between social media post previews. Everything below is a free, in-browser demonstration.</p></div><span class="live-chip">✦ Interactive preview</span></div><div class="demo-layout"><div class="demo-console"><span class="demo-kicker">✍️ Caption Studio · Sample walkthrough</span><h3>From an idea to a caption</h3><div class="demo-prompt"><b>Your prompt</b><div>“Announce a new iced caramel latte for The Daily Coffee.”</div></div><div class="demo-progress" aria-hidden="true"><i></i></div><div class="demo-output" aria-live="off"><span id="demoTyping">✨ Something exciting is brewing at The Daily Coffee!</span><span class="demo-cursor" aria-hidden="true"></span></div><div class="demo-bottom"><span class="demo-kicker">Example template · Not live AI</span><a href="#captions">Try the real caption tool →</a></div><div class="demo-tools"><a href="#generator">💡 Content ideas</a><a href="#captions">✍️ Caption studio</a><a href="#calendar">🗓️ Content calendar</a></div></div><div class="demo-post"><span class="demo-kicker">📱 SOCIAL POST MOCKUPS</span><div class="platform-tabs" role="group" aria-label="Choose a social media preview"><button class="platform-tab" type="button" data-demo-platform="Instagram" aria-pressed="true">Instagram</button><button class="platform-tab" type="button" data-demo-platform="TikTok" aria-pressed="false">TikTok</button><button class="platform-tab" type="button" data-demo-platform="Facebook" aria-pressed="false">Facebook</button></div><div class="social-frame social-preview" id="socialPreview" data-platform="instagram" aria-live="polite">
   <div class="social-top" id="previewTop"><div class="social-avatar">☕</div><div class="social-handle" id="previewHandle">the.daily.coffee<small id="demoPlatformLabel">Instagram · Sample post</small></div><span class="preview-more">•••</span></div>
@@ -582,7 +650,17 @@ Secure Stripe checkout is available. Sign in to subscribe.
     <p id="calendarStatus" role="status" aria-live="polite" style="color:#aab5d0;font-size:13px">Checking your account…</p><div id="legacyImport" style="display:none;margin:12px 0;padding:15px;border:1px solid #7c68c866;border-radius:12px;background:#141d36"><p id="legacyMessage" style="margin:0 0 10px"></p><button class="btn ghost" type="button" onclick="importLocalPosts()">Import browser-saved posts</button></div><div id="savedPosts" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px"></div>
   </div>
 </div></div></section>
-<section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses <span class="sp-legal-links"><a href="./terms.html">Terms of Service</a><a href="./privacy.html">Privacy Policy</a></span></footer>
+
+<section class="sp-answers" id="questions" aria-labelledby="spQuestionsTitle">
+ <div class="sp-answers-intro"><span class="sp-flow-label">A FEW GOOD QUESTIONS</span><h2 id="spQuestionsTitle">Everything clear before <span class="grad">you create.</span></h2><p>Simple answers, no inflated claims or hidden surprises.</p><a class="sp-answers-link" href="#generator">Explore the free tools ↗</a></div>
+ <div class="sp-answers-list">
+ <details><summary>What can I use without paying?<span aria-hidden="true">+</span></summary><p>You can explore content ideas, draft captions, and use the planner’s free features. Some saved features require a free account. AI campaign and image generation require a Pro subscription.</p></details>
+ <details><summary>Does SocialPilot publish to Instagram or TikTok for me?<span aria-hidden="true">+</span></summary><p>No. SocialPilot helps you prepare content and plan your schedule, but it does not currently connect to social accounts to publish posts automatically.</p></details>
+ <details><summary>What does SocialPilot Pro include?<span aria-hidden="true">+</span></summary><p>Pro includes AI campaign generation and AI image creation alongside the existing creative workspace. Image generation is limited to up to five images per customer per UTC day, subject to shared service capacity.</p></details>
+ <details><summary>How much is Pro, and can I cancel?<span aria-hidden="true">+</span></summary><p>Pro is $19.99 USD per month and renews automatically until canceled. You can manage or cancel through Stripe billing. Cancellation ordinarily stops the next renewal, with access continuing through the current paid period. Review our <a href="./terms.html">Terms of Service</a> for billing and refund information.</p></details>
+ <details><summary>Are the campaign examples real customer results?<span aria-hidden="true">+</span></summary><p>No. Landing-page previews and example posts are illustrative. Real AI-generated campaigns are created in Pro Studio. We never present sample engagement numbers as actual customer performance.</p></details>
+ </div>
+</section><section class="final-cta"><h2>Your next great post <span class="grad">starts here.</span></h2><p>Explore SocialPilot's free tools and start planning content with less guesswork.</p><a class="btn" href="#generator">Start creating for free →</a></section></div><footer class="foot">© 2026 SocialPilot · Built for creators and small businesses <span class="sp-legal-links"><a href="./terms.html">Terms of Service</a><a href="./privacy.html">Privacy Policy</a></span></footer>
 <button id="spBackToTop" class="sp-back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">↑</span><span class="sp-back-to-top-text">Top</span></button>
   
 
@@ -1758,5 +1836,43 @@ status.textContent = err.message || 'Unable to start checkout.';
   visualTitle.textContent=data.title;avatar.textContent=data.avatar;
   brand.textContent=data.brand;caption.textContent=data.caption;
  }));
+})();
+</script><script>
+/* Functional, keyboard-accessible workflow tour: static previews, no API calls. */
+(function(){
+ const root=document.getElementById('workflow');if(!root)return;
+ const tabs=Array.from(root.querySelectorAll('[data-sp-flow]'));
+ const panel=root.querySelector('#spFlowPanel');
+ const data=[
+ {kicker:'CONTENT IDEAS · FREE',artifact:'✦ LIVE TOOL AVAILABLE',image:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative creative workspace',visualLabel:'THE STARTING POINT',visualTitle:'Find a story people want to see.',title:'An idea you can actually use.',description:'Pick your niche and platform. Discover a structured creative concept with a hook, format, and direction.',link:'#generator',action:'Try the idea generator ↗'},
+ {kicker:'CAPTION STUDIO · FREE',artifact:'✦ LIVE TOOL AVAILABLE',image:'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative café product scene',visualLabel:'THE MESSAGE',visualTitle:'Find the right words for the moment.',title:'Make your message sound like you.',description:'Choose a platform, tone, and goal. Refine sample copy before taking it to your channel.',link:'#captions',action:'Open Caption Studio ↗'},
+ {kicker:'AI PRO STUDIO · SUBSCRIPTION',artifact:'✦ AI GENERATION AVAILABLE TO PRO',image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative product photograph',visualLabel:'THE CREATIVE DIRECTION',visualTitle:'Bring your concept into focus.',title:'Turn a brief into a campaign.',description:'Use Pro to generate a campaign blueprint and original AI images. Outputs are suggestions to review, not guaranteed results.',link:'#pro-studio',action:'Explore AI Pro Studio ↗'},
+ {kicker:'CONTENT PLANNER · FREE ACCOUNT',artifact:'✦ LIVE TOOL AVAILABLE',image:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85',alt:'Illustrative desk workspace',visualLabel:'THE PLAN',visualTitle:'Give your next idea a place to live.',title:'Stay organized, not overwhelmed.',description:'Store planned posts and review them on a monthly calendar. Publishing remains manual.',link:'#calendar',action:'Explore the planner ↗'}
+ ];
+ const field=id=>root.querySelector('#'+id);
+ function select(i,focus=false){
+   const item=data[i];if(!item)return;
+   tabs.forEach((tab,j)=>{tab.setAttribute('aria-selected',String(i===j));tab.tabIndex=i===j?0:-1;});
+   panel.setAttribute('aria-labelledby',tabs[i].id);
+   field('spFlowKicker').textContent=item.kicker;
+   root.querySelector('.sp-flow-artifact').textContent=item.artifact;
+   const image=field('spFlowImage');if(image.getAttribute('src')!==item.image)image.src=item.image;image.alt=item.alt;
+   field('spFlowVisualLabel').textContent=item.visualLabel;
+   field('spFlowVisualTitle').textContent=item.visualTitle;
+   field('spFlowTitle').textContent=item.title;
+   field('spFlowDescription').textContent=item.description;
+   const link=field('spFlowLink');link.href=item.link;link.textContent=item.action;
+   if(focus)tabs[i].focus();
+ }
+ tabs.forEach((tab,i)=>{
+   tab.addEventListener('click',()=>select(i));
+   tab.addEventListener('keydown',e=>{
+     if(!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(e.key))return;
+     e.preventDefault();
+     const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowDown'||e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+     select(next,true);
+   });
+ });
+ select(0);
 })();
 </script></body></html>

@@ -1214,6 +1214,8 @@ if(response.status===403){status.textContent='🔒 SocialPilot Pro is required t
       if (liveActive) {
         show('✓ SocialPilot Pro · Active', 'SocialPilot Pro · Active',
           'Pro · Active', '#87e4c5', true);
+        const checkoutStatus = document.getElementById('socialpilotCheckoutStatus');
+        if (checkoutStatus) checkoutStatus.textContent = 'Your Pro subscription is active. Manage billing from your account menu.';
         return;
       }
       // RLS must allow authenticated users to SELECT only their own sandbox rows.

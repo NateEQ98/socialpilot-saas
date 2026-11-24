@@ -1049,7 +1049,7 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
   function choice(label,items){const wrapper=document.createElement('label');wrapper.textContent=label;const select=document.createElement('select');for(const [value,name] of items){const option=document.createElement('option');option.value=value;option.textContent=name;select.append(option);}wrapper.append(select);options.append(wrapper);return select;}
   const style=choice('Image style',[['auto','Auto'],['photography','Professional photography'],['cinematic','Cinematic'],['realistic','Photorealistic'],['minimalist','Minimalist'],['digital art','Digital art'],['illustration','Illustration'],['3D render','3D render']]);
   const size=choice('Image format',[['1024x1024','Square · 1:1'],['1024x1536','Portrait · 2:3'],['1536x1024','Landscape · 3:2']]);
-  const note=document.createElement('small');note.className='muted';note.textContent='Custom prompts and formats require the updated image service.';
+  const note=document.createElement('small');note.className='muted';note.textContent='Describe your vision, select a style and format, and let AI bring your ideas to life.';
   form.append(promptLabel,count,options,note,controls);
   const canvas=document.createElement('div');canvas.className='sp-canvas';
   const placeholder=document.createElement('div');placeholder.className='sp-placeholder';placeholder.innerHTML='<span style="font-size:42px">✧</span><strong>Your creation appears here</strong><p>Describe an image and select Generate AI image to get started.</p>';

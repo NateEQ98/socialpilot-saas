@@ -1134,6 +1134,7 @@ if(response.status === 403){ message('🔒 SocialPilot Pro is required to genera
     const a=document.createElement('a');a.href=currentImage;a.download='socialpilot-ai-image.png';
     document.body.append(a);a.click();a.remove();
   });
+  window.SOCIALPILOT_CUSTOM_IMAGE_READY = true;
   generate.addEventListener('click',async()=>{
     if(!window.SOCIALPILOT_CUSTOM_IMAGE_READY){status.textContent='Custom image generation is temporarily unavailable while the image service is updated.';return;}
     const business=document.getElementById('psBrand').value.trim();

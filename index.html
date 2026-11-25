@@ -1583,9 +1583,141 @@ body{background:#07080e!important}
 #pro-preview .pro-head h2{font-size:clamp(38px,5.6vw,74px)!important;line-height:1!important;letter-spacing:-.07em!important}
 #pro-preview .pro-cinema{border-color:#b69ef25c!important;box-shadow:0 20px 75px #0008!important}
 @media(max-width:670px){#pro-studio{padding:0 13px;margin:85px auto 40px}#pro-preview{padding:0 13px}#pro-studio .ps-output{min-height:450px!important}.sp-v8-pro-hero{height:285px}.sp-v8-pro-example{padding:19px}}
+</style><style id="sp9-page-architecture">
+/* REBUILD V9 — a new cinematic marketing homepage with the existing real studio behind a mode switch. */
+body{background:#08080d!important}
+body:not(.sp9-workspace) .wrap>header.hero,
+body:not(.sp9-workspace) .wrap>.sp-marquee-band,
+body:not(.sp9-workspace) .wrap>section,
+body:not(.sp9-workspace) .wrap>.sp-v8-entry,
+body:not(.sp9-workspace) .wrap>.sp-v7-editorial,
+body:not(.sp9-workspace) .wrap>.sp-visual-film,
+body:not(.sp9-workspace) .wrap>.sp-cinema-showcase,
+body:not(.sp9-workspace) .wrap>.sp-flow-feature,
+body:not(.sp9-workspace) .wrap>.sp-conversion-cta,
+body:not(.sp9-workspace) .wrap>.foot{display:none!important}
+body.sp9-workspace #sp-relaunch-v9{display:none!important}
+body.sp9-workspace .wrap>header.hero{display:none!important}
+body.sp9-workspace .wrap>section.sp-v7-editorial,body.sp9-workspace .wrap>section.sp-visual-film,body.sp9-workspace .wrap>section.sp-cinema-showcase,body.sp9-workspace .wrap>section.sp-flow-feature,body.sp9-workspace .wrap>section.sp-v8-entry,body.sp9-workspace .wrap>section.sp-conversion-cta{display:none!important}
+body.sp9-workspace .wrap>.foot{display:block!important}
+body:not(.sp9-workspace) .nav{position:relative;z-index:30!important;max-width:1480px!important;margin:auto!important;background:#090a0edb!important;box-shadow:none!important;border-bottom:1px solid #ffffff21!important;border-radius:0!important;backdrop-filter:blur(15px)!important}
+.sp9{font-family:Inter,ui-sans-serif,system-ui,sans-serif;position:relative;width:100vw;margin-left:calc(50% - 50vw);color:#f8f5f4;overflow:hidden;background:#08080d;isolation:isolate}
+.sp9 *{box-sizing:border-box}
+.sp9 a{text-decoration:none}
+.sp9 h1,.sp9 h2,.sp9 h3{color:#f8f6f5;font-weight:820}
+.sp9 i{font-style:normal;background:linear-gradient(115deg,#f6eadb,#dbc4fa 51%,#9cc4ec);color:transparent;background-clip:text;-webkit-background-clip:text}
+.sp9-eyebrow{display:inline-flex;gap:11px;align-items:center;color:#d5c7ea;font-size:10px;font-weight:830;letter-spacing:.22em;text-transform:uppercase}
+.sp9-eyebrow b{display:block;background:#d9b4fa;height:7px;width:7px;border-radius:50%;box-shadow:0 0 14px #d49fff}
+.sp9-btn,.sp9-outline{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;padding:16px 21px;min-height:54px;border-radius:4px;font-size:13px;font-weight:850;transition:transform .25s,background .25s}
+.sp9-btn{background:#eee9ec;color:#131018!important}.sp9-btn:hover{transform:translateY(-3px);background:#d8c6ff}
+.sp9-outline{border:1px solid #ffffff80;background:#1613246b;color:#fff!important;backdrop-filter:blur(8px)}.sp9-outline:hover{background:#ffffff20}
+.sp9-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:35px}
+.sp9-hero{height:min(900px,calc(100svh - 65px));min-height:680px;position:relative;display:flex;align-items:center;background:#0a0a10}
+.sp9-hero-film,.sp9-hero-grad{position:absolute;inset:0}
+.sp9-panel{position:absolute;inset:0;opacity:0;animation:sp9-film 18s infinite}
+.sp9-panel-one{animation-delay:0s}.sp9-panel-two{animation-delay:6s}.sp9-panel-three{animation-delay:12s}
+.sp9-panel img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.76) saturate(.89);animation:sp9-zoom 18s linear infinite}
+.sp9-hero-grad{background:linear-gradient(90deg,#07080eea 3%,#07080eb2 37%,#07080e2b 79%),linear-gradient(0deg,#07080eea,transparent 30%);z-index:1}
+.sp9-hero-content{position:relative;z-index:3;width:min(1400px,100%);padding:105px clamp(25px,7vw,110px) 90px;margin:auto}
+.sp9-hero h1{font-size:clamp(63px,9.2vw,151px)!important;letter-spacing:-.092em!important;line-height:.92!important;margin:26px 0!important;max-width:1200px;font-weight:850!important;text-wrap:balance;text-shadow:0 10px 70px #0005}
+.sp9-hero-content>p{max-width:550px;font-size:clamp(17px,1.6vw,22px);line-height:1.64;color:#e3deeb}
+.sp9-hero-bottom{position:absolute;left:clamp(25px,7vw,110px);right:clamp(25px,7vw,110px);bottom:23px;display:flex;justify-content:space-between;gap:15px;font-size:10px;letter-spacing:.18em;color:#dfd7e4}
+.sp9-hero-count{position:absolute;z-index:3;right:7%;top:50%;font-size:12px;font-weight:800;color:#c0afc7;letter-spacing:.13em}
+.sp9-hero-count span{font-size:30px;color:#fff}
+.sp9-marquee{background:#e6d8f6;color:#100e1a;overflow:hidden;padding:14px 0}
+.sp9-marquee div{width:max-content;white-space:nowrap;font-size:13px;font-weight:900;letter-spacing:.19em;animation:sp9-marquee 28s linear infinite}
+.sp9-marquee span{margin:0 35px;color:#6849a6}
+.sp9-gallery{max-width:1520px;margin:0 auto;padding:132px clamp(18px,5vw,72px) 95px}
+.sp9-section-heading{margin-bottom:45px}.sp9-heading-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:end}
+.sp9-heading-grid h2,.sp9-story-intro h2,.sp9-creation-copy h2,.sp9-end h2{font-size:clamp(55px,7.5vw,110px)!important;letter-spacing:-.082em!important;line-height:.94!important;margin:20px 0 0!important;max-width:970px}
+.sp9-heading-grid p{font-size:clamp(16px,1.6vw,20px);color:#a8a7b6;line-height:1.6;max-width:420px;margin:0 0 7px}
+.sp9-mosaic{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:repeat(2,355px);gap:12px}
+.sp9-image{position:relative;overflow:hidden;background:#171624;min-width:0;min-height:0}
+.sp9-large{grid-row:span 2}
+.sp9-image img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.05);transition:transform .8s ease,filter .8s}
+.sp9-image:hover img{transform:scale(1.055);filter:brightness(.94) saturate(1.1)}
+.sp9-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#050711c9,transparent 68%)}
+.sp9-image-copy{position:absolute;z-index:2;left:clamp(18px,2.4vw,36px);right:20px;bottom:clamp(16px,2.5vw,38px);color:#fff}
+.sp9-image-copy span{font-size:10px;color:#e3d9ec;letter-spacing:.18em;font-weight:850}
+.sp9-image-copy h3{font-size:clamp(23px,2.8vw,44px);letter-spacing:-.06em;line-height:1.02;margin:12px 0 0}
+.sp9-large h3{font-size:clamp(44px,5.5vw,85px)}
+.sp9-disclosure{font-size:11px;color:#8790a1;margin:18px 0 0}
+.sp9-story{background:#101018;padding:130px clamp(20px,5vw,75px);border-block:1px solid #ffffff17}
+.sp9-story-intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:75px;max-width:1480px;margin:0 auto;align-items:center}
+.sp9-story-intro h2{font-size:clamp(60px,6vw,99px)!important}
+.sp9-story-intro p{color:#adb0c2;line-height:1.65;font-size:18px;max-width:400px;margin:30px 0}
+.sp9-text-link{color:#e3d7f2;font-weight:780;font-size:13px;display:inline-flex;gap:30px;padding-bottom:10px;border-bottom:1px solid #c7b3e4}
+.sp9-story-stage{min-width:0;background:#171422;padding:11px;border:1px solid #ffffff32;box-shadow:0 35px 100px #0009}
+.sp9-story-frame{height:clamp(420px,48vw,670px);position:relative;overflow:hidden;background:#181522}
+.sp9-story-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s}
+.sp9-story-slide.is-active{opacity:1;visibility:visible}
+.sp9-story-slide img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.7);transform:scale(1.11);transition:transform 5s}
+.sp9-story-slide.is-active img{transform:scale(1)}
+.sp9-story-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080811d9,transparent 75%)}
+.sp9-story-words{position:absolute;z-index:2;left:clamp(25px,5vw,70px);bottom:clamp(35px,5vw,75px);display:flex;flex-direction:column;gap:14px}
+.sp9-story-words span{font-size:10px;letter-spacing:.18em;color:#e4d6f4;font-weight:800}
+.sp9-story-words strong{font-size:clamp(37px,5.5vw,80px);line-height:.96;letter-spacing:-.065em;color:white;max-width:560px}
+.sp9-story-words small{font-size:14px;color:#e7e3ed}
+.sp9-story-slide.is-active .sp9-story-words>*{animation:sp9-rise .7s both}.sp9-story-slide.is-active .sp9-story-words strong{animation-delay:.1s}.sp9-story-slide.is-active .sp9-story-words small{animation-delay:.25s}
+.sp9-story-controls{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 5px 2px}
+.sp9-story-bars{display:grid;grid-template-columns:repeat(3,1fr);flex:1;gap:8px}
+.sp9-story-bars button{font:800 12px Inter,system-ui,sans-serif;cursor:pointer;text-align:left;border:0;border-top:2px solid #77727e;padding:14px 4px 0;background:transparent;color:#ddd3e6}
+.sp9-story-bars button[aria-pressed="true"]{border-color:#d4b1ff;color:#fff}
+.sp9-story-bars button span{display:block;font-weight:500;font-size:11px;letter-spacing:0;margin-top:4px;color:#a8a2b6}
+#sp9Pause{background:#252134;border:1px solid #ffffff34;border-radius:50%;width:41px;height:41px;color:#fff;cursor:pointer}
+.sp9-creation{display:grid;grid-template-columns:1fr 1fr;min-height:810px;background:#111019}
+.sp9-creation-art{overflow:hidden;min-height:560px}.sp9-creation-art img{width:100%;height:100%;object-fit:cover;filter:brightness(.82)}
+.sp9-creation-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(35px,6vw,110px)}
+.sp9-creation-copy h2{font-size:clamp(53px,5.5vw,88px)!important}.sp9-creation-copy p{font-size:17px;color:#b2b0c4;line-height:1.7;max-width:560px}
+.sp9-creation-links{margin:28px 0 34px;border-top:1px solid #ffffff29}
+.sp9-creation-links a{display:flex;gap:21px;align-items:center;border-bottom:1px solid #ffffff26;padding:19px 0;color:#f7f1fd;font-size:17px;font-weight:710}
+.sp9-creation-links a span{font-size:11px;color:#bba8ed}.sp9-creation-links a b{margin-left:auto;font-weight:500;color:#c2a9f5}
+.sp9-creation-copy>.sp9-btn{align-self:flex-start}
+.sp9-end{text-align:center;padding:145px 20px 165px;background:radial-gradient(ellipse at 50% 85%,#55427b45,transparent 65%),#0b0a11}
+.sp9-end h2{margin:30px auto!important;max-width:1000px}
+.sp9-end>p{font-size:18px;color:#aeaabd;max-width:590px;margin:auto;line-height:1.6}
+.sp9-end .sp9-actions{justify-content:center}.sp9-end>small{display:block;font-size:11px;color:#928da2;margin-top:32px}
+@keyframes sp9-film{0%,3%{opacity:0}7%,29%{opacity:1}36%,100%{opacity:0}}
+@keyframes sp9-zoom{0%{transform:scale(1.04)}100%{transform:scale(1.19)}}
+@keyframes sp9-rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sp9-marquee{to{transform:translateX(-50%)}}
+@media(max-width:1000px){.sp9-hero{min-height:700px}.sp9-hero h1{font-size:clamp(65px,10vw,110px)!important}.sp9-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,300px)}.sp9-large{grid-row:span 2}.sp9-story-intro{grid-template-columns:1fr;gap:30px}.sp9-story-intro h2{font-size:75px!important}.sp9-creation{grid-template-columns:1fr}.sp9-creation-art{height:530px;min-height:0}.sp9-creation-copy{padding:65px 40px}.sp9-heading-grid{grid-template-columns:1fr;gap:19px}}
+@media(max-width:650px){.sp9-hero{min-height:690px;height:calc(100svh - 65px)}.sp9-hero-content{padding:95px 22px 85px}.sp9-hero h1{font-size:clamp(53px,12.1vw,79px)!important;max-width:100%}.sp9-hero-content>p{font-size:15px;max-width:390px}.sp9-hero-count{display:none}.sp9-hero-bottom{left:23px;right:23px;font-size:8px}.sp9-hero-bottom span:last-child{display:none}.sp9-actions{flex-direction:column;align-items:stretch}.sp9-btn,.sp9-outline{justify-content:space-between}.sp9-hero-grad{background:linear-gradient(90deg,#07080eef,#07080e80 85%),linear-gradient(0deg,#07080ec2,transparent 50%)}.sp9-gallery{padding:75px 13px}.sp9-heading-grid h2,.sp9-end h2{font-size:clamp(50px,11vw,73px)!important}.sp9-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:380px repeat(2,225px);gap:8px}.sp9-large{grid-column:span 2;grid-row:auto}.sp9-image-copy{left:13px;bottom:15px}.sp9-image-copy h3{font-size:19px}.sp9-large h3{font-size:42px}.sp9-image-copy span{font-size:8px}.sp9-story{padding:80px 14px}.sp9-story-intro h2{font-size:66px!important}.sp9-story-frame{height:420px}.sp9-story-words{left:20px;bottom:30px}.sp9-story-words strong{font-size:45px}.sp9-creation-art{height:400px}.sp9-creation-copy{padding:65px 22px}.sp9-creation-copy h2{font-size:54px!important}.sp9-end{padding:90px 20px 100px}.sp9-end>p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.sp9-panel{animation:none!important;opacity:0}.sp9-panel-one{opacity:1}.sp9-panel img,.sp9-marquee div,.sp9-story-slide.is-active .sp9-story-words>*{animation:none!important}.sp9-story-slide,.sp9-story-slide img,.sp9-image img{transition:none!important}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
-<div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#sp-v8-studio-entry">The Studio</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
+<div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#sp9-home" data-sp9-home>Home</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
+<main id="sp-relaunch-v9" class="sp9" aria-label="SocialPilot cinematic homepage">
+<section id="sp9-home" class="sp9-hero">
+<div class="sp9-hero-film" aria-hidden="true"><div class="sp9-panel sp9-panel-one"><img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&amp;fit=crop&amp;w=1600&amp;q=86" alt=""></div><div class="sp9-panel sp9-panel-two"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&amp;fit=crop&amp;w=1600&amp;q=86" alt=""></div><div class="sp9-panel sp9-panel-three"><img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&amp;fit=crop&amp;w=1600&amp;q=86" alt=""></div><div class="sp9-hero-grad"></div></div>
+<div class="sp9-hero-content"><span class="sp9-eyebrow"><b></b> THE FUTURE LOOKS CREATIVE</span><h1>Make your brand<br><i>unforgettable.</i></h1><p>Go from the first spark to a campaign worth sharing. Ideas, captions, visual direction, and content planning—all in your creative workspace.</p>
+<div class="sp9-actions"><a class="sp9-btn" href="#generator" data-sp9-workspace>Start creating free <span>↗</span></a><a class="sp9-outline" href="#sp9-gallery">Explore creative work <span>↓</span></a></div>
+<div class="sp9-hero-bottom"><span>IMAGINE MORE. CREATE BETTER.</span><span>EDITORIAL CONCEPTS • NOT CUSTOMER OUTPUT</span></div></div>
+<div class="sp9-hero-count"><span>01</span> / 03 <i></i></div>
+</section>
+<div class="sp9-marquee" aria-hidden="true"><div>ART DIRECTION <span>✦</span> STORYTELLING <span>✦</span> CONTENT IDEAS <span>✦</span> CAPTIONS <span>✦</span> CREATIVE STRATEGY <span>✦</span> MAKE SOMETHING REMARKABLE <span>✦</span> ART DIRECTION <span>✦</span> STORYTELLING <span>✦</span></div></div>
+<section class="sp9-gallery" id="sp9-gallery">
+<div class="sp9-section-heading"><span class="sp9-eyebrow">01 / THE CREATIVE UNIVERSE</span><div class="sp9-heading-grid"><h2>Creative that<br><i>makes you feel.</i></h2><p>A glimpse of the worlds your ideas could inspire. Distinct imagery. Strong creative direction. Nothing ordinary.</p></div></div>
+<div class="sp9-mosaic">
+<article class="sp9-image sp9-large"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&amp;fit=crop&amp;w=1300&amp;q=84" loading="lazy" alt="Luxury fragrance product creative inspiration"><div class="sp9-image-copy"><span>01 / FRAGRANCE</span><h3>An unforgettable<br>first impression.</h3></div></article>
+<article class="sp9-image"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&amp;fit=crop&amp;w=900&amp;q=84" loading="lazy" alt="Fashion editorial photography"><div class="sp9-image-copy"><span>02 / FASHION</span><h3>Wear the story.</h3></div></article>
+<article class="sp9-image"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&amp;fit=crop&amp;w=900&amp;q=84" loading="lazy" alt="Refined beauty product imagery"><div class="sp9-image-copy"><span>03 / BEAUTY</span><h3>Details matter.</h3></div></article>
+<article class="sp9-image"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=900&amp;q=84" loading="lazy" alt="Artisan coffee campaign photography"><div class="sp9-image-copy"><span>04 / LIFESTYLE</span><h3>Everyday magic.</h3></div></article>
+<article class="sp9-image"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=900&amp;q=84" loading="lazy" alt="Fitness and athletic campaign inspiration"><div class="sp9-image-copy"><span>05 / FITNESS</span><h3>Energy in motion.</h3></div></article>
+</div><p class="sp9-disclosure">Illustrative stock photography showing creative inspiration, not campaigns created by SocialPilot.</p>
+</section>
+<section class="sp9-story" id="sp9-story" aria-labelledby="sp9StoryTitle">
+<div class="sp9-story-intro"><div><span class="sp9-eyebrow">02 / A STORY IN THREE ACTS</span><h2 id="sp9StoryTitle">See it.<br><i>Feel it.</i><br>Create it.</h2><p>Explore a cinematic sample campaign from the opening hook to the final invitation.</p><a href="#real-videos" data-sp9-workspace class="sp9-text-link">Explore the interactive Creative Lab <span>↗</span></a></div>
+<div class="sp9-story-stage"><div class="sp9-story-frame">
+<div class="sp9-story-slide is-active" data-sp9-slide="0"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" loading="lazy" alt="Fragrance product concept"><div class="sp9-story-words"><span>SCENE 01 / THE HOOK</span><strong>Stop the scroll.</strong><small>Lead with one unforgettable visual.</small></div></div>
+<div class="sp9-story-slide" data-sp9-slide="1"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" loading="lazy" alt="Fashion portrait concept"><div class="sp9-story-words"><span>SCENE 02 / THE STORY</span><strong>Make them feel.</strong><small>Turn attention into emotional connection.</small></div></div>
+<div class="sp9-story-slide" data-sp9-slide="2"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" loading="lazy" alt="Beauty brand creative concept"><div class="sp9-story-words"><span>SCENE 03 / THE ACTION</span><strong>Give them more.</strong><small>A moment worth following through on.</small></div></div></div>
+<div class="sp9-story-controls"><div class="sp9-story-bars" role="group" aria-label="Choose preview scene"><button type="button" data-sp9-choice="0" aria-pressed="true">01 <span>Hook</span></button><button type="button" data-sp9-choice="1" aria-pressed="false">02 <span>Story</span></button><button type="button" data-sp9-choice="2" aria-pressed="false">03 <span>Action</span></button></div><button type="button" id="sp9Pause" aria-pressed="false" aria-label="Pause animation">Ⅱ</button></div></div>
+</div>
+</section>
+<section class="sp9-creation" id="sp9-create"><div class="sp9-creation-art"><img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&amp;fit=crop&amp;w=1500&amp;q=85" loading="lazy" alt="Premium fragrance lifestyle photography"></div><div class="sp9-creation-copy"><span class="sp9-eyebrow">03 / TURN INSPIRATION INTO ACTION</span><h2>Your next idea<br>deserves <i>more.</i></h2><p>Find a fresh angle. Shape your voice. Plan the next post. Unlock AI-powered campaign and image creation with Pro.</p><div class="sp9-creation-links"><a href="#generator" data-sp9-workspace><span>01</span> Discover ideas <b>↗</b></a><a href="#captions" data-sp9-workspace><span>02</span> Create captions <b>↗</b></a><a href="#pro-studio" data-sp9-workspace><span>03</span> AI Pro Studio <b>↗</b></a><a href="#calendar" data-sp9-workspace><span>04</span> Content planner <b>↗</b></a></div><a href="#generator" data-sp9-workspace class="sp9-btn">Open your creative workspace <span>↗</span></a></div></section>
+<section class="sp9-end"><span class="sp9-eyebrow">YOUR BRAND HAS MORE TO SAY</span><h2>Make something<br><i>worth remembering.</i></h2><p>Start with free creative tools. Explore AI campaigns and visual generation when you're ready for Pro.</p><div class="sp9-actions"><a class="sp9-btn" href="#generator" data-sp9-workspace>Start free <span>↗</span></a><a class="sp9-outline" href="#pro-preview" data-sp9-workspace>Explore Pro <span>↗</span></a></div><small>No automatic social posting. Illustrative imagery is for creative inspiration.</small></section>
+</main>
 <header class="hero sp-hero-pro sp-cinematic-hero" id="top">
  <div class="sp-hero-copy sp-cinema-hero-copy">
   <div class="sp-hero-overline"><span class="sp-hero-dot" aria-hidden="true"></span> YOUR CREATIVE COMMAND CENTER <span class="sp-hero-spark" aria-hidden="true">✦</span></div>
@@ -3309,5 +3441,25 @@ window.setInterval(()=>{if(!paused&&visible&&!document.hidden)show(active+1)},40
  generate?.addEventListener('click',()=>window.setTimeout(()=>{const txt=(output?.innerText||'').trim();if(txt){lastGenerated=txt.slice(0,360);renderDraft()}},100));
  document.getElementById('captionVariants')?.addEventListener('click',()=>window.setTimeout(()=>{const txt=(output?.innerText||'').trim();if(txt){lastGenerated=txt.slice(0,360);renderDraft()}},50));
  renderDraft();
+})();
+</script><script id="sp9-mode-router">
+(function(){
+ const body=document.body,home=document.getElementById('sp-relaunch-v9');
+ if(!home)return;
+ const studioIds=new Set(['generator','captions','calendar','pro-studio','pro-preview','real-videos','my-plan','workflow','questions','experience','sp-v8-studio-entry','sp-visual-films','creative-showcase']);
+ const isStudioHash=()=>studioIds.has((location.hash||'').slice(1));
+ const update=()=>{const current=isStudioHash();body.classList.toggle('sp9-workspace',current);document.title=current?'SocialPilot — Creative Studio':'SocialPilot — Make Your Brand Unforgettable';if(current){requestAnimationFrame(()=>{let el=document.getElementById(location.hash.slice(1));el?.scrollIntoView({block:'start',behavior:'instant'})})}};
+ document.querySelectorAll('[data-sp9-workspace]').forEach(a=>a.addEventListener('click',()=>body.classList.add('sp9-workspace')));
+ document.querySelectorAll('[data-sp9-home]').forEach(a=>a.addEventListener('click',()=>{body.classList.remove('sp9-workspace');window.scrollTo({top:0,behavior:'smooth'})}));
+ window.addEventListener('hashchange',update);
+ update();
+ const slides=Array.from(document.querySelectorAll('.sp9-story-slide')),buttons=Array.from(document.querySelectorAll('[data-sp9-choice]')),pause=document.getElementById('sp9Pause');
+ let current=0,stopped=window.matchMedia('(prefers-reduced-motion: reduce)').matches,visible=true;
+ function show(i){current=(i+slides.length)%slides.length;slides.forEach((el,j)=>el.classList.toggle('is-active',i===j));buttons.forEach((el,j)=>el.setAttribute('aria-pressed',String(i===j)))}
+ buttons.forEach(b=>b.addEventListener('click',()=>{show(+b.dataset.sp9Choice)}));
+ pause?.addEventListener('click',()=>{stopped=!stopped;pause.textContent=stopped?'▶':'Ⅱ';pause.setAttribute('aria-label',stopped?'Play animation':'Pause animation');pause.setAttribute('aria-pressed',String(stopped))});
+ if(stopped&&pause){pause.textContent='▶';pause.setAttribute('aria-label','Play animation');pause.setAttribute('aria-pressed','true')}
+ if('IntersectionObserver' in window){new IntersectionObserver(e=>visible=!!e[0]?.isIntersecting,{threshold:.12}).observe(document.querySelector('.sp9-story-stage'))}
+ window.setInterval(()=>{if(!stopped&&visible&&!document.hidden)show(current+1)},5200);
 })();
 </script></body></html>

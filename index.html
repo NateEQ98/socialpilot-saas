@@ -915,6 +915,221 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @keyframes spMosaicDrift{0%{transform:scale(1.02) translateY(0)}50%{transform:scale(1.10) translateY(-1.1%)}100%{transform:scale(1.045) translateX(-1.1%)}}
 @media(prefers-reduced-motion:reduce){.sp-cinema-mosaic .sp-new-gallery-tile img{animation:none;transform:none}}
 </style>
+<style id="sp-competitive-redesign-nov2026">
+/* Competitive visual reset: richer editorial creative, minimalist black/blue, fewer dashboard boxes */
+:root{--sp-night:#07090f;--sp-sky:#9fc4ff;--sp-indigo:#576af2;--sp-violet:#8f85ff}
+html{scroll-padding-top:75px}
+body{background:radial-gradient(ellipse at 52% 0%,rgba(58,68,147,.15),transparent 35%),#080a11;color:#f5f7ff}
+body::before{background-image:radial-gradient(rgba(167,176,236,.24) .65px,transparent .65px);opacity:.12}
+.grad{background-image:linear-gradient(96deg,#fff 2%,#aaaefd 44%,#81c7ee 93%)!important;background-clip:text!important;-webkit-background-clip:text!important;color:transparent!important}
+.nav{z-index:130;box-shadow:0 8px 35px rgba(0,0,0,.18)}
+.brand{font-weight:860;letter-spacing:-.05em}
+.mark{background:linear-gradient(135deg,#4e75f1,#8a65ff);box-shadow:0 0 24px rgba(92,113,246,.28)}
+.sp-mobile-menu-toggle,.sp-mobile-quickstart{display:none}
+.sp-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.sp-hero-pro.sp-cinematic-hero{padding-top:86px!important;gap:54px}
+.sp-cinematic-hero .sp-cinema-hero-copy h1{max-width:830px;font-size:clamp(52px,7.2vw,92px);font-weight:760;line-height:1.02;letter-spacing:-.068em}
+.sp-cinematic-hero .sp-cinema-hero-copy>p:not(.sp-hero-disclaimer){max-width:650px;color:#afbdd9}
+.sp-cinema-main-frame{border:1px solid rgba(143,190,255,.58)!important;box-shadow:0 0 0 3px rgba(91,123,248,.11),0 0 30px rgba(73,122,252,.51),0 0 120px rgba(53,101,221,.26),0 30px 70px rgba(0,0,0,.7)!important}
+.sp-cinema-hero-product{max-width:1020px}
+.sp-editorial-index{position:absolute;top:15px;right:15px;z-index:4;font:800 9px system-ui,sans-serif;letter-spacing:.14em;color:#f8fbff;background:#08112177;border:1px solid rgba(255,255,255,.31);border-radius:20px;padding:6px 9px}
+.sp-cinematic-hero .sp-hero-content-visual{isolation:isolate}
+.sp-cinematic-hero .sp-hero-content-visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 30% 20%,transparent 18%,rgba(3,8,19,.21) 87%);z-index:0}
+.sp-cinematic-hero .sp-hero-visual-kicker{font-size:11px;color:#b9ebff;letter-spacing:.15em}
+.sp-cinematic-hero .sp-hero-content-visual strong{font-size:clamp(19px,2.5vw,34px);font-weight:850;line-height:1.09;max-width:95%;text-shadow:0 3px 20px rgba(0,0,0,.75)}
+.sp-cinematic-hero .sp-hero-preview-sample{border-color:rgba(255,255,255,.4);background:rgba(3,11,22,.54)}
+.sp-cinematic-hero .sp-hero-preview-footer{color:#a6badd}
+.sp-cinematic-hero .sp-hero-preview-tab{border-radius:10px}
+.sp-cinematic-hero .sp-hero-preview-tab[aria-pressed=true]{background:linear-gradient(110deg,rgba(82,104,243,.46),rgba(100,80,209,.28));border-color:rgba(146,179,255,.8)}
+.sp-marquee-band{margin-top:18px;margin-bottom:98px}
+.sp-cinema-showcase{margin-top:100px;margin-bottom:100px}
+.sp-cinema-heading h2,.sp-experience-heading h2,.sp-flow-heading h2{font-weight:710;letter-spacing:-.055em}
+.sp-cinema-viewport{border-color:rgba(173,184,243,.25);background:#0d101a}
+.sp-cinema-mosaic{background:transparent;gap:11px!important}
+.sp-cinema-mosaic .sp-new-gallery-tile{border-radius:15px;box-shadow:0 18px 44px rgba(0,0,0,.29)}
+.sp-cinema-mosaic .sp-new-gallery-tile:before{content:"✦ SOCIALPILOT / CONCEPT";position:absolute;z-index:3;top:15px;left:15px;background:rgba(6,11,22,.53);border:1px solid rgba(255,255,255,.2);color:#eff4ff;padding:6px 8px;border-radius:7px;font-size:8px;letter-spacing:.12em;font-weight:900;backdrop-filter:blur(5px);pointer-events:none}
+.sp-cinema-mosaic .sp-new-gallery-tile:after{background:linear-gradient(180deg,rgba(4,7,19,.27),transparent 26%,rgba(3,6,13,.16) 54%,rgba(4,7,16,.92))}
+.sp-cinema-mosaic .sp-cinema-post-overlay{gap:8px;bottom:17px;left:17px;right:13px}
+.sp-cinema-mosaic .sp-cinema-post-overlay span{font-size:9px;color:#c7dcff;font-weight:870}
+.sp-cinema-mosaic .sp-cinema-post-overlay strong{font-size:clamp(16px,1.6vw,25px);font-weight:800;line-height:1.1;text-shadow:0 3px 16px #000c}
+.sp-cinema-mosaic .sp-new-gallery-feature .sp-cinema-post-overlay strong{font-size:clamp(29px,3.1vw,44px);max-width:95%}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(3n+2) .sp-cinema-post-overlay strong{text-transform:uppercase;letter-spacing:-.04em}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(4n+3){background:linear-gradient(135deg,#123b64,#242b77)}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(4n+3):before{color:#c9efff}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(5n+4) .sp-cinema-post-overlay strong{font-weight:650;font-style:italic}
+.sp-cinema-mosaic .sp-new-gallery-tile img{filter:contrast(1.05) saturate(.9) brightness(.87)}
+.sp-cinema-mosaic .sp-new-gallery-tile:hover img{filter:contrast(1.03) saturate(1.08) brightness(.91)}
+.sp-experience{margin-top:48px;margin-bottom:100px}
+.sp-experience-heading{max-width:750px}
+.sp-experience-grid{gap:17px}
+.sp-experience-card{background:linear-gradient(160deg,#131721,#0b0f1a);border-color:rgba(161,178,225,.21);box-shadow:0 22px 65px #0006}
+.sp-experience-card:before{opacity:.20}
+.sp-experience-card-head{padding:31px 29px 12px}
+.sp-experience-card h3{font-size:clamp(25px,2.8vw,35px);font-weight:720;letter-spacing:-.047em}
+.sp-experience-card-head>span{color:#a6c7ff}
+.sp-experience-card-head p{color:#9fb1cf;font-size:13px}
+.sp-experience-card-foot{border-top:1px solid rgba(179,190,236,.09);margin-top:auto;padding:17px 29px 20px}
+.sp-experience-card-foot a{color:#bed2ff}
+.sp-experience-card-wide{grid-column:span 1}
+.sp-exp-pipeline-grid{gap:10px}
+.sp-exp-stage{background:linear-gradient(145deg,#222a3c,#10192c);border-color:rgba(146,169,248,.23);box-shadow:0 7px 19px #0003}
+.sp-exp-stage strong{font-size:13px}
+.sp-exp-chat-ui{background:#0c101c;border-color:rgba(174,184,238,.18)}
+.sp-exp-chat-response{background:linear-gradient(115deg,#557ce9,#765dd1)}
+.sp-exp-mini-gallery{grid-template-columns:repeat(3,minmax(0,1fr));min-height:290px}
+.sp-exp-mini-gallery figure{position:relative;isolation:isolate}
+.sp-exp-mini-gallery figure:after{position:absolute;left:10px;bottom:15px;right:8px;z-index:2;color:#fff;font-size:clamp(13px,1.4vw,21px);font-weight:900;letter-spacing:-.04em;line-height:1.03;text-shadow:0 4px 15px #000c;white-space:pre-line;pointer-events:none}
+.sp-exp-mini-gallery figure:nth-child(1):after{content:"MAKE\A IT A\A MOMENT."}
+.sp-exp-mini-gallery figure:nth-child(2):after{content:"THE\A EVERYDAY\A EDIT."}
+.sp-exp-mini-gallery figure:nth-child(3):after{content:"LIVE\A IN YOUR\A OWN WAY."}
+.sp-exp-mini-gallery figure:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(1,8,19,.8));z-index:1;pointer-events:none}
+#workflow .sp-flow-heading{max-width:760px}
+#workflow .sp-flow-motion-main{background:#0c101c}
+#workflow .sp-flow-motion-shell{border-color:rgba(159,182,255,.27)}
+#workflow .sp-flow-frame{background:#0c101c;border-color:rgba(159,182,255,.26)}
+#workflow .sp-flow-steps{background:linear-gradient(160deg,#161a29,#101420)}
+#workflow .sp-flow-steps button[aria-selected=true]{background:linear-gradient(120deg,rgba(79,97,201,.27),rgba(91,71,174,.13));border-color:rgba(138,165,244,.58);box-shadow:inset 3px 0 #84b4ff,0 7px 24px rgba(51,68,153,.12)}
+#workflow .sp-flow-steps button[aria-selected=true] .sp-flow-index{background:linear-gradient(125deg,#5279f0,#6d63d8)}
+#features .card{border-color:rgba(164,175,224,.19);background:#121725}
+#generator,#captions,#pro-studio .ps-shell,#calendar{border-color:rgba(148,174,244,.27)!important;background:linear-gradient(145deg,#121722,#0b101c)!important;box-shadow:0 20px 65px #0004!important}
+#generator>h2,#captions>h2,#calendar h2{letter-spacing:-.04em;font-size:clamp(28px,3.5vw,43px)}
+#generator .btn,#captions .btn{background:linear-gradient(115deg,#566fee,#655ae0)}
+#generator select,#captions select,#generator input,#captions input,#captions textarea,#pro-studio input,#pro-studio textarea,#pro-studio select{background:#0b101d;border-color:rgba(176,191,239,.23)}
+#generator select:focus-visible,#captions select:focus-visible,#generator input:focus-visible,#captions input:focus-visible,#captions textarea:focus-visible{outline:2px solid #95b3ff;outline-offset:2px}
+.sp-answers-list details{border-color:rgba(160,177,233,.18);background:#121622}
+.sp-answers-list details[open]{border-color:rgba(142,173,250,.47)}
+/* Older duplicate decorative previews add scroll without value. Keep actual tools untouched. */
+section.premium-shell, p.preview-caption,section.motion-section,section.showcase,section.how-section,section.final-cta,section.sp-command-feature{display:none!important}
+@media(min-width:851px){.sp-cinema-mosaic{grid-template-rows:repeat(4,185px)!important}.sp-cinematic-hero .sp-hero-content-visual{min-height:300px}.sp-cinematic-hero .sp-cinema-preview-wing{min-height:300px}}
+@media(max-width:850px){
+html{scroll-padding-top:82px}body{overflow-x:clip}
+.wrap{padding-left:15px;padding-right:15px}
+.nav{position:sticky;top:7px;z-index:250;width:100%;height:62px;min-height:62px;margin:7px 0 0;padding:0 12px;border:1px solid rgba(168,189,245,.23);border-radius:17px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(11,14,25,.94);box-shadow:0 12px 38px rgba(0,0,0,.36);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);flex-wrap:nowrap}
+.nav .brand{font-size:19px;white-space:nowrap;display:flex;align-items:center;gap:8px;min-width:0}
+.nav .mark{width:29px;height:29px;flex:0 0 29px;border-radius:9px;margin:0;font-size:13px}
+.sp-mobile-quickstart{display:inline-flex;align-items:center;gap:6px;margin-left:auto;padding:11px 12px;border-radius:10px;background:linear-gradient(125deg,#5674eb,#695ce6);border:1px solid rgba(215,224,255,.22);font-size:11px;font-weight:800;color:white;text-decoration:none;white-space:nowrap}
+.sp-mobile-menu-toggle{display:flex;flex:0 0 37px;width:37px;height:37px;flex-direction:column;gap:5px;align-items:center;justify-content:center;border:1px solid rgba(179,196,241,.27);border-radius:10px;background:#161b2d;cursor:pointer;padding:0}
+.sp-mobile-menu-toggle>span{display:block;width:17px;height:2px;border-radius:3px;background:#dbe5ff;transition:transform .2s,opacity .2s}
+.nav.sp-menu-open .sp-mobile-menu-toggle>span:first-child{transform:translateY(7px) rotate(45deg)}
+.nav.sp-menu-open .sp-mobile-menu-toggle>span:nth-child(2){opacity:0}
+.nav.sp-menu-open .sp-mobile-menu-toggle>span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.nav .navlinks,.nav .auth-nav{display:none!important}
+.nav.sp-menu-open .navlinks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));position:absolute;z-index:220;top:calc(100% + 5px);left:0;right:0;gap:8px;padding:13px 12px;background:rgba(14,18,33,.99);border:1px solid rgba(159,181,240,.28);border-radius:14px 14px 0 0;box-shadow:0 25px 45px #0008}
+.nav.sp-menu-open .navlinks a{display:flex;align-items:center;justify-content:center;min-height:40px;text-align:center;border-radius:9px;background:rgba(125,146,229,.07);border:1px solid rgba(141,163,233,.11);color:#d8e2fc;font-weight:720;font-size:12px;padding:7px}
+.nav.sp-menu-open .auth-nav{display:flex!important;position:absolute;z-index:220;top:calc(100% + 173px);left:0;right:0;gap:8px;flex-wrap:wrap;padding:11px 12px 13px;border:1px solid rgba(159,181,240,.28);border-top:0;border-radius:0 0 14px 14px;background:rgba(14,18,33,.99);box-shadow:0 25px 45px #0008}
+.nav.sp-menu-open .auth-nav>.btn{font-size:11px!important;min-height:38px;padding:10px 12px!important;border-radius:9px!important;box-shadow:none!important}
+.nav.sp-menu-open .auth-nav>.btn:first-child{flex:1 0 100%;text-align:center}
+.nav.sp-menu-open .auth-nav>.btn#loginBtn,.nav.sp-menu-open .auth-nav>.btn#signupBtn{flex:1}
+.nav.sp-menu-open .auth-nav .account-menu{width:100%;z-index:250}
+.nav.sp-menu-open .auth-nav .account-trigger{width:100%;justify-content:center}
+.nav.sp-menu-open .auth-nav .account-dropdown{position:absolute;top:calc(100% + 6px);right:0;left:0;max-width:none;width:100%;box-shadow:0 25px 45px #000b}
+.nav.sp-menu-open .auth-status{display:none!important}
+.nav.sp-menu-open .auth-nav .account-signout{font-size:12px}
+.sp-cinematic-hero.sp-hero-pro{padding:42px 0 30px!important;gap:30px!important}
+.sp-cinematic-hero .sp-cinema-hero-copy h1{font-size:clamp(41px,8.4vw,64px);line-height:1.045;letter-spacing:-.057em;margin:22px auto 15px}
+.sp-cinematic-hero .sp-cinema-hero-copy>p:not(.sp-hero-disclaimer){font-size:14px;max-width:520px;line-height:1.65;margin:0 auto 22px}
+.sp-cinematic-hero .sp-hero-overline{font-size:9px;padding:9px 12px}
+.sp-cinematic-hero .sp-hero-actions{flex-wrap:wrap;gap:9px}
+.sp-cinematic-hero .sp-hero-primary{min-width:185px;padding:14px 16px}
+.sp-cinematic-hero .sp-hero-secondary{padding:13px 16px}
+.sp-cinematic-hero .sp-hero-value-strip{margin-top:16px;padding-top:12px!important;gap:8px 15px}
+.sp-cinematic-hero .sp-hero-value-strip span{font-size:10px}
+.sp-cinematic-hero .sp-hero-disclaimer{font-size:10px;max-width:340px;margin:13px auto 0}
+.sp-cinematic-hero .sp-cinema-hero-product{width:100%;max-width:650px;overflow:visible}
+.sp-cinematic-hero .sp-cinema-main-frame{transform:none!important;border:1px solid rgba(152,204,255,.68)!important;box-shadow:0 0 0 4px rgba(66,116,244,.12),0 0 31px rgba(74,132,255,.50),0 0 90px rgba(63,107,250,.25),0 16px 50px #0008!important;border-radius:19px}
+.sp-cinematic-hero .sp-cinema-main-frame:hover{transform:none!important}
+.sp-cinematic-hero .sp-cinema-main-grid{display:block}
+.sp-cinematic-hero .sp-cinema-sidepanel,.sp-cinematic-hero .sp-cinema-preview-wing{display:none!important}
+.sp-cinematic-hero .sp-hero-preview-body{padding:12px!important}
+.sp-cinematic-hero .sp-cinema-preview-heading{display:none}
+.sp-cinematic-hero .sp-hero-window-top{padding:12px 13px;font-size:8px}
+.sp-cinematic-hero .sp-hero-window-live{font-size:8px}
+.sp-cinematic-hero .sp-cinema-workspace{display:block}
+.sp-cinematic-hero .sp-hero-content-card{display:block;min-height:0;border:0!important;overflow:hidden;border-radius:14px;background:#0c1321}
+.sp-cinematic-hero .sp-hero-content-visual{min-height:0!important;height:clamp(310px,64vw,420px)!important;border-radius:14px;overflow:hidden;justify-content:end;padding:27px!important;gap:10px}
+.sp-cinematic-hero .sp-hero-content-visual img{filter:saturate(.92) contrast(1.02) brightness(.85)}
+.sp-cinematic-hero .sp-hero-visual-overlay{background:linear-gradient(180deg,rgba(4,9,20,.23) 0%,rgba(4,9,20,.12) 25%,rgba(4,9,20,.86) 100%)}
+.sp-cinematic-hero .sp-hero-content-visual strong{font-size:clamp(31px,6vw,52px)!important;line-height:1.02;max-width:90%;letter-spacing:-.06em;text-transform:uppercase;font-weight:850;z-index:3}
+.sp-cinematic-hero .sp-hero-visual-kicker{font-size:10px;letter-spacing:.18em}
+.sp-cinematic-hero .sp-hero-preview-sample{font-size:8px;padding:6px 10px}
+.sp-cinematic-hero .sp-hero-content-text{display:none!important}
+.sp-cinematic-hero .sp-hero-preview-footer{padding:14px 4px 0;font-size:10px}
+.sp-cinematic-hero .sp-hero-preview-footer a{font-size:10px}
+.sp-cinematic-hero .sp-hero-preview-tab{font-size:11px;padding:10px 15px}
+.sp-cinema-hero-footnote{padding:19px 0 0;justify-content:center;text-align:center}
+.sp-cinema-hero-footnote span:last-child{display:none}
+.sp-marquee-band{margin:25px -15px 67px;padding:14px 0}
+.sp-experience{margin:30px auto 74px;padding:0}
+.sp-experience-heading{margin:0 auto 25px}
+.sp-experience-heading h2,.sp-cinema-heading h2,.sp-flow-heading h2{font-size:clamp(34px,7.6vw,50px);line-height:1.12;letter-spacing:-.055em}
+.sp-experience-heading p,.sp-cinema-heading p{font-size:13px;max-width:510px;margin-left:auto;margin-right:auto}
+.sp-experience-grid{grid-template-columns:1fr;gap:16px}
+.sp-experience-card{min-height:0!important;border-radius:20px}
+.sp-experience-card-head{padding:26px 23px 12px}
+.sp-experience-card h3{font-size:clamp(25px,6vw,33px)}
+.sp-experience-card-head p{font-size:13px}
+.sp-experience-card-foot{padding:17px 23px 20px}
+.sp-experience-card-foot small{font-size:9px}
+.sp-experience-ui{margin:12px 17px 0;min-height:215px}
+.sp-exp-pipeline-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding:12px 12px 16px}
+.sp-exp-stage{flex:0 0 min(68vw,225px);scroll-snap-align:center;min-height:156px;padding:14px}
+.sp-exp-stage strong{font-size:13px}
+.sp-exp-chat-ui{margin:12px 18px;min-height:190px}
+.sp-exp-mini-gallery{height:240px;min-height:240px;margin:8px 18px;gap:6px}
+.sp-exp-mini-gallery figure:after{font-size:clamp(10px,3.4vw,18px);left:6px;bottom:12px}
+.sp-exp-orb-stage{height:225px}
+.sp-cinema-showcase{margin:65px auto 75px;padding:0}
+.sp-cinema-heading{display:block;margin-bottom:21px;text-align:center}
+.sp-cinema-link{display:inline-block;margin-top:12px}
+.sp-cinema-viewport{border-radius:18px}
+.sp-cinema-topbar{padding:12px 14px}
+.sp-cinema-tabs{gap:7px;padding:12px 12px 0}
+.sp-cinema-tab{flex:1 1 auto;padding:10px 8px;font-size:10px}
+.sp-cinema-mosaic{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:none!important;grid-auto-rows:clamp(185px,48vw,260px);gap:9px!important;padding:12px!important}
+.sp-cinema-mosaic .sp-new-gallery-tile,.sp-cinema-mosaic .sp-new-gallery-feature{grid-column:span 1!important;grid-row:span 1!important;display:block!important}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(n+9){display:none!important}
+.sp-cinema-mosaic .sp-new-gallery-tile:first-child{grid-column:span 2!important;grid-row:span 2!important}
+.sp-cinema-mosaic .sp-new-gallery-tile:first-child .sp-cinema-post-overlay strong{font-size:clamp(28px,7.5vw,48px)}
+.sp-cinema-mosaic .sp-new-gallery-tile:not(:first-child) .sp-cinema-post-overlay strong{font-size:clamp(17px,4.4vw,24px)}
+.sp-cinema-mosaic .sp-new-gallery-tile:before{top:10px;left:10px;font-size:7px;padding:5px}
+.sp-cinema-mosaic .sp-cinema-post-overlay{left:11px;bottom:13px}
+.sp-cinema-mosaic .sp-cinema-post-overlay span{font-size:8px}
+.sp-cinema-mosaic .sp-new-gallery-tile:first-child .sp-cinema-post-overlay{left:18px;bottom:20px}
+.sp-cinema-foot{display:block;padding:14px}
+.sp-cinema-foot a{display:block;margin-top:9px}
+#workflow{margin:55px auto 72px;padding:0}
+#workflow .sp-flow-frame{border-radius:19px}
+#workflow .sp-flow-steps{padding:11px;gap:6px}
+#workflow .sp-flow-steps button{padding:12px 9px}
+#workflow .sp-flow-showcase{padding:11px}
+#workflow .sp-flow-motion-top{padding:10px 11px}
+#workflow .sp-flow-motion-main{min-height:350px}
+#workflow .sp-flow-motion-scene{min-height:350px;padding:12px}
+#workflow .sp-flow-detail{gap:12px;flex-wrap:wrap}
+#workflow .sp-flow-notice{font-size:10px}
+#calendar,#pro-preview,#pro-studio,#real-videos,#questions{scroll-margin-top:83px}
+#features{padding-bottom:30px}
+#features .cards{grid-template-columns:1fr}
+#generator,#captions{max-width:100%;margin-bottom:55px;border-radius:20px;padding:22px}
+#calendar{margin-bottom:65px!important}
+}
+@media(max-width:420px){
+.nav .brand{font-size:17px}
+.nav .mark{width:27px;height:27px;flex-basis:27px}
+.sp-mobile-quickstart{padding:10px 8px;font-size:10px}
+.sp-cinematic-hero .sp-cinema-hero-copy h1{font-size:clamp(37px,10.3vw,48px)}
+.sp-cinematic-hero .sp-hero-actions .sp-hero-primary{width:100%}
+.sp-cinematic-hero .sp-hero-secondary{width:100%;justify-content:center}
+.sp-cinematic-hero .sp-hero-content-visual{height:300px!important;padding:18px!important}
+.sp-cinematic-hero .sp-hero-content-visual strong{font-size:31px!important}
+.sp-cinematic-hero .sp-hero-preview-tab{font-size:10px;padding:9px 7px}
+.sp-cinematic-hero .sp-hero-window-top>span:nth-child(2){display:block!important;font-size:7px}
+.sp-cinema-mosaic{grid-auto-rows:175px!important}
+.sp-cinema-mosaic .sp-new-gallery-tile:first-child{grid-row:span 2!important}
+.sp-cinema-mosaic .sp-new-gallery-tile:not(:first-child) .sp-cinema-post-overlay strong{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.sp-cinema-mosaic .sp-new-gallery-tile img,.sp-cinematic-hero .sp-hero-content-visual img{animation:none!important}}
+</style>
 </head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileMenuHint" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>

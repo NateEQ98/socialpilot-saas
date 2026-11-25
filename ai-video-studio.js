@@ -2,7 +2,7 @@
 'use strict';
 const root=document.getElementById('ai-video-studio');if(!root)return;
 const $=id=>document.getElementById(id),form=$('spvForm'),field=$('spvPrompt'),button=$('spvGenerate'),msg=$('spvStatus'),list=$('spvJobs'),player=$('spvPlayer');
-let selected='9:16',busy=false,recent=[];
+let selected='9:16',busy=false,recent=[],polling=false;
 function tell(text,error){msg.textContent=text;msg.classList.toggle('spv-error',!!error);}
 function node(tag,text,cls){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;}
 async function call(action,payload={}){
@@ -22,6 +22,7 @@ async function call(action,payload={}){
 function view(url){if(typeof url!=='string'||!url.startsWith('https://'))return;
  player.src=url;player.classList.add('spv-playing');$('spvPlaceholder').hidden=true;
  player.scrollIntoView({behavior:'smooth',block:'nearest'});
+ player.play().catch(()=>tell('Video ready. Press play to watch.'));
 }
 function render(items){
  recent=items;list.replaceChildren();
@@ -58,7 +59,8 @@ form.addEventListener('submit',async event=>{
 });
 $('spvRefresh').addEventListener('click',()=>reload());
 if('IntersectionObserver' in window){const ob=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){reload(true);ob.disconnect();}},{rootMargin:'100px'});ob.observe(root);}
-setInterval(async()=>{if(document.hidden||busy)return;const pending=recent.filter(x=>x.status==='submitted').slice(0,3);if(!pending.length)return;
- for(const j of pending){try{await call('status',{id:j.id});}catch{}}
- await reload(true);},15000);
+setInterval(async()=>{if(document.hidden||busy||polling)return;const pending=recent.filter(x=>x.status==='submitted').slice(0,3);if(!pending.length)return;
+ polling=true;
+ try{for(const j of pending){try{const result=await call('status',{id:j.id});if(result.status==='completed')tell('Your AI video is ready. Open it from your projects.');else if(result.status==='failed')tell('A video generation failed. Check your projects.',true);}catch{}}
+ await reload(true);}finally{polling=false;}},15000);
 })();

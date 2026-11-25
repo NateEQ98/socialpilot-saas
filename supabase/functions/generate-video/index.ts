@@ -7,7 +7,7 @@ const FAL_KEY = Deno.env.get("FAL_KEY") || "";
 const MODEL = "alibaba/wan-3.0-prime/text-to-video";
 const API = "https://queue.fal.run/" + MODEL;
 const QUEUE_API = "https://queue.fal.run/" + MODEL.split("/").slice(0,2).join("/");
-const allowed = new Set(["https://nateeq98.github.io", "http://localhost:3000", "http://127.0.0.1:5500"]);
+const allowed = new Set(["https://ariavora.com", "https://www.ariavora.com", "https://nateeq98.github.io", "http://localhost:3000", "http://127.0.0.1:5500"]);
 const responseHeaders = (origin: string | null) => ({
   "Content-Type": "application/json",
   "Access-Control-Allow-Origin": origin && allowed.has(origin) ? origin : "https://nateeq98.github.io",

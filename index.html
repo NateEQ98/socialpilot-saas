@@ -4396,7 +4396,7 @@ pauseUI();activate(0);
 (function(){
 const v=document.getElementById('sp18ProSampleVideo');if(!v)return;
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
-v.addEventListener('error',()=>{v.style.display='none'});}else v.style.display='none'});
+v.addEventListener('error',()=>{v.style.display='none'});
 function start(){if(!v.src){v.src=v.dataset.videoSrc;v.load()}v.play().catch(()=>{})}
 if('IntersectionObserver' in window){new IntersectionObserver(e=>{if(e[0]?.isIntersecting)start();else v.pause()},{threshold:.05,rootMargin:'100px'}).observe(v)}
 else start();

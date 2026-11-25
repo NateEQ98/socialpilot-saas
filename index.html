@@ -4423,13 +4423,14 @@ function loadSource(v,st){
  const url=st.urls[st.attempt];
  if(st.currentUrl===url)return; // Never repeatedly reload the same video during scrolling.
  clearWatch(st);st.currentUrl=url;st.ready=false;
- v.src=url;v.load();
+ v.preload='auto';v.src=url;v.load();
+ if(isEligible(v,st)){const pending=v.play();pending?.catch(()=>{});}
  st.watch=setTimeout(()=>{if(!st.ready&&st.currentUrl===url)loadNext(v,st,'timeout')},12000);
 }
 function start(v,st){
  if(st.failed)return;
  if(st.currentUrl!==st.urls[st.attempt]){loadSource(v,st);return}
- if(st.ready && v.paused){
+ if(v.paused){
    const promise=v.play();
    if(promise&&typeof promise.catch==='function'){
      promise.catch(()=>{v.classList.remove('sp22-playing');});
@@ -4438,8 +4439,8 @@ function start(v,st){
 }
 clips.forEach(v=>{
  const st={urls:(v.getAttribute('data-sp22-sources')||'').split('|').filter(Boolean),attempt:0,currentUrl:'',ready:false,failed:false,near:false,watch:null};
- statuses.set(v,st);v.muted=true;v.defaultMuted=true;v.playsInline=true;v.loop=true;v.preload='none';
- v.addEventListener('loadeddata',()=>{
+ statuses.set(v,st);v.muted=true;v.defaultMuted=true;v.playsInline=true;v.loop=true;v.preload='metadata';
+ v.addEventListener('canplay',()=>{
    clearWatch(st);st.ready=true;
    if(isEligible(v,st))start(v,st);
    requestRefresh();

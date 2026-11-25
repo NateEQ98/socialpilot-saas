@@ -4387,7 +4387,7 @@ function isVisible(v){
  return box.width>0&&box.height>0&&box.bottom>0&&box.top<window.innerHeight;
 }
 function isEligible(v,st){
- if(!allowMotion||document.hidden||st.failed||!st.near||!isVisible(v))return false;
+ if(!allowMotion||document.hidden||st.failed||!isVisible(v))return false;
  const reel=v.closest('.sp18-reel');
  return !reel || motion?.dataset.sp22Paused!=='true';
 }
@@ -4399,7 +4399,7 @@ function refresh(){
    return Math.abs(a.getBoundingClientRect().top-window.innerHeight*.45)-Math.abs(b.getBoundingClientRect().top-window.innerHeight*.45);
  });
  const desired=new Set(eligible.slice(0,4));
- clips.forEach(v=>{const st=statuses.get(v);if(desired.has(v)){start(v,st);}else{clearWatch(st);if(!v.paused)v.pause();v.classList.remove('sp22-playing');}});
+ clips.forEach(v=>{const st=statuses.get(v);if(desired.has(v)){start(v,st);}else{clearWatch(st);if(!v.paused)v.pause();}});
 }
 function requestRefresh(){if(queued)return;queued=true;requestAnimationFrame(refresh);}
 function loadNext(v,st,reason){
@@ -4536,4 +4536,4 @@ document.getElementById('sp22RetryVideos')?.addEventListener('click',()=>{
  pro.addEventListener('click',()=>{const offer=document.getElementById('psOffer');if(offer&&area.value.trim())offer.value=area.value.trim().slice(0,350)});
  setPause(paused);select(0);
 })();
-</script><script id="sp18-pro-motion-player">/* Pro preview playback is now handled by SocialPilotVideoManager. */</script></body></html>
+</script><script id="sp18-pro-motion-player">/* Pro preview playback is now handled by SocialPilotVideoManager. */</script><style id="sp24-native-motion">.sp18-reel>video.sp22-motion-card{opacity:1!important;z-index:0!important;pointer-events:auto!important}.sp18-reel-grad,.sp18-reel-header,.sp18-reel-caption{pointer-events:none}.sp18-reel.sp22-source-error>video{opacity:0!important}@media(prefers-reduced-motion:reduce){.sp18-reel>video.sp22-motion-card{display:block!important}}</style><script id="sp24-motion-diagnostics">(function(){const state=document.getElementById('sp18PlaybackState');const videos=[...document.querySelectorAll('.sp18-reel video')];if(!state||!videos.length)return;const update=()=>{const playing=videos.filter(v=>!v.paused&&v.readyState>=2).length;const failed=videos.filter(v=>v.error).length;state.textContent=playing+' / '+videos.length+' reels playing'+(failed?' · '+failed+' media errors':'');};videos.forEach(v=>{v.controls=true;['playing','pause','error','canplay'].forEach(e=>v.addEventListener(e,update));});update();})();</script></body></html>

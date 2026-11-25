@@ -1234,7 +1234,114 @@ body>*,body>.wrap{position:relative}
 }
 @media(prefers-reduced-motion:reduce){.sp-cinema-main-frame,.sp-cinema-post{transition:none!important}}
 </style>
-</head><body><div id="spScrollProgress" aria-hidden="true"></div>
+
+<style id="sp-visual-editorial-v4">
+/* SOCIALPILOT / CREATIVE DIRECTION V4 — image-first, motion-led, quiet UI */
+:root{--sp-v4-cream:#f7f3f0;--sp-v4-muted:#a5abc0;--sp-v4-lilac:#a891fa;--sp-v4-border:rgba(191,203,255,.18)}
+body{background:#07080e!important}
+.sp-experience,.sp-command-feature,.sp-month-section{display:none!important}
+.sp-my-plan{margin:32px auto 0!important;max-width:800px!important;opacity:.88}
+.sp-my-plan .sp-plan-card{padding:13px 20px!important;min-height:auto!important}
+.sp-my-plan h2{font-size:17px!important;margin:4px 0!important}
+.sp-my-plan .sp-plan-note{display:none!important}
+.sp-my-plan .sp-plan-kicker{font-size:9px!important}
+.sp-visual-film{max-width:1340px;margin:35px auto 120px;padding:0 24px}
+.sp-visual-film-heading{display:grid;grid-template-columns:1.25fr .75fr;align-items:end;gap:32px;padding:8px 5px 33px}
+.sp-visual-film-eyebrow,.sp-visual-story-index{display:inline-flex;align-items:center;gap:9px;font-size:10px;letter-spacing:.2em;font-weight:800;color:#b8a8ff;text-transform:uppercase}
+.sp-visual-film-heading h2{font-size:clamp(42px,6.1vw,80px);line-height:.98;letter-spacing:-.078em;margin:17px 0 0;max-width:820px;color:#fff;font-weight:850}
+.sp-visual-film-heading h2 em{font-style:normal;background:linear-gradient(100deg,#b5a3ff,#8fd7fc);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sp-visual-film-heading p{font-size:clamp(15px,1.5vw,19px);line-height:1.65;color:#a6aec2;max-width:420px;margin:0}
+.sp-visual-story-grid{display:grid;grid-template-columns:1.35fr .74fr .74fr;gap:13px;align-items:stretch}
+.sp-visual-story-card{position:relative;min-width:0;border:1px solid rgba(255,255,255,.13);border-radius:17px;background:#121522;overflow:hidden;box-shadow:0 22px 65px #0008}
+.sp-visual-story-screen{position:relative;overflow:hidden;aspect-ratio:3/4;background:#1b1b2e}
+.sp-visual-story-card.is-film .sp-visual-story-screen{aspect-ratio:4/3}
+.sp-visual-story-screen>img,.sp-visual-story-screen>video{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.sp-visual-story-screen>img{transition:transform .8s ease}
+.sp-visual-story-card:hover .sp-visual-story-screen>img{transform:scale(1.045)}
+.sp-visual-story-screen>video{z-index:2;object-position:center center}
+.sp-visual-story-screen>video:not([src]){display:none}
+.sp-visual-story-card.is-film .sp-visual-story-screen:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(9,9,16,.18),transparent 32%,rgba(9,9,16,.4))}
+.sp-visual-story-watermark{position:absolute;z-index:3;top:18px;left:18px;padding:8px 11px;border:1px solid rgba(255,255,255,.4);border-radius:50px;background:rgba(7,8,15,.68);backdrop-filter:blur(9px);color:white;font-size:9px;letter-spacing:.13em;font-weight:850}
+.sp-visual-story-play{position:absolute;z-index:5;right:15px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.46);color:white;background:rgba(17,17,32,.75);font-size:16px;cursor:pointer;backdrop-filter:blur(10px)}
+.sp-visual-story-play:hover{background:#7354e6}
+.sp-visual-story-caption{padding:22px 23px 25px;background:linear-gradient(145deg,#171727,#0c1020);min-height:146px}
+.sp-visual-story-caption h3{margin:10px 0 7px;font-size:clamp(18px,2vw,27px);letter-spacing:-.035em;line-height:1.1}
+.sp-visual-story-caption p{font-size:12px!important;line-height:1.55!important;margin:0!important;color:#aeb7ce!important}
+.sp-visual-story-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;padding:0 3px}
+.sp-visual-story-foot span{font-size:11px;color:#8790a8}
+.sp-visual-story-foot a{font-size:12px;color:#e3d7ff;font-weight:800;white-space:nowrap}
+.sp-visual-gallery-intro{max-width:880px;margin:0 0 26px}
+.sp-visual-gallery-intro h2{font-size:clamp(38px,5.2vw,74px);line-height:1;letter-spacing:-.07em;margin:12px 0}
+.sp-visual-gallery-intro p{max-width:580px;color:#aeb6c8;font-size:16px;line-height:1.6}
+.sp-cinema-showcase{margin-top:85px!important}
+.sp-cinema-showcase .sp-cinema-heading{margin-bottom:24px!important}
+.sp-cinema-showcase .sp-cinema-heading h2{font-size:clamp(43px,5.6vw,78px)!important;line-height:1!important}
+.sp-cinema-showcase .sp-cinema-viewport{padding-bottom:8px!important;border-radius:18px!important;background:#0c0d17!important}
+.sp-cinema-showcase .sp-cinema-topbar{border-bottom:1px solid rgba(255,255,255,.08)!important}
+.sp-cinema-showcase .sp-cinema-grid.sp-cinema-mosaic{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-auto-rows:245px!important;grid-template-rows:none!important;gap:12px!important;padding:16px 18px 20px!important;align-content:start!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile{display:flex!important;flex-direction:column!important;min-width:0!important;min-height:0!important;overflow:hidden!important;border-radius:11px!important;background:#14151d!important;grid-column:auto;grid-row:auto!important;box-shadow:none!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile:first-child{grid-column:span 2!important;grid-row:span 2!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile img{display:block!important;position:relative!important;inset:auto!important;flex:1 1 auto!important;width:100%!important;min-width:0!important;min-height:0!important;height:0!important;object-fit:cover!important;object-position:center!important;filter:saturate(1.08) contrast(1.03)!important;transform:none!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile::after,
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile::before{display:none!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile .sp-cinema-post-overlay,
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile:nth-child(n) .sp-cinema-post-overlay{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;z-index:1!important;flex:0 0 auto!important;width:100%!important;min-height:66px!important;padding:12px 13px!important;background:#101321!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;gap:4px!important;text-align:left!important;transform:none!important;box-shadow:none!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile .sp-cinema-post-overlay span{display:block!important;color:#8c99b8!important;font-size:8px!important;font-weight:800!important;letter-spacing:.14em!important;line-height:1.2!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile .sp-cinema-post-overlay strong,
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile:nth-child(n) .sp-cinema-post-overlay strong{position:static!important;display:block!important;font-size:clamp(12px,1.15vw,17px)!important;line-height:1.2!important;letter-spacing:-.02em!important;font-style:normal!important;font-weight:760!important;color:#f7f7ff!important;text-shadow:none!important;text-transform:none!important;white-space:normal!important;overflow-wrap:break-word!important;text-align:left!important;max-width:100%!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile:first-child .sp-cinema-post-overlay{min-height:94px!important;padding:17px 22px!important}
+.sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile:first-child .sp-cinema-post-overlay strong{font-size:clamp(22px,2.4vw,37px)!important}
+.sp-cinema-showcase .sp-cinema-tabs{padding-top:24px!important}
+.sp-cinema-showcase .sp-cinema-tab{border-radius:100px!important;padding:12px 16px!important}
+.sp-cinema-showcase .sp-cinema-foot{padding:15px 22px 20px!important}
+.sp-flow-feature{margin-top:104px!important}
+.sp-lab-section{margin-top:95px!important}
+.sp-visual-product-bridge{max-width:1280px;margin:95px auto 70px;padding:0 24px}
+.sp-visual-product-bridge-inner{position:relative;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;border-radius:18px;background:#111322;border:1px solid rgba(172,171,247,.25)}
+.sp-visual-product-bridge-art{min-height:370px;position:relative;overflow:hidden}
+.sp-visual-product-bridge-art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:saturate(1.05)}
+.sp-visual-product-bridge-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(17,19,34,.21))}
+.sp-visual-product-bridge-content{display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,5vw,72px)}
+.sp-visual-product-bridge-content h2{font-size:clamp(35px,4.3vw,62px);line-height:1.04;letter-spacing:-.063em;margin:18px 0}
+.sp-visual-product-bridge-content p{font-size:15px;line-height:1.72;color:#aeb7d0;margin:0 0 25px;max-width:490px}
+.sp-visual-product-bridge-content a{display:inline-flex;align-items:center;gap:10px;width:fit-content;background:#e6e1ff;color:#141025;padding:15px 20px;border-radius:10px;font-size:13px;font-weight:830}
+@media(max-width:1000px){
+ .sp-visual-story-grid{grid-template-columns:1.1fr 1fr!important}
+ .sp-visual-story-card:last-child{grid-column:span 2}
+ .sp-visual-story-card:last-child .sp-visual-story-screen{aspect-ratio:16/7}
+ .sp-cinema-showcase .sp-cinema-grid.sp-cinema-mosaic{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:220px!important}
+}
+@media(max-width:720px){
+ .sp-visual-film{margin:25px auto 75px;padding:0 14px}
+ .sp-visual-film-heading{display:block;padding-bottom:23px}
+ .sp-visual-film-heading h2{font-size:clamp(45px,11vw,70px)}
+ .sp-visual-film-heading p{margin-top:18px;font-size:15px}
+ .sp-visual-story-grid{grid-template-columns:1fr 1fr!important;gap:10px}
+ .sp-visual-story-card.is-film{grid-column:span 2}
+ .sp-visual-story-card.is-film .sp-visual-story-screen{aspect-ratio:16/10}
+ .sp-visual-story-card:last-child{grid-column:auto}
+ .sp-visual-story-card:last-child .sp-visual-story-screen{aspect-ratio:3/4}
+ .sp-visual-story-caption{min-height:120px;padding:15px}
+ .sp-visual-story-caption h3{font-size:18px}
+ .sp-visual-story-caption p{font-size:11px!important}
+ .sp-visual-story-foot{flex-wrap:wrap}
+ .sp-cinema-showcase .sp-cinema-grid.sp-cinema-mosaic{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:205px!important;padding:11px!important;gap:9px!important}
+ .sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile:first-child{grid-column:span 2!important;grid-row:span 2!important}
+ .sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile .sp-cinema-post-overlay{min-height:65px!important;padding:10px!important}
+ .sp-cinema-showcase .sp-cinema-mosaic .sp-new-gallery-tile .sp-cinema-post-overlay strong{font-size:12px!important}
+ .sp-visual-product-bridge{margin:65px auto 45px}
+ .sp-visual-product-bridge-inner{grid-template-columns:1fr}
+ .sp-visual-product-bridge-art{min-height:270px}
+ .sp-visual-product-bridge-content{padding:29px}
+}
+@media(max-width:390px){
+ .sp-visual-story-grid{grid-template-columns:1fr!important}
+ .sp-visual-story-card.is-film{grid-column:auto}
+ .sp-visual-story-card:last-child{grid-column:auto}
+ .sp-visual-story-screen,.sp-visual-story-card:last-child .sp-visual-story-screen{aspect-ratio:5/4}
+}
+@media(prefers-reduced-motion:reduce){.sp-visual-story-screen>img{transition:none}}
+</style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
 <header class="hero sp-hero-pro sp-cinematic-hero" id="top">
@@ -1307,6 +1414,21 @@ body>*,body>.wrap{position:relative}
       <div class="sp-experience-card-foot"><a href="#pro-studio">Explore Pro Studio ↗</a><small>Stock reference photos · AI generation requires Pro</small></div>
     </article>
   </div>
+</section>
+
+<section class="sp-visual-film" id="sp-visual-films" aria-labelledby="spVisualFilmTitle">
+ <div class="sp-visual-film-heading"><div><span class="sp-visual-film-eyebrow">✦ YOUR CONTENT, BUT MAKE IT UNMISSABLE</span><h2 id="spVisualFilmTitle">Show the story.<br><em>Don't just tell it.</em></h2></div><p>From lifestyle launches to scroll-stopping visuals, explore the creative direction behind a stronger brand presence. Start with a concept, then make it your own in SocialPilot.</p></div>
+ <div class="sp-visual-story-grid">
+  <article class="sp-visual-story-card is-film"><div class="sp-visual-story-screen">
+   <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=1150&amp;q=85" loading="lazy" alt="Styled coffee imagery for illustrative cafe campaign">
+   <video id="spVisualFilmVideo" autoplay muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=1150&amp;q=85" aria-label="Illustrative coffee shop promotional footage">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-maker-making-coffee-3578-large.mp4" type="video/mp4">
+   </video><span class="sp-visual-story-watermark">MOTION REFERENCE · STOCK VIDEO</span><button id="spVisualFilmPlay" class="sp-visual-story-play" type="button" aria-label="Pause sample video">Ⅱ</button>
+  </div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">01 / VIDEO DIRECTION</span><h3>Make every second count.</h3><p>Motion inspiration for a local café campaign. Example footage, not AI output.</p></div></article>
+  <article class="sp-visual-story-card"><div class="sp-visual-story-screen"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Red sports shoe creative reference" loading="lazy"><span class="sp-visual-story-watermark">IMAGE CONCEPT / 02</span></div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">02 / RETAIL</span><h3>Made to move.</h3><p>Bold product imagery for a high-energy campaign.</p></div></article>
+  <article class="sp-visual-story-card"><div class="sp-visual-story-screen"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Editorial fashion creative reference" loading="lazy"><span class="sp-visual-story-watermark">IMAGE CONCEPT / 03</span></div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">03 / LIFESTYLE</span><h3>Own your aesthetic.</h3><p>Editorial inspiration for fashion and lifestyle storytelling.</p></div></article>
+ </div>
+ <div class="sp-visual-story-foot"><span>Illustrative stock assets show creative possibilities, not customer results or SocialPilot-generated video.</span><a href="#creative-showcase">Browse the creative gallery ↗</a></div>
 </section>
 <section class="sp-cinema-showcase" id="creative-showcase" aria-labelledby="spCinemaTitle">
   <div class="sp-cinema-heading">
@@ -1418,6 +1540,10 @@ body>*,body>.wrap{position:relative}
 <div id="captionResult" class="caption-output" aria-live="polite"><div class="caption-tag">CAPTION CONCEPTS</div><div id="captionVariants" class="caption-variants" style="margin:14px 0"></div><div id="captionText"></div></div>
 <div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></section>
 
+
+<section class="sp-visual-product-bridge" aria-labelledby="spVisualBridgeTitle">
+ <div class="sp-visual-product-bridge-inner"><div class="sp-visual-product-bridge-art"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&amp;fit=crop&amp;w=1300&amp;q=80" loading="lazy" alt="Curated fashion and lifestyle visual campaign inspiration"></div><div class="sp-visual-product-bridge-content"><span class="sp-visual-film-eyebrow">✦ FROM INSPIRATION TO ACTION</span><h2 id="spVisualBridgeTitle">A better-looking idea starts here.</h2><p>Find a content angle, write a caption and organize your next posts. When you're ready to explore AI-powered campaign and image creation, open Pro Studio.</p><a href="#generator">Create your first idea <span aria-hidden="true">↗</span></a></div></div>
+</section>
 <section class="sp-lab-section" id="real-videos" aria-labelledby="spLabTitle">
  <div class="sp-lab-heading"><div><span class="sp-lab-pill"><span class="sp-lab-led"></span> INTERACTIVE CREATIVE LAB</span><h2 id="spLabTitle">Don't just imagine it. <span class="grad">See the idea.</span></h2><p>Explore how a campaign can come together. Pick a business, choose a goal, and move through a visual three-scene concept.</p></div><a href="#pro-studio" class="sp-lab-head-link">Open AI Pro Studio <span aria-hidden="true">↗</span></a></div>
  <div class="sp-lab-shell">
@@ -2883,4 +3009,14 @@ status.textContent = err.message || 'Unable to start checkout.';
  });
 })();
 </script>
-</body></html>
+
+<script id="sp-visual-film-controls">
+(function(){
+const video=document.getElementById('spVisualFilmVideo'),btn=document.getElementById('spVisualFilmPlay');if(!video||!btn)return;
+const set=()=>{btn.textContent=video.paused?'▶':'Ⅱ';btn.setAttribute('aria-label',video.paused?'Play sample video':'Pause sample video')};
+btn.addEventListener('click',()=>{if(video.paused)video.play().catch(()=>{});else video.pause();set()});
+video.addEventListener('play',set);video.addEventListener('pause',set);
+video.addEventListener('error',()=>{video.style.display='none';btn.hidden=true;},{once:true});
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){video.pause();set()}
+})();
+</script></body></html>

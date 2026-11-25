@@ -6,6 +6,7 @@ const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const FAL_KEY = Deno.env.get("FAL_KEY") || "";
 const MODEL = "alibaba/wan-3.0-prime/text-to-video";
 const API = "https://queue.fal.run/" + MODEL;
+const QUEUE_API = "https://queue.fal.run/" + MODEL.split("/").slice(0,2).join("/");
 const allowed = new Set(["https://nateeq98.github.io", "http://localhost:3000", "http://127.0.0.1:5500"]);
 const responseHeaders = (origin: string | null) => ({
   "Content-Type": "application/json",
@@ -58,7 +59,7 @@ Deno.serve(async (request: Request) => {
       const msg = String(reserveError.message || "");
       return reply(msg.includes("Monthly video limit") ? 429 : msg.includes("subscription") ? 402 : 400,
         { error: msg.includes("Monthly video limit") ? "You have used your 10 video generations for this month." :
-          msg.includes("subscription") ? "An active paid SocialPilot subscription is required." : "Video request was not accepted." }, origin);
+          msg.includes("subscription") ? "An active paid Ariavora subscription is required." : "Video request was not accepted." }, origin);
     }
     try {
       const submitted = await fetch(API, {
@@ -100,11 +101,11 @@ Deno.serve(async (request: Request) => {
     if (!FAL_KEY) return reply(503, { error: "Video provider is not configured" }, origin);
     try {
       const headers = { "Authorization": "Key " + FAL_KEY };
-      const statusResult = await fetch(API + "/requests/" + encodeURIComponent(job.provider_request_id) + "/status", { headers, signal: AbortSignal.timeout(12000) });
+      const statusResult = await fetch(QUEUE_API + "/requests/" + encodeURIComponent(job.provider_request_id) + "/status", { headers, signal: AbortSignal.timeout(12000) });
       if (!statusResult.ok) return reply(502, { error: "Video status is temporarily unavailable" }, origin);
       const status = await statusResult.json();
       if (status.status !== "COMPLETED") return reply(200, { id: job.id, status: "submitted", position: status.queue_position ?? null }, origin);
-      const completed = await fetch(API + "/requests/" + encodeURIComponent(job.provider_request_id), { headers, signal: AbortSignal.timeout(15000) });
+      const completed = await fetch(QUEUE_API + "/requests/" + encodeURIComponent(job.provider_request_id), { headers, signal: AbortSignal.timeout(15000) });
       if (!completed.ok) return reply(502, { error: "Video output is not ready. Try checking again." }, origin);
       const result = await completed.json();
       const videoUrl = result?.video?.url;

@@ -2203,8 +2203,97 @@ body #spBackToTop{background:#e0bea1!important;border-color:#f1d7ba!important;co
 .command-logo .sp-brand-wordmark small{flex-basis:100%;display:block!important;font:700 8px Inter,system-ui,sans-serif!important;letter-spacing:.17em!important;color:#c7a99a!important;margin-top:7px!important}
 .command-logo .sp-brand-emblem{width:34px!important;height:34px!important}
 @media(max-width:700px){.nav .sp-brand-v16 .sp-brand-emblem{width:36px!important;height:36px!important}.nav .sp-brand-wordmark{font-size:23px!important}}
+</style><style id="sp17-account-refinement">
+/* Account identity: no leftover purple or neon blue. Specificity beats older menu rules. */
+html body .nav .auth-nav .account-menu .account-trigger,
+html body .nav .account-menu .account-trigger{
+ background:linear-gradient(120deg,#33251f,#1c1818)!important;
+ color:#f7ece2!important;
+ border:1px solid #d9b99c82!important;
+ border-radius:12px!important;
+ box-shadow:inset 0 1px #ffffff13,0 9px 26px #0007!important;
+}
+html body .nav .account-menu .account-trigger:hover,
+html body .nav .account-menu .account-trigger:focus-visible{
+ background:linear-gradient(120deg,#443026,#292020)!important;
+ border-color:#f1d7b8!important;
+}
+html body .nav .account-menu .account-avatar{
+ display:grid!important;place-items:center!important;
+ width:31px!important;height:31px!important;
+ background:#121013!important;
+ border:1px solid #d8ae8d88!important;
+ border-radius:9px!important;
+ color:#f5e8dc!important;
+ box-shadow:none!important;overflow:hidden!important;
+}
+html body .nav .account-menu .account-avatar img{
+ display:block!important;width:28px!important;height:28px!important;object-fit:contain!important;
+}
+html body .nav .account-menu .account-chevron{color:#e1b99a!important}
+html body .nav .auth-nav .account-dropdown,
+html body .nav .account-menu .account-dropdown{
+ background:#191416!important;
+ border:1px solid #c59b7c85!important;
+ box-shadow:0 25px 80px #000d!important;
+ border-radius:16px!important;
+ overflow:hidden!important;
+ color:#f2e9e1!important;
+}
+html body .nav .account-dropdown .account-profile{
+ background:linear-gradient(125deg,#382820,#201a1a 75%)!important;
+ border-bottom:1px solid #c9a38655!important;
+ padding:20px!important;
+}
+html body .nav .account-dropdown .account-profile-label{
+ color:#d8b79e!important;
+ font-weight:850!important;
+ letter-spacing:.16em!important;
+}
+html body .nav .account-dropdown .account-email{
+ color:#f8f0e8!important;font-weight:800!important;
+}
+html body .nav .account-dropdown .account-plan{
+ color:#e5c5a4!important;font-weight:730!important;
+}
+html body .nav .account-dropdown .account-menu-links{
+ background:#191416!important;padding:9px!important;
+}
+html body .nav .account-dropdown .account-item{
+ display:flex!important;align-items:center!important;
+ color:#f0e1d5!important;
+ border-radius:9px!important;
+ font-weight:650!important;
+ padding:13px 11px!important;
+}
+html body .nav .account-dropdown .account-item:hover,
+html body .nav .account-dropdown .account-item:focus-visible{
+ background:#e6c3a51b!important;color:#fff4e9!important;
+}
+html body .nav .account-dropdown .account-item>span:first-child{
+ color:#e6bc98!important;
+}
+html body .nav .account-dropdown .account-external{
+ color:#c9a88e!important;
+}
+html body .nav .account-dropdown .account-signout{
+ border-top:1px solid #e6c1a137!important;
+ background:#20191a!important;
+ color:#f0dfd2!important;
+ padding:15px 20px!important;
+}
+html body .nav .account-dropdown .account-signout:hover,
+html body .nav .account-dropdown .account-signout:focus-visible{
+ background:#4a2c26!important;color:#fff1e5!important;
+}
+@media(max-width:740px){
+ html body .nav.sp-menu-open .auth-nav .account-dropdown{
+ background:#191416!important;
+ border-color:#c59b7c85!important;
+ }
+}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
-<div class="wrap"><nav class="nav"><a class="brand sp-brand-v16" href="#sp9-home" data-sp9-home aria-label="SocialPilot home"><img src="./socialpilot-emblem.svg" alt="" width="42" height="42" class="sp-brand-emblem"><span class="sp-brand-wordmark">Social<span>Pilot</span></span></a><div class="navlinks" id="spMobileLinks"><a href="#sp9-home" data-sp9-home>Home</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
+<div class="wrap"><nav class="nav"><a class="brand sp-brand-v16" href="#sp9-home" data-sp9-home aria-label="SocialPilot home"><img src="./socialpilot-emblem.svg" alt="" width="42" height="42" class="sp-brand-emblem"><span class="sp-brand-wordmark">Social<span>Pilot</span></span></a><div class="navlinks" id="spMobileLinks"><a href="#sp9-home" data-sp9-home>Home</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true"><img src="./socialpilot-emblem.svg" width="25" height="25" alt=""></span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
 <main id="sp-relaunch-v9" class="sp9" aria-label="SocialPilot cinematic homepage">
 <section id="sp9-home" class="sp9-hero">

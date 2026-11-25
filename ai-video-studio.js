@@ -34,6 +34,13 @@ function render(items){
  const play=node('button','▶ Play video');play.type='button';play.addEventListener('click',()=>view(job.video_url));
  const open=node('a','Open MP4');open.href=job.video_url;open.target='_blank';open.rel='noopener noreferrer';
  card.append(play,document.createTextNode('  ·  '),open);
+ const publish=node('button','Publish to TikTok');
+ publish.type='button';
+ publish.hidden=true;
+ publish.dataset.tiktokPublish='';
+ publish.addEventListener('click',()=>window.dispatchEvent(new CustomEvent('av:tiktok-publish',{detail:job})));
+ card.append(publish);
+ window.dispatchEvent(new CustomEvent('av:tiktok-controls',{detail:publish}));
  }else if(job.status==='failed'){
    card.append(node('small','Could not complete the video'));
    const remove=node('button','Remove failed project');

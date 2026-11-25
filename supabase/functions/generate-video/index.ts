@@ -40,9 +40,23 @@ Deno.serve(async (request: Request) => {
   if (action === "list") {
     const { data, error } = await db.from("video_generations")
       .select("id,prompt,aspect_ratio,status,video_url,created_at,error_message")
-      .eq("user_id", user.id).order("created_at", { ascending: false }).limit(12);
+      .eq("user_id", user.id).is("dismissed_at", null).order("created_at", { ascending: false }).limit(12);
     if (error) return reply(500, { error: "Could not load your videos" }, origin);
     return reply(200, { jobs: data }, origin);
+  }
+
+  if (action === "dismiss") {
+    const id = typeof input.id === "string" ? input.id : "";
+    if (!/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(id)) {
+      return reply(400, { error: "Invalid project ID." }, origin);
+    }
+    const { data, error } = await db.from("video_generations")
+      .update({ dismissed_at: new Date().toISOString() })
+      .eq("id", id).eq("user_id", user.id).eq("status", "failed")
+      .select("id").maybeSingle();
+    if (error) return reply(500, { error: "Could not remove the project." }, origin);
+    if (!data) return reply(404, { error: "Failed project not found." }, origin);
+    return reply(200, { dismissed: true }, origin);
   }
 
   if (action === "create") {

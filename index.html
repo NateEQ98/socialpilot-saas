@@ -3164,4 +3164,24 @@ btn.addEventListener('click',()=>{paused=!paused;update()});update();show(0);
 if('IntersectionObserver' in window)new IntersectionObserver(entries=>{visible=!!entries[0]&&entries[0].isIntersecting},{threshold:.1}).observe(reel);
 window.setInterval(()=>{if(!paused&&visible&&!document.hidden)show(active+1)},4000);
 })();
+</script><script id="sp-v6-live-preview">
+/* Lightweight visual preview only. Actual caption engine and actions remain unchanged. */
+(function(){
+ const brand=document.getElementById('captionBusiness'),topic=document.getElementById('captionTopic'),tone=document.getElementById('captionTone'),preview=document.getElementById('spV6CaptionLive'),output=document.getElementById('captionText');
+ if(!brand||!topic||!preview)return;
+ const socialName=document.querySelector('.sp-v6-social-head strong');
+ const presets={Friendly:'Something worth sharing with you. ✨',Professional:'A thoughtful update from our brand.',Bold:'This deserves your attention. ⚡',Playful:'Okay, this is exciting. 👀',Luxury:'The little details make it exceptional.',Storytelling:'It started with an idea worth sharing.'};
+ let lastGenerated='';
+ function renderDraft(){
+   const name=brand.value.trim().slice(0,70);
+   const what=topic.value.trim().slice(0,170);
+   if(socialName)socialName.textContent=name||"Your brand's next story";
+   preview.textContent=lastGenerated||(what?(presets[tone?.value]||presets.Friendly)+' '+what:'A good story starts with a feeling. Build a message your audience wants to remember.');
+ }
+ [brand,topic,tone].forEach(el=>el?.addEventListener(el===tone?'change':'input',()=>{lastGenerated='';renderDraft()}));
+ const generate=document.querySelector('#captions button[onclick="generateCaption()"]');
+ generate?.addEventListener('click',()=>window.setTimeout(()=>{const txt=(output?.innerText||'').trim();if(txt){lastGenerated=txt.slice(0,360);renderDraft()}},100));
+ document.getElementById('captionVariants')?.addEventListener('click',()=>window.setTimeout(()=>{const txt=(output?.innerText||'').trim();if(txt){lastGenerated=txt.slice(0,360);renderDraft()}},50));
+ renderDraft();
+})();
 </script></body></html>

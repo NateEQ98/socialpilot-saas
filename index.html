@@ -4362,12 +4362,6 @@ const clips=Array.from(document.querySelectorAll('video.sp22-film'));
 if(!clips.length)return;
 const allowMotion=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const statuses=new WeakMap();
-const activeSet=new Set();
-const mixkitVideoPages={
- coffee:'https://mixkit.co/free-stock-video/pouring-coffee-in-a-cup-43941/',
- beauty:'https://mixkit.co/free-stock-video/a-young-woman-applies-skincare-moisturizing-cream-on-her-face-50426/',
- product:'https://mixkit.co/free-stock-video/work-table-with-handmade-soaps-still-life-and-labels-2814/'
-};
 const motion=document.getElementById('sp18-motion-studio');
 let queued=false;
 function clearWatch(st){if(st.watch){clearTimeout(st.watch);st.watch=null;}}
@@ -4417,7 +4411,7 @@ function loadSource(v,st){
 }
 function start(v,st){
  if(st.failed)return;
- if(!st.currentUrl){loadSource(v,st);return}
+ if(st.currentUrl!==st.urls[st.attempt]){loadSource(v,st);return}
  if(st.ready && v.paused){
    const promise=v.play();
    if(promise&&typeof promise.catch==='function'){
@@ -4453,6 +4447,16 @@ window.SocialPilotVideoManager={
    const v=clips[i],st=v&&statuses.get(v);if(!st)return;
    clearWatch(st);st.currentUrl='';st.failed=false;st.attempt=0;st.ready=false;
    v.closest('.sp18-reel')?.classList.remove('sp22-source-error');requestRefresh();
+ },
+ playSelected(){
+   const video=document.querySelector('.sp18-reel.is-active video.sp22-film');
+   const st=video&&statuses.get(video);if(!st)return;
+   st.near=true;
+   if(st.failed){st.failed=false;st.currentUrl='';st.ready=false;st.attempt=0;}
+   if(st.currentUrl!==st.urls[st.attempt])loadSource(video,st);
+   const promise=video.play();
+   if(promise&&typeof promise.catch==='function')promise.catch(()=>{});
+   requestRefresh();
  }
 };
 requestRefresh();
@@ -4486,9 +4490,9 @@ requestRefresh();
   status.textContent=paused?'Playback paused':'Filmed campaign inspiration';
   refresh();
  }
- tabs.forEach(t=>t.addEventListener('click',()=>select(Number(t.dataset.sp18Index))));
- reels.forEach((el,i)=>el.addEventListener('click',()=>select(i)));
- pause.addEventListener('click',()=>setPause(!paused));
+ tabs.forEach(t=>t.addEventListener('click',()=>{select(Number(t.dataset.sp18Index));if(!paused)window.SocialPilotVideoManager?.playSelected();}));
+ reels.forEach((el,i)=>el.addEventListener('click',()=>{select(i);if(!paused)window.SocialPilotVideoManager?.playSelected();}));
+ pause.addEventListener('click',()=>{setPause(!paused);if(!paused)window.SocialPilotVideoManager?.playSelected();});
  function createShotList(){
   const idea=area.value.trim();if(!idea){area.focus();return}
   const selected=concepts[index],concise=idea.replace(/[\r\n]+/g,' ').slice(0,135);

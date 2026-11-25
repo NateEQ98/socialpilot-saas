@@ -4693,18 +4693,25 @@ document.getElementById('sp22RetryVideos')?.addEventListener('click',()=>{
 .sp18-reel.sp22-source-error::before { content: "CLIP UNAVAILABLE"; }
 .av-film-host > img { visibility: hidden; }
 .sp25-art.av-film-host { background-image: none !important; }
-#avShowcaseSound { position: fixed; left: 16px; bottom: max(16px, env(safe-area-inset-bottom)); z-index: 40; border: 1px solid #d1ab86; border-radius: 999px; padding: .55rem .9rem; background: #211813; color: #f5e4d1; font: 600 .875rem system-ui; cursor: pointer; }
+#avShowcaseSound { position: fixed; left: max(12px, env(safe-area-inset-left)); bottom: max(12px, env(safe-area-inset-bottom)); z-index: 40; min-height: 44px; display: inline-flex; align-items: center; gap: .45rem; border: 1px solid #d1ab86; border-radius: 999px; padding: .45rem .75rem; background: #211813; color: #f5e4d1; font: 600 .875rem system-ui; cursor: pointer; }
+#avShowcaseSound::before { content: ''; border: 1px solid currentColor; border-radius: 50%; width: .47rem; height: .47rem; }
+#avShowcaseSound[aria-pressed="true"]::before { background: currentColor; }
+#avShowcaseSound:focus-visible { outline: 2px solid #f5e4d1; outline-offset: 3px; }
+#avShowcaseMusicState { min-width: 1.25rem; color: #d1ab86; font-size: .75rem; }
 </style>
 <audio id="avShowcaseMusic" src="./assets/ariavora-ambient.mp3" preload="none" loop></audio>
-<button id="avShowcaseSound" type="button" aria-pressed="false">Showcase music</button>
+<button id="avShowcaseSound" type="button" aria-pressed="false"><span id="avShowcaseMusicLabel">Showcase music</span><span id="avShowcaseMusicState" aria-hidden="true">Off</span></button>
 <script>
 (() => {
   const music = document.getElementById('avShowcaseMusic');
   const control = document.getElementById('avShowcaseSound');
+  const label = document.getElementById('avShowcaseMusicLabel');
+  const state = document.getElementById('avShowcaseMusicState');
   music.volume = 0.46;
 
   function syncControl() {
     control.setAttribute('aria-pressed', String(!music.paused));
+    state.textContent = music.paused ? 'Off' : 'On';
   }
 
   music.addEventListener('play', syncControl);
@@ -4716,10 +4723,10 @@ document.getElementById('sp22RetryVideos')?.addEventListener('click',()=>{
     }
     try {
       await music.play();
-      control.textContent = 'Showcase music';
+      label.textContent = 'Showcase music';
     } catch (error) {
       if (error.name === 'AbortError') return;
-      control.textContent = 'Retry showcase music';
+      label.textContent = 'Retry showcase music';
       syncControl();
     }
   });

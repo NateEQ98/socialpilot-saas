@@ -4735,6 +4735,38 @@ document.getElementById('sp22RetryVideos')?.addEventListener('click',()=>{
     // Editing still works when browser storage is unavailable.
   }
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = prompt.form;
+    const ratios = [...form.querySelectorAll('.spv-ratio')];
+    const audio = form.elements.namedItem('audio');
+    const settingsKey = 'ariavora.video-settings.v1';
+
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(settingsKey));
+      if (saved) {
+        ratios.find(button => button.dataset.ratio === saved.ratio)?.click();
+        audio.checked = saved.audio === true;
+      }
+    } catch {
+      // Use the studio defaults when storage is unavailable.
+    }
+
+    function saveSettings() {
+      const ratio = ratios.find(button => button.getAttribute('aria-pressed') === 'true');
+      try {
+        sessionStorage.setItem(settingsKey, JSON.stringify({
+          ratio: ratio?.dataset.ratio,
+          audio: audio.checked
+        }));
+      } catch {
+        // The active settings remain available in the editor.
+      }
+    }
+
+    ratios.forEach(button => button.addEventListener('click', saveSettings));
+    audio.addEventListener('change', saveSettings);
+  }, { once: true });
+
   prompt.addEventListener('input', () => {
     try {
       if (prompt.value === prompt.defaultValue) sessionStorage.removeItem(key);

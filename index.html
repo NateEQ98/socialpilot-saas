@@ -1367,6 +1367,116 @@ body{background:#07080e!important}
 @keyframes sp-v5-hover{50%{transform:translateY(-8px)}}
 @media(max-width:720px){.sp-v5-kicker{left:15px;top:15px;font-size:8px}.sp-v5-message{left:7%;top:26%}.sp-v5-message strong{font-size:clamp(36px,7vw,55px)}.sp-v5-message small{font-size:11px}.sp-v5-bubble{font-size:9px;bottom:9%;right:6%;padding:8px}.sp-v5-timeline{left:7%;bottom:9px}}
 @media(prefers-reduced-motion:reduce){.sp-v5-scene,.sp-v5-scene>img{transition:none}.sp-v5-message>*,.sp-v5-bubble{animation:none!important}}
+</style><style id="sp-v6-director">
+/* SocialPilot V6 visual rebuild: preserve all legacy input IDs / generator JS / Stripe wiring */
+.sp-flow-feature,.sp-lab-section,.sp-v6-caption-studio{isolation:isolate}
+.sp-flow-feature{position:relative;max-width:1300px!important;margin:125px auto 115px!important;padding:0 24px!important}
+.sp-flow-feature::before{content:"";position:absolute;z-index:-1;inset:0 -8%;background:radial-gradient(ellipse 44% 30% at 85% 36%,rgba(96,76,220,.23),transparent 80%);pointer-events:none}
+.sp-flow-heading{max-width:900px!important;text-align:left!important;margin:0 0 32px!important}
+.sp-flow-heading h2{max-width:900px!important;font-size:clamp(45px,6.2vw,83px)!important;line-height:1!important;letter-spacing:-.075em!important;text-wrap:balance}
+.sp-flow-heading p{font-size:16px!important;color:#aab4cc!important;max-width:580px!important}
+.sp-v6-feature-strip{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:25px 0!important}
+.sp-v6-feature-strip span{font-size:10px;font-weight:850;letter-spacing:.14em;color:#cfc4ff;padding:10px 14px;border:1px solid #9385d452;background:#15152a7f;border-radius:100px}
+.sp-flow-frame{border-radius:20px!important;background:linear-gradient(140deg,#0e0c17,#0c1021)!important;border:1px solid #77749860!important;box-shadow:0 32px 125px #0009,0 0 95px #6448cf1b!important;overflow:hidden}
+.sp-flow-steps{background:linear-gradient(180deg,#191329,#111120)!important;padding:19px!important;gap:10px!important;border-right:1px solid #ffffff1d!important}
+.sp-flow-steps button{position:relative!important;min-height:87px!important;padding:16px!important;border-radius:13px!important;border:1px solid #ffffff17!important;background:#ffffff08!important;transition:background .25s,transform .25s,border-color .25s!important}
+.sp-flow-steps button:hover{transform:translateX(3px)!important;background:#6251ae25!important}
+.sp-flow-steps button[aria-selected="true"]{background:linear-gradient(110deg,#6051aa5b,#30275266)!important;border-color:#b69bff99!important;box-shadow:inset 3px 0 #a58aff,0 16px 40px #0004!important}
+.sp-flow-index{background:#8266f72e!important;border:1px solid #b9a3ff3a!important;border-radius:9px!important;color:#ddd2ff!important}
+.sp-flow-steps strong{font-size:14px!important}
+.sp-flow-showcase{background:#0b0e19!important}
+.sp-flow-motion-shell{border:1px solid #ffffff30!important;border-radius:16px!important;box-shadow:0 20px 60px #0006!important}
+.sp-flow-motion-main{min-height:450px!important;background:radial-gradient(ellipse at 100% 0%,#45317f55,transparent 60%),#090d1a!important}
+.sp-flow-motion-scene{min-height:450px!important;padding:22px!important}
+.sp-motion-ideas{display:grid;grid-template-columns:minmax(0,1fr) 37%;column-gap:16px;align-content:start}
+.sp-motion-ideas .sp-motion-stage-label{grid-column:1/-1}
+.sp-motion-prompt{grid-column:1;grid-row:2;animation:none!important;opacity:1!important;border-radius:13px!important;background:#121729!important;border-color:#9886f45e!important;min-height:118px}
+.sp-motion-cursor-line{max-width:100%!important;animation:none!important;white-space:normal!important}
+.sp-motion-idea-results{grid-column:1;grid-row:3;padding-top:18px}
+.sp-motion-idea-row{opacity:1!important;transform:none!important;animation:none!important;background:#13182b!important;border:1px solid #ffffff1c!important;padding:13px!important;margin:7px 0!important}
+.sp-motion-idea-row strong{font-size:13px!important}
+.sp-motion-idea-row small{font-size:10px!important}
+.sp-v6-flow-visual{grid-column:2;grid-row:2 / 4;position:relative;overflow:hidden;min-height:350px;border-radius:13px;background:#191626;box-shadow:0 20px 50px #0008}
+.sp-v6-flow-visual img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;filter:brightness(.74) saturate(1.13);transition:transform .8s}
+.sp-v6-flow-visual:hover img{transform:scale(1.04)}
+.sp-v6-flow-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#070916dd,transparent 80%)}
+.sp-v6-flow-visual span,.sp-v6-flow-visual strong{position:absolute;z-index:1;left:23px;color:white;text-shadow:0 4px 20px #0009}
+.sp-v6-flow-visual span{top:20px;font-size:9px;font-weight:850;letter-spacing:.18em}
+.sp-v6-flow-visual strong{bottom:21px;font-size:clamp(25px,3vw,42px);line-height:1.02;letter-spacing:-.055em}
+.sp-motion-caption-layout{grid-template-columns:1fr 37%!important}
+.sp-motion-preview-photo{background-image:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80")!important;background-size:cover!important;background-position:center!important}
+.sp-motion-cup{display:none!important}
+.sp-motion-preview-photo:after{content:"THE DAILY EDIT";display:grid;place-items:center;position:absolute;inset:0;color:white;font-size:clamp(20px,2.4vw,38px);letter-spacing:-.05em;font-weight:850;text-shadow:0 5px 25px #000}
+.sp-motion-preview-photo span{display:none!important}
+.sp-motion-copy-window p{opacity:1!important;animation:none!important}
+.sp-motion-campaign-grid{min-height:270px}
+.sp-motion-campaign-card{min-height:235px!important}
+.sp-motion-ideas .sp-motion-stage-label,.sp-motion-caption-layout,.sp-motion-campaign-grid,.sp-motion-calendar{opacity:1!important}
+.sp-lab-section{max-width:1320px!important;padding:0 24px!important;margin:120px auto!important}
+.sp-lab-heading{align-items:flex-end!important;margin-bottom:30px!important}
+.sp-lab-heading h2{font-size:clamp(44px,6vw,82px)!important;line-height:1!important;letter-spacing:-.075em!important;max-width:850px}
+.sp-lab-heading p{font-size:16px!important;line-height:1.65!important;max-width:620px!important}
+.sp-lab-shell{border:1px solid #9483d969!important;border-radius:20px!important;box-shadow:0 32px 110px #0008,0 0 100px #6450d41c!important;background:#0c0d18!important;overflow:hidden}
+.sp-lab-control{background:linear-gradient(145deg,#221735,#141321)!important;padding:30px!important}
+.sp-lab-side-head h3{font-size:clamp(24px,2.5vw,35px)!important;letter-spacing:-.052em!important;line-height:1.08!important;color:white}
+.sp-lab-control select{min-height:51px!important;background:#110f22!important;border:1px solid #a08cc94d!important;border-radius:11px!important}
+.sp-lab-brief{background:linear-gradient(120deg,#332552,#1b1a34)!important;border:1px solid #aa94ff5c!important;border-radius:14px!important;padding:23px!important}
+.sp-lab-brief h4{font-size:clamp(18px,1.9vw,25px)!important;line-height:1.2!important}
+.sp-lab-stage{background:linear-gradient(145deg,#111323,#171326)!important;padding:26px!important}
+.sp-lab-stage-top strong{font-size:17px!important}
+.sp-lab-screen{height:clamp(380px,42vw,545px)!important;border-radius:15px!important;border:1px solid #ffffff3f!important;box-shadow:0 22px 70px #000b!important}
+.sp-lab-screen>img{width:100%;height:100%;object-fit:cover;filter:saturate(1.18) brightness(.9)!important;transform:scale(1.04);transition:opacity .55s ease,transform 5s ease!important}
+.sp-lab-screen:hover>img{transform:scale(1)}
+.sp-lab-screen-shade{background:linear-gradient(90deg,#090918dd,transparent 78%),linear-gradient(0deg,#08091bdd,transparent 60%)!important}
+.sp-lab-screen-copy{z-index:3!important;bottom:48px!important;left:35px!important;max-width:min(580px,75%)!important}
+.sp-lab-screen-copy h3{font-size:clamp(39px,4.8vw,76px)!important;letter-spacing:-.074em!important;line-height:.98!important;max-width:600px!important;text-shadow:0 5px 30px #000b!important}
+.sp-lab-screen-copy p{font-size:15px!important;color:#efedf7!important;max-width:450px!important}
+.sp-lab-center-art{top:20%!important;right:12%!important;left:auto!important;transform:rotate(10deg)!important;opacity:.85;filter:drop-shadow(0 20px 25px #000b)}
+.sp-v6-lab-filmrail{position:absolute;z-index:4;right:20px;top:53px;display:flex;gap:9px}
+.sp-v6-lab-filmrail span{display:flex;align-items:center;gap:5px;color:#e4dcff;border:1px solid #ffffff61;border-radius:100px;padding:6px 9px;font-size:9px;background:#06071180;backdrop-filter:blur(8px)}
+.sp-v6-lab-filmrail i{display:block;width:5px;height:5px;border-radius:50%;background:#a993ff}
+.sp-lab-stepbar{gap:12px!important;margin:14px 0!important}
+.sp-lab-step{background:#171527!important;border:1px solid #ffffff25!important;border-radius:12px!important;min-height:72px!important}
+.sp-lab-step[aria-pressed="true"]{background:#40315f!important;border-color:#b99cff!important;box-shadow:inset 0 0 0 1px #9374df!important}
+.sp-lab-bottom{border-top:1px solid #ffffff1c!important;margin-top:16px!important;padding-top:19px!important}
+.sp-v6-caption-studio{max-width:1290px!important;background:linear-gradient(135deg,#12101e,#0c0e1a 55%,#111321)!important;border:1px solid #9585d553!important;box-shadow:0 38px 110px #0008,0 0 90px #6853c11a!important;border-radius:22px!important;padding:32px!important}
+.sp-v6-caption-header{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:stretch;margin-bottom:28px}
+.sp-v6-caption-header-copy{padding:15px 7px 8px}
+.sp-v6-caption-header-copy h2{font-size:clamp(40px,5vw,69px)!important;line-height:1.02!important;letter-spacing:-.07em!important;margin:15px 0!important}
+.sp-v6-caption-header-copy>p{font-size:16px!important;line-height:1.65!important;max-width:540px!important}
+.sp-v6-caption-header-art{min-height:215px;position:relative;overflow:hidden;border-radius:14px;background:linear-gradient(0deg,#080813c7,transparent),url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85") center 30%/cover}
+.sp-v6-caption-header-art span,.sp-v6-caption-header-art strong{position:absolute;left:23px;color:white;text-shadow:0 5px 25px #000b}
+.sp-v6-caption-header-art span{top:23px;font-size:10px;letter-spacing:.18em;font-weight:800}
+.sp-v6-caption-header-art strong{bottom:22px;font-size:clamp(34px,4vw,58px);line-height:.96;letter-spacing:-.065em}
+.sp-v6-caption-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+.sp-v6-caption-form{padding:12px 5px}
+.sp-v6-caption-form .caption-control-grid{gap:15px!important}
+.sp-v6-caption-form .caption-control-grid input,.sp-v6-caption-form .caption-control-grid select,.sp-v6-caption-form textarea{background:#101121!important;border:1px solid #aaa0d34b!important;border-radius:10px!important;min-height:49px!important;color:#f6f4ff!important}
+.sp-v6-caption-form textarea{min-height:112px!important}
+.sp-v6-caption-form label{font-size:12px!important}
+.sp-v6-caption-form>.btn{background:linear-gradient(100deg,#8c64eb,#6b5ae7)!important;min-height:51px!important}
+.sp-v6-caption-display{position:sticky;top:20px;display:grid;gap:13px;min-width:0}
+.sp-v6-caption-photo{position:relative;min-height:335px;border-radius:15px;overflow:hidden;background:#191728}
+.sp-v6-caption-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.08);transition:transform .75s}
+.sp-v6-caption-photo:hover img{transform:scale(1.04)}
+.sp-v6-caption-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0b0b20e8,transparent 73%)}
+.sp-v6-photo-kicker,.sp-v6-caption-photo strong{position:absolute;z-index:2;left:26px;color:white;text-shadow:0 6px 25px #0007}
+.sp-v6-photo-kicker{top:23px;font-size:10px;letter-spacing:.17em;font-weight:850}
+.sp-v6-caption-photo strong{bottom:23px;font-size:clamp(37px,4vw,65px);line-height:.95;letter-spacing:-.075em}
+.sp-v6-caption-social{border:1px solid #ffffff29;border-radius:13px;padding:20px;background:linear-gradient(145deg,#202038,#151626)}
+.sp-v6-social-head{display:flex;align-items:center;gap:11px}.sp-v6-social-head>span:last-child{margin-left:auto}
+.sp-v6-social-avatar{height:37px;width:37px;border-radius:12px;display:grid;place-items:center;color:white;background:linear-gradient(140deg,#a889fa,#534bd7)}
+.sp-v6-social-head strong{font-size:12px}.sp-v6-social-head small{display:block;color:#9ea9c8;font-size:10px;margin-top:3px}
+.sp-v6-social-copy{padding:25px 5px 15px}
+.sp-v6-social-copy span{font-size:10px;font-weight:850;color:#b9a3ff;letter-spacing:.14em}
+.sp-v6-social-copy p{font-size:clamp(16px,1.8vw,23px)!important;line-height:1.5!important;letter-spacing:-.026em;color:#f8f4ff!important;margin:12px 0 0!important}
+.sp-v6-social-footer{display:flex;justify-content:space-between;color:#ddd2f9;font-size:18px;border-top:1px solid #ffffff20;padding-top:14px}
+.sp-v6-social-footer small{font-size:9px;letter-spacing:.14em;color:#929bbc}
+.sp-v6-caption-form .caption-output{background:#17172d!important;border:1px solid #a48be859!important;border-radius:14px!important;padding:20px!important}
+@media(max-width:1000px){.sp-motion-ideas{grid-template-columns:minmax(0,1fr) 32%}.sp-v6-caption-grid{grid-template-columns:1fr .85fr}.sp-lab-screen{height:420px!important}}
+@media(max-width:800px){.sp-v6-caption-header{grid-template-columns:1fr!important}.sp-v6-caption-header-art{min-height:180px}.sp-v6-caption-grid{grid-template-columns:1fr!important}.sp-v6-caption-display{position:relative;top:auto;grid-template-columns:1fr 1fr;align-items:stretch}.sp-v6-caption-photo{min-height:350px}.sp-v6-caption-studio{padding:18px!important}.sp-flow-feature,.sp-lab-section{padding:0 14px!important}.sp-flow-steps{padding:12px!important}.sp-motion-ideas{grid-template-columns:1fr}.sp-v6-flow-visual{display:none!important}.sp-flow-motion-main,.sp-flow-motion-scene{min-height:400px!important}.sp-lab-stage{padding:14px!important}.sp-lab-screen{height:390px!important}.sp-v6-lab-filmrail{display:none}.sp-lab-screen-copy{left:17px!important;max-width:90%!important}.sp-lab-screen-copy h3{font-size:clamp(33px,8vw,54px)!important}}
+@media(max-width:570px){.sp-v6-caption-display{grid-template-columns:1fr}.sp-v6-caption-photo{min-height:300px}.sp-flow-heading h2,.sp-lab-heading h2{font-size:clamp(40px,11vw,60px)!important}.sp-flow-steps button{min-height:70px!important}.sp-lab-control{padding:19px!important}.sp-v6-caption-studio{border-radius:14px!important}.sp-v6-caption-header-art{min-height:160px}}
+@media(prefers-reduced-motion:reduce){.sp-v6-caption-photo img,.sp-v6-flow-visual img{transition:none!important}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
@@ -1488,8 +1598,9 @@ body{background:#07080e!important}
   </div>
 </section>
 <section class="sp-flow-feature" id="workflow" aria-labelledby="spFlowHeading">
- <div class="sp-flow-heading"><span class="sp-flow-label">THE SOCIALPILOT WORKFLOW</span><h2 id="spFlowHeading">One workspace. <span class="grad">Your next four moves.</span></h2><p>Watch each stage unfold with original, looping interface demos. Choose a step to explore it, then jump into the live tool.</p></div>
- <div class="sp-flow-frame">
+ <div class="sp-flow-heading"><span class="sp-flow-label">THE SOCIALPILOT WORKFLOW</span><h2 id="spFlowHeading">From first spark <span class="grad">to standout story.</span></h2><p>Four creative moves. One connected flow. Explore each interactive sample and jump straight into a real tool.</p></div>
+ <div class="sp-v6-feature-strip"><span>✦ IDEA ENGINE</span><span>✧ CAPTION CREATION</span><span>◈ CAMPAIGN DIRECTION</span><span>▦ CONTENT PLANNING</span></div>
+<div class="sp-flow-frame">
   <div class="sp-flow-steps" role="tablist" aria-label="Explore SocialPilot workflow">
    <button type="button" role="tab" id="spFlowTab0" aria-selected="true" aria-controls="spFlowPanel" data-sp-flow="0"><span class="sp-flow-index">01</span><span><strong>Find the angle</strong><small>Fresh ideas for your audience</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
    <button type="button" role="tab" id="spFlowTab1" aria-selected="false" aria-controls="spFlowPanel" data-sp-flow="1" tabindex="-1"><span class="sp-flow-index">02</span><span><strong>Write the words</strong><small>Captions that fit your voice</small></span><span class="sp-flow-tab-arrow" aria-hidden="true">↗</span></button>
@@ -1504,7 +1615,7 @@ body{background:#07080e!important}
         <div class="sp-flow-motion-scene sp-motion-ideas" data-sp-scene="0" aria-label="Animated example of selecting a content brief and receiving three suggested ideas">
           <div class="sp-motion-stage-label">✦ CONTENT IDEAS <span class="sp-motion-stage-chip">SAMPLE WORKFLOW</span></div>
           <div class="sp-motion-prompt"><span class="sp-motion-line-caption">YOUR CREATIVE BRIEF</span><div class="sp-motion-prompt-value"><span class="sp-motion-cursor-line">Launch a new iced latte for a café</span><i class="sp-motion-caret" aria-hidden="true"></i></div><div class="sp-motion-prompt-bottom"><span>◎ Instagram</span><span>✦ Launch</span><span class="sp-motion-status-pulse">● Generating concept</span></div></div>
-          <div class="sp-motion-idea-results">
+          <div class="sp-v6-flow-visual" aria-hidden="true"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=750&amp;q=85" loading="lazy" alt=""><span>IDEA TO IMPACT</span><strong>Moments made<br>to matter.</strong></div><div class="sp-motion-idea-results">
             <div class="sp-motion-result-label"><span>✦ IDEA DIRECTIONS</span><span>3 concept examples</span></div>
             <div class="sp-motion-idea-row sp-motion-idea-one"><span class="sp-motion-idea-number">01</span><span><strong>Behind the first sip</strong><small>Open with an irresistible close-up and the story of the new drink</small></span><span class="sp-motion-check">✓</span></div>
             <div class="sp-motion-idea-row sp-motion-idea-two"><span class="sp-motion-idea-number">02</span><span><strong>A day in the café</strong><small>Show real preparation moments and the people behind the counter</small></span><span class="sp-motion-check">✓</span></div>
@@ -1556,7 +1667,7 @@ body{background:#07080e!important}
 <article class="showcase-card"><div class="showcase-visual calendar"><div class="mini-app"><div class="mini-head"><span class="mini-dot"></span> CONTENT CALENDAR</div><div class="mini-title">🗓️ Your posting plan</div><div class="mini-copy">Plan your upcoming content</div><div class="mini-cal"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="showcase-body"><h3>Stay organized</h3><p>Save, edit and manage your posts securely in your account.</p><a href="#calendar">Explore content planner →</a></div></article>
 </div></section><section class="how-section"><div class="showcase-head"><span class="pill">SIMPLE BY DESIGN</span><h2>Three steps to <span class="grad">better consistency.</span></h2></div><div class="steps"><div class="step"><b>01</b><h3>Pick your niche</h3><p>Choose your business category and the platform you create for.</p></div><div class="step"><b>02</b><h3>Create your content</h3><p>Get an idea, personalize a caption and make it your own.</p></div><div class="step"><b>03</b><h3>Plan ahead</h3><p>Add your posts to the calendar so your next content idea doesn't get lost.</p></div></div></section><section class="section" id="features"><div class="sectionhead"><span class="pill">BUILT FOR CREATIVE MOMENTUM</span><h2>Less overthinking. <span class="grad">More creating.</span></h2><p>Start with inspiration today. More powerful planning and publishing features are on the roadmap.</p></div><div class="cards"><article class="card"><div class="emoji">💡</div><h3>Content Ideas</h3><p>Get a new starting point for your next social media post with our free idea generator.</p></article><article class="card"><div class="emoji">✍️</div><h3>Caption Studio</h3><p>Create ready-to-edit captions with tone and platform options.</p></article><article class="card"><div class="emoji">🗓️</div><h3>Content Calendar</h3><p>Save, edit and organize posts across devices when signed in.</p></article></div></section>
 <section class="tool" id="generator"><span class="pill">FREE INTERACTIVE TOOL</span><h2 style="margin-top:17px">Content Idea Generator ✨</h2><p>Choose your niche, audience and goal. Get a detailed creative concept with a hook, execution plan and call to action.</p><div class="formrow"><select id="business" aria-label="Business type"><option value="fitness">Fitness</option><option value="beauty">Beauty</option><option value="food">Food & Restaurants</option><option value="realestate">Real Estate</option><option value="other">Other Business</option></select><select id="platform" aria-label="Platform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select></div><div class="idea-inputs"><label>Target audience<input id="ideaAudience" placeholder="e.g. first-time homeowners, local coffee lovers"></label><label>Content goal<select id="ideaGoal"><option value="engage">Increase engagement</option><option value="educate">Educate my audience</option><option value="trust">Build trust</option><option value="sell">Showcase my offer</option></select></label><label class="idea-full">Optional brand / product details<textarea id="ideaContext" rows="2" placeholder="e.g. Our cafe is launching a honey lavender latte this Friday"></textarea></label></div><button class="btn" type="button" onclick="generateIdea()" style="margin-top:16px">✦ Generate detailed content concept</button><div class="result" id="result" aria-live="polite"><strong id="resultLabel"></strong><p id="resultText"></p></div><p style="font-size:12px;margin-top:18px">Free, locally generated strategic concepts with rotating angles and structured guidance. This is not a live AI model; review and customize suggestions before posting.</p></section>
-<section class="tool" id="captions"><span class="studio-kicker">✦ CREATIVE INTELLIGENCE / FREE STUDIO</span><h2>Caption Studio <span class="grad">Pro-style ✨</span></h2><p>Write with a sharper hook, clearer value, and a stronger call to action. Built-in creative engine, no API key or paid AI required.</p><div class="caption-control-grid" style="margin:25px 0">
+<section class="tool sp-v6-caption-studio" id="captions"><div class="sp-v6-caption-header"><div class="sp-v6-caption-header-copy"><span class="studio-kicker">✦ CREATIVE INTELLIGENCE / FREE STUDIO</span><h2>Write like a brand. <span class="grad">Not a bot.</span></h2><p>Shape scroll-stopping hooks, brand-led stories and a confident call to action. Your creative voice starts here.</p></div><div class="sp-v6-caption-header-art" aria-hidden="true"><span>EDITORIAL / 01</span><strong>Words<br>with impact.</strong></div></div><div class="sp-v6-caption-grid"><div class="sp-v6-caption-form"><div class="caption-control-grid" style="margin:25px 0">
 <div class="caption-field"><label for="captionBusiness">Brand or business name</label><input id="captionBusiness" placeholder="e.g. The Daily Coffee"></div>
 <div class="caption-field"><label for="captionAudience">Who is your audience?</label><input id="captionAudience" placeholder="e.g. busy professionals, local coffee lovers"></div>
 <div class="caption-field full"><label for="captionTopic">What are you promoting or sharing?</label><textarea id="captionTopic" rows="3" placeholder="e.g. A smooth iced caramel latte made with fresh espresso, available this weekend"></textarea></div>
@@ -1566,17 +1677,21 @@ body{background:#07080e!important}
 <div class="caption-field"><label for="captionLength">Caption length</label><select id="captionLength"><option value="medium">Balanced</option><option value="short">Punchy</option><option value="long">Detailed</option></select></div>
 </div><button class="btn" type="button" onclick="generateCaption()">✦ Create 3 caption concepts</button><p class="caption-hint">Free creative writing engine — varied structured copy, not a live generative AI model. More detail in your prompt produces better results.</p>
 <div id="captionResult" class="caption-output" aria-live="polite"><div class="caption-tag">CAPTION CONCEPTS</div><div id="captionVariants" class="caption-variants" style="margin:14px 0"></div><div id="captionText"></div></div>
-<div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></section>
+<div class="caption-actions" style="margin-top:14px"><button class="btn ghost" id="copyCaptionButton" style="display:none" onclick="copyCaption()">Copy caption</button><button class="btn ghost" id="planCaptionButton" style="display:none" onclick="sendCaptionToPlanner()">Add to content planner →</button></div></div>
+<aside class="sp-v6-caption-display" aria-label="Illustrative campaign preview">
+<div class="sp-v6-caption-photo"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&amp;fit=crop&amp;w=900&amp;q=85" loading="lazy" alt="Editorial campaign inspiration"><span class="sp-v6-photo-kicker">CREATIVE DIRECTION / EDITORIAL</span><strong>Say less.<br>Mean more.</strong></div>
+<div class="sp-v6-caption-social"><div class="sp-v6-social-head"><span class="sp-v6-social-avatar">✦</span><div><strong>Your brand's next story</strong><small>Illustrative social post preview</small></div><span>•••</span></div><div class="sp-v6-social-copy"><span>THE ART OF THE HOOK</span><p id="spV6CaptionLive">A good story starts with a feeling. Build a message your audience wants to remember.</p></div><div class="sp-v6-social-footer"><span>♡ &nbsp; ◯ &nbsp; ↗</span><small>PREVIEW / SAMPLE</small></div></div>
+</aside></div></section>
 
 
 <section class="sp-visual-product-bridge" aria-labelledby="spVisualBridgeTitle">
  <div class="sp-visual-product-bridge-inner"><div class="sp-visual-product-bridge-art"><img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&amp;fit=crop&amp;w=1300&amp;q=80" loading="lazy" alt="Curated fashion and lifestyle visual campaign inspiration"></div><div class="sp-visual-product-bridge-content"><span class="sp-visual-film-eyebrow">✦ FROM INSPIRATION TO ACTION</span><h2 id="spVisualBridgeTitle">A better-looking idea starts here.</h2><p>Find a content angle, write a caption and organize your next posts. When you're ready to explore AI-powered campaign and image creation, open Pro Studio.</p><a href="#generator">Create your first idea <span aria-hidden="true">↗</span></a></div></div>
 </section>
 <section class="sp-lab-section" id="real-videos" aria-labelledby="spLabTitle">
- <div class="sp-lab-heading"><div><span class="sp-lab-pill"><span class="sp-lab-led"></span> INTERACTIVE CREATIVE LAB</span><h2 id="spLabTitle">Don't just imagine it. <span class="grad">See the idea.</span></h2><p>Explore how a campaign can come together. Pick a business, choose a goal, and move through a visual three-scene concept.</p></div><a href="#pro-studio" class="sp-lab-head-link">Open AI Pro Studio <span aria-hidden="true">↗</span></a></div>
+ <div class="sp-lab-heading"><div><span class="sp-lab-pill"><span class="sp-lab-led"></span> INTERACTIVE CREATIVE LAB</span><h2 id="spLabTitle">Build a campaign <span class="grad">people feel.</span></h2><p>Explore how a campaign can come together. Pick a business, choose a goal, and move through a visual three-scene concept.</p></div><a href="#pro-studio" class="sp-lab-head-link">Open AI Pro Studio <span aria-hidden="true">↗</span></a></div>
  <div class="sp-lab-shell">
   <div class="sp-lab-control">
-   <div class="sp-lab-side-head"><span class="sp-lab-small-label">01 / BUILD YOUR CONCEPT</span><h3>Your brand. Your story.</h3><p>Change the inputs to explore a different sample campaign, instantly.</p></div>
+   <div class="sp-lab-side-head"><span class="sp-lab-small-label">01 / BUILD YOUR CONCEPT</span><h3>Choose your next big moment.</h3><p>Change the inputs to explore a different sample campaign, instantly.</p></div>
    <label class="sp-lab-label" for="spLabNiche">Business category</label>
    <select id="spLabNiche" class="sp-lab-select"><option value="coffee">☕ Coffee & cafés</option><option value="fitness">⚡ Fitness & wellness</option><option value="beauty">✦ Beauty & skincare</option><option value="retail">◈ Retail & lifestyle</option></select>
    <label class="sp-lab-label" for="spLabGoal">Campaign goal</label>
@@ -1588,7 +1703,7 @@ body{background:#07080e!important}
    <div class="sp-lab-stage-top"><div><span class="sp-lab-small-label">02 / STORYBOARD PREVIEW</span><strong>See how a post comes together</strong></div><span class="sp-lab-sample">✦ SAMPLE CONCEPT</span></div>
    <div class="sp-lab-screen">
     <img id="spLabPhoto" alt="Photographic background for sample campaign concept" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" loading="lazy">
-    <div class="sp-lab-screen-shade"></div>
+    <div class="sp-lab-screen-shade"></div><div class="sp-v6-lab-filmrail" aria-hidden="true"><span>01 <i></i> HOOK</span><span>02 <i></i> STORY</span><span>03 <i></i> ACTION</span></div>
     <div class="sp-lab-screen-ui"><span class="sp-lab-screen-brand">✦ SOCIALPILOT <span>/ CREATIVE PREVIEW</span></span><span class="sp-lab-preview-counter" id="spLabCounter">01 / 03</span></div>
     <div class="sp-lab-center-art" aria-hidden="true"><span id="spLabEmoji">☕</span></div>
     <div class="sp-lab-screen-copy" aria-live="polite"><span class="sp-lab-screen-kicker" id="spLabStepLabel">SCENE 01 · THE HOOK</span><h3 id="spLabHeadline">Your next coffee obsession.</h3><p id="spLabDescription">Open with the first sip and an irresistible close-up.</p></div>

@@ -3,8 +3,8 @@ import { createClient } from "npm:@supabase/supabase-js@2.57.4";
 const origin = "https://ariavora.com";
 const redirectUri = origin + "/tiktok-callback.html";
 const api = "https://open.tiktokapis.com/v2";
-const clientKey = Deno.env.get("TIKTOK_SANDBOX_CLIENT_KEY") ?? "";
-const clientSecret = Deno.env.get("TIKTOK_SANDBOX_CLIENT_SECRET") ?? "";
+const clientKey = Deno.env.get("TIKTOK_SANDBOX_CLIENT_KEY")?.trim() ?? "";
+const clientSecret = Deno.env.get("TIKTOK_SANDBOX_CLIENT_SECRET")?.trim() ?? "";
 const project = Deno.env.get("SUPABASE_URL")!;
 const auth = createClient(project, Deno.env.get("SUPABASE_ANON_KEY")!);
 const db = createClient(project, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
@@ -24,6 +24,7 @@ async function hash(value: string) {
 async function oauth(path: string, params: Record<string, string>) {
   return await fetch(api + "/oauth/" + path + "/", {
     method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ client_key: clientKey, client_secret: clientSecret, ...params }),
     redirect: "error",
     signal: AbortSignal.timeout(12000),
@@ -116,11 +117,27 @@ Deno.serve(async request => {
       const result = await oauth("token", {
         code: input.code, grant_type: "authorization_code", redirect_uri: redirectUri,
       });
-      const token = await result.json();
-      if (!result.ok || !token.access_token || !token.open_id ||
-          !Number.isFinite(token.expires_in) || token.expires_in <= 0 ||
-          !String(token.scope).split(",").includes("video.publish")) {
-        return reply(400, { error: "TikTok did not grant publishing access. Check the sandbox tester and permissions." });
+      const token = await result.json().catch(() => null);
+      if (!result.ok || token?.error) {
+        const errorCode = typeof token?.error === "string" && /^[a-z_]{1,50}$/.test(token.error)
+          ? token.error : "unknown";
+        console.warn("TikTok OAuth token exchange failed", { status: result.status, errorCode });
+        if (errorCode === "invalid_client") {
+          return reply(502, { error: "TikTok rejected Ariavora's sandbox credentials (invalid_client)." });
+        }
+        if (errorCode === "invalid_grant") {
+          return reply(400, { error: "TikTok rejected the authorization code (invalid_grant). Start a fresh connection in Video Studio." });
+        }
+        return reply(502, { error: `TikTok could not complete authorization (${errorCode}).` });
+      }
+      if (typeof token?.access_token !== "string" || !token.access_token ||
+          typeof token.open_id !== "string" || !token.open_id ||
+          !Number.isFinite(token.expires_in) || token.expires_in <= 0) {
+        return reply(502, { error: "TikTok returned an incomplete authorization response." });
+      }
+      const scopes = typeof token.scope === "string" ? token.scope.split(",").map((scope: string) => scope.trim()) : [];
+      if (!scopes.includes("video.publish")) {
+        return reply(403, { error: "TikTok connected without publishing permission. Enable Post content to TikTok during authorization." });
       }
       const { error: saveError } = await db.from("tiktok_connections").upsert({
         user_id: user.id, open_id: token.open_id, access_token: token.access_token,

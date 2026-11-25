@@ -2549,17 +2549,17 @@ body.sp9-workspace #pro-studio .ps-foot{font-size:11px!important;color:#a79e94!i
    <div class="sp18-reel-top"><span><b></b> MOTION COLLECTION</span><span>THREE CREATIVE DIRECTIONS</span></div>
    <div class="sp18-reels" aria-label="Moving sample video campaigns">
     <article class="sp18-reel is-active" data-sp18-reel="0" data-sp18-label="COFFEE RITUAL">
-     <video class="sp22-film sp22-motion-card" muted playsinline loop autoplay preload="metadata" src="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/-I_DGfZTU57scYDSPcs2k_deND2Klh.mp4" data-sp22-sources="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/-I_DGfZTU57scYDSPcs2k_deND2Klh.mp4|https://assets.mixkit.co/videos/235/235-360.mp4|assets/socialpilot/coffee-motion.mp4" aria-label="AI-generated iced espresso campaign"></video>
+     <video class="sp22-film sp22-motion-card" muted playsinline loop preload="none" data-sp22-sources="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/-I_DGfZTU57scYDSPcs2k_deND2Klh.mp4|https://assets.mixkit.co/videos/235/235-360.mp4|assets/socialpilot/coffee-motion.mp4" aria-label="AI-generated iced espresso campaign"></video>
      <div class="sp18-reel-grad"></div><div class="sp18-reel-header"><span>01 / MOTION CONCEPT</span><span class="sp18-live">● VIDEO</span></div>
      <div class="sp18-reel-caption"><span>COFFEE / RITUAL</span><strong>Every morning<br>has a story.</strong><small>AI CAMPAIGN · SAMPLE FILM</small></div>
     </article>
     <article class="sp18-reel" data-sp18-reel="1" data-sp18-label="BEAUTY RITUAL">
-     <video class="sp22-film sp22-motion-card" muted playsinline loop autoplay preload="metadata" src="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/NkegAvYKN4nXM9j3jeOP2_OVxP73Pz.mp4" data-sp22-sources="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/NkegAvYKN4nXM9j3jeOP2_OVxP73Pz.mp4|https://assets.mixkit.co/videos/51185/51185-360.mp4|assets/socialpilot/beauty-motion.mp4" aria-label="AI-generated skincare campaign"></video>
+     <video class="sp22-film sp22-motion-card" muted playsinline loop preload="none" data-sp22-sources="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/NkegAvYKN4nXM9j3jeOP2_OVxP73Pz.mp4|https://assets.mixkit.co/videos/51185/51185-360.mp4|assets/socialpilot/beauty-motion.mp4" aria-label="AI-generated skincare campaign"></video>
      <div class="sp18-reel-grad"></div><div class="sp18-reel-header"><span>02 / MOTION CONCEPT</span><span class="sp18-live">● VIDEO</span></div>
      <div class="sp18-reel-caption"><span>SKINCARE / BEAUTY</span><strong>Make every<br>detail matter.</strong><small>AI CAMPAIGN · SAMPLE FILM</small></div>
     </article>
     <article class="sp18-reel" data-sp18-reel="2" data-sp18-label="FINE JEWELRY">
-     <video class="sp22-film sp22-motion-card" muted playsinline loop autoplay preload="metadata" src="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/qeq6aUf6tGrlMiq_N-_zA_1uhGAmsI.mp4" data-sp22-sources="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/qeq6aUf6tGrlMiq_N-_zA_1uhGAmsI.mp4|https://assets.mixkit.co/videos/2801/2801-360.mp4|assets/socialpilot/fragrance-motion.mp4" aria-label="AI-generated fine jewelry campaign"></video>
+     <video class="sp22-film sp22-motion-card" muted playsinline loop preload="none" data-sp22-sources="https://fcgzbebeuywupxkymtdk.supabase.co/storage/v1/object/public/ariavora-media/qeq6aUf6tGrlMiq_N-_zA_1uhGAmsI.mp4|https://assets.mixkit.co/videos/2801/2801-360.mp4|assets/socialpilot/fragrance-motion.mp4" aria-label="AI-generated fine jewelry campaign"></video>
      <div class="sp18-reel-grad"></div><div class="sp18-reel-header"><span>03 / MOTION CONCEPT</span><span class="sp18-live">● VIDEO</span></div>
      <div class="sp18-reel-caption"><span>JEWELRY / CRAFT</span><strong>Turn the ordinary<br>into iconic.</strong><small>AI CAMPAIGN · SAMPLE FILM</small></div>
     </article>
@@ -4542,7 +4542,7 @@ function loadNext(v,st,reason){
    if(!v.paused)v.pause();
    v.removeAttribute('src');
    v.closest('.sp18-reel')?.classList.add('sp22-source-error');
-   v.closest('.sp18-reel')?.setAttribute('title','Video source is unavailable; showing the image preview.');
+   v.closest('.sp18-reel')?.setAttribute('title','Video source is unavailable.');
    requestRefresh();
    return;
  }
@@ -4571,7 +4571,7 @@ function start(v,st){
 }
 clips.forEach(v=>{
  const st={urls:(v.getAttribute('data-sp22-sources')||'').split('|').filter(Boolean),attempt:0,currentUrl:v.getAttribute('src')||'',ready:v.readyState>=2,failed:false,near:false,watch:null};
- statuses.set(v,st);if(!v.paused&&v.readyState>=2)v.classList.add('sp22-playing');v.muted=true;v.defaultMuted=true;v.playsInline=true;v.loop=true;v.preload='metadata';
+ statuses.set(v,st);if(!v.paused&&v.readyState>=2)v.classList.add('sp22-playing');v.muted=true;v.defaultMuted=true;v.playsInline=true;v.loop=true;
  v.addEventListener('canplay',()=>{
    clearWatch(st);st.ready=true;
    if(isEligible(v,st))start(v,st);

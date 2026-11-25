@@ -67,7 +67,7 @@ Deno.serve(async (request: Request) => {
         headers: { "Authorization": "Key " + FAL_KEY, "Content-Type": "application/json" },
         body: JSON.stringify({
           prompt, aspect_ratio: aspect, resolution: "720p", duration: 5,
-          audio: false, enable_safety_checker: true, enable_prompt_expansion: true,
+          audio: input.audio === true, enable_safety_checker: true, enable_prompt_expansion: true,
         }),
         signal: AbortSignal.timeout(25000),
       });

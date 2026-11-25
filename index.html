@@ -1341,6 +1341,32 @@ body{background:#07080e!important}
  .sp-visual-story-screen,.sp-visual-story-card:last-child .sp-visual-story-screen{aspect-ratio:5/4}
 }
 @media(prefers-reduced-motion:reduce){.sp-visual-story-screen>img{transition:none}}
+</style><style id="sp-v5-motion-design">
+.sp-visual-story-card.is-film .sp-visual-story-screen{aspect-ratio:4/3!important;background:#070913!important}
+.sp-visual-story-card.is-film .sp-visual-story-screen>img{display:none!important}
+.sp-v5-reel{position:absolute;inset:0;overflow:hidden;background:#080a15;color:#fff}
+.sp-v5-scene{position:absolute;inset:0;opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .7s ease,visibility .7s,transform 4.4s ease}
+.sp-v5-scene.is-current{opacity:1;visibility:visible;transform:scale(1);z-index:1}
+.sp-v5-scene>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(1.17);transform:scale(1.12);transition:transform 4.4s ease}
+.sp-v5-scene.is-current>img{transform:scale(1)}
+.sp-v5-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08091ddd,transparent 95%),linear-gradient(0deg,#08091d66,transparent 65%)}
+.sp-v5-kicker{position:absolute;z-index:2;top:22px;left:28px;font-size:10px;font-weight:850;letter-spacing:.19em;color:#ddd3ff}
+.sp-v5-message{position:absolute;z-index:3;top:29%;left:8%;display:flex;flex-direction:column;max-width:76%;gap:15px;text-shadow:0 5px 30px #0009}
+.sp-v5-message span{font-size:10px;letter-spacing:.2em;color:#cab9ff;font-weight:800}
+.sp-v5-message strong{font-size:clamp(40px,6vw,85px);line-height:.94;letter-spacing:-.075em;color:white}
+.sp-v5-message small{font-size:clamp(12px,1.3vw,17px);line-height:1.5;color:#f0ebff;max-width:330px}
+.sp-v5-scene.is-current .sp-v5-message>*{animation:sp-v5-up .85s both}
+.sp-v5-scene.is-current .sp-v5-message strong{animation-delay:.14s}
+.sp-v5-scene.is-current .sp-v5-message small{animation-delay:.28s}
+.sp-v5-bubble{position:absolute;z-index:4;bottom:14%;right:5%;padding:13px 16px;border:1px solid #ffffff80;border-radius:12px;background:#0c1029c7;backdrop-filter:blur(12px);box-shadow:0 20px 65px #0008;font-size:12px;display:flex;gap:13px;align-items:center;animation:sp-v5-hover 3s ease-in-out infinite}
+.sp-v5-bubble b{background:#8462f8;border-radius:8px;padding:8px;color:white}
+.sp-v5-timeline{position:absolute;z-index:7;display:flex;gap:7px;left:8%;bottom:16px}
+.sp-v5-timeline i{display:block;width:34px;height:3px;border-radius:4px;background:#ffffff66}
+.sp-v5-timeline i.active{background:#e0ceff}
+@keyframes sp-v5-up{from{opacity:0;transform:translateY(26px);filter:blur(6px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes sp-v5-hover{50%{transform:translateY(-8px)}}
+@media(max-width:720px){.sp-v5-kicker{left:15px;top:15px;font-size:8px}.sp-v5-message{left:7%;top:26%}.sp-v5-message strong{font-size:clamp(36px,7vw,55px)}.sp-v5-message small{font-size:11px}.sp-v5-bubble{font-size:9px;bottom:9%;right:6%;padding:8px}.sp-v5-timeline{left:7%;bottom:9px}}
+@media(prefers-reduced-motion:reduce){.sp-v5-scene,.sp-v5-scene>img{transition:none}.sp-v5-message>*,.sp-v5-bubble{animation:none!important}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
@@ -1421,15 +1447,16 @@ body{background:#07080e!important}
  <div class="sp-visual-story-grid">
   <article class="sp-visual-story-card is-film"><div class="sp-visual-story-screen">
    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=1150&amp;q=85" loading="lazy" alt="Styled coffee imagery for illustrative cafe campaign">
-   <video id="spVisualFilmVideo" autoplay muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=1150&amp;q=85" aria-label="Illustrative stock footage showing a motion concept">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-maker-making-coffee-3578-large.mp4" type="video/mp4">
-    <source src="https://mdn.github.io/shared-assets/videos/flower.mp4" type="video/mp4">
-   </video><span class="sp-visual-story-watermark">MOTION REFERENCE · STOCK VIDEO</span><button id="spVisualFilmPlay" class="sp-visual-story-play" type="button" aria-label="Pause sample video">Ⅱ</button>
-  </div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">01 / VIDEO DIRECTION</span><h3>Make every second count.</h3><p>Motion inspiration for visual storytelling. Example stock footage, not AI output.</p></div></article>
+   <div id="spV5Reel" class="sp-v5-reel" role="img" aria-label="Animated SocialPilot campaign concept demonstration">
+<div class="sp-v5-scene is-current" data-v5-scene="0"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85" alt=""><div class="sp-v5-kicker">01 / FIND YOUR ANGLE</div><div class="sp-v5-message"><span>✦ SOCIALPILOT CREATIVE STUDIO</span><strong>One idea.<br>Infinite potential.</strong><small>Turn a simple brief into a standout campaign direction.</small></div><div class="sp-v5-bubble">✦ Create a campaign for my café launch <b>↗</b></div></div>
+<div class="sp-v5-scene" data-v5-scene="1"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85" alt=""><div class="sp-v5-kicker">02 / BRING IT TO LIFE</div><div class="sp-v5-message"><span>✦ SOCIALPILOT CREATIVE STUDIO</span><strong>Think bigger.<br>Create bolder.</strong><small>Explore fresh product angles and visual concepts.</small></div><div class="sp-v5-bubble">✧ Visual concept ready <b>✓</b></div></div>
+<div class="sp-v5-scene" data-v5-scene="2"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85" alt=""><div class="sp-v5-kicker">03 / PLAN YOUR MOMENT</div><div class="sp-v5-message"><span>✦ SOCIALPILOT CREATIVE STUDIO</span><strong>Keep creating.<br>Keep moving.</strong><small>Shape your content calendar around your next big idea.</small></div><div class="sp-v5-bubble">▦ Three posts ready to plan <b>✓</b></div></div>
+<div class="sp-v5-timeline"><i class="active"></i><i></i><i></i></div></div><span class="sp-visual-story-watermark">SOCIALPILOT / ANIMATED DEMO</span><button id="spVisualFilmPlay" class="sp-visual-story-play" type="button" aria-label="Pause animated demo">Ⅱ</button>
+  </div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">01 / VIDEO DIRECTION</span><h3>Make every second count.</h3><p>A three-scene animated walkthrough of ideas, visuals and planning. Illustrative concept, not an AI-generated video.</p></div></article>
   <article class="sp-visual-story-card"><div class="sp-visual-story-screen"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Red sports shoe creative reference" loading="lazy"><span class="sp-visual-story-watermark">IMAGE CONCEPT / 02</span></div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">02 / RETAIL</span><h3>Made to move.</h3><p>Bold product imagery for a high-energy campaign.</p></div></article>
   <article class="sp-visual-story-card"><div class="sp-visual-story-screen"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Editorial fashion creative reference" loading="lazy"><span class="sp-visual-story-watermark">IMAGE CONCEPT / 03</span></div><div class="sp-visual-story-caption"><span class="sp-visual-story-index">03 / LIFESTYLE</span><h3>Own your aesthetic.</h3><p>Editorial inspiration for fashion and lifestyle storytelling.</p></div></article>
  </div>
- <div class="sp-visual-story-foot"><span>Illustrative stock assets show creative possibilities, not customer results or SocialPilot-generated video.</span><a href="#creative-showcase">Browse the creative gallery ↗</a></div>
+ <div class="sp-visual-story-foot"><span>Illustrative photos and original animation demonstrate creative possibilities, not customer results.</span><a href="#creative-showcase">Browse the creative gallery ↗</a></div>
 </section>
 <section class="sp-cinema-showcase" id="creative-showcase" aria-labelledby="spCinemaTitle">
   <div class="sp-cinema-heading">
@@ -3014,11 +3041,12 @@ status.textContent = err.message || 'Unable to start checkout.';
 
 <script id="sp-visual-film-controls">
 (function(){
-const video=document.getElementById('spVisualFilmVideo'),btn=document.getElementById('spVisualFilmPlay');if(!video||!btn)return;
-const set=()=>{btn.textContent=video.paused?'▶':'Ⅱ';btn.setAttribute('aria-label',video.paused?'Play sample video':'Pause sample video')};
-btn.addEventListener('click',()=>{if(video.paused)video.play().catch(()=>{});else video.pause();set()});
-video.addEventListener('play',set);video.addEventListener('pause',set);
-video.addEventListener('error',()=>{video.style.display='none';btn.hidden=true;},{once:true});
-if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){video.pause();set()}
+const reel=document.getElementById('spV5Reel'),btn=document.getElementById('spVisualFilmPlay');if(!reel||!btn)return;
+const scenes=Array.from(reel.querySelectorAll('[data-v5-scene]')),bars=Array.from(reel.querySelectorAll('.sp-v5-timeline i'));let active=0,paused=window.matchMedia('(prefers-reduced-motion: reduce)').matches,visible=true;
+function show(n){active=(n+scenes.length)%scenes.length;scenes.forEach((el,i)=>el.classList.toggle('is-current',i===active));bars.forEach((el,i)=>el.classList.toggle('active',i===active))}
+function update(){btn.textContent=paused?'▶':'Ⅱ';btn.setAttribute('aria-label',paused?'Play animated demo':'Pause animated demo')}
+btn.addEventListener('click',()=>{paused=!paused;update()});update();show(0);
+if('IntersectionObserver' in window)new IntersectionObserver(entries=>{visible=!!entries[0]&&entries[0].isIntersecting},{threshold:.1}).observe(reel);
+window.setInterval(()=>{if(!paused&&visible&&!document.hidden)show(active+1)},4000);
 })();
 </script></body></html>

@@ -4097,9 +4097,15 @@ if (params.get('sandbox_checkout') === 'success') {
 } else if (params.get('sandbox_checkout') === 'cancel') {
   status.textContent = 'Stripe Sandbox checkout canceled. No real payment was made.';
 } else if (params.get('checkout') === 'success') {
-  status.textContent = '✓ Returned from Stripe. Your payment is being verified. Pro access will activate after confirmation.';
+  const notice = document.createElement('p');
+  notice.setAttribute('role', 'status');
+  notice.textContent = 'If you completed payment, your Pro plan will appear here after confirmation. Refresh this page if the status has not updated yet.';
+  document.getElementById('myPlanStatus')?.after(notice);
+  status.textContent = notice.textContent;
+  if (!window.location.hash) window.location.hash = 'my-plan';
 } else if (params.get('checkout') === 'cancel') {
-  status.textContent = 'Checkout canceled. No payment was completed through this checkout.';
+  status.textContent = 'You returned from checkout without subscribing. You can try again when you’re ready.';
+  if (!window.location.hash) window.location.hash = 'pro-preview';
 }
 
 button.disabled = false;

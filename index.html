@@ -2851,7 +2851,7 @@ body.sp9-workspace #pro-studio .ps-foot{font-size:11px!important;color:#a79e94!i
 <form id="spvForm">
 <div class="av-visual-presets"><div class="av-visual-presets-heading"><span>THE CREATIVE COLLECTION</span><small>Choose a visual direction · reference photography</small></div><div class="av-visual-presets-grid"><button type="button" data-av-preset="product" aria-pressed="false"><img loading="lazy" src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&amp;fit=crop&amp;w=640&amp;q=85" alt=""><span>Luxury products</span></button><button type="button" data-av-preset="fashion" aria-pressed="false"><img loading="lazy" src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&amp;fit=crop&amp;w=640&amp;q=85" alt=""><span>Fashion editorial</span></button><button type="button" data-av-preset="food" aria-pressed="false"><img loading="lazy" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=640&amp;q=85" alt=""><span>Food & beverage</span></button><button type="button" data-av-preset="travel" aria-pressed="false"><img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&amp;fit=crop&amp;w=640&amp;q=85" alt=""><span>Cinematic travel</span></button><button type="button" data-av-preset="fitness" aria-pressed="false"><img loading="lazy" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&amp;fit=crop&amp;w=640&amp;q=85" alt=""><span>Fitness campaigns</span></button><button type="button" data-av-preset="architecture" aria-pressed="false"><img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=640&amp;q=85" alt=""><span>Architecture</span></button></div></div><details class="av-director-tools"><summary>✧ Director's controls</summary><p>Build camera and lighting direction into your prompt. No credits required.</p><label for="avCamera">Camera movement</label><select id="avCamera"><option value="">No preference</option><option>Slow cinematic dolly-in</option><option>Smooth lateral tracking shot</option><option>Slow orbit around the subject</option><option>Locked-off macro shot</option><option>Wide aerial establishing shot</option></select><label for="avLighting">Lighting</label><select id="avLighting"><option value="">No preference</option><option>Soft natural window light</option><option>Dramatic low-key lighting</option><option>Warm golden-hour light</option><option>Clean diffused studio lighting</option><option>Moody cinematic backlighting</option></select><button type="button" id="avAddDirection">Add direction to prompt</button><small id="avDirectionStatus" role="status"></small></details><div class="av-prompt-presets"><label for="avPromptPreset">Creative starting point</label><select id="avPromptPreset"><option value="">Choose a prompt template</option><option value="product">Luxury product reveal</option><option value="fashion">Fashion editorial</option><option value="food">Food & beverage</option><option value="travel">Cinematic travel</option><option value="fitness">Fitness campaign</option><option value="architecture">Architecture & interiors</option></select><button type="button" id="avApplyPreset">Use template</button></div><label class="spv-label" for="spvPrompt">What should we bring to life?</label>
 <textarea id="spvPrompt" maxlength="1200" minlength="12" required placeholder="An editorial fashion commercial: model walking through warm architectural light, soft film grain, cinematic tracking shot, sophisticated luxury campaign.">An editorial fashion commercial: model walking through warm architectural light, soft film grain, cinematic tracking shot, sophisticated luxury campaign.</textarea>
-<div class="spv-help"><span>Include movement, mood, lighting and camera direction.</span><span id="spvCount">0/1200</span></div>
+<div class="spv-help"><span>Include movement, mood, lighting and camera direction. Your draft stays in this tab.</span><span id="spvCount">0/1200</span></div>
 <div class="spv-options">
 <div><span class="spv-optionlabel">Choose a format</span><div class="spv-segments" role="group" aria-label="Video aspect ratio">
 <button type="button" class="spv-ratio" data-ratio="9:16" aria-pressed="true">9:16 · Reel</button>
@@ -4721,6 +4721,26 @@ document.getElementById('sp22RetryVideos')?.addEventListener('click',()=>{
       if (error.name === 'AbortError') return;
       control.textContent = 'Retry showcase music';
       syncControl();
+    }
+  });
+})();
+</script><script id="av-video-prompt-draft">
+(() => {
+  const prompt = document.getElementById('spvPrompt');
+  const key = 'ariavora.video-prompt.v1';
+  try {
+    const draft = sessionStorage.getItem(key);
+    if (draft !== null && draft.length <= prompt.maxLength) prompt.value = draft;
+  } catch {
+    // Editing still works when browser storage is unavailable.
+  }
+
+  prompt.addEventListener('input', () => {
+    try {
+      if (prompt.value === prompt.defaultValue) sessionStorage.removeItem(key);
+      else sessionStorage.setItem(key, prompt.value);
+    } catch {
+      // Keep the current prompt available in the editor.
     }
   });
 })();

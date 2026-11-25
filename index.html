@@ -1686,6 +1686,100 @@ body:not(.sp9-workspace) .nav{position:relative;z-index:30!important;max-width:1
 @media(max-width:1000px){.sp9-hero{min-height:700px}.sp9-hero h1{font-size:clamp(65px,10vw,110px)!important}.sp9-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,300px)}.sp9-large{grid-row:span 2}.sp9-story-intro{grid-template-columns:1fr;gap:30px}.sp9-story-intro h2{font-size:75px!important}.sp9-creation{grid-template-columns:1fr}.sp9-creation-art{height:530px;min-height:0}.sp9-creation-copy{padding:65px 40px}.sp9-heading-grid{grid-template-columns:1fr;gap:19px}}
 @media(max-width:650px){.sp9-hero{min-height:690px;height:calc(100svh - 65px)}.sp9-hero-content{padding:95px 22px 85px}.sp9-hero h1{font-size:clamp(53px,12.1vw,79px)!important;max-width:100%}.sp9-hero-content>p{font-size:15px;max-width:390px}.sp9-hero-count{display:none}.sp9-hero-bottom{left:23px;right:23px;font-size:8px}.sp9-hero-bottom span:last-child{display:none}.sp9-actions{flex-direction:column;align-items:stretch}.sp9-btn,.sp9-outline{justify-content:space-between}.sp9-hero-grad{background:linear-gradient(90deg,#07080eef,#07080e80 85%),linear-gradient(0deg,#07080ec2,transparent 50%)}.sp9-gallery{padding:75px 13px}.sp9-heading-grid h2,.sp9-end h2{font-size:clamp(50px,11vw,73px)!important}.sp9-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:380px repeat(2,225px);gap:8px}.sp9-large{grid-column:span 2;grid-row:auto}.sp9-image-copy{left:13px;bottom:15px}.sp9-image-copy h3{font-size:19px}.sp9-large h3{font-size:42px}.sp9-image-copy span{font-size:8px}.sp9-story{padding:80px 14px}.sp9-story-intro h2{font-size:66px!important}.sp9-story-frame{height:420px}.sp9-story-words{left:20px;bottom:30px}.sp9-story-words strong{font-size:45px}.sp9-creation-art{height:400px}.sp9-creation-copy{padding:65px 22px}.sp9-creation-copy h2{font-size:54px!important}.sp9-end{padding:90px 20px 100px}.sp9-end>p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.sp9-panel{animation:none!important;opacity:0}.sp9-panel-one{opacity:1}.sp9-panel img,.sp9-marquee div,.sp9-story-slide.is-active .sp9-story-words>*{animation:none!important}.sp9-story-slide,.sp9-story-slide img,.sp9-image img{transition:none!important}}
+</style><style id="sp-calendar-v10-style">
+/* V10: art-directed calendar; preserve original Supabase and calendar controls */
+#calendar{max-width:1560px!important;width:min(calc(100vw - 28px),1560px)!important;margin:65px auto 100px!important;padding:0!important;border:1px solid #a396ce55!important;border-radius:22px!important;background:#0c0c14!important;box-shadow:0 30px 110px #000a!important;left:auto!important;transform:none!important;overflow:hidden!important}
+#calendar .command-layout{display:block!important;grid-template-columns:1fr!important;background:#0c0c14!important}
+#calendar .command-sidebar{display:none!important}
+#calendar .command-content{padding:clamp(16px,3vw,48px)!important;background:radial-gradient(ellipse at 87% 4%,#644c8a27,transparent 35%),#0c0c14!important}
+#calendar .command-breadcrumb{display:flex;align-items:center;gap:7px;color:#a8a0bb!important;border-bottom:1px solid #ffffff21!important;padding-bottom:16px!important;margin-bottom:29px!important}
+.sp10-planner-head{display:grid;grid-template-columns:1fr .85fr;gap:clamp(19px,4vw,58px);align-items:center;margin-bottom:42px}
+.sp10-planner-head-copy h2{font-size:clamp(45px,6.7vw,99px)!important;letter-spacing:-.09em!important;line-height:.96!important;margin:22px 0 23px!important;color:#f9f4f1}
+.sp10-planner-head-copy h2 em{font-style:normal;background:linear-gradient(105deg,#e9d9f4,#b29dff,#a9d4ed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sp10-planner-head-copy p{font-size:clamp(15px,1.3vw,19px)!important;line-height:1.65!important;color:#acaabe!important;max-width:550px!important;margin:0}
+.sp10-kicker{color:#c5b2f4;font-weight:850;font-size:10px;letter-spacing:.17em}
+.sp10-planner-jumps{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.sp10-planner-jumps a{display:inline-flex;align-items:center;gap:18px;padding:13px 17px;background:#ffffff0a;border:1px solid #b1a1eb62;border-radius:7px;color:#f4ebff!important;font-size:12px;font-weight:760}
+.sp10-planner-jumps a:hover{background:#a98cfa28}
+.sp10-planner-head-art{position:relative;min-height:410px;overflow:hidden;background:#1d1a27;border-radius:12px;border:1px solid #ffffff23;box-shadow:0 23px 80px #0009}
+.sp10-planner-head-art>img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:saturate(.96) contrast(1.05) brightness(.76)}
+.sp10-planner-head-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#070815cb,transparent 58%)}
+.sp10-art-top,.sp10-art-bottom,.sp10-planner-head-art strong{position:absolute;z-index:2;left:27px;color:white;text-shadow:0 5px 23px #000b}
+.sp10-art-top{top:24px;font-size:10px;letter-spacing:.18em;font-weight:850}
+.sp10-art-bottom{bottom:23px;font-size:9px;letter-spacing:.16em;font-weight:850}
+.sp10-planner-head-art strong{font-size:clamp(43px,4.4vw,68px);bottom:65px;line-height:.95;letter-spacing:-.07em}
+.sp10-editorial-strip{padding:24px 0 37px;margin-bottom:33px;border-block:1px solid #ffffff1f}
+.sp10-strip-title{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0 0 18px}
+.sp10-strip-title>span{font-size:10px;font-weight:850;color:#a89be0;letter-spacing:.16em}
+.sp10-strip-title>strong{font-size:22px;color:#fff;letter-spacing:-.04em}
+.sp10-strip-title>small{font-size:10px;color:#8b8da3;margin-left:auto}
+.sp10-strip-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.sp10-strip-cards article{position:relative;overflow:hidden;min-height:230px;border-radius:9px;background:#181625;border:1px solid #ffffff1c}
+.sp10-strip-cards article img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:brightness(.8);transition:transform .5s}
+.sp10-strip-cards article:hover img{transform:scale(1.07)}
+.sp10-strip-cards article:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#070712e8,transparent 67%);pointer-events:none}
+.sp10-strip-cards article span,.sp10-strip-cards article strong{position:absolute;z-index:2;left:15px;right:10px;color:white;text-shadow:0 5px 20px #000b}
+.sp10-strip-cards article span{bottom:54px;font-size:9px;letter-spacing:.12em;font-weight:850}
+.sp10-strip-cards article strong{bottom:17px;font-size:clamp(16px,1.7vw,25px);line-height:1.03;letter-spacing:-.04em}
+.sp10-calendar-intro{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:26px 0 22px}
+.sp10-calendar-intro h3{font-size:clamp(29px,3.3vw,47px);line-height:1.06;letter-spacing:-.064em;margin:12px 0 9px;color:#fff}
+.sp10-calendar-intro p{font-size:13px;color:#acaabd;margin:0}
+.sp10-preview-cta{padding:15px 19px;background:#dad1f8;color:#181022;border:0;border-radius:7px;cursor:pointer;font-size:12px;font-weight:850;white-space:nowrap}
+#calendar .demo-switchbar{border:1px solid #b0a1df42!important;background:linear-gradient(90deg,#241c35,#15131f)!important;border-radius:13px!important;padding:16px!important;margin-bottom:16px!important}
+#calendar .demo-switches button{border-radius:7px!important}
+#calendar .demo-switches button.active{background:#b8a3fa!important;color:#171024!important}
+#calendar .calendar-filterbar{background:#161420!important;border:1px solid #ffffff29!important;border-radius:12px!important;padding:13px!important;margin:15px 0!important}
+#calendar .filter-chip.active{background:#9c7ef1!important;color:#110d20!important}
+#calendar .month-shell{border:1px solid #ffffff2b!important;border-radius:17px!important;background:#15131d!important;overflow:hidden!important;box-shadow:0 20px 65px #0005!important}
+#calendar .month-toolbar{background:linear-gradient(100deg,#211d31,#131522)!important;padding:24px!important;border-bottom:1px solid #ffffff1d!important}
+#calendar .month-toolbar h3{font-size:clamp(25px,3vw,39px)!important;line-height:1.1!important;letter-spacing:-.055em!important;margin:7px 0!important}
+#calendar .month-grid{background:#13121c!important;gap:5px!important;padding:9px!important}
+#calendar .month-weekday{color:#b9aacf!important;font-size:10px!important;letter-spacing:.13em!important;background:#1c1a29!important;padding:14px 2px!important}
+#calendar .month-cell{background:#1b1927!important;border:1px solid #ffffff1d!important;border-radius:7px!important;min-height:180px!important;gap:6px!important;padding:9px!important;transition:background .2s,border-color .2s!important}
+#calendar .month-cell:hover:not(:disabled){background:#282238!important;border-color:#bca3ee7f!important}
+#calendar .month-cell.today{border-color:#b699ff!important;box-shadow:inset 0 0 0 1px #b699ff50}
+#calendar .month-cell.selected{background:#332847!important}
+#calendar .month-cell.outside{opacity:.35!important}
+#calendar .day-number{font-size:12px!important;font-weight:800!important;color:#e3d8ee!important}
+#calendar .visual-post{border-radius:6px!important;overflow:hidden!important;background:#0d0d18!important;border-color:#ffffff20!important}
+#calendar .visual-post img{height:84px!important;object-fit:cover!important}
+#calendar .visual-meta{background:#11101ce0!important}
+#calendar .visual-title{font-size:10px!important;font-weight:750!important;color:#fff!important}
+#calendar .month-footer{background:#161522!important;border-top:1px solid #ffffff20!important;padding:19px 22px!important}
+#calendar .planner-form{position:relative;overflow:hidden;background:#171320!important;border:1px solid #aea0dc58!important;border-radius:16px!important;margin-top:44px!important;padding:27px!important;box-shadow:0 18px 60px #0006}
+.sp10-composer-art{height:220px;position:relative;overflow:hidden;border-radius:10px;margin-bottom:27px}
+.sp10-composer-art img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 50%;filter:brightness(.72)}
+.sp10-composer-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#080710bb,transparent),linear-gradient(0deg,#080710a8,transparent 80%)}
+.sp10-composer-art span{position:absolute;z-index:2;left:25px;bottom:22px;color:white;font-size:clamp(22px,4vw,43px);font-weight:850;letter-spacing:-.055em;text-shadow:0 5px 20px #000a}
+#calendar .planner-subhead h3{font-size:clamp(23px,3vw,36px)!important;letter-spacing:-.05em!important}
+#calendar .planner-form input,#calendar .planner-form textarea,#calendar .planner-form select{background:#0e1020!important;border:1px solid #9c92cb60!important;color:#fbf8ff!important;border-radius:9px!important;min-height:48px!important}
+#calendar .planner-form .btn{background:linear-gradient(105deg,#9a7cf6,#7161db)!important;color:white!important}
+#calendar #savedPosts{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))!important;gap:18px!important;margin-top:18px!important}
+#calendar #savedPosts:has(.sp10-empty-state){grid-template-columns:1fr!important}
+.sp10-empty-state{display:grid;grid-template-columns:.82fr 1.18fr;min-height:335px;overflow:hidden;background:linear-gradient(130deg,#1b1529,#121521);border:1px solid #9a8bc653;border-radius:16px}
+.sp10-empty-image{position:relative;overflow:hidden;background:#282138}
+.sp10-empty-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:brightness(.85)}
+.sp10-empty-copy{display:flex;flex-direction:column;justify-content:center;padding:35px 40px}
+.sp10-empty-copy>span{font-size:10px;letter-spacing:.16em;font-weight:850;color:#c0a4fb}
+.sp10-empty-copy h4{font-size:clamp(28px,4vw,47px);line-height:1.05;letter-spacing:-.055em;margin:16px 0 12px;color:white}
+.sp10-empty-copy p{font-size:15px;line-height:1.65;color:#abaabd;max-width:560px}
+.sp10-empty-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.sp10-empty-actions button{background:#cabaf8;color:#1c1529;border:0;padding:13px 18px;border-radius:7px;font-weight:800;cursor:pointer}
+.sp10-empty-actions button.sp10-empty-secondary{background:#ffffff13;color:white;border:1px solid #ffffff48}
+#calendar .sp10-post-card{overflow:hidden;border-radius:13px!important;border:1px solid #9992c04c!important;background:#161523!important;box-shadow:0 16px 40px #0006!important;padding:0!important;min-width:0}
+.sp10-post-image{height:215px;position:relative;overflow:hidden;background:linear-gradient(135deg,#281f37,#141321)}
+.sp10-post-image img{width:100%;height:100%;object-fit:cover;filter:brightness(.82)}
+.sp10-post-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#09071496,transparent 65%);pointer-events:none}
+.sp10-post-category{position:absolute;z-index:2;bottom:16px;left:17px;color:white;font-size:10px;letter-spacing:.13em;font-weight:850}
+.sp10-post-content{padding:19px}
+.sp10-post-date{display:block;font-size:10px;color:#c8b6fa;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.sp10-post-content h3{font-size:22px!important;line-height:1.14;letter-spacing:-.04em;margin:12px 0!important;color:#fff!important}
+.sp10-post-content>p{color:#aab0c4!important;font-size:12px!important;line-height:1.65!important;min-height:50px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sp10-post-actions{display:flex;gap:9px;margin-top:15px}.sp10-post-actions button{background:#9382e7;color:white;border:0;border-radius:7px;padding:11px 15px;cursor:pointer;font-weight:800;font-size:11px}.sp10-post-actions .sp10-post-delete{background:#ffffff12;color:#d2cbdc;border:1px solid #ffffff22}
+@media(max-width:1000px){.sp10-planner-head{grid-template-columns:1fr .8fr}.sp10-planner-head-art{min-height:330px}.sp10-strip-cards article{min-height:190px}#calendar .month-cell{min-height:145px!important}#calendar .visual-post img{height:65px!important}}
+@media(max-width:760px){.sp10-planner-head{grid-template-columns:1fr}.sp10-planner-head-art{min-height:330px}.sp10-strip-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.sp10-strip-cards article{min-height:230px}.sp10-calendar-intro{align-items:start;flex-direction:column}#calendar .month-grid{gap:3px!important;padding:4px!important}#calendar .month-cell{min-height:112px!important;padding:4px!important}#calendar .visual-post img{height:50px!important}.sp10-empty-state{grid-template-columns:1fr}.sp10-empty-image{height:230px}.sp10-empty-copy{padding:25px}}
+@media(max-width:500px){#calendar{width:calc(100vw - 10px)!important;border-radius:13px!important;margin:30px auto 65px!important}#calendar .command-content{padding:12px!important}.sp10-planner-head-copy h2{font-size:clamp(43px,10vw,58px)!important}.sp10-planner-head-art{min-height:280px}.sp10-strip-cards article{min-height:175px}.sp10-strip-cards article strong{font-size:15px}.sp10-strip-title>small{margin-left:0}#calendar .month-cell{min-height:75px!important;padding:2px!important;border-radius:3px!important}#calendar .visual-post img{height:32px!important}#calendar .visual-post .visual-title{display:none!important}#calendar .visual-post .visual-meta{padding:2px!important}#calendar .day-number{font-size:10px!important}#calendar .month-weekday{padding:7px 0!important;font-size:8px!important}#calendar .month-toolbar{padding:15px!important}#calendar .month-footer{padding:14px!important}#calendar .planner-form{padding:14px!important}.sp10-composer-art{height:155px}}
+@media(prefers-reduced-motion:reduce){.sp10-strip-cards img{transition:none!important}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#sp9-home" data-sp9-home><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#sp9-home" data-sp9-home>Home</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
@@ -2020,13 +2114,23 @@ body:not(.sp9-workspace) .nav{position:relative;z-index:30!important;max-width:1
   
 </section>
 <section class="tool" id="calendar"><div class="command-layout"><aside class="command-sidebar" aria-label="Planner navigation"><div class="command-logo"><span class="command-logo-icon">✦</span><span>Social<span class="command-accent">Pilot</span><small>CREATOR WORKSPACE</small></span></div><div class="command-nav-label">WORKSPACE</div><a class="command-nav-item" href="#top">◈ <span>Overview</span></a><a class="command-nav-item" href="#generator">✧ <span>Idea generator</span></a><a class="command-nav-item" href="#captions">✎ <span>Caption studio</span></a><a class="command-nav-item active" href="#calendar">▦ <span>Content calendar</span></a><div class="command-nav-label" style="margin-top:32px">YOUR PLANNER</div><div class="command-mini-stat"><span>◉ Planned posts</span><strong id="commandTotal">0</strong></div><div class="command-mini-stat"><span>◷ This month</span><strong id="commandMonth">0</strong></div><div class="command-side-bottom"><span class="command-live-dot"></span> Cloud-synced workspace<small>Posts are drafts until you publish them manually.</small></div></aside><div class="command-content"><div class="command-breadcrumb">WORKSPACE <span>/</span> CONTENT CALENDAR <span class="command-version">✦ STUDIO 04</span></div>
-  <span class="pill">CONTENT PLANNER</span>
-  <h2>Content Calendar 📅</h2>
-  <p>Plan, organize, and manage your upcoming social media posts.</p><p style="font-size:12px">Sign in to save your posts securely to your SocialPilot account and access them on other devices.</p>
+  <div class="sp10-planner-head">
+<div class="sp10-planner-head-copy"><span class="sp10-kicker">✦ THE CREATIVE CALENDAR / SOCIALPILOT</span><h2>Make room for<br><em>your next big idea.</em></h2><p>Your content shouldn't live in a spreadsheet. Build your story, organize the moments, and give every post a place to shine.</p>
+<div class="sp10-planner-jumps"><a href="#generator">✦ Find an idea <span>↗</span></a><a href="#captions">✎ Write a caption <span>↗</span></a></div>
+</div><div class="sp10-planner-head-art"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Illustrative editorial skincare campaign photography" loading="lazy"><span class="sp10-art-top">THE CREATIVE EDIT / VOL. 01</span><strong>Ideas look<br>better here.</strong><span class="sp10-art-bottom">A CANVAS FOR YOUR NEXT CAMPAIGN</span></div>
+</div>
+<div class="sp10-editorial-strip" aria-label="Four sample campaign inspirations">
+<div class="sp10-strip-title"><span>CAMPAIGN INSPIRATION</span><strong>See the possibilities.</strong><small>Illustrative stock photography · Not your saved posts</small></div>
+<div class="sp10-strip-cards">
+<article><img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt="Fragrance campaign photography" loading="lazy"><span>01 / PRODUCT LAUNCH</span><strong>The art of the reveal.</strong></article>
+<article><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt="Fashion campaign photography" loading="lazy"><span>02 / EDITORIAL</span><strong>Wear your story.</strong></article>
+<article><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt="Warm coffee lifestyle photography" loading="lazy"><span>03 / LIFESTYLE</span><strong>A moment to savor.</strong></article>
+<article><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt="Fitness campaign photography" loading="lazy"><span>04 / WELLNESS</span><strong>Find your energy.</strong></article>
+</div></div>
 
-  <div class="demo-switchbar" aria-label="Calendar display mode"><div><strong>Calendar view</strong><small id="demoModeHelp">Your private posts from Supabase</small></div><div class="demo-switches"><button type="button" class="demo-switch active" id="realViewButton" onclick="setDemoMode(false)" aria-pressed="true">My Posts</button><button type="button" class="demo-switch" id="demoViewButton" onclick="setDemoMode(true)" aria-pressed="false">✦ Demo Preview</button></div></div><div id="demoNotice" class="demo-notice" hidden>✦ <strong>DEMO PREVIEW</strong> — These are fictional sample posts with illustrative stock photography. Nothing shown here is saved to your account.</div>
+  <div class="sp10-calendar-intro"><div><span class="sp10-kicker">THE PRODUCTION BOARD</span><h3>Plan the moments that matter.</h3><p>Choose a day, preview a campaign or create a post. Your own drafts stay private.</p></div><button class="sp10-preview-cta" type="button" id="sp10PreviewSample">Explore sample calendar ↗</button></div><div class="demo-switchbar" aria-label="Calendar display mode"><div><strong>Calendar view</strong><small id="demoModeHelp">Your private posts from Supabase</small></div><div class="demo-switches"><button type="button" class="demo-switch active" id="realViewButton" onclick="setDemoMode(false)" aria-pressed="true">My Posts</button><button type="button" class="demo-switch" id="demoViewButton" onclick="setDemoMode(true)" aria-pressed="false">✦ Demo Preview</button></div></div><div id="demoNotice" class="demo-notice" hidden>✦ <strong>DEMO PREVIEW</strong> — These are fictional sample posts with illustrative stock photography. Nothing shown here is saved to your account.</div>
   <div class="calendar-filterbar" aria-label="Filter posts by platform"><span class="filter-label">PLATFORMS</span><button class="filter-chip active" data-cal-filter="All" type="button" onclick="setCalendarFilter('All')">✦ All</button><button class="filter-chip" data-cal-filter="Instagram" type="button" onclick="setCalendarFilter('Instagram')">◎ Instagram</button><button class="filter-chip" data-cal-filter="TikTok" type="button" onclick="setCalendarFilter('TikTok')">♪ TikTok</button><button class="filter-chip" data-cal-filter="Facebook" type="button" onclick="setCalendarFilter('Facebook')">f Facebook</button><button class="filter-chip" data-cal-filter="LinkedIn" type="button" onclick="setCalendarFilter('LinkedIn')">in LinkedIn</button><span class="filter-note">Photo previews are illustrative</span></div><div class="month-shell"><div class="month-toolbar"><div><span class="studio-kicker">✦ YOUR CONTENT SCHEDULE</span><h3 id="monthTitle">Monthly overview</h3></div><div class="month-actions"><button class="month-btn" type="button" onclick="changeMonth(-1)" aria-label="Previous month">←</button><button class="month-btn" type="button" onclick="jumpToToday()">Today</button><button class="month-btn" type="button" onclick="changeMonth(1)" aria-label="Next month">→</button></div></div><div id="monthGrid" class="month-grid" aria-label="Monthly content calendar"></div><div class="month-footer"><div class="month-legend"><span style="--dot:#ad92ff">Instagram</span><span style="--dot:#55dbe7">TikTok</span><span style="--dot:#5a9eff">Facebook</span><span style="--dot:#79b4e9">LinkedIn</span></div><span id="monthSummary">Select a day to plan a post</span></div></div>
-<div class="planner-form"><div class="planner-subhead"><div><span class="studio-kicker">✦ QUICK COMPOSER</span><h3 id="plannerFormTitle">Create a scheduled post</h3></div><span class="studio-live">● Cloud workspace</span></div>
+<div class="planner-form"><div class="sp10-composer-art" aria-hidden="true"><img loading="lazy" src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt=""><span>CREATE SOMETHING WORTH SHARING</span></div><div class="planner-subhead"><div><span class="studio-kicker">✦ QUICK COMPOSER</span><h3 id="plannerFormTitle">Create a scheduled post</h3></div><span class="studio-live">● Cloud workspace</span></div>
 <div class="planner-fields" style="margin-top:19px">
 
     <label for="postDate">Publication date</label>
@@ -2052,7 +2156,7 @@ body:not(.sp9-workspace) .nav{position:relative;z-index:30!important;max-width:1
   </div></div>
 
   <div style="max-width:100%;margin:30px auto;text-align:left">
-    <div class="planner-subhead"><h3>Upcoming Content</h3><span id="plannerCount" class="planner-count"></span></div>
+    <div class="planner-subhead"><h3>Your content collection</h3><span id="plannerCount" class="planner-count"></span></div>
     <p id="calendarStatus" role="status" aria-live="polite" style="color:#aab5d0;font-size:13px">Checking your account…</p><div id="legacyImport" style="display:none;margin:12px 0;padding:15px;border:1px solid #7c68c866;border-radius:12px;background:#141d36"><p id="legacyMessage" style="margin:0 0 10px"></p><button class="btn ghost" type="button" onclick="importLocalPosts()">Import browser-saved posts</button></div><div id="savedPosts" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px"></div>
   </div>
 </div></div></section>
@@ -2317,23 +2421,37 @@ function renderPosts() {
   container.replaceChildren();
   document.getElementById('plannerCount').textContent=calendarUser?`${cloudPosts.length} saved posts`:'';
   renderMonth();
-  if(!calendarUser) return;
-  if(!cloudPosts.length) {
-    const empty=document.createElement('p');
-    empty.textContent='No cloud posts yet. Create your first post above!';
-    container.appendChild(empty);
+  if(!calendarUser || !cloudPosts.length) {
+    const empty=document.createElement('div');
+    empty.className='sp10-empty-state';
+    const visual=document.createElement('div');visual.className='sp10-empty-image';
+    const picture=document.createElement('img');picture.src='https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=82';picture.alt='Illustrative premium editorial campaign concept';picture.loading='lazy';visual.appendChild(picture);
+    const copy=document.createElement('div');copy.className='sp10-empty-copy';
+    const label=document.createElement('span');label.textContent='✦ THE NEXT CHAPTER STARTS HERE';
+    const title=document.createElement('h4');title.textContent=calendarUser?'Your first post deserves a moment.':'Your creative calendar is waiting.';
+    const msg=document.createElement('p');msg.textContent=calendarUser?'Choose a date and save your first campaign. Your drafts stay private until you decide to publish manually.':'Explore the sample calendar, then log in when you are ready to save your own work across devices.';
+    const actions=document.createElement('div');actions.className='sp10-empty-actions';
+    const demo=document.createElement('button');demo.type='button';demo.textContent='Explore sample posts ↗';demo.onclick=()=>{setDemoMode(true);document.querySelector('.month-shell')?.scrollIntoView({behavior:'smooth',block:'start'})};
+    actions.appendChild(demo);
+    const create=document.createElement('button');create.type='button';create.className='sp10-empty-secondary';create.textContent='Prepare a post';create.onclick=()=>document.querySelector('.planner-form')?.scrollIntoView({behavior:'smooth',block:'start'});
+    actions.appendChild(create);copy.append(label,title,msg,actions);empty.append(visual,copy);container.appendChild(empty);
     return;
   }
   document.getElementById('plannerCount').textContent=`${cloudPosts.length} saved post${cloudPosts.length===1?'':'s'}`;
   cloudPosts.forEach(post=>{
-    const card=document.createElement('div');
-    card.className='post-cloud-card';card.style.padding='19px';card.style.borderRadius='14px';
+    const card=document.createElement('article');card.className='post-cloud-card sp10-post-card';
+    const visual=document.createElement('div');visual.className='sp10-post-image';
+    const photo=document.createElement('img');photo.src=calendarPhoto(post);photo.alt='Illustrative inspiration for '+post.title;photo.loading='lazy';photo.onerror=()=>{photo.hidden=true};
+    const category=document.createElement('span');category.className='sp10-post-category';category.textContent=(post.platform||'Social')+' / PLANNED';
+    visual.append(photo,category);
+    const content=document.createElement('div');content.className='sp10-post-content';
+    const details=document.createElement('span');details.className='sp10-post-date';details.textContent=new Date(post.post_date+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
     const heading=document.createElement('h3');heading.textContent=post.title;
-    const details=document.createElement('p');details.textContent=post.post_date+' • '+post.platform;
-    const caption=document.createElement('p');caption.textContent=post.caption || '';
-    const edit=document.createElement('button');edit.className='btn';edit.textContent='Edit';edit.onclick=()=>editPost(post.id);
-    const remove=document.createElement('button');remove.className='btn';remove.textContent='Delete';remove.style.marginLeft='10px';remove.onclick=()=>deletePost(post.id);
-    card.append(heading,details,caption,edit,remove);container.appendChild(card);
+    const caption=document.createElement('p');caption.textContent=post.caption || 'Your next story is ready for its creative direction.';
+    const tools=document.createElement('div');tools.className='sp10-post-actions';
+    const edit=document.createElement('button');edit.type='button';edit.textContent='✎ Edit';edit.onclick=()=>editPost(post.id);
+    const remove=document.createElement('button');remove.type='button';remove.textContent='Delete';remove.className='sp10-post-delete';remove.onclick=()=>deletePost(post.id);
+    tools.append(edit,remove);content.append(details,heading,caption,tools);card.append(visual,content);container.appendChild(card);
   });
 }
 let monthCursor=new Date();
@@ -3463,5 +3581,10 @@ window.setInterval(()=>{if(!paused&&visible&&!document.hidden)show(active+1)},40
  if(stopped&&pause){pause.textContent='▶';pause.setAttribute('aria-label','Play animation');pause.setAttribute('aria-pressed','true')}
  if('IntersectionObserver' in window){new IntersectionObserver(e=>visible=!!e[0]?.isIntersecting,{threshold:.12}).observe(document.querySelector('.sp9-story-stage'))}
  window.setInterval(()=>{if(!stopped&&visible&&!document.hidden)show(current+1)},5200);
+})();
+</script><script id="sp-calendar-v10-wiring">
+(function(){
+ const demo=document.getElementById('sp10PreviewSample');
+ demo?.addEventListener('click',()=>{if(typeof setDemoMode==='function'){setDemoMode(true);document.getElementById('monthGrid')?.scrollIntoView({behavior:'smooth',block:'center'})}});
 })();
 </script></body></html>

@@ -1905,6 +1905,52 @@ body:not(.sp9-workspace) .nav{position:relative;z-index:30!important;max-width:1
 @media(max-width:1200px){#calendar .sp12-board{grid-template-columns:minmax(0,1.45fr) minmax(255px,.6fr)}#calendar .sp12-day-panel{padding:18px 14px}#calendar .month-grid{padding:5px!important;gap:3px!important}#calendar .month-cell{padding:5px!important;min-height:97px!important}#calendar .month-cell .visual-post img{width:34px!important;min-width:34px!important;height:43px!important}#calendar .month-footer .month-legend{grid-template-columns:repeat(2,max-content)!important}.sp12-event{grid-template-columns:78px minmax(0,1fr)}.sp12-event>img{width:78px}}
 @media(max-width:900px){#calendar .sp12-board{grid-template-columns:1fr}#calendar .sp12-day-panel{border-left:0;border-top:1px solid #ffffff25;padding:24px}#calendar .sp12-date-display{display:grid;grid-template-columns:80px 1fr;column-gap:20px;align-items:center;padding:15px 0}#calendar .sp12-date-display>span:first-child{grid-column:2;grid-row:1}#calendar .sp12-date-display strong{font-size:90px;grid-column:1;grid-row:1 / 3}#calendar .sp12-date-display>span:last-child{grid-column:2;grid-row:2}#calendar .sp12-day-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}.sp12-empty-day{min-height:240px}#calendar .month-cell{min-height:111px!important}}
 @media(max-width:560px){#calendar .month-grid{padding:4px!important;gap:2px!important}#calendar .month-cell{padding:3px!important;min-height:66px!important}#calendar .month-weekday{padding:8px 2px!important;font-size:8px!important}#calendar .month-cell .visual-post{min-height:25px!important}#calendar .month-cell .visual-post img{height:25px!important;width:22px!important;min-width:22px!important}#calendar .month-cell .visual-time,#calendar .month-cell .visual-title{display:none!important}#calendar .month-cell .visual-meta{padding:2px!important}#calendar .month-cell .platform-symbol .sp11-brand{width:16px!important;height:16px!important}#calendar .month-footer .month-legend{gap:4px!important}#calendar .month-footer .sp11-legend-item{padding:6px!important;font-size:10px!important;gap:4px!important}#calendar .month-footer .sp11-brand{width:22px!important;height:22px!important}#calendar .month-footer .sp11-brand svg{width:15px!important;height:15px!important}#calendar .month-footer #monthSummary{max-width:100%;text-align:left}.sp12-date-display strong{font-size:78px}#calendar .month-toolbar{padding:15px!important}}
+</style><style id="sp13-planner-overhaul">
+/* Editorial production calendar. Calendar = index, selected-day panel = imagery. */
+#calendar .sp12-board{display:grid!important;grid-template-columns:minmax(0,1.65fr) minmax(300px,.72fr)!important;align-items:stretch!important;gap:0!important;width:100%!important;margin-top:24px!important;border-radius:12px!important;background:#0c0c10!important;border:1px solid #b6a6c34d!important;overflow:hidden!important}
+#calendar .sp12-board-left{min-width:0!important;max-width:100%!important;width:100%!important}
+#calendar .sp12-board-left>.month-shell{max-width:100%!important;width:100%!important;border:none!important}
+#calendar .sp12-day-panel{display:flex!important;flex-direction:column!important;min-width:0!important;width:100%!important;grid-column:2!important;border-top:0!important;border-left:1px solid #ffffff25!important;background:linear-gradient(155deg,#241a28,#131018 56%,#111118)!important}
+#calendar .month-grid{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;grid-auto-flow:row!important;gap:2px!important;padding:2px!important;background:#25202b!important}
+#calendar .month-toolbar{padding:24px 25px!important;background:#141119!important}
+#calendar .month-toolbar h3{font-family:Inter,ui-sans-serif,system-ui!important;font-size:clamp(33px,3vw,49px)!important;font-weight:800!important;letter-spacing:-.07em!important;color:#f8f3ef!important}
+#calendar .month-weekday{background:#19161e!important;color:#978d9e!important;letter-spacing:.2em!important;font-weight:850!important;padding:15px 0!important}
+#calendar button.month-cell{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;position:relative!important;min-width:0!important;min-height:105px!important;height:auto!important;background:#131118!important;border:1px solid transparent!important;border-radius:0!important;box-shadow:none!important;padding:10px!important;transform:none!important;gap:9px!important;overflow:hidden!important;transition:background .18s,border-color .18s!important}
+#calendar button.month-cell.outside{background:#0d0c12!important;opacity:.55!important}
+#calendar button.month-cell.selected{background:#2b1f30!important;border:1px solid #c8a3e0!important;box-shadow:inset 0 0 0 1px #b896c63d!important}
+#calendar button.month-cell:hover:not(.outside){background:#261e2a!important}
+#calendar button.month-cell.today .day-number{background:#e9d3f0!important;color:#170d1b!important;border-radius:5px;padding:4px 6px}
+#calendar button.month-cell .day-number{font-size:13px!important;color:#c7bec8!important;line-height:1!important;align-self:flex-start!important}
+#calendar .sp13-calendar-event{display:flex!important;align-items:center!important;gap:6px!important;width:100%!important;min-width:0!important;padding:6px!important;border-radius:6px!important;background:#35273c!important;border-left:2px solid #b598d9!important;box-shadow:0 3px 12px #0003!important;pointer-events:none!important}
+#calendar .sp13-event-logo{flex:0 0 auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
+#calendar .sp13-event-logo .sp11-brand{display:inline-grid!important;place-items:center!important;width:22px!important;height:22px!important;border-radius:6px!important}
+#calendar .sp13-event-logo .sp11-brand svg{width:14px!important;height:14px!important;display:block!important;opacity:1!important}
+#calendar .sp13-event-name{font-size:10px!important;line-height:1.22!important;font-weight:750!important;color:#eee9f1!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-width:0!important;word-break:break-word!important}
+#calendar .sp13-event-more{font-size:10px!important;color:#cbb5dd!important}
+#calendar .sp13-empty-hint{align-self:center!important;margin:auto!important;font-size:23px!important;font-weight:300!important;color:#b9a9bd30!important;opacity:0!important;transition:opacity .18s!important;pointer-events:none!important}
+#calendar button.month-cell:hover .sp13-empty-hint{opacity:1!important}
+#calendar button.month-cell:has(.sp13-empty-hint):hover::after{content:'PLAN'!important;position:absolute!important;bottom:12px!important;left:0!important;right:0!important;text-align:center!important;font-size:8px!important;font-weight:850!important;letter-spacing:.1em!important;color:#c9afd2!important}
+#calendar .month-cell .visual-post,#calendar .month-cell .visual-meta,#calendar .month-cell .demo-tag{display:none!important}
+#calendar .sp12-day-panel{padding:24px!important}
+#calendar .sp12-day-content{display:flex!important;flex-direction:column!important;gap:12px!important;max-height:none!important;overflow:visible!important}
+#calendar .sp12-date-display strong{font-size:clamp(74px,8vw,126px)!important}
+#calendar .sp12-event{grid-template-columns:110px minmax(0,1fr)!important;min-height:120px!important;border-radius:8px!important}
+#calendar .sp12-event>img{width:110px!important;min-height:120px!important;object-fit:cover!important}
+#calendar .sp12-empty-day{min-height:255px!important}
+#calendar .sp12-side-foot{padding-top:25px!important}
+#calendar .month-footer .month-legend .sp11-legend-item:before,#calendar .month-footer .month-legend .sp11-legend-item::before,#calendar .month-footer .month-legend .sp11-platform-text:before,#calendar .month-footer .month-legend .sp11-platform-text::before,#calendar .month-footer .month-legend .sp11-brand:before,#calendar .month-footer .month-legend .sp11-brand::before{content:none!important;display:none!important}
+#calendar .month-footer .month-legend{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:7px!important}
+#calendar .month-footer .sp11-legend-item{display:inline-flex!important;align-items:center!important;gap:7px!important;padding:6px 10px!important;border:1px solid #fff2!important;border-radius:7px!important;background:#26202b!important;margin:0!important}
+#calendar .month-footer .sp11-platform-text{font-size:11px!important;color:#d5cddd!important}
+#calendar .month-footer .sp11-brand{height:25px!important;width:25px!important;border-radius:6px!important}
+#calendar .month-footer .sp11-brand svg{height:16px!important;width:16px!important}
+#calendar .month-footer{background:#141118!important;padding:18px 22px!important}
+#calendar .demo-tag,#calendar .visual-post .demo-tag{display:none!important}
+#calendar .demo-notice{background:#291e30!important;border-color:#b49fc165!important}
+#calendar .sp12-label{color:#d9c4e5!important}
+@media(max-width:1100px){#calendar .sp12-board{grid-template-columns:minmax(0,1.35fr) minmax(250px,.68fr)!important}#calendar button.month-cell{padding:6px!important;min-height:91px!important}#calendar .sp13-calendar-event{gap:3px!important;padding:4px!important}#calendar .sp13-event-name{font-size:9px!important}#calendar .sp12-day-panel{padding:15px!important}}
+@media(max-width:850px){#calendar .sp12-board{grid-template-columns:1fr!important}#calendar .sp12-day-panel{grid-column:1!important;border-left:0!important;border-top:1px solid #ffffff25!important}#calendar .sp12-day-content{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr))!important}#calendar button.month-cell{min-height:89px!important}}
+@media(max-width:540px){#calendar button.month-cell{min-height:68px!important;padding:4px!important;gap:5px!important}#calendar .sp13-calendar-event{padding:3px!important;gap:2px!important;border-left-width:2px!important}#calendar .sp13-event-logo .sp11-brand{width:18px!important;height:18px!important}#calendar .sp13-event-logo .sp11-brand svg{width:11px!important;height:11px!important}#calendar .sp13-event-name{display:none!important}#calendar .month-weekday{padding:10px 0!important}#calendar .month-footer{padding:12px!important}#calendar .month-footer .sp11-legend-item{padding:5px!important}#calendar .month-footer .sp11-platform-text{font-size:10px!important}#calendar .sp12-day-panel{padding:18px!important}}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#sp9-home" data-sp9-home><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#sp9-home" data-sp9-home>Home</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
@@ -2605,8 +2651,20 @@ const demoTopics=[
  ['Movement that feels good','TikTok','fitness'],['New arrivals this week','Instagram','product'],['Meet the team','LinkedIn','business'],['Beauty essentials','Instagram','beauty']
 ];
 function demoPostsForMonth(y,m){
- const days=new Date(y,m+1,0).getDate();
- return demoTopics.map((topic,i)=>({id:'demo-'+i,post_date:localISO(new Date(y,m,Math.min(days,2+i+(i>9?Math.floor(i/5):0)))),title:topic[0],caption:'Illustrative example — not a scheduled post.',platform:topic[1],demo:true,demoPhoto:topic[2]}));
+ // A curated editorial preview, not a fake full calendar. These never reach cloud storage.
+ const dates=[3,7,11,15,18,22,26,29];
+ const examples=[
+  ['The morning ritual','Instagram','coffee'],
+  ['A study in light','TikTok','beauty'],
+  ['The next collection','Instagram','product'],
+  ['Objects of desire','Facebook','beauty'],
+  ['Make your move','Instagram','fitness'],
+  ['Behind the brand','LinkedIn','business'],
+  ['An invitation to explore','TikTok','travel'],
+  ['The weekend edit','Instagram','food']
+ ];
+ const last=new Date(y,m+1,0).getDate();
+ return examples.map((topic,i)=>({id:'demo-'+i,post_date:localISO(new Date(y,m,Math.min(last,dates[i]))),title:topic[0],caption:'Editorial concept preview — fictional, not saved.',platform:topic[1],demo:true,demoPhoto:topic[2]}));
 }
 function setDemoMode(enabled){
  calendarDemoMode=!!enabled;
@@ -2685,13 +2743,24 @@ function renderMonth(){
   const d=new Date(y,m,i-start+1),iso=localISO(d),inside=d.getMonth()===m,posts=byDate.get(iso)||[];
   const btn=document.createElement('button');btn.type='button';btn.disabled=false;btn.className='month-cell'+(!inside?' outside':'')+(iso===today?' today':'')+(iso===selectedCalendarDate?' selected':'');btn.setAttribute('aria-label',`${d.toDateString()}, ${posts.length} ${calendarDemoMode?'demo':'planned'} posts`);btn.onclick=()=>{if(!inside)monthCursor=new Date(d.getFullYear(),d.getMonth(),1);if(calendarDemoMode){selectedCalendarDate=iso;renderMonth();return;}selectCalendarDate(iso);};
   const num=document.createElement('span');num.className='day-number';num.textContent=d.getDate();btn.appendChild(num);
-  posts.slice(0,2).forEach(post=>{const card=document.createElement('span');card.className='visual-post';const img=document.createElement('img');img.src=post.demo?calendarPhotos[post.demoPhoto]:calendarPhoto(post);img.alt='Illustrative stock photo for '+post.title;img.loading='lazy';img.onerror=()=>{img.style.display='none'};const meta=document.createElement('span');meta.className='visual-meta';const time=document.createElement('span');time.className='visual-time';const platform=document.createElement('span');platform.className='platform-symbol '+(post.platform||'').toLowerCase();platform.innerHTML=sp11BrandIcon(post.platform);platform.setAttribute('aria-label',post.platform||'Social platform');const status=document.createElement('span');status.textContent=post.demo?'✦ SAMPLE':'◷ Planned';time.append(status,platform);const title=document.createElement('span');title.className='visual-title';title.textContent=post.title;meta.append(time,title);if(post.demo){const demoTag=document.createElement('span');demoTag.className='demo-tag';demoTag.textContent='DEMO';meta.appendChild(demoTag);}card.append(img,meta);btn.appendChild(card);});
-  if(posts.length>2){const more=document.createElement('span');more.className='day-more';more.textContent=`+${posts.length-2} more posts`;btn.appendChild(more);}
+  // Compact, art-directed calendar markers. Large images live in the selected-day panel.
+  if(posts.length){
+    const lead=posts[0];
+    const label=document.createElement('span');label.className='sp13-calendar-event';
+    const brand=document.createElement('span');brand.className='sp13-event-logo';brand.innerHTML=sp11BrandIcon(lead.platform);
+    const copy=document.createElement('span');copy.className='sp13-event-name';copy.textContent=lead.title;
+    label.append(brand,copy);
+    btn.appendChild(label);
+    if(posts.length>1){const more=document.createElement('span');more.className='sp13-event-more';more.textContent='+'+(posts.length-1)+' more';btn.appendChild(more);}
+  } else if(inside){
+    const hint=document.createElement('span');hint.className='sp13-empty-hint';hint.textContent='＋';
+    hint.setAttribute('aria-hidden','true');btn.appendChild(hint);
+  }
   grid.appendChild(btn);
  }
  const inMonth=visiblePosts.filter(p=>p.post_date?.startsWith(`${y}-${String(m+1).padStart(2,'0')}-`)&&(calendarPlatformFilter==='All'||p.platform===calendarPlatformFilter)).length;
  document.getElementById('commandTotal').textContent=calendarDemoMode?visiblePosts.length:(calendarUser?cloudPosts.length:0);document.getElementById('commandMonth').textContent=calendarDemoMode?inMonth:(calendarUser?inMonth:0);
- document.getElementById('monthSummary').textContent=calendarDemoMode?`${inMonth} fictional sample posts · Not saved · Click My Posts to return`:calendarUser?`${inMonth} planned post${inMonth===1?'':'s'} this month · Click any date to create`:'Log in to see your cloud posts · Click a date to prepare a post';
+ document.getElementById('monthSummary').textContent=calendarDemoMode?`${inMonth} curated sample concepts · Not saved · Click My Posts to return`:calendarUser?`${inMonth} planned post${inMonth===1?'':'s'} this month · Click any date to create`:'Log in to see your cloud posts · Click a date to prepare a post';
  const dayIso=selectedCalendarDate&&selectedCalendarDate.startsWith(`${y}-${String(m+1).padStart(2,'0')}-`)?selectedCalendarDate:(y===new Date().getFullYear()&&m===new Date().getMonth()?localISO(new Date()):localISO(new Date(y,m,1)));
  sp12RenderDay(dayIso,visiblePosts.filter(p=>p.post_date===dayIso&&(calendarPlatformFilter==='All'||p.platform===calendarPlatformFilter)));
 

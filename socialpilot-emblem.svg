@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+<title id="title">SocialPilot orbit emblem</title>
+<desc id="desc">Champagne and lilac ribbon letter S around a four-point compass star with an orbital path.</desc>
+<defs>
+<linearGradient id="champagne" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0d4"/><stop offset=".44" stop-color="#d7a77f"/><stop offset="1" stop-color="#f9e2ba"/></linearGradient>
+<linearGradient id="violet" x1=".1" y1="0" x2=".95" y2="1"><stop offset="0" stop-color="#d9c1eb"/><stop offset=".5" stop-color="#9c76bc"/><stop offset="1" stop-color="#eac8f4"/></linearGradient>
+<linearGradient id="star" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6dd"/><stop offset="1" stop-color="#cd9472"/></linearGradient>
+</defs>
+<path d="M20 113 C31 93 91 53 136 38" fill="none" stroke="url(#champagne)" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M38 114 C68 121 123 92 139 39" fill="none" stroke="url(#violet)" stroke-width="1.75" stroke-linecap="round"/>
+<circle cx="139" cy="39" r="5.2" fill="#b89ad4"/>
+<path d="M119 34 C80 31 34 40 33 66 C32 83 49 88 72 86 C35 99 17 76 25 56 C36 29 78 24 119 34Z" fill="url(#champagne)"/>
+<path d="M41 83 C54 93 84 91 105 84 C91 97 72 105 51 112 C66 117 89 110 109 101 C87 125 53 139 20 133 C51 118 79 108 95 97 C67 102 43 98 41 83Z" fill="url(#violet)"/>
+<path d="M75 50 L81.2 72.4 L102 79 L81.2 85.6 L75 108 L68.8 85.6 L48 79 L68.8 72.4 Z" fill="url(#star)"/>
+</svg>

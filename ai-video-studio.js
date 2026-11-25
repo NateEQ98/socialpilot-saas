@@ -34,7 +34,24 @@ function render(items){
  const play=node('button','▶ Play video');play.type='button';play.addEventListener('click',()=>view(job.video_url));
  const open=node('a','Open MP4');open.href=job.video_url;open.target='_blank';open.rel='noopener noreferrer';
  card.append(play,document.createTextNode('  ·  '),open);
- }else if(job.status==='failed'){card.append(node('small','Could not complete the video'));}
+ }else if(job.status==='failed'){
+   card.append(node('small','Could not complete the video'));
+   const remove=node('button','Remove failed project');
+   remove.type='button';
+   remove.addEventListener('click',async()=>{
+     remove.disabled=true;
+     try {
+       await call('dismiss',{id:job.id});
+       render(recent.filter(item=>item.id!==job.id));
+       $('spvRefresh').focus();
+       tell('Failed project removed. Monthly usage is unchanged.');
+     } catch(error) {
+       remove.disabled=false;
+       tell(error.message,true);
+     }
+   });
+   card.append(remove);
+ }
  else{const check=node('button','Check progress');check.type='button';check.addEventListener('click',()=>checkJob(job.id));card.append(check);}
  list.append(card);
  }

@@ -53,7 +53,7 @@ form.addEventListener('submit',async event=>{
  event.preventDefault();if(busy)return;const prompt=field.value.trim();
  if(prompt.length<12||prompt.length>1200){tell('Please enter a description between 12 and 1200 characters.',true);return;}
  busy=true;button.disabled=true;button.textContent='Submitting render…';tell('Preparing your video request…');
- try{const result=await call('create',{prompt,aspect_ratio:selected});tell(result.message||'Rendering started.');await reload(true);}
+ try{const result=await call('create',{prompt,aspect_ratio:selected,audio:form.elements.audio?.checked===true});tell(result.message||'Rendering started.');await reload(true);}
  catch(error){tell(error.message,true);if(/sign in/i.test(error.message)&&typeof openAuth==='function')openAuth('login');}
  finally{busy=false;button.disabled=false;button.textContent='✦ Generate my AI video';}
 });

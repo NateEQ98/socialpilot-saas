@@ -2389,6 +2389,11 @@ html body .nav .account-dropdown .account-signout:focus-visible{
 #pro-studio .sp-v8-pro-hero>.sp-v8-pro-sample-tag,#pro-studio .sp-v8-pro-hero>strong{z-index:3!important}
 @media(max-width:700px){.sp22-caption-film{min-height:220px!important}}
 @media(prefers-reduced-motion:reduce){.sp22-film{display:none!important}.sp22-film.sp22-playing{opacity:0!important}}
+</style><style id="sp22-footage-guardrails">
+.sp22-source-disclosure{display:block;margin:5px 10px 12px!important;font-size:10px!important;color:#a89b96!important;line-height:1.5!important;text-align:center}
+.sp18-reel.sp22-source-error .sp18-live{display:none!important}
+.sp18-reel.sp22-source-error:after{pointer-events:none}
+.sp22-film{pointer-events:none!important}
 </style></head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand sp-brand-v16" href="#sp9-home" data-sp9-home aria-label="SocialPilot home"><img src="./socialpilot-emblem.svg" alt="" width="42" height="42" class="sp-brand-emblem"><span class="sp-brand-wordmark">Social<span>Pilot</span></span></a><div class="navlinks" id="spMobileLinks"><a href="#sp9-home" data-sp9-home>Home</a><a href="#sp18-motion-studio">Motion</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#c69870,#d2aa86);color:white;border:1px solid #e3cab5;border-radius:12px;box-shadow:0 4px 20px #c6987055;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true"><img src="./socialpilot-emblem.svg" width="25" height="25" alt=""></span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 
@@ -4350,67 +4355,128 @@ function update(inputId,previewId){
 update('captionPlatform','sp11CaptionPlatformBadge');
 update('psPlatform','sp11ProPlatformBadge');
 })();
-</script><script id="sp18-motion-controls">
+</script><script id="sp22-footage-playback">
 (function(){
-const section=document.getElementById('sp18-motion-studio');if(!section)return;
-const reels=[...section.querySelectorAll('.sp18-reel')],videos=reels.map(x=>x.querySelector('video')),tabs=[...section.querySelectorAll('[data-sp18-index]')],textarea=document.getElementById('sp18Idea'),button=document.getElementById('sp18Build'),pro=document.getElementById('sp18GoPro'),status=document.getElementById('sp18PlaybackState'),playingLabel=document.getElementById('sp18NowPlaying'),playButton=document.getElementById('sp18PlayPause');
-let index=0,paused=window.matchMedia('(prefers-reduced-motion: reduce)').matches,onscreen=false;
-const scenes=[
- {label:'COFFEE RITUAL',intro:'Warm light catches the first details',reveal:'Show the signature drink coming to life',cta:'Make the morning impossible to forget'},
- {label:'BEAUTY RITUAL',intro:'Open with a tactile beauty close-up',reveal:'Introduce the hero ingredient or product',cta:'Finish with a confident signature moment'},
- {label:'FRESH PRODUCT',intro:'Begin with an arresting splash or motion',reveal:'Show product details with energetic cuts',cta:'Leave viewers with a crisp invitation'}
-];
-function activate(i){
- index=i;reels.forEach((reel,n)=>reel.classList.toggle('is-active',n===i));
- tabs.forEach((t,n)=>t.setAttribute('aria-pressed',String(n===i)));
- playingLabel.textContent='NOW SHOWING / '+scenes[i].label;
- if(onscreen&&!paused)playAvailable();
-}
-function playAvailable(){
- videos.forEach(v=>{if(!v.src){v.src=v.dataset.sp18Src;v.load()}
- if(!paused&&onscreen&&!document.hidden){v.play().catch(()=>{});} else v.pause()});
-}
-function pauseUI(){
- playButton.textContent=paused?'▶ PLAY':'Ⅱ PAUSE';
- playButton.setAttribute('aria-label',paused?'Play sample video playback':'Pause sample video playback');
- playButton.setAttribute('aria-pressed',String(paused));
- status.textContent=paused?'Video playback paused':'Moving video inspiration';
-}
-videos.forEach((v,n)=>{
- v.addEventListener('error',()=>{
-   if(v.src.includes('-360.mp4')&&!v.dataset.retry720){v.dataset.retry720='1';v.src=v.src.replace('-360.mp4','-720.mp4');v.load();if(onscreen&&!paused)v.play().catch(()=>{});}
-   else{reels[n].classList.add('is-fallback');status.textContent='Poster fallback for unavailable stock footage'}
- });
-});
-tabs.forEach(t=>t.addEventListener('click',()=>activate(Number(t.dataset.sp18Index))));
-reels.forEach((reel,i)=>reel.addEventListener('click',()=>activate(i)));
-playButton.addEventListener('click',()=>{paused=!paused;playAvailable();pauseUI()});
-function build(){
- let idea=textarea.value.trim();if(!idea){textarea.focus();return;}
- const p=scenes[index];
- const concise=idea.replace(/[\r\n]+/g,' ').slice(0,135);
- document.getElementById('sp18GeneratedText').textContent=
-  '01 · '+p.intro+'. 02 · '+p.reveal+' — '+concise+'. 03 · '+p.cta+'.';
- const proOffer=document.getElementById('psOffer');
- if(proOffer){proOffer.value=concise;proOffer.dispatchEvent(new Event('input',{bubbles:true}));}
-}
-button.addEventListener('click',build);
-pro.addEventListener('click',()=>{const proOffer=document.getElementById('psOffer');if(proOffer&&textarea.value.trim())proOffer.value=textarea.value.trim().slice(0,350)});
-if('IntersectionObserver' in window){
- const observer=new IntersectionObserver(entries=>{onscreen=!!entries[0]?.isIntersecting;if(onscreen)playAvailable();else videos.forEach(v=>v.pause())},{rootMargin:'150px 0px',threshold:.07});
- observer.observe(section);
-}else{onscreen=true;playAvailable();}
-document.addEventListener('visibilitychange',()=>{if(document.hidden)videos.forEach(v=>v.pause());else if(onscreen)playAvailable()});
-pauseUI();activate(0);
+  'use strict';
+  // All clips are REAL commercial-use stock video, never generated from photographs.
+  const clips=[...document.querySelectorAll('video.sp22-film')];
+  if(!clips.length)return;
+  const states=new Map();
+  const canAnimate=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motion=document.getElementById('sp18-motion-studio');
+  for(const video of clips){
+    const urls=(video.getAttribute('data-sp22-sources')||'').split('|').filter(Boolean);
+    const state={urls,index:0,near:false,started:false,loaded:false,failed:false,waiter:null};
+    states.set(video,state);
+    video.muted=true;video.playsInline=true;video.loop=true;video.preload='none';
+    const clear=()=>{if(state.waiter){clearTimeout(state.waiter);state.waiter=null}};
+    const next=()=>{
+      clear();state.loaded=false;video.classList.remove('sp22-playing');video.pause();
+      if(state.index+1>=state.urls.length){
+        state.failed=true;video.removeAttribute('src');video.load();
+        video.closest('.sp18-reel')?.classList.add('sp22-source-error');
+        return;
+      }
+      state.index++;start(video);
+    };
+    video.addEventListener('error',()=>{if(!state.failed)next()});
+    video.addEventListener('loadeddata',()=>{state.loaded=true;clear();refresh()});
+    video.addEventListener('playing',()=>{video.classList.add('sp22-playing');video.closest('.sp18-reel')?.classList.remove('sp22-source-error')});
+    video.addEventListener('pause',()=>{if(!state.near||document.hidden)video.classList.remove('sp22-playing')});
+    if(!canAnimate){video.pause();continue}
+  }
+  function start(video){
+    const state=states.get(video);
+    if(!state||state.failed||!state.urls.length)return;
+    if(!state.started||video.currentSrc!==state.urls[state.index]){
+      state.started=true;
+      video.src=state.urls[state.index];video.load();
+      state.loaded=false;
+    }
+    if(state.loaded){if(video.paused)video.play().catch(()=>{});return}
+    if(state.waiter)clearTimeout(state.waiter);
+    state.waiter=setTimeout(()=>{
+      state.waiter=null;
+      if(!state.loaded&&state.near&&!state.failed){video.dispatchEvent(new Event('error'));}
+    },8000);
+  }
+  function shouldPlay(video,state){
+    if(!canAnimate||!state.near||state.failed||document.hidden)return false;
+    if(video.closest('.sp18-reel')){
+      if(!video.closest('.sp18-reel').classList.contains('is-active'))return false;
+      if(motion?.dataset.sp22Paused==='true')return false;
+    }
+    return true;
+  }
+  function refresh(){
+    let active=0;
+    // Never load the entire page worth of videos simultaneously.
+    const prioritized=[...clips].sort((a,b)=>Number(!!b.closest('.sp18-reel.is-active'))-Number(!!a.closest('.sp18-reel.is-active')));
+    for(const video of prioritized){
+      const state=states.get(video);
+      if(shouldPlay(video,state)&&active<2){active++;start(video);}
+      else{
+        video.pause();
+        if(!state.near||!canAnimate||state.failed)video.classList.remove('sp22-playing');
+      }
+    }
+  }
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      for(const entry of entries){const state=states.get(entry.target);if(state){state.near=entry.isIntersecting;}}
+      refresh();
+    },{rootMargin:'65px 0px',threshold:.01});
+    clips.forEach(v=>observer.observe(v));
+  }else{
+    clips.forEach(v=>states.get(v).near=true);
+    refresh();
+  }
+  document.addEventListener('visibilitychange',refresh);
+  window.addEventListener('hashchange',()=>setTimeout(refresh,90));
+  window.addEventListener('resize',refresh,{passive:true});
+  window.SocialPilotVideoManager={refresh};
 })();
-</script><script id="sp18-pro-motion-player">
+</script>
+<script id="sp18-motion-controls">
 (function(){
-const v=document.getElementById('sp18ProSampleVideo');if(!v)return;
-const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
-v.addEventListener('error',()=>{if(v.src.includes('-360.mp4')&&!v.dataset.fallback){v.dataset.fallback='1';v.src=v.src.replace('-360.mp4','-720.mp4');v.load();v.play().catch(()=>{});}else v.style.display='none'});
-function start(){if(!v.src){v.src=v.dataset.videoSrc;v.load()}v.play().catch(()=>{})}
-if('IntersectionObserver' in window){new IntersectionObserver(e=>{if(e[0]?.isIntersecting)start();else v.pause()},{threshold:.05,rootMargin:'100px'}).observe(v)}
-else start();
-document.addEventListener('visibilitychange',()=>{if(document.hidden)v.pause()});
+ const section=document.getElementById('sp18-motion-studio');if(!section)return;
+ const reels=[...section.querySelectorAll('.sp18-reel')],tabs=[...section.querySelectorAll('[data-sp18-index]')];
+ const area=document.getElementById('sp18Idea'),build=document.getElementById('sp18Build'),pro=document.getElementById('sp18GoPro');
+ const label=document.getElementById('sp18NowPlaying'),status=document.getElementById('sp18PlaybackState'),pause=document.getElementById('sp18PlayPause');
+ const concepts=[
+  {label:'COFFEE RITUAL',intro:'Capture the ritual with a close-up',middle:'Reveal the signature drink in motion',end:'Make their morning unforgettable'},
+  {label:'BEAUTY RITUAL',intro:'Open on an intimate beauty detail',middle:'Show texture and professional application',end:'Invite the viewer into the ritual'},
+  {label:'FRESH PRODUCT',intro:'Begin with a striking product detail',middle:'Reveal the craftsmanship',end:'Finish with a memorable invitation'}
+ ];
+ let index=0,paused=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function refresh(){window.SocialPilotVideoManager?.refresh()}
+ function select(i){
+  index=i;
+  reels.forEach((el,j)=>el.classList.toggle('is-active',i===j));
+  tabs.forEach((el,j)=>el.setAttribute('aria-pressed',String(i===j)));
+  label.textContent='NOW SHOWING / '+concepts[i].label;
+  refresh();
+ }
+ function setPause(on){
+  paused=on;section.dataset.sp22Paused=String(paused);
+  pause.textContent=paused?'▶ PLAY':'Ⅱ PAUSE';
+  pause.setAttribute('aria-pressed',String(paused));
+  pause.setAttribute('aria-label',paused?'Play sample video':'Pause sample video');
+  status.textContent=paused?'Playback paused':'Filmed campaign inspiration';
+  refresh();
+ }
+ tabs.forEach(t=>t.addEventListener('click',()=>select(Number(t.dataset.sp18Index))));
+ reels.forEach((el,i)=>el.addEventListener('click',()=>select(i)));
+ pause.addEventListener('click',()=>setPause(!paused));
+ function createShotList(){
+  const idea=area.value.trim();if(!idea){area.focus();return}
+  const selected=concepts[index],concise=idea.replace(/[\r\n]+/g,' ').slice(0,135);
+  document.getElementById('sp18GeneratedText').textContent='01 · '+selected.intro+'. 02 · '+selected.middle+' — '+concise+'. 03 · '+selected.end+'.';
+  const offer=document.getElementById('psOffer');
+  if(offer){offer.value=concise;offer.dispatchEvent(new Event('input',{bubbles:true}));}
+ }
+ build.addEventListener('click',createShotList);
+ pro.addEventListener('click',()=>{const offer=document.getElementById('psOffer');if(offer&&area.value.trim())offer.value=area.value.trim().slice(0,350)});
+ setPause(paused);select(0);
 })();
-</script></body></html>
+</script><script id="sp18-pro-motion-player">/* Pro preview playback is now handled by SocialPilotVideoManager. */</script></body></html>

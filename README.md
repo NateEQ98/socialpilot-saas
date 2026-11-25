@@ -1,4 +1,4 @@
-# SocialPilot SaaS
+# Ariavora SaaS
 
 Premium creative workspace hosted on GitHub Pages, backed by Supabase Auth, Postgres, Edge Functions, and Stripe.
 

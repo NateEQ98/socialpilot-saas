@@ -1825,7 +1825,7 @@ body:not(.sp9-workspace) .nav{position:relative;z-index:30!important;max-width:1
 .sp11-pro-logo{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#eeebff;font-weight:770}
 .sp11-pro-platforms>small{width:100%;font-size:10px;color:#9da0b4}
 @media(max-width:620px){#calendar .filter-chip{padding:6px 8px!important;gap:5px!important;font-size:10px!important}#calendar .filter-chip .sp11-brand{width:22px;height:22px}#calendar .filter-chip .sp11-brand svg{width:14px;height:14px}#calendar .sp11-live-platform{flex-wrap:wrap}.sp11-pro-platforms>div{margin-left:0}}
-</style><style id="sp11-other-platforms">
+</style><style id="sp11-other-platforms-style">
 .sp11-inline-platform{display:inline-flex;align-items:center;gap:9px;margin:8px 0;padding:6px 11px 6px 6px;border-radius:9px;background:#2c2440;border:1px solid #9c87dc59;color:#f1ebff;font-size:11px;font-weight:800}
 .sp11-inline-platform .sp11-brand{width:25px;height:25px}
 .sp11-inline-platform .sp11-brand svg{width:15px;height:15px}
@@ -3656,7 +3656,7 @@ window.setInterval(()=>{if(!paused&&visible&&!document.hidden)show(active+1)},40
  const observer=new MutationObserver(()=>sync());
  observer.observe(document.getElementById('plannerFormTitle'),{childList:true});
 })();
-</script><script id="sp11-other-platforms">
+</script><script id="sp11-other-platforms-script">
 (function(){
 function update(inputId,previewId){
  const input=document.getElementById(inputId),container=document.getElementById(previewId);if(!input||!container)return;

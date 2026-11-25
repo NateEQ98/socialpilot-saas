@@ -905,6 +905,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @media(max-width:450px){.sp-month-section{padding:0 15px}.sp-month-calendar{padding:14px}.sp-month-day{min-height:36px;padding:6px;font-size:9px}.sp-month-grid,.sp-month-days{gap:3px}.sp-month-sample-tag{display:none}.sp-month-calendar-bottom{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.sp-month-day i{animation:none}}
 </style>
+<style id="sp-mosaic-motion-finish">
+/* A motion-poster treatment that continues even without third-party video files. */
+@media(min-width:791px){.sp-cinema-mosaic{grid-template-rows:repeat(4,154px)!important}.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(n+9){display:block}}
+.sp-cinema-mosaic .sp-new-gallery-tile img{transform:scale(1.025);animation:spMosaicDrift 18s ease-in-out infinite alternate;will-change:transform}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(2n) img{animation-delay:-7s}
+.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(3n) img{animation-delay:-13s}
+.sp-cinema-mosaic .sp-new-gallery-tile:hover img{animation-play-state:paused;transform:scale(1.09)}
+@keyframes spMosaicDrift{0%{transform:scale(1.02) translateY(0)}50%{transform:scale(1.10) translateY(-1.1%)}100%{transform:scale(1.045) translateX(-1.1%)}}
+@media(prefers-reduced-motion:reduce){.sp-cinema-mosaic .sp-new-gallery-tile img{animation:none;transform:none}}
+</style>
 </head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
@@ -2489,6 +2499,28 @@ status.textContent = err.message || 'Unable to start checkout.';
    titles.forEach((item,i)=>{item.textContent=board.headlines[i]||'';});
  }
  buttons.forEach(b=>b.addEventListener('click',()=>select(b.dataset.spBoard)));
+})();
+</script>
+<script id="sp-cinema-hero-cycle">
+/* Subtle auto-rotation for the illustrative homepage preview. User interactions take priority. */
+(function(){
+ const root=document.querySelector('.sp-cinematic-hero');
+ if(!root||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const tabs=Array.from(root.querySelectorAll('[data-sp-hero-tab]'));
+ if(tabs.length<2)return;
+ let visible=false,holdUntil=0,position=0;
+ tabs.forEach((tab,index)=>tab.addEventListener('click',event=>{
+   position=index;
+   if(event.isTrusted)holdUntil=Date.now()+45000;
+ }));
+ const observation=new IntersectionObserver(entries=>{visible=entries.some(e=>e.isIntersecting);},{threshold:.15});
+ observation.observe(root);
+ const timer=window.setInterval(()=>{
+   if(!visible||document.hidden||Date.now()<holdUntil)return;
+   position=(position+1)%tabs.length;
+   tabs[position].click();
+ },7500);
+ window.addEventListener('pagehide',()=>{clearInterval(timer);observation.disconnect();},{once:true});
 })();
 </script>
 </body></html>

@@ -1162,6 +1162,78 @@ html{scroll-padding-top:82px}body{overflow-x:clip}
 .sp-cinema-mosaic .sp-new-gallery-tile:nth-child(7) .sp-cinema-post-overlay strong{font-size:clamp(19px,2.2vw,34px);font-weight:890}
 @media(max-width:850px){.sp-cinematic-hero .sp-hero-actions{margin:1px 0 0}.sp-cinematic-hero .sp-hero-actions .sp-hero-secondary{padding:8px}.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(2) .sp-cinema-post-overlay strong,.sp-cinema-mosaic .sp-new-gallery-tile:nth-child(4) .sp-cinema-post-overlay strong{font-size:clamp(18px,4.7vw,28px)}}
 </style>
+
+<style id="sp-art-director-overhaul">
+/* Art-directed v3 — editorial contrast and a cohesive image-first hierarchy.
+   Existing IDs, payment handlers, auth, saved content and AI calls are untouched. */
+:root{--sp-ink:#05070e;--sp-surface:#0c1020;--sp-line:rgba(174,193,255,.15);--sp-highlight:#9c8aff}
+html{scroll-padding-top:94px}
+body{background:radial-gradient(ellipse 45% 15% at 74% 5%,rgba(82,49,165,.18),transparent 85%),radial-gradient(ellipse 33% 15% at 8% 31%,rgba(29,80,139,.12),transparent 80%),#05070e!important;color:#f4f5ff}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.15;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
+body>*,body>.wrap{position:relative}
+.wrap{max-width:1310px!important}
+.nav{height:83px!important;min-height:83px;background:rgba(7,9,20,.88)!important;border:1px solid rgba(200,203,255,.12)!important;border-top:0!important;border-radius:0 0 20px 20px;padding:0 22px!important;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 18px 55px rgba(0,0,0,.22)}
+.nav .brand{font-size:22px!important;letter-spacing:-.065em!important}
+.nav .mark{width:39px;height:39px;border-radius:13px;background:linear-gradient(145deg,#d2c5ff,#7559ee 55%,#2d61db)!important;box-shadow:0 0 28px rgba(119,89,238,.36);color:#070714}
+.navlinks{gap:clamp(12px,2vw,28px)!important}.navlinks a{font-size:12px;letter-spacing:.012em;font-weight:700;color:#bbc2d8;transition:color .2s}.navlinks a:hover{color:#fff}
+.sp-cinematic-hero{gap:32px!important;padding:100px 0 65px!important}
+.sp-cinema-hero-copy{max-width:1030px!important}
+.sp-cinematic-hero .sp-cinema-hero-copy h1{font-size:clamp(54px,8.5vw,116px)!important;line-height:.91!important;letter-spacing:-.078em!important;max-width:1050px!important;margin:27px auto 26px!important;font-weight:850!important}
+.sp-cinematic-hero .grad{background:linear-gradient(98deg,#f2eaff 0%,#c5acff 25%,#7f8cff 68%,#a3e8ff 100%)!important;background-clip:text!important;-webkit-background-clip:text!important;color:transparent!important}
+.sp-cinematic-hero .sp-cinema-hero-copy>p:not(.sp-hero-disclaimer){font-size:clamp(16px,1.65vw,20px)!important;line-height:1.55!important;max-width:620px!important;color:#a8b2c9!important}
+.sp-hero-overline{font-size:10px!important;letter-spacing:.24em!important;color:#d6caff!important;border:1px solid rgba(167,145,255,.32)!important;background:rgba(97,79,191,.1)!important}
+.sp-hero-quickbrief{max-width:760px!important;margin:30px auto 10px!important;padding:7px!important;border:1px solid rgba(173,159,255,.46)!important;border-radius:18px!important;background:#0d1020!important;box-shadow:0 0 0 5px rgba(106,90,209,.06),0 22px 90px rgba(31,19,83,.3)!important}
+.sp-hero-quickbrief input{min-height:48px!important;color:#fff!important}
+.sp-hero-quickbrief button{border-radius:12px!important;background:linear-gradient(105deg,#9876fa,#6053de)!important;font-weight:800!important}
+.sp-hero-actions{margin-top:21px!important}
+.sp-cinematic-hero .sp-hero-primary{background:#f0edff!important;color:#151128!important;box-shadow:0 13px 37px rgba(190,165,255,.14)!important;border-radius:12px!important}
+.sp-cinematic-hero .sp-hero-secondary{border-radius:12px!important}
+.sp-hero-value-strip{opacity:.85}
+.sp-cinema-hero-product{max-width:1160px!important}
+.sp-cinematic-hero .sp-cinema-main-frame{transform:none!important;border:1px solid rgba(169,155,251,.36)!important;border-radius:22px!important;box-shadow:0 0 0 7px rgba(119,97,228,.055),0 40px 140px rgba(0,0,0,.72),0 0 125px rgba(83,77,213,.22)!important}
+.sp-cinematic-hero .sp-cinema-main-frame:hover{transform:translateY(-2px)!important}
+.sp-hero-content-card{box-shadow:0 27px 65px rgba(0,0,0,.5)!important}
+.sp-hero-content-visual img,.sp-cinema-post img,.sp-new-gallery-tile img{filter:saturate(1.12) contrast(1.06)!important}
+.sp-cinema-preview-wing img{filter:saturate(.95) contrast(1.13)!important}
+.sp-cinema-workspace{min-height:340px}
+.sp-marquee-band{background:#0b0d19!important;border-top:1px solid rgba(183,162,255,.16)!important;border-bottom:1px solid rgba(183,162,255,.16)!important}
+.sp-marquee-track span{letter-spacing:.16em!important}
+.sp-editorial-manifesto{max-width:1260px;margin:62px auto 80px;padding:0 24px}
+.sp-manifesto-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 3px 24px;border-bottom:1px solid rgba(218,220,255,.2)}
+.sp-manifesto-top span{font-size:11px;letter-spacing:.20em;color:#a49bbf;font-weight:850}
+.sp-manifesto-top a{font-size:13px;font-weight:800;color:#e3d7ff}
+.sp-manifesto-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:0;padding:33px 3px 10px;align-items:end}
+.sp-manifesto-grid h2{font-size:clamp(40px,6.2vw,86px);letter-spacing:-.074em;line-height:1.015;max-width:750px;margin:0;font-weight:820}
+.sp-manifesto-grid h2 em{color:#b7a3fa;font-style:normal}
+.sp-manifesto-grid p{font-size:clamp(16px,1.7vw,21px);line-height:1.6;color:#aeb7d1;margin:0 0 7px auto;max-width:450px}
+.sp-manifesto-grid strong{color:#fff}
+.sp-experience,.sp-cinema-showcase,.sp-flow-feature,.sp-command-feature,.sp-lab-section,.sp-month-section{max-width:1270px!important}
+.sp-experience-heading h2,.sp-cinema-heading h2,.sp-command-copy h2,.sp-showcase-head h2,.sectionhead h2,.pro-head h2{letter-spacing:-.065em!important}
+.sp-experience-card,.sp-cinema-viewport,.sp-command-frame,.sp-flow-frame,.sp-premium-pricing,.sp-lab-shell,.tool{border-color:rgba(174,179,234,.22)!important;box-shadow:0 32px 90px rgba(0,0,0,.22)!important}
+.sp-experience-card,.sp-cinema-viewport,.sp-command-frame{background-color:#0c1121!important}
+.sp-cinema-post{border-radius:10px!important}
+.sp-cinema-grid{gap:9px!important}
+.showcase,.how-section,.motion-section{display:none!important} /* redundant historical promo layouts, not application tools */
+.sp-conversion-cta{background:radial-gradient(ellipse at 50% 110%,rgba(103,74,209,.24),transparent 65%),#11101e!important;border-color:rgba(165,148,244,.4)!important}
+.tool input:focus,.tool textarea:focus,.tool select:focus,.sp-hero-quickbrief input:focus{outline:2px solid rgba(170,152,255,.65)!important;outline-offset:2px}
+@media(max-width:850px){
+ .nav{height:auto!important;min-height:72px!important;border-radius:0 0 16px 16px;padding:12px!important}
+ .sp-cinematic-hero{padding:58px 0 28px!important;gap:25px!important}
+ .sp-cinematic-hero .sp-cinema-hero-copy h1{font-size:clamp(49px,11vw,81px)!important}
+ .sp-manifesto-grid{grid-template-columns:1fr;gap:22px}
+ .sp-manifesto-grid p{margin:0;max-width:630px}
+ .sp-editorial-manifesto{margin:46px auto 45px}
+ .sp-hero-quickbrief{margin-top:24px!important}
+ .sp-cinema-hero-product{width:100%!important}
+}
+@media(max-width:480px){
+ .sp-cinematic-hero .sp-cinema-hero-copy h1{font-size:clamp(43px,12vw,59px)!important}
+ .sp-manifesto-grid h2{font-size:42px}
+ .sp-cinema-main-frame{border-radius:13px!important}
+ .sp-hero-quickbrief{border-radius:14px!important}
+}
+@media(prefers-reduced-motion:reduce){.sp-cinema-main-frame,.sp-cinema-post{transition:none!important}}
+</style>
 </head><body><div id="spScrollProgress" aria-hidden="true"></div>
 <div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="mark">✦</span>SocialPilot</a><div class="navlinks" id="spMobileLinks"><a href="#features">Features</a><a href="#generator">Ideas</a><a href="#captions">Captions</a><a href="#calendar">Planner</a><a href="#pro-studio">Pro Studio ✦</a><a href="#pro-preview">Pricing</a></div><div class="auth-nav"><a href="#pro-preview" class="btn" style="background:linear-gradient(135deg,#9333ea,#6366f1);color:white;border:1px solid #b794ff;border-radius:12px;box-shadow:0 4px 20px #9333ea55;text-decoration:none;white-space:nowrap;font-weight:800;">✦ Upgrade to Pro</a><span id="authStatus" class="auth-status"></span><button class="btn ghost" type="button" id="loginBtn" onclick="openAuth('login')">Log in</button><button class="btn" type="button" disabled id="signupBtn" onclick="openAuth('signup')">Sign up</button><div class="account-menu" id="accountMenu" hidden><button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountDropdown" aria-haspopup="true"><span class="account-avatar" aria-hidden="true">◉</span><span>Account</span><span class="account-chevron" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" hidden><div class="account-profile"><span class="account-profile-label">SIGNED IN AS</span><span class="account-email" id="accountEmail"></span><span class="account-plan" id="accountPlan">SocialPilot account</span></div><div class="account-menu-links"><a href="#my-plan" class="account-item" id="accountPlanLink"><span aria-hidden="true">✦</span> My plan</a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▣</span> Manage billing <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▤</span> Payment methods <span class="account-external" aria-hidden="true">↗</span></a><a href="https://billing.stripe.com/p/login/9B64gz3iOfg2eIM9oJ7IY00" target="_blank" rel="noopener noreferrer" class="account-item"><span aria-hidden="true">▧</span> Invoices & subscription <span class="account-external" aria-hidden="true">↗</span></a></div><button class="account-signout" type="button" id="logoutBtn" onclick="signOut()"><span aria-hidden="true">⇥</span> Log out</button></div></div></div><a href="#generator" class="sp-mobile-quickstart">Try free <span aria-hidden="true">↗</span></a><button type="button" class="sp-mobile-menu-toggle" id="spMobileMenuToggle" aria-controls="spMobileLinks" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button><span id="spMobileMenuHint" class="sp-visually-hidden">Navigation menu containing links and account controls</span></nav>
 <section id="my-plan" class="sp-my-plan" aria-labelledby="myPlanTitle"><div class="sp-plan-card"><div><div class="sp-plan-kicker">ACCOUNT OVERVIEW</div><h2 id="myPlanTitle">My Plan</h2><p id="myPlanStatus" role="status" aria-live="polite">Log in to check your subscription.</p><p class="sp-plan-note">Subscription status is checked securely against your SocialPilot account.</p></div><a class="btn ghost" href="#pro-preview">Explore SocialPilot Pro</a></div></section>
@@ -1208,6 +1280,7 @@ html{scroll-padding-top:82px}body{overflow-x:clip}
  </div>
 </header>
 <div class="sp-marquee-band" aria-label="Available creative tools"><div class="sp-marquee-track" aria-hidden="true"><span>✦ CONTENT IDEAS</span><span>◈ CAPTION STUDIO</span><span>✧ AI CAMPAIGNS · PRO</span><span>◉ AI IMAGES · PRO</span><span>▦ CONTENT CALENDAR</span><span>✦ YOUR CREATIVE WORKSPACE</span><span>✦ CONTENT IDEAS</span><span>◈ CAPTION STUDIO</span><span>✧ AI CAMPAIGNS · PRO</span><span>◉ AI IMAGES · PRO</span><span>▦ CONTENT CALENDAR</span><span>✦ YOUR CREATIVE WORKSPACE</span></div></div>
+<section class="sp-editorial-manifesto" aria-label="SocialPilot creative workflow"><div class="sp-manifesto-top"><span>THE CREATIVE STANDARD / SOCIALPILOT 2026</span><a href="#pro-studio">Discover Pro Studio ↗</a></div><div class="sp-manifesto-grid"><h2>Less generic.<br><em>More iconic.</em></h2><p>One place to take your brand from <strong>first spark to finished concept.</strong> Find the idea, shape the story and build a visual direction that actually feels like yours.</p></div></section>
 <section class="sp-experience" id="experience" aria-labelledby="spExperienceTitle">
   <div class="sp-experience-heading"><span class="sp-cinema-kicker">✦ ALL YOUR CREATIVE TOOLS, WORKING TOGETHER</span><h2 id="spExperienceTitle">Every part of your process, <span class="grad">in one beautiful place.</span></h2><p>Explore the workspace. Try the tools. Build your next campaign with an organized creative workflow—not a collection of disconnected tabs.</p></div>
   <div class="sp-experience-grid">

@@ -31,6 +31,104 @@ async function oauth(path: string, params: Record<string, string>) {
   });
 }
 
+const connectionFields = "open_id,access_token,expires_at,refresh_token_ciphertext,refresh_expires_at";
+const tokenEncoder = new TextEncoder();
+
+interface Connection {
+  open_id: string;
+  access_token: string;
+  expires_at: string;
+  refresh_token_ciphertext: string | null;
+  refresh_expires_at: string | null;
+}
+
+async function refreshKey() {
+  const bytes = await crypto.subtle.digest("SHA-256", tokenEncoder.encode("Ariavora TikTok refresh token v1:" + clientSecret));
+  return await crypto.subtle.importKey("raw", bytes, "AES-GCM", false, ["encrypt", "decrypt"]);
+}
+
+async function sealRefreshToken(token: string, userId: string) {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ciphertext = new Uint8Array(await crypto.subtle.encrypt(
+    { name: "AES-GCM", iv, additionalData: tokenEncoder.encode(userId) },
+    await refreshKey(), tokenEncoder.encode(token),
+  ));
+  return btoa(String.fromCharCode(...iv)) + "." + btoa(String.fromCharCode(...ciphertext));
+}
+
+async function openRefreshToken(value: string, userId: string) {
+  const [iv, ciphertext] = value.split(".").map(part => Uint8Array.from(atob(part), char => char.charCodeAt(0)));
+  const bytes = await crypto.subtle.decrypt(
+    { name: "AES-GCM", iv, additionalData: tokenEncoder.encode(userId) }, await refreshKey(), ciphertext,
+  );
+  return new TextDecoder().decode(bytes);
+}
+
+function hasPublishingScope(scope: unknown) {
+  return typeof scope === "string" && scope.split(",").some(value => value.trim() === "video.publish");
+}
+
+async function tokenFields(token: Record<string, unknown>, userId: string) {
+  const now = Date.now();
+  const refresh = typeof token.refresh_token === "string" && token.refresh_token.length > 0 &&
+    typeof token.refresh_expires_in === "number" && Number.isFinite(token.refresh_expires_in) && token.refresh_expires_in > 0;
+  return {
+    access_token: token.access_token as string,
+    expires_at: new Date(now + (token.expires_in as number) * 1000).toISOString(),
+    refresh_token_ciphertext: refresh ? await sealRefreshToken(token.refresh_token as string, userId) : null,
+    refresh_expires_at: refresh ? new Date(now + (token.refresh_expires_in as number) * 1000).toISOString() : null,
+    refresh_claim_until: null,
+  };
+}
+
+async function renewConnection(connection: Connection, userId: string) {
+  const now = Date.now();
+  if (!connection.refresh_token_ciphertext || !connection.refresh_expires_at ||
+      Date.parse(connection.refresh_expires_at) <= now) return { connection, busy: false };
+
+  // Claim the refresh so parallel requests cannot rotate the same token twice.
+  const claim = new Date(now + 30_000).toISOString();
+  const { data, error } = await db.from("tiktok_connections").update({ refresh_claim_until: claim })
+    .eq("user_id", userId).eq("access_token", connection.access_token)
+    .or("refresh_claim_until.is.null,refresh_claim_until.lt." + new Date(now).toISOString())
+    .select("user_id").maybeSingle();
+  if (error) throw error;
+  if (!data) {
+    const { data: current, error: readError } = await db.from("tiktok_connections")
+      .select(connectionFields).eq("user_id", userId).maybeSingle();
+    if (readError) throw readError;
+    return { connection: current, busy: current?.access_token === connection.access_token };
+  }
+
+  const claimedRow = () => db.from("tiktok_connections").update({ refresh_claim_until: null })
+    .eq("user_id", userId).eq("access_token", connection.access_token).eq("refresh_claim_until", claim);
+  try {
+    const refresh = await openRefreshToken(connection.refresh_token_ciphertext, userId).catch(() => null);
+    if (!refresh) return { connection, busy: false };
+    const response = await oauth("token", { grant_type: "refresh_token", refresh_token: refresh });
+    const token = await response.json().catch(() => null);
+    if (token?.error === "invalid_grant" || token?.error === "access_denied") {
+      const { error: clearError } = await db.from("tiktok_connections").update({
+        refresh_token_ciphertext: null, refresh_expires_at: null,
+      }).eq("user_id", userId).eq("access_token", connection.access_token).eq("refresh_claim_until", claim);
+      if (clearError) throw clearError;
+      return { connection, busy: false };
+    }
+    if (!response.ok || token?.error || typeof token?.access_token !== "string" || !token.access_token ||
+        token.open_id !== connection.open_id || !Number.isFinite(token.expires_in) || token.expires_in <= 0 ||
+        !hasPublishingScope(token.scope)) throw new Error("TikTok token refresh failed.");
+    const credentials = await tokenFields(token, userId);
+    const { data: saved, error: saveError } = await db.from("tiktok_connections").update(credentials)
+      .eq("user_id", userId).eq("access_token", connection.access_token).eq("refresh_claim_until", claim)
+      .select(connectionFields).maybeSingle();
+    if (saveError) throw saveError;
+    return { connection: saved, busy: false };
+  } finally {
+    const { error: releaseError } = await claimedRow();
+    if (releaseError) throw releaseError;
+  }
+}
+
 async function posting(path: string, token: string, body: object = {}) {
   const result = await fetch(api + "/post/publish/" + path + "/", {
     method: "POST",
@@ -135,21 +233,25 @@ Deno.serve(async request => {
           !Number.isFinite(token.expires_in) || token.expires_in <= 0) {
         return reply(502, { error: "TikTok returned an incomplete authorization response." });
       }
-      const scopes = typeof token.scope === "string" ? token.scope.split(",").map((scope: string) => scope.trim()) : [];
-      if (!scopes.includes("video.publish")) {
+      if (!hasPublishingScope(token.scope)) {
         return reply(403, { error: "TikTok connected without publishing permission. Enable Post content to TikTok during authorization." });
       }
       const { error: saveError } = await db.from("tiktok_connections").upsert({
-        user_id: user.id, open_id: token.open_id, access_token: token.access_token,
-        expires_at: new Date(Date.now() + token.expires_in * 1000).toISOString(),
+        user_id: user.id, open_id: token.open_id, ...await tokenFields(token, user.id),
       });
       if (saveError) throw saveError;
       return reply(200, { connected: true });
     }
 
-    const { data: connection, error } = await db.from("tiktok_connections")
-      .select("access_token,expires_at").eq("user_id", user.id).maybeSingle();
+    const { data, error } = await db.from("tiktok_connections")
+      .select(connectionFields).eq("user_id", user.id).maybeSingle();
     if (error) throw error;
+    let connection = data;
+    if (connection && Date.parse(connection.expires_at) <= Date.now()) {
+      const renewal = await renewConnection(connection, user.id);
+      if (renewal.busy) return reply(503, { error: "TikTok is renewing the connection. Try again in a moment." });
+      connection = renewal.connection;
+    }
     if (input.action === "status") {
       const linked = Boolean(connection);
       return reply(200, { linked, connected: linked && Date.parse(connection!.expires_at) > Date.now() });

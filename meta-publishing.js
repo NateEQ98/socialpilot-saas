@@ -19,7 +19,12 @@
   disconnect.className = 'spv-refresh';
   disconnect.textContent = 'Disconnect from Ariavora';
   disconnect.hidden = true;
-  panel.append(heading, status, connect, disconnect);
+  const check = document.createElement('button');
+  check.type = 'button';
+  check.className = 'spv-refresh';
+  check.textContent = 'Check publishing access';
+  check.hidden = true;
+  panel.append(heading, status, connect, disconnect, check);
   anchor.after(panel);
 
   async function call(session, action, fields = {}) {
@@ -38,7 +43,7 @@
   }
 
   function show(result, message) {
-    disconnect.hidden = !result.connected;
+    disconnect.hidden = check.hidden = !result.connected;
     connect.textContent = result.connected ? 'Reconnect Facebook & Instagram' : 'Connect Facebook & Instagram';
     const destinations = (result.pages || []).map(page => page.instagram
       ? page.name + ' and @' + page.instagram
@@ -56,7 +61,7 @@
       return;
     }
     active = true;
-    connect.disabled = disconnect.disabled = true;
+    connect.disabled = disconnect.disabled = check.disabled = true;
     status.textContent = 'Checking the Meta connection…';
     try {
       const { data: { session } } = await authClient.auth.getSession();
@@ -75,12 +80,18 @@
         location.assign(result.url);
         return;
       }
-      show(result, message);
+      const report = result.checks?.map(item => {
+        const facebook = item.name + ' Facebook publishing permission ' + (item.facebook ? 'verified' : 'unverified');
+        const instagram = item.instagram ? '@' + item.instagram + ' publishing quota access ' +
+          (item.instagramPublishing ? 'verified' : 'unverified') : 'No linked Instagram account';
+        return facebook + '. ' + instagram + '.';
+      }).join(' ');
+      show(result, report || message);
     } catch (error) {
       status.textContent = error.message || 'Could not check the Meta connection.';
     } finally {
       active = false;
-      connect.disabled = disconnect.disabled = false;
+      connect.disabled = disconnect.disabled = check.disabled = false;
       if (refreshPending && action !== 'start') {
         refreshPending = false;
         if (!disconnect.hidden || action === 'disconnect') void run('status');
@@ -90,6 +101,7 @@
 
   connect.addEventListener('click', () => void run('start'));
   disconnect.addEventListener('click', () => void run('disconnect'));
+  check.addEventListener('click', () => void run('check'));
 
   let returned;
   try {

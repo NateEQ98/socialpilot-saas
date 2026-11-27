@@ -46,9 +46,9 @@ class MetaError extends Error {
   }
 }
 
-async function graphGet(path: string, params: Record<string, string>, token?: string) {
+async function graphGet(path: string, params: Record<string, string>, token?: string, post = false) {
   const url = new URL(path, graph);
-  url.search = new URLSearchParams(params).toString();
+  if (!post) url.search = new URLSearchParams(params).toString();
   if (token) {
     const key = await crypto.subtle.importKey(
       "raw", encoder.encode(secret!), { name: "HMAC", hash: "SHA-256" }, false, ["sign"],
@@ -58,6 +58,8 @@ async function graphGet(path: string, params: Record<string, string>, token?: st
       Array.from(new Uint8Array(signature), byte => byte.toString(16).padStart(2, "0")).join(""));
   }
   const response = await fetch(url, {
+    method: post ? "POST" : "GET",
+    body: post ? new URLSearchParams(params) : undefined,
     headers: token ? { Authorization: "Bearer " + token } : {},
     redirect: "error",
     signal: AbortSignal.timeout(12000),
@@ -175,6 +177,134 @@ Deno.serve(async request => {
       });
       if (saveError) throw saveError;
       return reply(200, { connected: true, pages });
+    }
+    if (input?.action === "publish-reel" || input?.action === "reel-status") {
+      const { videoId, pageId, platform, caption } = input;
+      if (typeof videoId !== "string" || !stateFormat.test(videoId) ||
+          typeof pageId !== "string" || !/^\d{1,30}$/.test(pageId) ||
+          !["facebook", "instagram"].includes(platform) ||
+          (input.action === "publish-reel" &&
+            (input.confirm !== true || typeof caption !== "string" || caption.length > 2200))) {
+        return reply(400, { error: "Select the video and destination, then confirm publishing." });
+      }
+      const { data: connection, error: connectionError } = await db.from("meta_publishing_connections")
+        .select("encrypted_token,expires_at").eq("user_id", user.id).maybeSingle();
+      if (connectionError) throw connectionError;
+      if (!connection || Date.parse(connection.expires_at) <= Date.now()) {
+        return reply(401, { error: "Reconnect Facebook and Instagram first." });
+      }
+      const token = await decrypt(connection.encrypted_token, user.id).catch(() => null);
+      if (!token) return reply(401, { error: "Reconnect Facebook and Instagram first." });
+
+      const key = { user_id: user.id, video_id: videoId, page_id: pageId, platform };
+      const { data: prior, error: priorError } = await db.from("meta_video_publications")
+        .select("state,remote_id,instagram_id").match(key).maybeSingle();
+      if (priorError) throw priorError;
+
+      if (input.action === "reel-status" && !prior) return reply(200, { state: "new" });
+      if (prior && (input.action === "publish-reel" || prior.state !== "processing")) {
+        return reply(200, { state: prior.state });
+      }
+      const page = await graphGet(pageId, {
+        fields: "id,access_token,instagram_business_account{id}",
+      }, token);
+      if (page.id !== pageId || typeof page.access_token !== "string" || !page.access_token) {
+        return reply(403, { error: "Meta did not grant access to publish to this destination." });
+      }
+      const pageToken = page.access_token;
+      const igId = page.instagram_business_account?.id;
+      if (platform === "instagram" && (typeof igId !== "string" || !/^\d{1,30}$/.test(igId))) {
+        return reply(403, { error: "A professional Instagram account must be linked to this Page." });
+      }
+
+      const setState = async (state: string, remoteId?: string) => {
+        const { error } = await db.from("meta_video_publications").update({
+          state, ...(remoteId ? { remote_id: remoteId } : {}),
+        }).match(key);
+        if (error) throw error;
+      };
+
+      if (prior?.state === "processing") {
+        if (prior.instagram_id !== igId) {
+          return reply(409, { error: "The linked Instagram account changed. Check the original account for this Reel." });
+        }
+        const container = await graphGet(prior.remote_id, { fields: "status_code" }, pageToken);
+        if (["ERROR", "EXPIRED"].includes(container.status_code)) {
+          await setState("failed");
+          return reply(200, { state: "failed" });
+        }
+        if (container.status_code !== "FINISHED") return reply(200, { state: "processing" });
+        const { data: claimed, error: claimError } = await db.from("meta_video_publications")
+          .update({ state: "sending" }).match(key).eq("state", "processing")
+          .select("state").maybeSingle();
+        if (claimError) throw claimError;
+        if (!claimed) return reply(200, { state: "sending" });
+        try {
+          const published = await graphGet(igId + "/media_publish", { creation_id: prior.remote_id }, pageToken, true);
+          await setState("submitted", published.id);
+          return reply(200, { state: "submitted" });
+        } catch (error) {
+          if (error instanceof MetaError && error.code) await setState("failed");
+          throw error;
+        }
+      }
+
+      const { data: video, error: videoError } = await db.from("video_generations")
+        .select("video_url,aspect_ratio").eq("user_id", user.id).eq("id", videoId).eq("status", "completed").maybeSingle();
+      if (videoError) throw videoError;
+      if (!video?.video_url || video.aspect_ratio !== "9:16") {
+        return reply(400, { error: "Choose a completed 9:16 video for this Reel." });
+      }
+      const media = new URL(video.video_url);
+      if (media.protocol !== "https:" || media.username || media.password || media.port ||
+          !(media.hostname === "fal.media" || media.hostname.endsWith(".fal.media"))) {
+        return reply(400, { error: "This video source is unavailable for publishing." });
+      }
+
+      const { error: insertError } = await db.from("meta_video_publications").insert({
+        ...key, state: "sending", instagram_id: platform === "instagram" ? igId : null,
+      });
+      if (insertError?.code === "23505") return reply(200, { state: "sending" });
+      if (insertError) throw insertError;
+
+      try {
+        if (platform === "instagram") {
+          const uploaded = await graphGet(igId + "/media", {
+            media_type: "REELS", video_url: media.href, caption,
+          }, pageToken, true);
+          if (typeof uploaded.id !== "string" || !/^\d{1,30}$/.test(uploaded.id)) throw new MetaError(undefined);
+          await setState("processing", uploaded.id);
+          return reply(200, { state: "processing" });
+        }
+
+        const reels = pageId + "/video_reels";
+        const started = await graphGet(reels, { upload_phase: "start" }, pageToken, true);
+        if (typeof started.video_id !== "string" || !/^\d{1,30}$/.test(started.video_id)) {
+          throw new MetaError(undefined);
+        }
+        const upload = new URL(started.upload_url);
+        if (upload.origin !== "https://rupload.facebook.com" || upload.username || upload.password ||
+            !/^\/video-upload\/v\d+\.\d+\/\d+$/.test(upload.pathname) ||
+            !upload.pathname.endsWith("/" + started.video_id)) {
+          throw new MetaError(undefined);
+        }
+        const transfer = await fetch(upload, {
+          method: "POST", headers: { Authorization: "OAuth " + pageToken, file_url: media.href },
+          redirect: "error", signal: AbortSignal.timeout(20000),
+        });
+        if (!transfer.ok || (await transfer.json().catch(() => null))?.success !== true) {
+          throw new MetaError(undefined);
+        }
+        const finished = await graphGet(reels, {
+          upload_phase: "finish", video_id: started.video_id, video_state: "PUBLISHED", description: caption,
+        }, pageToken, true);
+        if (finished.success !== true) throw new MetaError(undefined);
+        await setState("submitted", started.video_id);
+        return reply(200, { state: "submitted" });
+      } catch (error) {
+        if (error instanceof MetaError && error.code) await setState("failed");
+        throw error;
+      }
     }
     if (input?.action === "status" || input?.action === "check") {
       const { data, error } = await db.from("meta_publishing_connections")

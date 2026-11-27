@@ -93,6 +93,33 @@ async function destinations(token: string) {
     const next = result.paging?.next ? result.paging?.cursors?.after : undefined;
     after = typeof next === "string" && next !== after ? next : undefined;
   } while (after && pages.length < 500);
+  if (pages.length) return pages;
+
+  // Some granular grants identify Pages only in the token's target IDs.
+  const inspected = await graphGet("debug_token", { input_token: token }, appId + "|" + secret);
+  const grant = inspected.data;
+  if (!grant?.is_valid || String(grant.app_id) !== appId || !Array.isArray(grant.granular_scopes)) {
+    return pages;
+  }
+
+  const pageScopes = new Set(["pages_show_list", "pages_manage_posts", "pages_read_engagement"]);
+  const ids = new Set<string>();
+  for (const scope of grant.granular_scopes) {
+    if (!pageScopes.has(scope?.scope) || !Array.isArray(scope.target_ids)) continue;
+    for (const id of scope.target_ids) {
+      if (typeof id === "string" && /^\d{1,30}$/.test(id)) ids.add(id);
+    }
+  }
+  for (const id of [...ids].slice(0, 20)) {
+    try {
+      const page = await graphGet(id, { fields: "id,name,access_token,instagram_business_account{id,username}" }, token);
+      if (page.id === id && typeof page.name === "string" && typeof page.access_token === "string" && page.access_token) {
+        pages.push({ id, name: page.name, instagram: page.instagram_business_account?.username ?? null });
+      }
+    } catch (error) {
+      if (!(error instanceof MetaError)) throw error;
+    }
+  }
   return pages;
 }
 
@@ -141,7 +168,7 @@ Deno.serve(async request => {
         return reply(502, { error: "Meta did not return a usable authorization token." });
       }
       const pages = await destinations(token.access_token);
-      if (!pages.length) return reply(400, { error: "Meta returned no Pages. Select a Facebook Page during authorization." });
+      if (!pages.length) return reply(400, { error: "Meta did not return a Page this account can manage. Check Facebook Page access and the selected permissions." });
       const { error: saveError } = await db.from("meta_publishing_connections").upsert({
         user_id: user.id, encrypted_token: await encrypt(token.access_token, user.id),
         expires_at: new Date(Date.now() + token.expires_in * 1000).toISOString(),

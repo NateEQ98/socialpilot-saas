@@ -16,5 +16,5 @@ try {
     sessionStorage.setItem('ariavora-meta-return', JSON.stringify(result));
   }
 } finally {
-  location.replace('/#ai-video-studio');
+  location.replace('/?meta-return=1#ai-video-studio');
 }

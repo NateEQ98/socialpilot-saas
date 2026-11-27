@@ -176,7 +176,7 @@ Deno.serve(async request => {
       if (saveError) throw saveError;
       return reply(200, { connected: true, pages });
     }
-    if (input?.action === "status") {
+    if (input?.action === "status" || input?.action === "check") {
       const { data, error } = await db.from("meta_publishing_connections")
         .select("encrypted_token,expires_at").eq("user_id", user.id).maybeSingle();
       if (error) throw error;
@@ -184,6 +184,38 @@ Deno.serve(async request => {
       const token = await decrypt(data.encrypted_token, user.id).catch(() => null);
       if (!token) return reply(200, { connected: false });
       const pages = await destinations(token);
+      if (input.action === "check") {
+        const permissions = await graphGet("me/permissions", {}, token);
+        const granted = new Set((Array.isArray(permissions.data) ? permissions.data : [])
+          .filter((entry: { status?: string }) => entry.status === "granted")
+          .map((entry: { permission?: string }) => entry.permission));
+        const checks = await Promise.all(pages.slice(0, 20).map(async ({ id, name, instagram }) => {
+          const failed = { name, instagram, facebook: false, instagramPublishing: false };
+          try {
+            const page = await graphGet(id, {
+              fields: "id,access_token,instagram_business_account{id,username}",
+            }, token);
+            if (!page.access_token || page.id !== id) return failed;
+            const facebook = granted.has("pages_manage_posts");
+            const ig = page.instagram_business_account;
+            if (!/^\d{1,30}$/.test(ig?.id ?? "") || !granted.has("instagram_content_publish")) {
+              return { ...failed, facebook };
+            }
+            const quota = await graphGet(ig.id + "/content_publishing_limit", {
+              fields: "quota_usage,config",
+            }, page.access_token).catch(error => {
+              if (!(error instanceof MetaError)) throw error;
+              return null;
+            });
+            return { name, instagram: ig.username ?? instagram, facebook,
+              instagramPublishing: Array.isArray(quota?.data) && quota.data.length > 0 };
+          } catch (error) {
+            if (!(error instanceof MetaError)) throw error;
+            return failed;
+          }
+        }));
+        return reply(200, { connected: pages.length > 0, pages, checks });
+      }
       return reply(200, { connected: pages.length > 0, pages });
     }
     if (input?.action === "disconnect") {

@@ -28,7 +28,7 @@
   function show(result) {
     connected = Boolean(result.connected);
     document.querySelectorAll('[data-tiktok-publish]').forEach(button => { button.hidden = !connected; });
-    connect.hidden = Boolean(result.connected);
+    connect.hidden = false;
     disconnect.hidden = !result.linked;
     connect.textContent = result.linked ? 'Reconnect TikTok' : 'Connect TikTok';
     status.textContent = result.connected ? 'TikTok connected for sandbox testing.'
